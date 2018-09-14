@@ -11,6 +11,7 @@ except:
 	pass
 
 books = []
+sortlist = []
 reader = csv.reader(open(filename))
 for row in reader:
 	books.append(row)
@@ -21,6 +22,8 @@ if action == "books":
 	for row in books:
 		print(row[0])
 elif action == "authors":
-	books.sort(key = itemgetter(2))
 	for row in books:
-		print(row[2])
+		sortlist.append(row[2])
+	print(sortlist)
+	books.sort(key = itemgetter(2))
+	
