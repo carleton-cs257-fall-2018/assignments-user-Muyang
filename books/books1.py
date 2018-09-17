@@ -61,6 +61,8 @@ else:
 			sortlist.sort(key = lambda x: x.split(" ")[-2], reverse = True)
 		for author in sortlist:
 			#handle rejoining of names and exlude all non-name parts
+			#if author.contain('and'):
+			#	print(''.join(names for names in author))
 			print(''.join(names for names in author if names not in '()-1234567890'))
 	else:
 		#action is not accepted
