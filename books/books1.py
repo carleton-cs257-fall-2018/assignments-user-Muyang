@@ -1,18 +1,21 @@
 # Assignment: Books, Phase 1 
-# Muyang Shi and Justin T. Washington
+# Muyang Shi, Justin T. Washington, Chae Kim
 import csv, sys
-from operator import itemgetter
-#list for all CSVs, unsorted
+
+#list for all CSV rows, unsorted
 books = []
 #list to place sorted books[] into (only for authors action)
 sortlist = []
 
 try:
 	filename = sys.argv[1]
-	reader = csv.reader(open(filename))
+	try:
+		reader = csv.reader(open(filename))
 		#Get all CSVs into book[]
-	for row in reader:
-		books.append(row)
+		for row in reader:
+			books.append(row)
+	except:
+		print('File not found')
 	action = sys.argv[2]
 except:
 	action = 'empty'
@@ -29,9 +32,6 @@ except:
 
 
 #Check for proper input
-#@Muyang I Think if we can check for this before appending all CSVs that'd be good
-#we also need this to ask repeatedly and change sys.argv[2], rather than just asking
-#once or jumping down to the end line after this if statement.
 if (sortDirection != "forward") and (sortDirection != "reverse"):
 	print("Usage: Optional [sort-direction] can be either forward or backward.")
 	print("		Please try again")
@@ -63,6 +63,5 @@ else:
 			#handle rejoining of names and exlude all non-name parts
 			print(''.join(names for names in author if names not in '()-1234567890'))
 	else:
-		print('action can be either books or authors \nPlease try again')		
-input("\nPress the enter key to exit.")
-	
+		#action is not accepted
+		print('action can be either books or authors \nPlease try again')
