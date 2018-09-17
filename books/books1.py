@@ -2,26 +2,22 @@
 # Muyang Shi and Justin T. Washington
 import csv, sys
 from operator import itemgetter
-
-filename = sys.argv[1]
-try:
-	action = sys.argv[2]
-except:
-	print('action needs to be either books or authors \nPlease choose')
-	action = input()
-
 #list for all CSVs, unsorted
 books = []
 #list to place sorted books[] into (only for authors action)
 sortlist = []
+
 try:
+	filename = sys.argv[1]
 	reader = csv.reader(open(filename))
-	#Get all CSVs into book[]
+		#Get all CSVs into book[]
 	for row in reader:
 		books.append(row)
+	action = sys.argv[2]
 except:
-	print("No file to read from")
-	quit()
+	action = 'empty'
+	print("Usage: python3 books1.py input-file action [sort-direction]", file = sys.stderr)
+
 
 #Sort Direction is optional, if the user does not specify, the program
 #will sort in forward direction
@@ -29,7 +25,6 @@ try:
 	sortDirection = sys.argv[3]
 except:
 	sortDirection = "forward"
-	print('Sort-Direction unspecified. \nWill sort in forward alphabetical order')
 
 
 
