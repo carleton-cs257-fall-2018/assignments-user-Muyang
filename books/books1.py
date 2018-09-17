@@ -4,7 +4,24 @@ import csv, sys
 from operator import itemgetter
 
 filename = sys.argv[1]
-action = sys.argv[2]
+try:
+	action = sys.argv[2]
+except:
+	print('action needs to be either books or authors \nPlease choose')
+	action = input()
+
+#list for all CSVs, unsorted
+books = []
+#list to place sorted books[] into (only for authors action)
+sortlist = []
+try:
+	reader = csv.reader(open(filename))
+	#Get all CSVs into book[]
+	for row in reader:
+		books.append(row)
+except:
+	print("No file to read from")
+	quit()
 
 #Sort Direction is optional, if the user does not specify, the program
 #will sort in forward direction
@@ -12,18 +29,9 @@ try:
 	sortDirection = sys.argv[3]
 except:
 	sortDirection = "forward"
-	print("Sorted in forward alphabetical order")
+	print('Sort-Direction unspecified. \nWill sort in forward alphabetical order')
 
-#list for all CSVs, unsorted
-books = []
-#list to place sorted books[] into (only for authors action)
-sortlist = []
 
-reader = csv.reader(open(filename))
-
-#Get all CSVs into book[]
-for row in reader:
-	books.append(row)
 
 #Check for proper input
 #@Muyang I Think if we can check for this before appending all CSVs that'd be good
@@ -45,7 +53,7 @@ else:
 			#out of the list of lists, books[], print the first item (the titles)
 			print(row[0])
 	#handle sorting by authors
-	if action == "authors":
+	elif action == "authors":
 		for row in books:
 			#append all authors names/years to sortlist
 			sortlist.append(row[2])
@@ -59,6 +67,7 @@ else:
 		for author in sortlist:
 			#handle rejoining of names and exlude all non-name parts
 			print(''.join(names for names in author if names not in '()-1234567890'))
-
+	else:
+		print('action can be either books or authors \nPlease try again')		
 input("\nPress the enter key to exit.")
 	
