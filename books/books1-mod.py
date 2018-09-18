@@ -6,7 +6,13 @@ from operator import itemgetter
 def booksHelper(filename, action, sortDirection):
 	books = []
 	sortlist = []
-	reader = csv.reader(open(filename))
+
+	try:
+		reader = csv.reader(open(filename))
+	except:
+		print("File does not exist")
+		exit()
+
 	for row in reader:
 		books.append(row)
 	
@@ -19,21 +25,32 @@ def booksHelper(filename, action, sortDirection):
 		action = input("	Please try again ")
 	if action == "books":
 		if sortDirection == "forward":
-			print("Sorting in forward alphabetical order")
+			#this will sort by the first item, which is the title of the books
 			books.sort()
 		elif sortDirection == "reverse":
-			print("Sorting in reverse alphabetical order")
+			#reverse if sortdirection specifies reverse
 			books.sort(reverse = True)
 		for row in books:
+			#out of the list of lists, books[], print the first item (the titles)
 			print(row[0])
+	#handle sorting by authors
 	elif action == "authors":
 		for row in books:
-			sortlist.append(row[2])
-		if sortDirection == "forward":
+			#append all authors names/years to sortlist
+			#if row[2] contains " and " then add the split of that to sortlist
+			if " and " in row[2]:
+				sortlist = sortlist + row[2].split(" and ")
+			else:
+				sortlist.append(row[2])
+		if sortDirection == "forward": #This needs to speicify forward or nothing
+			#split authors line by space and 
+			#sort by the second to last item (last name)
 			sortlist.sort(key = lambda x: x.split(" ")[-2])
 		elif sortDirection == "reverse":
+			#we might be able to consolidate this line with the other
 			sortlist.sort(key = lambda x: x.split(" ")[-2], reverse = True)
 		for author in sortlist:
+			#handle rejoining of names and exlude all non-name parts
 			print(''.join(names for names in author if names not in '()-1234567890'))
 
 	closing = input("\nPress the \"e\" to exit. ")
@@ -44,10 +61,22 @@ def booksHelper(filename, action, sortDirection):
 	return(True)
 
 def main():
-	filename = sys.argv[1]
-	action = sys.argv[2].lower()
 	#Sort Direction is optional, if the user does not specify, the program
 	#will sort in forward direction
+	filename = "empty"
+	action = "empty"
+
+	try:
+		filename = sys.argv[1]
+		action = sys.argv[2]
+	except:
+		pass
+	
+	while filename == "empty":
+		filename = input("Please input filename: ")
+	while action == "empty":
+		action = input("Please input action: ")
+
 	try:
 		sortDirection = sys.argv[3].lower()
 	except:

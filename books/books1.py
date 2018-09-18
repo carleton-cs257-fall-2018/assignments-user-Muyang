@@ -20,6 +20,7 @@ try:
 except:
 	action = 'empty'
 	print("Usage: python3 books1.py input-file action [sort-direction]", file = sys.stderr)
+	exit()
 
 
 #Sort Direction is optional, if the user does not specify, the program
@@ -33,8 +34,10 @@ except:
 
 #Check for proper input
 if (sortDirection != "forward") and (sortDirection != "reverse"):
-	print("Usage: Optional [sort-direction] can be either forward or backward.")
-	print("		Please try again")
+	print("Usage: Optional [sort-direction] can be either forward or backward."+
+		"\nPlease try again")
+	exit()
+
 else:
 	#handle sorting by books
 	if action == "books":
@@ -51,7 +54,11 @@ else:
 	elif action == "authors":
 		for row in books:
 			#append all authors names/years to sortlist
-			sortlist.append(row[2])
+			#if row[2] contains " and " then add the split of that to sortlist
+			if " and " in row[2]:
+				sortlist = sortlist + row[2].split(" and ")
+			else:
+				sortlist.append(row[2])
 		if sortDirection == "forward": #This needs to speicify forward or nothing
 			#split authors line by space and 
 			#sort by the second to last item (last name)
@@ -61,9 +68,7 @@ else:
 			sortlist.sort(key = lambda x: x.split(" ")[-2], reverse = True)
 		for author in sortlist:
 			#handle rejoining of names and exlude all non-name parts
-			#if author.contain('and'):
-			#	print(''.join(names for names in author))
 			print(''.join(names for names in author if names not in '()-1234567890'))
 	else:
 		#action is not accepted
-		print('action can be either books or authors \nPlease try again')
+		print('Usage: action can be either books or authors \nPlease try again')
