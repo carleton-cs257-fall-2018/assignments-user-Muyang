@@ -51,7 +51,8 @@ def booksHelper(filename, action, sortDirection):
 		elif action == "authors":
 			for row in books:
 				#append all authors names/years to sortlist
-				#if row[2] contains " and " then add the split of that to sortlist
+				#if row[2], the authors, contains " and " 
+				#then add the split of that to sortlist
 				if " and " in row[2]:
 					sortlist = sortlist + row[2].split(" and ")
 				else:
