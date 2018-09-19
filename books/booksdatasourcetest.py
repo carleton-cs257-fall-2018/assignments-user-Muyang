@@ -8,7 +8,7 @@ import unitest
 
 class booksdatasourcetest.py(unittest.TestCase):
 	def setUp(self):
-		self.books_data_source = BooksDataSource.booksdatasource(None, None, None)
+		self.books_data_source = BooksDataSource.booksdatasource('books.csv', 'authors.csv', 'books_authors.csv')
 
 	def tearDown(self):
 		pass
