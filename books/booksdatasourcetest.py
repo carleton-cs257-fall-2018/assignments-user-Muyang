@@ -1,6 +1,6 @@
 '''
 	booksdatasourcetest.py
-	Muyang Shi, 18 Sept 2018
+	Muyang Shi, Justin T. Washington 18 Sept 2018
 '''
 
 import BooksDataSource
@@ -8,7 +8,7 @@ import unitest
 
 class booksdatasourcetest.py(unittest.TestCase):
 	def setUp(self):
-		self.
+		self.books_data_source = BooksDataSource.booksdatasource(None, None, None)
 
 	def tearDown(self):
 		pass
