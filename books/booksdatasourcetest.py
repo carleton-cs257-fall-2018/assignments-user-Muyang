@@ -54,6 +54,14 @@ class booksdatasourcetest(unittest.TestCase):
 			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813},
 			{'id':5, 'title':'Emma', 'publication-year':1815}])
 
+	def test_books_search_text_with_start_year(self):
+		self.assertEqual(self.books_data_source.books(search_text='THE', start_year=2016),
+			[{'id':35, 'title':'The Power','publication-year':'2016'}])
+	def test_books_search_text_with_end_year(self):
+		self.assertEqual(self.books_data_source.books(search_text='AND', end_year=1830),
+			[{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
+			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813}])
+
 	#Testing the books_for_author method
 	def books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
