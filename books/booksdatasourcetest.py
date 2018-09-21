@@ -63,11 +63,20 @@ class booksdatasourcetest(unittest.TestCase):
 			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813}])
 
 	def test_books_sort_by_default(self):
-		self.assertEqual(self.books_data_source.books(),[])
+		self.assertEqual(self.books_data_source.books(),
+			[{'id':30, 'title':'1Q84', 'publication-year':2009},
+			{'id':31, 'titel':'A Wild Sheep Chase', 'publication-year':1982},
+			{'id':0, 'title':'All Clear','publication-year':2010}])
 	def test_books_sort_by_title(self):
-		self.assertEqual(self.books_data_source.books(sort_by='title'),[])
+		self.assertEqual(self.books_data_source.books(sort_by='title'),
+			[{'id':30, 'title':'1Q84', 'publication-year':2009},
+			{'id':31, 'titel':'A Wild Sheep Chase', 'publication-year':1982},
+			{'id':0, 'title':'All Clear','publication-year':2010}])
 	def test_books_sort_by_year(self):
-		self.assertEqual(self.books_data_source.books(sort_by='year'),[])
+		self.assertEqual(self.books_data_source.books(sort_by='year'),
+			[{'id':31, 'titel':'A Wild Sheep Chase', 'publication-year':1982},
+			{'id':30, 'title':'1Q84', 'publication-year':2009},
+			{'id':0, 'title':'All Clear','publication-year':2010}])
 	def test_books_wrong_sort_by(self):
 		self.assertRaises(ValueError, self.books_data_source.books, sort_by='happiness')
 	#Testing the books_for_author method
