@@ -62,6 +62,14 @@ class booksdatasourcetest(unittest.TestCase):
 			[{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
 			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813}])
 
+	def test_books_sort_by_default(self):
+		self.assertEqual(self.books_data_source.books(),[])
+	def test_books_sort_by_title(self):
+		self.assertEqual(self.books_data_source.books(sort_by='title'),[])
+	def test_books_sort_by_year(self):
+		self.assertEqual(self.books_data_source.books(sort_by='year'),[])
+	def test_books_wrong_sort_by(self):
+		self.assertRaises(ValueError, self.books_data_source.books, sort_by='happiness')
 	#Testing the books_for_author method
 	def books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
