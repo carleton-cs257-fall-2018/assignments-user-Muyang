@@ -43,6 +43,17 @@ class booksdatasourcetest(unittest.TestCase):
 	def test_books_wrong_end_year(self):
 		self.assertRaises(ValueError,self.books_data_source.books,end_year=-1)
 
+	def test_books_author_id_with_start_year(self):
+		self.assertEqual(self.books_data_source.books(author_id=4, start_year=1812),
+			[{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
+			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813},
+			{'id':5, 'title':'Emma', 'publication-year':1815}])
+	def test_books_author_id_with_end_year(self):
+		self.assertEqual(self.books_data_source.books(author_id=4, end_year=1817),
+			[{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
+			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813},
+			{'id':5, 'title':'Emma', 'publication-year':1815}])
+
 	#Testing the books_for_author method
 	def books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
