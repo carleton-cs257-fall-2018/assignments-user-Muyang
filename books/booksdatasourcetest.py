@@ -1,6 +1,6 @@
 '''
 	booksdatasourcetest.py
-	Muyang Shi, Justin T. Washington 18 Sept 2018
+	Muyang Shi, Justin T. Washington, Chae Kim 18 Sept 2018
 '''
 
 import booksdatasource
@@ -80,15 +80,117 @@ class booksdatasourcetest(unittest.TestCase):
 	def test_books_wrong_sort_by(self):
 		self.assertRaises(ValueError, self.books_data_source.books, sort_by='happiness')
 	#Testing the books_for_author method
-	def books_for_author(self):
+	def test_books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
 			[{'id':41, 'title':'Middlemarch', 'publication-year':1871}])
-	def books_for_author_wrong_id(self):
+	def test_books_for_author_wrong_id(self):
 		self.assertRaises(self.books_data_source.books_for_author, -1)
 
 	def test_author(self):
-		self.assertEqual(self.books_data_source.author(22), 
-			{'id':22, 'last_name':'Eliot', 'first_name':'George', 'birth_year':1949, 'death_year': None})
+		self.assertEqual(self.books_data_source.author(22),
+		{'id':22,'last_name':'Eliot','first_name':'George',
+		'birth_year':1949,'death_year':None})
+
+	def test_authors_book_id(self):
+		self.assertEqual(self.books_data_source.authors(book_id=41),
+		{"id":22, "last_name":"Eliot","first_name":"George",
+		"birth_year":1949,"death_year":None})
+
+	def test_authors_search_text(self):
+		self.assertEqual(self.books_data_source.authors(search_text="je"),
+		[{'id':21, 'last_name':'Jerome', 'first_name':'Jerome K.',
+		'birth_year':1859, 'death_year': 1927},
+		{'id':20, 'last_name':'Jemisen', 'first_name':'N.K',
+		'birth_year':1972, 'death_year': None}])
+
+	def test_authors_start_year(self):
+		self.assertEqual(self.books_data_source.authors(start_year=2018),
+		[{'id':3, 'last_name':'Lewis', 'first_name':'Sinclair',
+		'birth_year':1885, 'death_year': None},
+		{'id':2, 'last_name':'Morrison', 'first_name':'Toni',
+		'birth_year':1931, 'death_year': None},
+		{'id':24, 'last_name':'CarrÃ©', 'first_name':'John Le',
+		'birth_year':1931, 'death_year': None},
+		{'id':0, 'last_name':'Willis', 'first_name':'Connie',
+		'birth_year':1945, 'death_year': None},
+		{'id':11, 'last_name':'Rushdie', 'first_name':'Salman',
+		'birth_year':1947, 'death_year': None},
+		{'id':12, 'last_name':'Bujold', 'first_name':'Lois McMaster',
+		'birth_year':1949, 'death_year': None},
+		{'id':16, 'last_name':'Murakami', 'first_name':'Haruki',
+		'birth_year':1949, 'death_year': None},
+		{'id':5, 'last_name':'Gaiman', 'first_name':'Neil',
+		'birth_year':1960, 'death_year': None},
+		{'id':20, 'last_name':'Jemisen', 'first_name':'N.K.',
+		'birth_year':1972, 'death_year': None},
+		{'id':18, 'last_name':'Alderman', 'first_name':'Naomi',
+		'birth_year':1974, 'death_year': None}])
+
+	def test_authors_end_year(self):
+		self.assertEqual(self.books_data_source.authors(start_year=1817),
+		[{'id':4, 'last_name':'Austen', 'first_name':'Jane',
+		'birth_year':1775, 'death_year': 1817},
+		{'id':23, 'last_name':'Dickens', 'first_name':'Charles',
+		'birth_year':1812, 'death_year': 1870},
+		{'id':7, 'last_name':'BrontÃ«', 'first_name':'Charlotte',
+		'birth_year':1816, 'death_year': 1855}])
+
+	def test_authors_sort_by_other_value(self):
+		self.assertEqual(self.books_data_source.authors(start_year=1817, sort_by="other_value"),
+		[{'id':4,'last_name':'Austen','first_name':'Jane',
+		'birth_year':1775, 'death_year': 1817},
+		{'id':7, 'last_name':'BrontÃ«', 'first_name':'Charlotte',
+		'birth_year':1816, 'death_year': 1855},
+		{'id':23, 'last_name':'Dickens', 'first_name':'Charles',
+		'birth_year':1812, 'death_year': 1870}])
+
+	def test_authors_start_end_year(self):
+		self.assertEqual(self.books_data_source.authors(start_year=2018, end_year=2018),
+		[{'id':3, 'last_name':'Lewis', 'first_name':'Sinclair',
+		'birth_year':1885, 'death_year': None},
+		{'id':2, 'last_name':'Morrison', 'first_name':'Toni',
+		'birth_year':1931, 'death_year': None},
+		{'id':24, 'last_name':'CarrÃ©', 'first_name':'John Le',
+		'birth_year':1931, 'death_year': None},
+		{'id':0, 'last_name':'Willis', 'first_name':'Connie',
+		'birth_year':1945, 'death_year': None},
+		{'id':11, 'last_name':'Rushdie', 'first_name':'Salman',
+		'birth_year':1947, 'death_year': None},
+		{'id':12, 'last_name':'Bujold', 'first_name':'Lois McMaster',
+		'birth_year':1949, 'death_year': None},
+		{'id':16, 'last_name':'Murakami', 'first_name':'Haruki',
+		'birth_year':1949, 'death_year': None},
+		{'id':5, 'last_name':'Gaiman', 'first_name':'Neil',
+		'birth_year':1960, 'death_year': None},
+		{'id':20, 'last_name':'Jemisen', 'first_name':'N.K.',
+		'birth_year':1972, 'death_year': None},
+		{'id':18, 'last_name':'Alderman', 'first_name':'Naomi',
+		'birth_year':1974, 'death_year': None}])
+
+	def test_authors_search_text_start_year(self):
+		self.assertEqual(self.books_data_source.authors(search_text="wi", start_year=2018),
+		[{'id':3, 'last_name':'Lewis', 'first_name':'Sinclair',
+		'birth_year':1885, 'death_year': None},
+		{'id':0, 'last_name':'Willis', 'first_name':'Connie',
+		'birth_year':1945, 'death_year': None}])
+
+	def test_authors_search_text_end_year(self):
+		self.assertEqual(self.books_data_source.authors(search_text="ens", end_year=1817),
+		[{'id':4, 'last_name':'Austen', 'first_name':'Jane',
+		'birth_year':1775, 'death_year': 1817},
+		{'id':23, 'last_name':'Dickens', 'first_name':'Charles',
+		'birth_year':1812, 'death_year': 1870}])
+
+	def test_authors_search_text_sort_by_other(self):
+		self.assertEqual(self.books_data_source.authors(search_text="en", sort_by="other value"),
+		[{'id':4, 'last_name':'Austen', 'first_name':'Jane',
+		'birth_year':1775, 'death_year': 1817},
+		{'id':23, 'last_name':'Dickens', 'first_name':'Charles',
+		'birth_year':1812, 'death_year': 1870},
+		{'id':20, 'last_name':'Jemisen', 'first_name':'N.K.',
+		'birth_year':1972, 'death_year': None},
+		{'id':8, 'last_name':'Wodehouse', 'first_name':'Pelham Grenville',
+		'birth_year':1881, 'death_year': 1975}])
 
 if __name__ == '__main__':
 	unittest.main()
