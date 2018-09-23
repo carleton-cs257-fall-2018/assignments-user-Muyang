@@ -7,12 +7,10 @@ authors_csv = csv.reader(open('authors.csv'))
 link_csv = csv.reader(open('books_authors.csv'))
 
 for book in books_csv:
-	if book[2] != None:
-		publication = int(book[2])
-	book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': publication}
+	print(book[2])
+	book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': book[2]}
 	books_list.append(book_dictionary)
-print(books_list)
-
 
 for book in books_list:
 	print(book)
+	print(book['publication-year'])

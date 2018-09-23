@@ -154,7 +154,7 @@ class BooksDataSource:
         else:
             book_list = []
             for book in books_list:
-                if start_year - book.get('publication-year') >= 0:
+                if start_year - book['publication-year'] >= 0:
                     book_list.append(book)
             return book_list
     def books_with_end_year(self, end_year, books_list):
@@ -163,7 +163,7 @@ class BooksDataSource:
         else:
             book_list = []
             for book in books_list:
-                if end_year - book.get('publication-year') <= 0:
+                if end_year - book['publication-year'] <= 0:
                     book_list.append(book)
             return book_list
 
