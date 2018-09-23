@@ -84,7 +84,7 @@ class booksdatasourcetest(unittest.TestCase):
 		self.assertEqual(self.books_data_source.books_for_author(22),
 			[{'id':41, 'title':'Middlemarch', 'publication-year':1871}])
 	def test_books_for_author_wrong_id(self):
-		self.assertRaises(self.books_data_source.books_for_author, -1)
+		self.assertRaises(ValueError, self.books_data_source.books_for_author, -1)
 
 	def test_author(self):
 		self.assertEqual(self.books_data_source.author(22),

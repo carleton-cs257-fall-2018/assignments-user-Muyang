@@ -44,6 +44,9 @@ class BooksDataSource:
         {'id': 193, 'title': 'A Wild Sheep Chase', 'publication_year': 1982}
 
     '''
+    books_list = [{'id':41,'title':'Middlemarch','publication-year':1871}]
+    authors_list = [{'id':22,'last_name':'Eliot','first_name':'George','birth_year':1949,'death_year':None}]
+    books_authors_link_list = [{'book_id':41, 'author_id':22}]
 
     def __init__(self, books_filename, authors_filename, books_authors_link_filename):
         ''' Initializes this data source from the three specified  CSV files, whose
@@ -74,6 +77,17 @@ class BooksDataSource:
             data in a BooksDataSource object. That will be up to you, in Phase 3.
         '''
         pass
+
+    def books_with_author_id(self, author_id):
+        book_id_list = []
+        book_list = []
+        for book_author_dict in self.books_authors_link_list :
+            if book_author_dict.get('author_id') == author_id:
+                book_id_list.append(book_author_dict.get('book_id'))
+        for book in self.books_list :
+            if book.get('id') in book_id_list :
+                book_list.append(book)
+        return book_list
 
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
@@ -110,7 +124,12 @@ class BooksDataSource:
             QUESTION: How about ValueError? And if so, for which parameters?
             Raises ValueError if author_id is non-None but is not a valid author ID.
         '''
-        return []
+        result_list = []
+
+        if author_id != None :
+            result_list = self.books_with_author_id(author_id)
+
+        return result_list
 
     def author(self, author_id):
         ''' Returns the author with the specified ID. (See the BooksDataSource comment for a
@@ -165,4 +184,3 @@ class BooksDataSource:
         ''' Returns a list of all the authors of the book with the specified book ID.
             See the BooksDataSource comment for a description of how an author is represented. '''
         return self.authors(book_id=book_id)
-
