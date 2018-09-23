@@ -129,9 +129,15 @@ class BooksDataSource:
                 result_list = self.books_with_search_text(search_text, result_list)
 
         if start_year != None:
-
+            if len(result_list) == 0:
+                result_list = self.books_with_start_year(start_year, self.books_list)
+            else:
+                result_list = self.books_with_start_year(start_year, result_list)
         if end_year != None:
-
+            if len(result_list) == 0:
+                result_list= self.books_with_end_year(start_year, self.books_list)
+            else:
+                result_list = self.books_with_end_year(start_year, self.result_list)
         result_list.sort()
         return result_list
     def books_with_search_text(self, search_text, books_list):
