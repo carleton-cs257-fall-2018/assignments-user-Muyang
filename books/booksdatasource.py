@@ -81,7 +81,8 @@ class BooksDataSource:
         link_csv = csv.reader(open(books_authors_link_filename))
 
         for book in books_csv:
-            self.books_list.append({'id':book[0], 'title':book[1], 'publication-year':book[2]})
+            book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year':book[2]}
+            self.books_list.append(book_dictionary)
 
         pass
 
@@ -93,7 +94,7 @@ class BooksDataSource:
         '''
         if book_id != None and type(book_id) == int and book_id >= 0:
             for book in self.books_list:
-                if book.get('id') == book_id:
+                if int(book.get('id')) == book_id:
                     return book
         else:
             raise ValueError
