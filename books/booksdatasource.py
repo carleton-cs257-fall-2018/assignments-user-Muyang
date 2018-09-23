@@ -6,7 +6,7 @@
     For use in some assignments at the beginning of Carleton's
     CS 257 Software Design class, Fall 2018.
 '''
-
+import sys, csv
 class BooksDataSource:
     '''
     A BooksDataSource object provides access to data about books and authors.
@@ -44,7 +44,7 @@ class BooksDataSource:
         {'id': 193, 'title': 'A Wild Sheep Chase', 'publication_year': 1982}
 
     '''
-    books_list = [{'id':41,'title':'Middlemarch','publication-year':1871}]
+    books_list = []
     authors_list = [{'id':22,'last_name':'Eliot','first_name':'George','birth_year':1949,'death_year':None}]
     books_authors_link_list = [{'book_id':41, 'author_id':22}]
 
@@ -76,6 +76,13 @@ class BooksDataSource:
             NOTE TO STUDENTS: I have not specified how you will store the books/authors
             data in a BooksDataSource object. That will be up to you, in Phase 3.
         '''
+        books_csv = csv.reader(open(books_filename))
+        authors_csv = csv.reader(open(authors_filename))
+        link_csv = csv.reader(open(books_authors_link_filename))
+
+        for book in books_csv:
+            self.books_list.append({'id':book[0], 'title':book[1], 'publication-year':book[2]})
+
         pass
 
     def book(self, book_id):
@@ -135,13 +142,32 @@ class BooksDataSource:
                 result_list = self.books_with_start_year(start_year, result_list)
         if end_year != None:
             if len(result_list) == 0:
-                result_list= self.books_with_end_year(start_year, self.books_list)
+                result_list= self.books_with_end_year(end_year, self.books_list)
             else:
-                result_list = self.books_with_end_year(start_year, self.result_list)
-        result_list.sort()
+                result_list = self.books_with_end_year(end_year, self.result_list)
         return result_list
+
+    def books_with_start_year(self, start_year, books_list):
+        if type(start_year) != int:
+            raise TypeError
+        else:
+            book_list = []
+            for book in books_list:
+                if start_year - book.get('publication-year') >= 0:
+                    book_list.append(book)
+            return book_list
+    def books_with_end_year(self, end_year, books_list):
+        if type(end_year) != int:
+            raise TypeError
+        else:
+            book_list = []
+            for book in books_list:
+                if end_year - book.get('publication-year') <= 0:
+                    book_list.append(book)
+            return book_list
+
     def books_with_search_text(self, search_text, books_list):
-        if search_text != None and type(search_text) == str:
+        if type(search_text) == str:
             book_list = []
             for book in books_list:
                 if search_text.lower() in book.get('title').lower():
@@ -151,14 +177,17 @@ class BooksDataSource:
             raise TypeError
 
     def books_with_author_id(self, author_id):
-        book_id_list = []
-        book_list = []
-        for book_author_dict in self.books_authors_link_list:
-            if book_author_dict.get('author_id') == author_id:
-                book_id_list.append(book_author_dict.get('book_id'))
-        for book_id in book_id_list:
-            book_list.append(self.book(book_id))
-        return book_list
+        if type(author_id) == int and author_id >= 0: 
+            book_id_list = []
+            book_list = []
+            for book_author_dict in self.books_authors_link_list:
+                if book_author_dict.get('author_id') == author_id:
+                    book_id_list.append(book_author_dict.get('book_id'))
+            for book_id in book_id_list:
+                book_list.append(self.book(book_id))
+            return book_list
+        else:
+            raise ValueError
 
     def author(self, author_id):
         ''' Returns the author with the specified ID. (See the BooksDataSource comment for a
