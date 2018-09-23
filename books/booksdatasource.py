@@ -78,24 +78,18 @@ class BooksDataSource:
         '''
         pass
 
-    def books_with_author_id(self, author_id):
-        book_id_list = []
-        book_list = []
-        for book_author_dict in self.books_authors_link_list :
-            if book_author_dict.get('author_id') == author_id:
-                book_id_list.append(book_author_dict.get('book_id'))
-        for book in self.books_list :
-            if book.get('id') in book_id_list :
-                book_list.append(book)
-        return book_list
-
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
             for a description of how a book is represented.)
         
             Raises ValueError if book_id is not a valid book ID.
         '''
-        return {}
+        if book_id != None and type(book_id) == int and book_id >= 0:
+            for book in self.books_list:
+                if book.get('id') == book_id:
+                    return book
+        else:
+            raise ValueError
 
     def books(self, *, author_id=None, search_text=None, start_year=None, end_year=None, sort_by='title'):
         ''' Returns a list of all the books in this data source matching all of
@@ -125,11 +119,40 @@ class BooksDataSource:
             Raises ValueError if author_id is non-None but is not a valid author ID.
         '''
         result_list = []
-
-        if author_id != None :
+        if author_id != None:
             result_list = self.books_with_author_id(author_id)
 
+        if search_text != None:
+            if len(result_list) == 0:
+                result_list = self.books_with_search_text(search_text, self.books_list)
+            else:
+                result_list = self.books_with_search_text(search_text, result_list)
+
+        if start_year != None:
+
+        if end_year != None:
+
+        result_list.sort()
         return result_list
+    def books_with_search_text(self, search_text, books_list):
+        if search_text != None and type(search_text) == str:
+            book_list = []
+            for book in books_list:
+                if search_text.lower() in book.get('title').lower():
+                    book_list.append(book)
+            return book_list
+        else:
+            raise TypeError
+
+    def books_with_author_id(self, author_id):
+        book_id_list = []
+        book_list = []
+        for book_author_dict in self.books_authors_link_list:
+            if book_author_dict.get('author_id') == author_id:
+                book_id_list.append(book_author_dict.get('book_id'))
+        for book_id in book_id_list:
+            book_list.append(self.book(book_id))
+        return book_list
 
     def author(self, author_id):
         ''' Returns the author with the specified ID. (See the BooksDataSource comment for a
