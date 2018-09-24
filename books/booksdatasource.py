@@ -132,23 +132,24 @@ class BooksDataSource:
         result_list = []
         if author_id != None:
             result_list = self.books_with_author_id(author_id)
-
+            
         if search_text != None:
             if len(result_list) == 0:
-                result_list = self.books_with_search_text(search_text, self.books_list)
+                result_list = self.books_with_search_text(search_text.lower(), self.books_list)
             else:
-                result_list = self.books_with_search_text(search_text, result_list)
+                result_list = self.books_with_search_text(search_text.lower(), result_list)
 
         if start_year != None:
             if len(result_list) == 0:
                 result_list = self.books_with_start_year(start_year, self.books_list)
             else:
-                result_list = self.books_with_start_year(start_year, result_list)
+                result_list = self.books_with_end_year(start_year, result_list)
         if end_year != None:
             if len(result_list) == 0:
                 result_list = self.books_with_end_year(end_year, self.books_list)
             else:
-                result_list = self.books_with_end_year(end_year, result_list)
+                result_list = self.books_with_start_year(end_year, result_list)
+
         return result_list
 
     def books_with_start_year(self, start_year, books_list):
