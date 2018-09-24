@@ -44,9 +44,7 @@ class BooksDataSource:
         {'id': 193, 'title': 'A Wild Sheep Chase', 'publication_year': 1982}
 
     '''
-    books_list = []
-    authors_list = [{'id':22,'last_name':'Eliot','first_name':'George','birth_year':1949,'death_year':None}]
-    books_authors_link_list = [{'book_id':41, 'author_id':22}]
+
 
     def __init__(self, books_filename, authors_filename, books_authors_link_filename):
         ''' Initializes this data source from the three specified  CSV files, whose
@@ -76,6 +74,10 @@ class BooksDataSource:
             NOTE TO STUDENTS: I have not specified how you will store the books/authors
             data in a BooksDataSource object. That will be up to you, in Phase 3.
         '''
+        self.books_list = []
+        self.authors_list = []
+        self.books_authors_link_list = []
+        
         books_csv = csv.reader(open(books_filename))
         authors_csv = csv.reader(open(authors_filename))
         link_csv = csv.reader(open(books_authors_link_filename))
@@ -87,6 +89,13 @@ class BooksDataSource:
             else:
                 book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': None}
         
+        for author in authors_csv:
+            author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
+            self.authors_list.append(author_dictionary)
+
+        for link in link_csv:
+            link_dictionary = {'book_id': link[0], 'author_id': link[1]}
+            self.books_authors_link_list.append(author_dictionary)
         pass
 
     def book(self, book_id):
@@ -97,7 +106,7 @@ class BooksDataSource:
         '''
         if book_id != None and type(book_id) == int and book_id >= 0:
             for book in self.books_list:
-                if int(book.get('id')) == book_id:
+                if int(book['id']) == book_id:
                     return book
         else:
             raise ValueError
@@ -185,9 +194,9 @@ class BooksDataSource:
         if type(author_id) == int and author_id >= 0: 
             book_id_list = []
             book_list = []
-            for book_author_dict in self.books_authors_link_list:
-                if book_author_dict.get('author_id') == author_id:
-                    book_id_list.append(book_author_dict.get('book_id'))
+            for link in self.books_authors_link_list:
+                if int(link['author_id']) == author_id:
+                    book_id_list.append(int(link['book_id']))
             for book_id in book_id_list:
                 book_list.append(self.book(book_id))
             return book_list
