@@ -81,9 +81,17 @@ class BooksDataSource:
         link_csv = csv.reader(open(books_authors_link_filename))
 
         for book in books_csv:
+<<<<<<< HEAD
             book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year':book[2]}
             #book_dictionary['publication-year'] = int(book_dictionary['publication-year'])
             self.books_list.append(book_dictionary)
+=======
+            if len(book[2]) != 0:
+                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
+                self.books_list.append(book_dictionary)
+            else:
+                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': None}
+>>>>>>> a0a1b902a7f4cce165a2f5585a1b4fb6a4d0bf0f
 
         pass
 
@@ -130,23 +138,24 @@ class BooksDataSource:
         result_list = []
         if author_id != None:
             result_list = self.books_with_author_id(author_id)
-
+            
         if search_text != None:
             if len(result_list) == 0:
-                result_list = self.books_with_search_text(search_text, self.books_list)
+                result_list = self.books_with_search_text(search_text.lower(), self.books_list)
             else:
-                result_list = self.books_with_search_text(search_text, result_list)
+                result_list = self.books_with_search_text(search_text.lower(), result_list)
 
         if start_year != None:
             if len(result_list) == 0:
                 result_list = self.books_with_start_year(start_year, self.books_list)
             else:
-                result_list = self.books_with_start_year(start_year, result_list)
+                result_list = self.books_with_end_year(start_year, result_list)
         if end_year != None:
             if len(result_list) == 0:
-                result_list= self.books_with_end_year(end_year, self.books_list)
+                result_list = self.books_with_end_year(end_year, self.books_list)
             else:
-                result_list = self.books_with_end_year(end_year, self.result_list)
+                result_list = self.books_with_start_year(end_year, result_list)
+
         return result_list
 
     def books_with_start_year(self, start_year, books_list):
@@ -155,7 +164,7 @@ class BooksDataSource:
         else:
             book_list = []
             for book in books_list:
-                if start_year - book['publication-year'] >= 0:
+                if book['publication-year'] - start_year >= 0:
                     book_list.append(book)
             return book_list
     def books_with_end_year(self, end_year, books_list):
@@ -164,7 +173,7 @@ class BooksDataSource:
         else:
             book_list = []
             for book in books_list:
-                if end_year - book['publication-year'] <= 0:
+                if book['publication-year'] - end_year <= 0:
                     book_list.append(book)
             return book_list
 
