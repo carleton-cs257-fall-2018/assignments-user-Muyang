@@ -81,18 +81,12 @@ class BooksDataSource:
         link_csv = csv.reader(open(books_authors_link_filename))
 
         for book in books_csv:
-<<<<<<< HEAD
-            book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year':book[2]}
-            #book_dictionary['publication-year'] = int(book_dictionary['publication-year'])
-            self.books_list.append(book_dictionary)
-=======
             if len(book[2]) != 0:
                 book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
                 self.books_list.append(book_dictionary)
             else:
                 book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': None}
->>>>>>> a0a1b902a7f4cce165a2f5585a1b4fb6a4d0bf0f
-
+        
         pass
 
     def book(self, book_id):
