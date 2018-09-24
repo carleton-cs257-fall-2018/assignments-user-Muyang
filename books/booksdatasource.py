@@ -6,7 +6,7 @@
     For use in some assignments at the beginning of Carleton's
     CS 257 Software Design class, Fall 2018.
 '''
-import sys, csv
+import sys, csv, operator
 class BooksDataSource:
     '''
     A BooksDataSource object provides access to data about books and authors.
@@ -76,26 +76,22 @@ class BooksDataSource:
         '''
         self.books_list = []
         self.authors_list = []
-        self.books_authors_link_list = []
+        self.books_authors = []
         
         books_csv = csv.reader(open(books_filename))
-        authors_csv = csv.reader(open(authors_filename))
-        link_csv = csv.reader(open(books_authors_link_filename))
-
         for book in books_csv:
-            if len(book[2]) != 0:
                 book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
                 self.books_list.append(book_dictionary)
-            else:
-                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': None}
         
+        authors_csv = csv.reader(open(authors_filename)) 
         for author in authors_csv:
             author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
             self.authors_list.append(author_dictionary)
-
+        
+        link_csv = csv.reader(open(books_authors_link_filename))
         for link in link_csv:
-            link_dictionary = {'book_id': link[0], 'author_id': link[1]}
-            self.books_authors_link_list.append(author_dictionary)
+            link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
+            self.books_authors.append(link_dictionary)
         pass
 
     def book(self, book_id):
@@ -106,7 +102,7 @@ class BooksDataSource:
         '''
         if book_id != None and type(book_id) == int and book_id >= 0:
             for book in self.books_list:
-                if int(book['id']) == book_id:
+                if book['id'] == book_id:
                     return book
         else:
             raise ValueError
@@ -139,6 +135,7 @@ class BooksDataSource:
             Raises ValueError if author_id is non-None but is not a valid author ID.
         '''
         result_list = []
+
         if author_id != None:
             result_list = self.books_with_author_id(author_id)
             
@@ -152,14 +149,26 @@ class BooksDataSource:
             if len(result_list) == 0:
                 result_list = self.books_with_start_year(start_year, self.books_list)
             else:
-                result_list = self.books_with_end_year(start_year, result_list)
+                result_list = self.books_with_start_year(start_year, result_list)
         if end_year != None:
             if len(result_list) == 0:
                 result_list = self.books_with_end_year(end_year, self.books_list)
             else:
-                result_list = self.books_with_start_year(end_year, result_list)
+                result_list = self.books_with_end_year(end_year, result_list)
+
+
+
+        if sort_by == 'year':
+            result_list.sort(key = self.sort_first_year_then_title)
+        else:
+            result_list.sort(key = self.sort_first_title_then_year)
 
         return result_list
+
+    def sort_first_year_then_title(self, book):
+        return (book['publication-year'], book['title'])
+    def sort_first_title_then_year(self, book):
+        return (book['title'], book['publication-year'])
 
     def books_with_start_year(self, start_year, books_list):
         if type(start_year) != int:
@@ -191,12 +200,12 @@ class BooksDataSource:
             raise TypeError
 
     def books_with_author_id(self, author_id):
+        book_id_list = []
+        book_list = []        
         if type(author_id) == int and author_id >= 0: 
-            book_id_list = []
-            book_list = []
-            for link in self.books_authors_link_list:
-                if int(link['author_id']) == author_id:
-                    book_id_list.append(int(link['book_id']))
+            for link_dict in self.books_authors:
+                if author_id == link_dict['author_id']:
+                    book_id_list.append(link_dict['book_id'])
             for book_id in book_id_list:
                 book_list.append(self.book(book_id))
             return book_list
