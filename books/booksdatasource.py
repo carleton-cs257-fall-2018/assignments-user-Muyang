@@ -82,6 +82,7 @@ class BooksDataSource:
 
         for book in books_csv:
             book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year':book[2]}
+            #book_dictionary['publication-year'] = int(book_dictionary['publication-year'])
             self.books_list.append(book_dictionary)
 
         pass
