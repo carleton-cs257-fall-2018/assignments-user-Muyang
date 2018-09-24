@@ -11,14 +11,14 @@ class booksdatasourcetest(unittest.TestCase):
 		self.books_data_source = booksdatasource.BooksDataSource('books.csv', 'authors.csv', 'books_authors.csv')
 	def tearDown(self):
 		pass
-
+	
 	#Testing the book(self, book_id) method
 	def test_book(self):
 		self.assertEqual(self.books_data_source.book(41),
 			{'id':41,'title':'Middlemarch','publication-year':1871})
 	def test_book_no_id(self):
 		self.assertRaises(ValueError, self.books_data_source.book, -1)
-
+	
 	#Testing the books method
 	def test_books_author_id(self):
 		self.assertEqual(self.books_data_source.books(author_id=22),
@@ -35,7 +35,7 @@ class booksdatasourcetest(unittest.TestCase):
 			[{'id':35, 'title':'The Power', 'publication-year':2016}])
 	def test_books_wrong_start_year(self):
 		self.assertRaises(TypeError, self.books_data_source.books, start_year='wrong')
-
+	
 	def test_books_end_year(self):
 		self.assertEqual(self.books_data_source.books(end_year=1813),
 			[{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
