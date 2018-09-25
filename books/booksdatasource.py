@@ -76,13 +76,7 @@ class BooksDataSource:
         '''
         self.books_list = self.create_books_list(books_filename)
         self.authors_list = self.create_authors_list(authors_filename)
-        self.books_authors = []
-        
-        
-        link_csv = csv.reader(open(books_authors_link_filename))
-        for link in link_csv:
-            link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
-            self.books_authors.append(link_dictionary)
+        self.books_authors = self.create_link_list(books_authors_link_filename)
 
     def create_books_list(self, books_filename):
         books_list = []
@@ -99,6 +93,14 @@ class BooksDataSource:
             author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
             authors_list.append(author_dictionary)
         return authors_list
+
+    def create_link_list(sefl, books_authors_link_filename):
+        books_authors = []
+        link_csv = csv.reader(open(books_authors_link_filename))
+        for link in link_csv:
+            link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
+            books_authors.append(link_dictionary)
+        return books_authors
 
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
