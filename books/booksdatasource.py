@@ -78,10 +78,7 @@ class BooksDataSource:
         self.authors_list = []
         self.books_authors = []
         
-        books_csv = csv.reader(open(books_filename))
-        for book in books_csv:
-                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
-                self.books_list.append(book_dictionary)
+
         
         authors_csv = csv.reader(open(authors_filename)) 
         for author in authors_csv:
@@ -92,6 +89,13 @@ class BooksDataSource:
         for link in link_csv:
             link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
             self.books_authors.append(link_dictionary)
+
+    def create_books_list(self):
+        books_csv = csv.reader(open(books_filename))
+        for book in books_csv:
+                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
+                self.books_list.append(book_dictionary)
+
 
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
