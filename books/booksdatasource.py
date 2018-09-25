@@ -92,7 +92,6 @@ class BooksDataSource:
         for link in link_csv:
             link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
             self.books_authors.append(link_dictionary)
-        pass
 
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
@@ -159,15 +158,15 @@ class BooksDataSource:
 
 
         if sort_by == 'year':
-            result_list.sort(key = self.sort_first_year_then_title)
+            result_list.sort(key = self._sort_first_year_then_title)
         else:
-            result_list.sort(key = self.sort_first_title_then_year)
+            result_list.sort(key = self._sort_first_title_then_year)
 
         return result_list
 
-    def sort_first_year_then_title(self, book):
+    def _sort_first_year_then_title(self, book):
         return (book['publication-year'], book['title'])
-    def sort_first_title_then_year(self, book):
+    def _sort_first_title_then_year(self, book):
         return (book['title'], book['publication-year'])
 
     def books_with_start_year(self, start_year, books_list):
