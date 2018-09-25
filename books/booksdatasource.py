@@ -74,28 +74,31 @@ class BooksDataSource:
             NOTE TO STUDENTS: I have not specified how you will store the books/authors
             data in a BooksDataSource object. That will be up to you, in Phase 3.
         '''
-        self.books_list = []
-        self.authors_list = []
+        self.books_list = self.create_books_list(books_filename)
+        self.authors_list = self.create_authors_list(authors_filename)
         self.books_authors = []
         
-
-        
-        authors_csv = csv.reader(open(authors_filename)) 
-        for author in authors_csv:
-            author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
-            self.authors_list.append(author_dictionary)
         
         link_csv = csv.reader(open(books_authors_link_filename))
         for link in link_csv:
             link_dictionary = {'book_id': int(link[0]), 'author_id': int(link[1])}
             self.books_authors.append(link_dictionary)
 
-    def create_books_list(self):
+    def create_books_list(self, books_filename):
+        books_list = []
         books_csv = csv.reader(open(books_filename))
         for book in books_csv:
-                book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
-                self.books_list.append(book_dictionary)
-
+            book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
+            books_list.append(book_dictionary)
+        return books_list
+    
+    def create_authors_list(self, authors_filename):
+        authors_list = []
+        authors_csv = csv.reader(open(authors_filename)) 
+        for author in authors_csv:
+            author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
+            authors_list.append(author_dictionary)
+        return authors_list
 
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
