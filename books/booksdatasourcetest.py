@@ -89,15 +89,16 @@ class booksdatasourcetest(unittest.TestCase):
 			[{'id':5, 'title':'Emma', 'publication-year':1815},
 			{'id':18, 'title':'Pride and Prejudice', 'publication-year':1813},
 			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813}])
-	'''
+	
+
+	####################################
 	#Testing the books_for_author method
 	def test_books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
 			[{'id':41, 'title':'Middlemarch', 'publication-year':1871}])
 	def test_books_for_author_wrong_id(self):
 		self.assertRaises(ValueError,self.books_data_source.books_for_author, -1)
-	'''
-	'''
+
 	def test_author(self):
 		self.assertEqual(self.books_data_source.author(22),
 		{'id':22,'last_name':'Eliot','first_name':'George',
@@ -203,6 +204,6 @@ class booksdatasourcetest(unittest.TestCase):
 		'birth_year':1972, 'death_year': None},
 		{'id':8, 'last_name':'Wodehouse', 'first_name':'Pelham Grenville',
 		'birth_year':1881, 'death_year': 1975}])
-	'''
+
 if __name__ == '__main__':
 	unittest.main()

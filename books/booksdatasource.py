@@ -266,7 +266,7 @@ class BooksDataSource:
         result_list = []
 
         if book_id != None:
-            result_list = self.author_with_book_id(book_id)
+            result_list = self.authors_with_book_id(book_id)
 
         if search_text != None:
             if len(result_list) == 0:
@@ -286,7 +286,7 @@ class BooksDataSource:
             else:
                 result_list = self.authors_with_end_year(end_year, result_list)
 
-        if sort_by == 'birth_year':
+        if sort_by == 'birth-year':
             result_list.sort(key = self._sort_by_birth_year)
         else:
             result_list.sort(key = self._sort_by_other)
@@ -295,14 +295,14 @@ class BooksDataSource:
 
 # TODO: IMPLEMENT CHECKS FOR TYPES
     def authors_with_book_id(self, book_id):
-        if type(start_year) != int:
+        if type(book_id) != int:
             raise ValueError
             exit()
         author_list = []
         final_list = []
         for pair in self.books_authors:
-            if (pair['book_id'] == book_id) and (pair['author_id'] not in author_list):
-                author_list.append(pair['author_id'])
+            if (pair['book-id'] == book_id) and (pair['author-id'] not in author_list):
+                author_list.append(pair['author-id'])
         for author in author_list:
             final_list.append(self.authors_list[author])
         return(final_list)
@@ -312,9 +312,9 @@ class BooksDataSource:
         for author in result_list:
             if author in author_list:
                 pass
-            elif author['last_name'].contain(search_text):
+            elif author['last-name'].contain(search_text):
                 author_list.append(author)
-            elif author['first_name'].contain(search_text):
+            elif author['first-name'].contain(search_text):
                 author_list.append(author)
         return(author_list)
 
@@ -326,28 +326,28 @@ class BooksDataSource:
         for author in result_list:
             if author in author_list:
                 pass
-            elif author['death_year'] is None:
+            elif author['death-year'] is None:
                 author_list.append(author)
-            elif author['death_year'] >= start_year:
+            elif author['death-year'] >= start_year:
                 author_list.append(author)
         return(author_list)
 
     def authors_with_end_year(self, end_year, result_list=None):
-        if type(start_year) != int:
+        if type(end_year) != int:
             raise ValueError
             exit()
         author_list = []
         for author in result_list:
             if author in author_list:
                 pass
-            elif author['birth_year'] <= end_year:
+            elif author['birth-year'] <= end_year:
                 author_list.append(author)
         return(author_list)
 
-    def _sort_by_birth_year(self, result_list):
-        return (author['birth_year'], author['last_name'], author['first_name'])
-    def _sort_by_other(self, book):
-        return (author['last_name'], author['first_name'], author['birth_year'])
+    def _sort_by_birth_year(self, author):
+        return (author['birth-year'], author['last-name'], author['first-name'])
+    def _sort_by_other(self, author):
+        return (author['last-name'], author['first-name'], author['birth-year'])
 
 
     # Note for my students: The following two methods provide no new functionality beyond
