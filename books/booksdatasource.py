@@ -261,6 +261,9 @@ class BooksDataSource:
 
 # TODO: IMPLEMENT CHECKS FOR TYPES
     def authors_with_book_id(self, book_id):
+        if type(start_year) != int:
+            raise ValueError
+            exit()
         author_list = []
         final_list = []
         for pair in self.books_authors:
@@ -270,9 +273,9 @@ class BooksDataSource:
             final_list.append(self.authors_list[author])
         return(final_list)
 
-    def authors_with_search_text(self, search_text):
+    def authors_with_search_text(self, search_text, result_list=None):
         author_list = []
-        for author in self.author_list:
+        for author in result_list:
             if author in author_list:
                 pass
             elif author['last_name'].contain(search_text):
@@ -281,9 +284,12 @@ class BooksDataSource:
                 author_list.append(author)
         return(author_list)
 
-    def authors_with_start_year(self, start_year):
+    def authors_with_start_year(self, start_year, result_list=None):
+        if type(start_year) != int:
+            raise ValueError
+            exit()
         author_list = []
-        for author in self.author_list:
+        for author in result_list:
             if author in author_list:
                 pass
             elif author['death_year'] is None:
@@ -292,19 +298,29 @@ class BooksDataSource:
                 author_list.append(author)
         return(author_list)
 
-    def authors_with_end_year(self, end_year):
+    def authors_with_end_year(self, end_year, result_list=None):
+        if type(start_year) != int:
+            raise ValueError
+            exit()
         author_list = []
-        for author in self.author_list:
+        for author in result_list:
             if author in author_list:
                 pass
             elif author['birth_year'] <= end_year:
                 author_list.append(author)
         return(author_list)
 
-    def authors_sort_by(self, action, author_list):
+    def authors_sort_by(self, action, result_list=None):
         if action == 'birth_year':
-
+            result_list.sort(key = self._sort_by_birth_year)
         else:
+            result_list.sort(key = self._sort_by_other)
+        return result_list
+
+    def _sort_by_birth_year(self, result_list):
+        return (author['birth_year'], author['last_name'], author['first_name'])
+    def _sort_by_other(self, book):
+        return (author['last_name'], author['first_name'], author['birth_year'])
 
 
     # Note for my students: The following two methods provide no new functionality beyond
