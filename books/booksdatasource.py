@@ -90,11 +90,14 @@ class BooksDataSource:
         authors_list = []
         authors_csv = csv.reader(open(authors_filename))
         for author in authors_csv:
-            author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
+            if author[4] == "NULL":
+                author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': int(author[3]), 'death-year': None}
+            else:
+                author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': int(author[3]), 'death-year': int(author[4])}
             authors_list.append(author_dictionary)
         return authors_list
 
-    def create_link_list(sefl, books_authors_link_filename):
+    def create_link_list(self, books_authors_link_filename):
         books_authors = []
         link_csv = csv.reader(open(books_authors_link_filename))
         for link in link_csv:
@@ -301,8 +304,8 @@ class BooksDataSource:
         author_list = []
         final_list = []
         for pair in self.books_authors:
-            if (pair['book-id'] == book_id) and (pair['author-id'] not in author_list):
-                author_list.append(pair['author-id'])
+            if (pair['book_id'] == book_id) and (pair['author_id'] not in author_list):
+                author_list.append(pair['author_id'])
         for author in author_list:
             final_list.append(self.authors_list[author])
         return(final_list)
@@ -312,9 +315,9 @@ class BooksDataSource:
         for author in result_list:
             if author in author_list:
                 pass
-            elif author['last-name'].contain(search_text):
+            elif search_text in author['last-name']:
                 author_list.append(author)
-            elif author['first-name'].contain(search_text):
+            elif search_text in author['first-name']:
                 author_list.append(author)
         return(author_list)
 
