@@ -235,11 +235,11 @@ class BooksDataSource:
 
             Raises ValueError if author_id is not a valid author ID.
         '''
-        answer = None
+        answer = []
         for author in self.authors_list:
-            if int(author['id']) == author_id:
+            if author['id'] == author_id:
                 answer = author
-        return answer
+        return author
 
     def authors(self, *, book_id=None, search_text=None, start_year=None, end_year=None, sort_by='birth_year'):
         ''' Returns a list of all the authors in this data source matching all of the
@@ -370,3 +370,11 @@ class BooksDataSource:
         ''' Returns a list of all the authors of the book with the specified book ID.
             See the BooksDataSource comment for a description of how an author is represented. '''
         return self.authors(book_id=book_id)
+
+
+def main():
+    test = BooksDataSource("books.csv", "authors.csv", "books_authors.csv")
+    print(test.authors(start_year=2018, end_year=2018))
+
+if __name__ == '__main__':
+    main()
