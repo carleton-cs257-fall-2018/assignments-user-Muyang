@@ -114,6 +114,7 @@ class BooksDataSource:
                     return book
         else:
             raise ValueError
+            exit()
 
     def books(self, *, author_id=None, search_text=None, start_year=None, end_year=None, sort_by='title'):
         ''' Returns a list of all the books in this data source matching all of
@@ -158,6 +159,7 @@ class BooksDataSource:
                 result_list = self.books_with_start_year(start_year, self.books_list)
             else:
                 result_list = self.books_with_start_year(start_year, result_list)
+
         if end_year != None:
             if len(result_list) == 0:
                 result_list = self.books_with_end_year(end_year, self.books_list)
@@ -181,6 +183,7 @@ class BooksDataSource:
     def books_with_start_year(self, start_year, books_list):
         if type(start_year) != int:
             raise ValueError
+            exit()
         else:
             book_list = []
             for book in books_list:
@@ -190,6 +193,7 @@ class BooksDataSource:
     def books_with_end_year(self, end_year, books_list):
         if type(end_year) != int:
             raise ValueError
+            exit()
         else:
             book_list = []
             for book in books_list:
@@ -206,6 +210,7 @@ class BooksDataSource:
             return book_list
         else:
             raise ValueError
+            exit()
 
     def books_with_author_id(self, author_id):
         book_id_list = []
@@ -219,6 +224,7 @@ class BooksDataSource:
             return book_list
         else:
             raise ValueError
+            exit()
 
     def author(self, author_id):
         ''' Returns the author with the specified ID. (See the BooksDataSource comment for a
@@ -257,7 +263,35 @@ class BooksDataSource:
 
             See the BooksDataSource comment for a description of how an author is represented.
         '''
-        return []
+        result_list = []
+
+        if book_id != None:
+            result_list = self.author_with_book_id(book_id)
+
+        if search_text != None:
+            if len(result_list) == 0:
+                result_list = self.authors_with_search_text(search_text.lower(), self.authors_list)
+            else:
+                result_list = self.authors_with_search_text(search_text.lower(), result_list)
+
+        if start_year != None:
+            if len(result_list) == 0:
+                result_list = self.authors_with_start_year(start_year, self.authors_list)
+            else:
+                result_list = self.authors_with_start_year(start_year, result_list)
+
+        if end_year != None:
+            if len(result_list) == 0:
+                result_list = self.authors_with_end_year(end_year, self.authors_list)
+            else:
+                result_list = self.authors_with_end_year(end_year, result_list)
+
+        if sort_by == 'birth_year':
+            result_list.sort(key = self._sort_by_birth_year)
+        else:
+            result_list.sort(key = self._sort_by_other)
+
+        return result_list
 
 # TODO: IMPLEMENT CHECKS FOR TYPES
     def authors_with_book_id(self, book_id):
@@ -301,10 +335,6 @@ class BooksDataSource:
                 author_list.append(author)
         return(author_list)
 
-    def authors_sort_by(self, action, author_list):
-        if action == 'birth_year':
-
-        else:
 
 
     # Note for my students: The following two methods provide no new functionality beyond
