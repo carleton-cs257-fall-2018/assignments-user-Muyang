@@ -53,7 +53,7 @@ class BooksDataSource:
                 books: ID,title,publication-year
                   e.g. 6,Good Omens,1990
                        41,Middlemarch,1871
-                    
+
 
                 authors: ID,last-name,first-name,birth-year,death-year
                   e.g. 5,Gaiman,Neil,1960,NULL
@@ -64,7 +64,7 @@ class BooksDataSource:
                   e.g. 41,22
                        6,5
                        6,6
-                  
+
                   [that is, book 41 was written by author 22, while book 6
                     was written by both author 5 and author 6]
 
@@ -85,10 +85,10 @@ class BooksDataSource:
             book_dictionary = {'id': int(book[0]), 'title':book[1], 'publication-year': int(book[2])}
             books_list.append(book_dictionary)
         return books_list
-    
+
     def create_authors_list(self, authors_filename):
         authors_list = []
-        authors_csv = csv.reader(open(authors_filename)) 
+        authors_csv = csv.reader(open(authors_filename))
         for author in authors_csv:
             author_dictionary = {'id': int(author[0]), 'last-name': author[1], 'first-name': author[2], 'birth-year': author[3], 'death-year': author[4]}
             authors_list.append(author_dictionary)
@@ -105,7 +105,7 @@ class BooksDataSource:
     def book(self, book_id):
         ''' Returns the book with the specified ID. (See the BooksDataSource comment
             for a description of how a book is represented.)
-        
+
             Raises ValueError if book_id is not a valid book ID.
         '''
         if book_id != None and type(book_id) == int and book_id >= 0:
@@ -132,7 +132,7 @@ class BooksDataSource:
 
                 'year' -- sorts by publication_year, breaking ties with (case-insenstive) title
                 default -- sorts by (case-insensitive) title, breaking ties with publication_year
-                
+
             See the BooksDataSource comment for a description of how a book is represented.
 
             QUESTION: Should Python interfaces specify TypeError?
@@ -146,7 +146,7 @@ class BooksDataSource:
 
         if author_id != None:
             result_list = self.books_with_author_id(author_id)
-            
+
         if search_text != None:
             if len(result_list) == 0:
                 result_list = self.books_with_search_text(search_text.lower(), self.books_list)
@@ -209,8 +209,8 @@ class BooksDataSource:
 
     def books_with_author_id(self, author_id):
         book_id_list = []
-        book_list = []        
-        if type(author_id) == int and author_id >= 0: 
+        book_list = []
+        if type(author_id) == int and author_id >= 0:
             for link_dict in self.books_authors:
                 if author_id == link_dict['author_id']:
                     book_id_list.append(link_dict['book_id'])
@@ -223,10 +223,14 @@ class BooksDataSource:
     def author(self, author_id):
         ''' Returns the author with the specified ID. (See the BooksDataSource comment for a
             description of how an author is represented.)
-        
+
             Raises ValueError if author_id is not a valid author ID.
         '''
-        return {}
+        answer = []
+        for author in self.authors_list:
+            if author['id'] == author_id:
+                answer = author
+        return author
 
     def authors(self, *, book_id=None, search_text=None, start_year=None, end_year=None, sort_by='birth_year'):
         ''' Returns a list of all the authors in this data source matching all of the
@@ -250,10 +254,57 @@ class BooksDataSource:
                     then (case-insensitive) first_name
                 any other value - sorts by (case-insensitive) last_name, breaking ties with
                     (case-insensitive) first_name, then birth_year
-        
+
             See the BooksDataSource comment for a description of how an author is represented.
         '''
         return []
+
+# TODO: IMPLEMENT CHECKS FOR TYPES
+    def authors_with_book_id(self, book_id):
+        author_list = []
+        final_list = []
+        for pair in self.books_authors:
+            if (pair['book_id'] == book_id) and (pair['author_id'] not in author_list):
+                author_list.append(pair['author_id'])
+        for author in author_list:
+            final_list.append(self.authors_list[author])
+        return(final_list)
+
+    def authors_with_search_text(self, search_text):
+        author_list = []
+        for author in self.author_list:
+            if author in author_list:
+                pass
+            elif author['last_name'].contain(search_text):
+                author_list.append(author)
+            elif author['first_name'].contain(search_text):
+                author_list.append(author)
+        return(author_list)
+
+    def authors_with_start_year(self, start_year):
+        author_list = []
+        for author in self.author_list:
+            if author in author_list:
+                pass
+            elif author['death_year'] is None:
+                author_list.append(author)
+            elif author['death_year'] >= start_year:
+                author_list.append(author)
+        return(author_list)
+
+    def authors_with_end_year(self, end_year):
+        author_list = []
+        for author in self.author_list:
+            if author in author_list:
+                pass
+            elif author['birth_year'] <= end_year:
+                author_list.append(author)
+        return(author_list)
+
+    def authors_sort_by(self, action, author_list):
+        if action == 'birth_year':
+
+        else:
 
 
     # Note for my students: The following two methods provide no new functionality beyond
