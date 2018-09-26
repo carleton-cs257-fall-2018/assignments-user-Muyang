@@ -180,7 +180,7 @@ class BooksDataSource:
 
     def books_with_start_year(self, start_year, books_list):
         if type(start_year) != int:
-            raise TypeError
+            raise ValueError
         else:
             book_list = []
             for book in books_list:
@@ -189,7 +189,7 @@ class BooksDataSource:
             return book_list
     def books_with_end_year(self, end_year, books_list):
         if type(end_year) != int:
-            raise TypeError
+            raise ValueError
         else:
             book_list = []
             for book in books_list:
@@ -205,7 +205,7 @@ class BooksDataSource:
                     book_list.append(book)
             return book_list
         else:
-            raise TypeError
+            raise ValueError
 
     def books_with_author_id(self, author_id):
         book_id_list = []
