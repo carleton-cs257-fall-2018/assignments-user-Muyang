@@ -138,11 +138,6 @@ class booksdatasourcetest(unittest.TestCase):
 		'birth-year':1972, 'death-year': None},
 		{'id':18, 'last-name':'Alderman', 'first-name':'Naomi',
 		'birth-year':1974, 'death-year': None}])
-		
-		print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-
-		print(self.book_data_source.authors(start_year=2018))
-		print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
 
 	def test_authors_end_year(self):
 		self.assertEqual(self.books_data_source.authors(end_year=1817),

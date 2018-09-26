@@ -289,7 +289,7 @@ class BooksDataSource:
             else:
                 result_list = self.authors_with_end_year(end_year, result_list)
 
-        if sort_by == 'birth-year':
+        if sort_by == 'birth_year':
             result_list.sort(key = self._sort_by_birth_year)
         else:
             result_list.sort(key = self._sort_by_other)
