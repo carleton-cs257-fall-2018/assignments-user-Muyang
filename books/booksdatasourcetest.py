@@ -91,11 +91,12 @@ class booksdatasourcetest(unittest.TestCase):
 			{'id':20, 'title':'Sense and Sensibility', 'publication-year':1813}])
 
 
-	####################################
 	#Testing the books_for_author method
 	def test_books_for_author(self):
 		self.assertEqual(self.books_data_source.books_for_author(22),
-			[{'id':41, 'title':'Middlemarch', 'publication-year':1871}])
+			[{'id':41, 'title':'Middlemarch', 'publication-year':1871},
+			 {'id':42, 'title':'Silas Marner', 'publication-year':1861}])
+
 	def test_books_for_author_wrong_id(self):
 		self.assertRaises(ValueError,self.books_data_source.books_for_author, -1)
 
@@ -106,21 +107,21 @@ class booksdatasourcetest(unittest.TestCase):
 
 	def test_authors_book_id(self):
 		self.assertEqual(self.books_data_source.authors(book_id=41),
-		{"id":22, "last-name":"Eliot","first-name":"George",
-		"birth-year":1819,"death-year":1880})
+		[{"id":22, "last-name":"Eliot","first-name":"George",
+		"birth-year":1819,"death-year":1880}])
 
 	def test_authors_search_text(self):
 		self.assertEqual(self.books_data_source.authors(search_text="je"),
 		[{'id':21, 'last-name':'Jerome', 'first-name':'Jerome K.',
 		'birth-year':1859, 'death-year': 1927},
-		{'id':20, 'last-name':'Jemisen', 'first-name':'N.K',
+		{'id':20, 'last-name':'Jemisen', 'first-name':'N.K.',
 		'birth-year':1972, 'death-year': None}])
 
 	def test_authors_start_year(self):
 		self.assertEqual(self.books_data_source.authors(start_year=2018),
 		[{'id':3, 'last-name':'Lewis', 'first-name':'Sinclair',
 		'birth-year':1885, 'death-year': None},
-		{'id':24, 'last-name':'CarrÃ©', 'first-name':'John Le',
+		{'id':24, 'last-name':'Carré', 'first-name':'John Le',
 		'birth-year':1931, 'death-year': None},
 		{'id':2, 'last-name':'Morrison', 'first-name':'Toni',
 		'birth-year':1931, 'death-year': None},
@@ -145,14 +146,14 @@ class booksdatasourcetest(unittest.TestCase):
 		'birth-year':1775, 'death-year': 1817},
 		{'id':23, 'last-name':'Dickens', 'first-name':'Charles',
 		'birth-year':1812, 'death-year': 1870},
-		{'id':7, 'last-name':'BrontÃ«', 'first-name':'Charlotte',
+		{'id':7, 'last-name':'Brontë', 'first-name':'Charlotte',
 		'birth-year':1816, 'death-year': 1855}])
 
 	def test_authors_sort_by_other_value(self):
 		self.assertEqual(self.books_data_source.authors(end_year=1817, sort_by="other_value"),
 		[{'id':4,'last-name':'Austen','first-name':'Jane',
 		'birth-year':1775, 'death-year': 1817},
-		{'id':7, 'last-name':'BrontÃ«', 'first-name':'Charlotte',
+		{'id':7, 'last-name':'Brontë', 'first-name':'Charlotte',
 		'birth-year':1816, 'death-year': 1855},
 		{'id':23, 'last-name':'Dickens', 'first-name':'Charles',
 		'birth-year':1812, 'death-year': 1870}])
@@ -161,7 +162,7 @@ class booksdatasourcetest(unittest.TestCase):
 		self.assertEqual(self.books_data_source.authors(start_year=2018, end_year=2018),
 		[{'id':3, 'last-name':'Lewis', 'first-name':'Sinclair',
 		'birth-year':1885, 'death-year': None},
-		{'id':24, 'last-name':'CarrÃ©', 'first-name':'John Le',
+		{'id':24, 'last-name':'Carré', 'first-name':'John Le',
 		'birth-year':1931, 'death-year': None},
 		{'id':2, 'last-name':'Morrison', 'first-name':'Toni',
 		'birth-year':1931, 'death-year': None},
@@ -188,7 +189,7 @@ class booksdatasourcetest(unittest.TestCase):
 		'birth-year':1945, 'death-year': None}])
 
 	def test_authors_search_text_end_year(self):
-		self.assertEqual(self.books_data_source.authors(search_text="ens", end_year=1817),
+		self.assertEqual(self.books_data_source.authors(search_text="en", end_year=1817),
 		[{'id':4, 'last-name':'Austen', 'first-name':'Jane',
 		'birth-year':1775, 'death-year': 1817},
 		{'id':23, 'last-name':'Dickens', 'first-name':'Charles',

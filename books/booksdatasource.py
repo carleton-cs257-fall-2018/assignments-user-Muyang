@@ -315,9 +315,9 @@ class BooksDataSource:
         for author in result_list:
             if author in author_list:
                 pass
-            elif search_text in author['last-name']:
+            elif search_text.lower() in author['last-name'].lower():
                 author_list.append(author)
-            elif search_text in author['first-name']:
+            elif search_text.lower() in author['first-name'].lower():
                 author_list.append(author)
         return(author_list)
 
