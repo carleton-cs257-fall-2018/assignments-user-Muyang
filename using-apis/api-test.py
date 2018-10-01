@@ -91,18 +91,18 @@ if __name__ == '__main__':
                         metavar='action',
                         help='action to perform the search("list" or "detail")',
                         choices=['list','detail'])
+    if parser.parse_args() == 'detail':
+	    parser.add_argument('identifier',
+	                        metavar='identifier',
+	                        help='choose whether you are looking for a specific school \
+	                         through its id or name; if not looking for detail information, \
+	                         please type None',
+	                        choices=['id','name', 'None'])
 
-    parser.add_argument('identifier',
-                        metavar='identifier',
-                        help='choose whether you are looking for a specific school \
-                         through its id or name; if not looking for detail information, \
-                         please type None',
-                        choices=['id','name', 'None'])
-
-    parser.add_argument('the_school',
-                        metavar='the_school',
-                        help='the id of the school, or the name of the school; \
-                        if not looking for detail information, please type None')
+	    parser.add_argument('the_school',
+	                        metavar='the_school',
+	                        help='the id of the school, or the name of the school; \
+	                        if not looking for detail information, please type None')
 
     args = parser.parse_args()
     main(args)
