@@ -7,22 +7,25 @@ import json
 import urllib.request
 
 def get_list_info():
-    url = 'https://api.data.gov/ed/collegescorecard/v1/schools.json?fields=id,school.name \
-    &api_key=ugcgsk286xURiOgj4l5I8Eej8M78cGHKPfa69L1s'
-    data_from_server = urllib.request.urlopen(url).read()
-    string_from_server = data_from_server.decode('utf-8')
-    info_dict = json.loads(string_from_server)
-    list_of_school_dict = info_dict['results']
-    result_list = []
-    for dictionary in list_of_school_dict:
-        school_id = dictionary['id']
-        school_name = dictionary['school.name']
-        result_list.append({'id': school_id, 'name': school_name})
-    return result_list
+	result_list = []
+	for page in range(0,72): #There are 72 pages of info
+	    base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools.json?_page={0}&_per_page=100&fields=id,school.name'\
+	    '&api_key=ugcgsk286xURiOgj4l5I8Eej8M78cGHKPfa69L1s'
+	    url = base_url.format(page)
+	    data_from_server = urllib.request.urlopen(url).read()
+	    string_from_server = data_from_server.decode('utf-8')
+	    info_dict = json.loads(string_from_server)
+	    list_of_school_dict = info_dict['results']	    
+	    for dictionary in list_of_school_dict:
+	        school_id = dictionary['id']
+	        school_name = dictionary['school.name']
+	        result_list.append({'id': school_id, 'name': school_name})
+	return result_list
 
 def get_detail_info(identifier, school):
-    base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools.json?{0}={1}&fields=id,school.name,latest.admissions.admission_rate.overall,latest.student.size,school.degrees_awarded.highest \
-    &api_key=ugcgsk286xURiOgj4l5I8Eej8M78cGHKPfa69L1s'
+    base_url = 'https://api.data.gov/ed/collegescorecard/v1/schools.json?{0}={1}'\
+    '&fields=id,school.name,latest.admissions.admission_rate.overall,latest.student.size,school.degrees_awarded.highest'\
+    '&api_key=ugcgsk286xURiOgj4l5I8Eej8M78cGHKPfa69L1s'
     url = base_url.format(identifier, school)
     data_from_server = urllib.request.urlopen(url).read()
     string_from_server = data_from_server.decode('utf-8')
@@ -98,7 +101,7 @@ if __name__ == '__main__':
 
     parser.add_argument('the_school',
                         metavar='the_school',
-                        help='the id of the school, or the name of the school, \
+                        help='the id of the school, or the name of the school; \
                         if not looking for detail information, please type None')
 
     args = parser.parse_args()
