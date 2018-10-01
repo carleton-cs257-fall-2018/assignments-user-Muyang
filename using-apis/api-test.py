@@ -37,12 +37,12 @@ def get_detail_info(identifier, school):
         school_name = school['school.name']
         school_size = school['latest.student.size']
         school_admission_rate = school['latest.admissions.admission_rate.overall']
-        school_highest_degree_offered = in_English(school['school.degrees_awarded.highest'])
+        school_highest_degree_offered = _in_English(school['school.degrees_awarded.highest'])
         result_list.append({'id': school_id, 'name': school_name, 
             'size': school_size, 'admission_rate': school_admission_rate,
             'highest_degree': school_highest_degree_offered})
     return result_list
-def in_English(degree):
+def _in_English(degree):
     if degree == 4:
         return 'Graduate degree'
     elif degree == 3:
