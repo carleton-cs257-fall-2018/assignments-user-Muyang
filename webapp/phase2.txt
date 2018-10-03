@@ -1,0 +1,7 @@
+Webapp Assignment
+
+Muyang Shi and Johnny Reichman
+
+College Scorecard Data: https://collegescorecard.ed.gov/data/
+On this page, there is an obvious green button with "DOWNLOAD ALL DATA" on it.
+Clicking the button will make the browser download all the data.
