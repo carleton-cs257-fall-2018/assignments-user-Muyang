@@ -1,4 +1,4 @@
-Webapp Assignment
+Webapp Assignment Oct. 4
 
 Muyang Shi and Johnny Reichman
 
@@ -8,18 +8,52 @@ Clicking the button will make the browser download all the data.
 
 *No School Ranking info (maybe consider get that info from somewhere else)
 *No endowment info (where to get this information?)
+P.S. we are open to new supplemental data resources, to enrich our dataset.
 
-As a student, I can find the programs/degrees offered by a specific school.
-As a student, I can find schools that offer certain level of programs/degrees.
+As a student, I can find the programs/degrees offered by a specific school, so that I can find out if this school offers what I'm interested in.
+As a student, I can find schools that offer certain level of programs/degrees, so that I can find out the schools that offer what I'm interested in.
 
-As a student, I can find the location of a specific school.
-As a student, I can find schools in certain locations (i.e. States, Cities, Urban/suburban/urual).
+As a student, I can find the location of a specific school, so that I can know where it is.
+As a student, I can find schools in certain locations (i.e. States, Cities, Urban/suburban/urual), so that I can go to school in a satisfying environment.
 
-As a student, I can find the size of a specific school's student body.
-As a student, I can find the schools within certain student body's size (i.e. <3000, >5000, etc.)
+As a student, I can find the size of a specific school's student body, so that I can get a sense of what to expect.
+As a student, I can find the schools within certain student body's size (i.e. <3000, >5000, etc.), so that I can find the schools with the right size for me.
 
-As a student, I can find whether a school is a public/private school.
-As a student, I can look at all the private/public school.
+As a government agency, I can find whether a school is a public/private school, to determine taxing/funding.
+As a government agency, I can look at all the private/public schools, so that I can assess the effects of legislation.
 
-As a student, I can look at the admission rate of certain schools.
-As a student, I can look at schools with certain admission rate (or test scores, etc.)
+As a student, I can look at the admission rate of certain schools, so that I can determine my chance of admission.
+As a student, I can look at schools with certain admission rate (or test scores, etc.), so that I can find schools are the right challenge for me.
+
+As a student, I can look at the cost and aid of certain schools, so that I can predict my estimated cost for college  education.
+As a student, I can look at the schools with certain cost and aid so that my college education can be affordable.
+
+As a professor, I can look at the salary that a certain school offers, to predict my lifestyle.
+As a professor, I can look at the schools that offer certain amount of salary, so that I can live a desirable life.
+
+As a user, I can search for all metrics within a given category, so that I don't need to read the website, so that I can adjust my searches accordingly.
+
+As a veteran, I can search for schools that have a large percentage of students age 25+, cuz I don't wanna be with kids.
+
+List of categories (Just for our convenience):
+	academics
+	admissions
+	completion
+
+	aid	
+	cost
+	earnings
+	repayment
+
+	student (body, demographics, size)
+
+As a user, I can compare the selected attributes of some schools, so that I can figure out which is a better fit for me.
+
+As a user, I can compare the correlation between multiple attributes of a School (or group of schools), to satisfy my curiosity/actually, for research purposes.
+For example:
+	As a researcher, I can look at:
+		admission rate over tuition
+		admissions rate over earnings
+		tuition over earnings
+		demographics over admissions rate
+		average faculty salary over tuition		
