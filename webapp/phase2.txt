@@ -5,3 +5,21 @@ Muyang Shi and Johnny Reichman
 College Scorecard Data: https://collegescorecard.ed.gov/data/
 On this page, there is an obvious green button with "DOWNLOAD ALL DATA" on it.
 Clicking the button will make the browser download all the data.
+
+*No School Ranking info (maybe consider get that info from somewhere else)
+*No endowment info (where to get this information?)
+
+As a student, I can find the programs/degrees offered by a specific school.
+As a student, I can find schools that offer certain level of programs/degrees.
+
+As a student, I can find the location of a specific school.
+As a student, I can find schools in certain locations (i.e. States, Cities, Urban/suburban/urual).
+
+As a student, I can find the size of a specific school's student body.
+As a student, I can find the schools within certain student body's size (i.e. <3000, >5000, etc.)
+
+As a student, I can find whether a school is a public/private school.
+As a student, I can look at all the private/public school.
+
+As a student, I can look at the admission rate of certain schools.
+As a student, I can look at schools with certain admission rate (or test scores, etc.)
