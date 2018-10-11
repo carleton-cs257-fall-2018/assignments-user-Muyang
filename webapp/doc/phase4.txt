@@ -1,0 +1,56 @@
+For each table in database design, the SQL CREATE statement that is used to created the table.
+	#We only have one object type: school, with a lot of attributes;
+	#I think we can create just one table, named schools
+
+	?What attributes do we want to include?
+		-The ones in our mockup design
+		-Plz tell me the attributes you'd like to include in school page
+CREATE TABLE authors (
+	#Basic Information:
+    id SERIAL,
+    name TEXT,
+    city TEXT,
+    state TEXT,
+    school_url TEXT,
+    highest_degree TEXT,
+    locale TEXT,
+    admission_rate FLOAT,
+    ownership TEXT
+
+    #SAT:
+    SAT_average FLOAT,
+    SAT_cr_MID
+    SAT_cr_25_percentile FLOAT,
+    SAT_cr_75_percentile FLOAT,
+    SAT_math_MID FLOAT,
+    SAT_math_25_percentile FLOAT,
+    SAT_math_75_percentile FLOAT,
+
+    #ACT:
+    ACT_cumulative_MID FLOAT,
+    ACT_cumulative_25_percentile FLOAT,
+    ACT_cumulative_75_percentile FLOAT,
+    ACT_eng_MID FLOAT,
+    ACT_eng_25_percentile FLOAT,
+    ACT_eng_75_percentile FLOAT,
+    ACT_math_MID FLOAT,
+    ACT_math_25_percentile FLOAT,
+    ACT_math_75_percentile FLOAT,
+    ACT_writing_MID FLOAT,
+    ACT_writing_25_percentile FLOAT,
+    ACT_writing_75_percentile FLOAT,
+
+    #Student Body: (Didn't find information about age)
+    enrollment INT
+    percent_white FLOAT,
+    percent_black FLOAT,
+    percent_Hispanic FLOAT,
+    percent_Asian FLOAT,
+    percent_American_Indian FLOAT,
+    percent_Native_Hawaiian FLOAT,
+    percent_non-resident_aliens FLOAT
+    percent_aged_25+ FLOAT,
+
+    #Cost:
+
+);
