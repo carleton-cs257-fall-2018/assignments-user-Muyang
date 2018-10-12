@@ -5,7 +5,7 @@ For each table in database design, the SQL CREATE statement that is used to crea
 	?What attributes do we want to include?
 		-The ones in our mockup design
 		-Plz tell me the attributes you'd like to include in school page
-CREATE TABLE authors (
+CREATE TABLE schools (
 	#Basic Information:
     id SERIAL,
     name TEXT,
