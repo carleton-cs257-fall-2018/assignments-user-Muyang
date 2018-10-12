@@ -91,6 +91,36 @@ CREATE TABLE schools (
     percent_non-resident_aliens FLOAT
     percent_aged_25+ FLOAT,
 
-    #Cost:
+    #Cost & Earn:
+    average_net_price_public_institutions INT,
+    average_net_price_private_institutions INT,
 
+    percent_student_of_Pell_Grant FLOAT,
+    percent_student_of_Federal_Loan FLOAT,
+
+    median_earning_6_years_after_entry INT,
+    median_earning_8_years_after_entry INT,
+    median_earning_10_years_after_entry INT,
+
+    mean_earning_6_years_after_entry INT,
+    mean_earning_8_years_after_entry INT,
+    mean_earning_10_years_after_entry INT,
+	standard_deviation_earnings_6_years_after_entry FLOAT,
+	standard_deviation_earnings_8_years_after_entry FLOAT,
+    standard_deviation_earnings_10_years_after_entry FLOAT,
+    
+	10th_percentile_earnings_6_years_after_entry INT,
+	25th_percentile_earnings_6_years_after_entry INT,
+	75th_percentile_earnings_6_years_after_entry INT,
+	90th_percentile_earnings_6_years_after_entry INT,
+
+	10th_percentile_earnings_8_years_after_entry INT,
+	25th_percentile_earnings_8_years_after_entry INT,
+	75th_percentile_earnings_8_years_after_entry INT,
+	90th_percentile_earnings_8_years_after_entry INT,
+
+	10th_percentile_earnings_10_years_after_entry INT,
+	25th_percentile_earnings_10_years_after_entry INT,
+	75th_percentile_earnings_10_years_after_entry INT,
+	90th_percentile_earnings_10_years_after_entry INT,
 );
