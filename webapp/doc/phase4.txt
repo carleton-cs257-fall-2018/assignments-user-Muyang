@@ -1,3 +1,4 @@
+########################## A ##########################
 For each table in database design, the SQL CREATE statement that is used to created the table.
 	#We only have one object type: school, with a lot of attributes;
 	#I think we can create just one table, named schools
@@ -10,7 +11,7 @@ CREATE TABLE schools (
     id SERIAL,
     name TEXT,
     city TEXT,
-    state TEXT,
+    state INT,
     school_url TEXT,
     highest_degree TEXT,
     locale TEXT,
@@ -19,7 +20,7 @@ CREATE TABLE schools (
 
     #SAT:
     SAT_average FLOAT,
-    SAT_cr_MID
+    SAT_cr_MID FLOAT
     SAT_cr_25_percentile FLOAT,
     SAT_cr_75_percentile FLOAT,
     SAT_math_MID FLOAT,
@@ -126,3 +127,144 @@ CREATE TABLE schools (
 
 	average_faculty_earnings INT,
 );
+
+
+
+
+CREATE TABLE state (
+	id SERIAL,
+	name TEXT,
+	abbreviation TEXT,
+);
+
+
+########################## C ##########################
+#Because we have so many metrics, I was thinking we could organize these queries by HOW they are retrieved instead of WHAT is retrieved
+
+#i.e they could be /schools/metric/<metric_name>/requirement/<requirement_detail>
+#Ex: /schools/metric/admission_rate/greater/.2
+# or /schools/metric/state/in/<requirement_detail>
+
+
+SYNOPSIS: Get the school with the corresponding serial number
+
+Query (GET): /schools/id/<school_id>/
+
+RESPONSE: a dictionary, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/school/id/1/
+
+{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}
+
+
+
+SYNOPSIS: Get the schools with a TEXT metric that contains the included <text>
+
+Query (GET): /schools/metric/<metric>/includes/<text>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/name/includes/"car"
+
+[{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
+
+
+
+SYNOPSIS: Get the schools with an INT metric that is greater than <value>
+
+Query (GET): /schools/metric/<metric>/greater/<value>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/enrollment/greater/10000
+
+[{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
+
+
+
+SYNOPSIS: Get the schools with an INT metric that is less than <value>
+
+Query (GET): /schools/metric/<metric>/less/<value>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/enrollment/less/10000
+
+[{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
+
+
+
+SYNOPSIS: Get the schools with an FLOAT metric that is greater than <value>
+
+Query (GET): /schools/metric/<metric>/greater/<value>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/admission_rate/greater/.7
+
+[{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
+
+
+
+SYNOPSIS: Get the schools with an FLOAT metric that is less than <value>
+
+Query (GET): /schools/metric/<metric>/less/<value>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/admission_rate/less/.08
+
+[{'name': 'Harvard College', 'city': 'Cambridge... 'average_faculty_earnings':300,000}, {'name': 'Yale College', 'city': 'New Haven... 'average_faculty_earnings':250,000}...]
+
+
+
+SYNOPSIS: Get the schools with an BOOL metric that is equal to <value>
+
+Query (GET): /schools/metric/<metric>/equal/<value>
+
+RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools/metric/Engineering/equal/true
+
+[{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
+
+
+
+SYNOPSIS: Get the state with the corresponding serial number, typically only used internally(for display purposes)
+
+Query (GET): /state/id/<state>/
+
+RESPONSE: a dictionary, with each key describing a trait about the state 
+
+EXAMPLE: http://whatever.com/school/id/1/
+
+{'name': 'Texas', 'abbreviation': 'TX'}
+
+
+
+###The following are usability queries(listing available categories/metrics)### (MAY GET RID OF BC YOU CAN GET THIS INFO IN OTHER WAYS)
+
+
+SYNOPSIS: List all available categories, will be a hard coded list
+
+Query (GET): /categories/
+
+RESPONSE: a list of available categories 
+
+EXAMPLE: http://whatever.com/categories/
+
+['Basic Information', 'SAT,', 'ACT', 'ACADEMICS', 'STUDENT BODY', 'COST & EARNINGS']
+
+
+
+SYNOPSIS: List all available metrics in a given category
+
+Query (GET): /metrics/<category>
+
+RESPONSE: a dictionary containing all of the metrics and their types 
+
+EXAMPLE: http://whatever.com/metrics/SAT
+
+[{'SAT_average': 'FLOAT', SAT_cr_MID': 'FLOAT', 'SAT_cr_25_percentile': 'FLOAT', 'SAT_cr_75_percentile': 'FLOAT', 'SAT_math_MID': 'FLOAT', 'SAT_math_25_percentile': 'FLOAT', 'SAT_math_75_percentile': 'FLOAT'}]
+
+
