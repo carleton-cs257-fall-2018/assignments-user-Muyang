@@ -16,7 +16,7 @@ class SchoogleTests(unittest.TestCase):
 
 	def test_name(self):
 		test_url = BASE_URL + "schools?name=carleto&fields=name,city"
-		ata_from_server = urllib.request.urlopen(test_url).read()
+		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])	
@@ -24,7 +24,7 @@ class SchoogleTests(unittest.TestCase):
 
 	def test_admission(self):
 		test_url = BASE_URL + "schools?admission_rate=0.2..0.5&name=carleto&fields=name,city"
-		ata_from_server = urllib.request.urlopen(test_url).read()
+		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
@@ -32,7 +32,7 @@ class SchoogleTests(unittest.TestCase):
 
 	def test_major(self):
 		test_url = BASE_URL + "schools?history=true&name=carleto&fields=name,city"
-		ata_from_server = urllib.request.urlopen(test_url).read()
+		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
