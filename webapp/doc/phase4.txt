@@ -11,7 +11,7 @@ CREATE TABLE schools (
 	year TEXT,
 
 	#Basic Information:
-    id SERIAL,
+    id INT,
     name TEXT,
     city TEXT,
     state_id INT,
@@ -157,6 +157,16 @@ EXAMPLE: http://whatever.com/schools?id=1
 {'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}
 
 
+
+SYNOPSIS: Get the school with the corresponding id number, with the fields being searched for
+
+Query (GET): /schools?id=<school_id>&fields=metirc_1,metir_2,metirc_n&sort=name
+
+RESPONSE: a dictionary, with each key describing a trait about the school 
+
+EXAMPLE: http://whatever.com/schools?id=1&fields=admission_rate,name&sort=name
+
+{'name': 'Carleton College', 'admission rate': 0.22}
 
 SYNOPSIS: Get the schools with a TEXT metric that contains the included <text>
 
