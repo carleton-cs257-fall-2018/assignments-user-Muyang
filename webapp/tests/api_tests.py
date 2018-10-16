@@ -28,7 +28,31 @@ class SchoogleTests(unittest.TestCase):
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
+	def test_admission_2(self):
+		test_url = BASE_URL + "schools?admission_rate=0.8..1.0&name=carleto&fields=name,city"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{}])	
 
+	def test_highest_degree(self):
+		test_url = BASE_URL + "schools?name=carleto&fields=name,city,highest_degree"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield','highest degree': "Bachelor's Degree"}])
+	def test_highest_degree_2(self):
+		test_url = BASE_URL + "schools?name=carleto&highest_degree=4&fields=name,city"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
+	def test_highest_degree_3(self):
+		test_url = BASE_URL + "schools?name=carleto&highest_degree=1&fields=name,city"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{}])
 
 	def test_major(self):
 		test_url = BASE_URL + "schools?history=true&name=carleto&fields=name,city"
@@ -48,7 +72,7 @@ class SchoogleTests(unittest.TestCase):
 		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
-		self.assertEqual(fetched_list, [])
+		self.assertEqual(fetched_list, [{}])
 
 
 if __name__ == '__main__':
