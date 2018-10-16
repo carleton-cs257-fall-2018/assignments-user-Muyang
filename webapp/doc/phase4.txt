@@ -7,11 +7,14 @@ For each table in database design, the SQL CREATE statement that is used to crea
 		-The ones in our mockup design
 		-Plz tell me the attributes you'd like to include in school page
 CREATE TABLE schools (
+	#Time
+	year TEXT,
+
 	#Basic Information:
     id SERIAL,
     name TEXT,
     city TEXT,
-    state INT,
+    state_id INT,
     school_url TEXT,
     highest_degree TEXT,
     locale TEXT,
@@ -132,27 +135,24 @@ CREATE TABLE schools (
 
 
 CREATE TABLE state (
-	id SERIAL,
-	name TEXT,
-	abbreviation TEXT,
+	state_id INT,
+	state_name TEXT,
+	state_abbreviation TEXT,
 );
 
 
 ########################## C ##########################
 #Because we have so many metrics, I was thinking we could organize these queries by HOW they are retrieved instead of WHAT is retrieved
 
-#i.e they could be /schools/metric/<metric_name>/requirement/<requirement_detail>
-#Ex: /schools/metric/admission_rate/greater/.2
-# or /schools/metric/state/in/<requirement_detail>
+Schools:(default sorted by name)
 
+SYNOPSIS: Get the school with the corresponding id number
 
-SYNOPSIS: Get the school with the corresponding serial number
-
-Query (GET): /schools/id/<school_id>/
+Query (GET): /schools?id=<school_id>&sort=name
 
 RESPONSE: a dictionary, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/school/id/1/
+EXAMPLE: http://whatever.com/schools?id=1
 
 {'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}
 
@@ -160,19 +160,19 @@ EXAMPLE: http://whatever.com/school/id/1/
 
 SYNOPSIS: Get the schools with a TEXT metric that contains the included <text>
 
-Query (GET): /schools/metric/<metric>/includes/<text>
+Query (GET): /schools?metric=<text>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools/metric/name/includes/"car"
+EXAMPLE: http://whatever.com/schools?name="car"
 
-[{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
+[{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon University', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
 
 
-SYNOPSIS: Get the schools with an INT metric that is greater than <value>
+SYNOPSIS: Get the schools with an INT metric that is between <value_small> and <value_large>
 
-Query (GET): /schools/metric/<metric>/greater/<value>
+Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
@@ -229,42 +229,27 @@ EXAMPLE: http://whatever.com/schools/metric/Engineering/equal/true
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
 
+#State:
 
-SYNOPSIS: Get the state with the corresponding serial number, typically only used internally(for display purposes)
+SYNOPSIS: Get the state with the corresponding id number, typically only used internally(for display purposes)
 
-Query (GET): /state/id/<state>/
+Query (GET): /state?id=<state_id>
 
 RESPONSE: a dictionary, with each key describing a trait about the state 
 
-EXAMPLE: http://whatever.com/school/id/1/
+EXAMPLE: http://whatever.com/state?id=1
 
 {'name': 'Texas', 'abbreviation': 'TX'}
 
+SYNOPSIS: Get the state with the corresponding name/abbreviation, typically only used internally(for display purposes)
 
+Query (GET): /state?name=<state_name>
 
-###The following are usability queries(listing available categories/metrics)### (MAY GET RID OF BC YOU CAN GET THIS INFO IN OTHER WAYS)
+RESPONSE: a dictionary, with each key describing a trait about the state 
 
+EXAMPLE: http://whatever.com/state?name=TX
 
-SYNOPSIS: List all available categories, will be a hard coded list
+{'name': 'Texas', 'abbreviation': 'TX'}
 
-Query (GET): /categories/
-
-RESPONSE: a list of available categories 
-
-EXAMPLE: http://whatever.com/categories/
-
-['Basic Information', 'SAT,', 'ACT', 'ACADEMICS', 'STUDENT BODY', 'COST & EARNINGS']
-
-
-
-SYNOPSIS: List all available metrics in a given category
-
-Query (GET): /metrics/<category>
-
-RESPONSE: a dictionary containing all of the metrics and their types 
-
-EXAMPLE: http://whatever.com/metrics/SAT
-
-[{'SAT_average': 'FLOAT', SAT_cr_MID': 'FLOAT', 'SAT_cr_25_percentile': 'FLOAT', 'SAT_cr_75_percentile': 'FLOAT', 'SAT_math_MID': 'FLOAT', 'SAT_math_25_percentile': 'FLOAT', 'SAT_math_75_percentile': 'FLOAT'}]
 
 
