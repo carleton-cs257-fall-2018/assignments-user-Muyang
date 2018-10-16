@@ -147,7 +147,7 @@ Query (GET): /schools?id=<school_id>&sort=name
 
 RESPONSE: a dictionary, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?id=1
+EXAMPLE: http://whatever.com/schools?id=1&sort=name
 
 {'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}
 
@@ -171,7 +171,7 @@ Query (GET): /schools?metric=<text>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?name="car"
+EXAMPLE: http://whatever.com/schools?name="car"&sort=name
 
 [{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon University', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
@@ -183,7 +183,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?enrollment=10000..MAX
+EXAMPLE: http://whatever.com/schools?enrollment=10000..MAX&sort=name
 
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
@@ -196,7 +196,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?enrollment=0..10000
+EXAMPLE: http://whatever.com/schools?enrollment=0..10000&sort=name
 
 [{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
@@ -209,7 +209,7 @@ Query (GET): /schools?metric=<value1>..<value2>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?admission_rate=0.7..MAX
+EXAMPLE: http://whatever.com/schools?admission_rate=0.7..MAX&sort=name
 
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
@@ -221,7 +221,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?admission_rate=0.0..0.08
+EXAMPLE: http://whatever.com/schools?admission_rate=0.0..0.08&sort=name
 
 [{'name': 'Harvard College', 'city': 'Cambridge... 'average_faculty_earnings':300,000}, {'name': 'Yale College', 'city': 'New Haven... 'average_faculty_earnings':250,000}...]
 
@@ -234,7 +234,7 @@ Query (GET): /schools?metric=<value>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?Engineering=true
+EXAMPLE: http://whatever.com/schools?Engineering=true&sort=name
 
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
