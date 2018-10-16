@@ -3,7 +3,7 @@ For each table in database design, the SQL CREATE statement that is used to crea
 
 
 CREATE TABLE schools (
-	#Time
+	#Time (of data collection):
 	year TEXT,
 
 	#Basic Information:
@@ -142,6 +142,7 @@ CREATE TABLE state (
 
 Schools:(default sorted by name)
 
+
 SYNOPSIS: Get the school with the corresponding id number
 
 Query (GET): /schools?id=<school_id>&sort=name
@@ -156,13 +157,15 @@ EXAMPLE: http://whatever.com/schools?id=1
 
 SYNOPSIS: Get the school with the corresponding id number, with the fields being searched for
 
-Query (GET): /schools?id=<school_id>&fields=metirc_1,metir_2,metirc_n&sort=name
+Query (GET): /schools?id=<school_id>&fields=metric_1,metric_2,...metric_n&sort=name
 
 RESPONSE: a dictionary, with each key describing a trait about the school 
 
 EXAMPLE: http://whatever.com/schools?id=1&fields=admission_rate,name&sort=name
 
 {'name': 'Carleton College', 'admission rate': 0.22}
+
+
 
 SYNOPSIS: Get the schools with a TEXT metric that contains the included <text>
 
@@ -188,21 +191,9 @@ EXAMPLE: http://whatever.com/schools/metric/enrollment/greater/10000
 
 
 
-SYNOPSIS: Get the schools with an INT metric that is less than <value>
+SYNOPSIS: Get the schools with an FLOAT metric that is between <value_small> and <value_large>
 
-Query (GET): /schools/metric/<metric>/less/<value>
-
-RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
-
-EXAMPLE: http://whatever.com/schools/metric/enrollment/less/10000
-
-[{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
-
-
-
-SYNOPSIS: Get the schools with an FLOAT metric that is greater than <value>
-
-Query (GET): /schools/metric/<metric>/greater/<value>
+Query (GET): /schools?metric=<metric>..<value>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
@@ -212,27 +203,17 @@ EXAMPLE: http://whatever.com/schools/metric/admission_rate/greater/.7
 
 
 
-SYNOPSIS: Get the schools with an FLOAT metric that is less than <value>
-
-Query (GET): /schools/metric/<metric>/less/<value>
-
-RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
-
-EXAMPLE: http://whatever.com/schools/metric/admission_rate/less/.08
-
-[{'name': 'Harvard College', 'city': 'Cambridge... 'average_faculty_earnings':300,000}, {'name': 'Yale College', 'city': 'New Haven... 'average_faculty_earnings':250,000}...]
-
-
-
 SYNOPSIS: Get the schools with an BOOL metric that is equal to <value>
 
-Query (GET): /schools/metric/<metric>/equal/<value>
+Query (GET): /schools?metric=true
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
 EXAMPLE: http://whatever.com/schools/metric/Engineering/equal/true
 
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
+
+
 
 
 #State:
@@ -247,6 +228,8 @@ EXAMPLE: http://whatever.com/state?id=1
 
 {'name': 'Texas', 'abbreviation': 'TX'}
 
+
+
 SYNOPSIS: Get the state with the corresponding name/abbreviation, typically only used internally(for display purposes)
 
 Query (GET): /state?name=<state_name>
@@ -256,6 +239,3 @@ RESPONSE: a dictionary, with each key describing a trait about the state
 EXAMPLE: http://whatever.com/state?name=TX
 
 {'name': 'Texas', 'abbreviation': 'TX'}
-
-
-
