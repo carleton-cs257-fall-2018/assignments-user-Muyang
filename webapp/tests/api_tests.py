@@ -21,7 +21,6 @@ class SchoogleTests(unittest.TestCase):
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])	
 
-
 	def test_admission(self):
 		test_url = BASE_URL + "schools?admission_rate=0.2..0.5&name=carleto&fields=name,city"
 		data_from_server = urllib.request.urlopen(test_url).read()
@@ -43,6 +42,19 @@ class SchoogleTests(unittest.TestCase):
 		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
 	def test_school_by_SAT(self):	
 		test_url = BASE_URL + "schools?SAT_average=1400..1500&name=carleto&fields=name,city"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
+
+	def test_ownership(self):
+		test_url = BASE_URL + "schools?name=carleto&fields=name,city,ownership"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield', 'ownership': 'private'}])
+	def test_ownership_2(self):
+		test_url = BASE_URL + "schools?ownership=private&name=carleto&fields=name,city"
 		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
@@ -89,6 +101,12 @@ class SchoogleTests(unittest.TestCase):
 		self.assertRaises(TypeError, school_searched_by_id, 1.5)
 	def test_school_major_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_major, 1)
+	def test_ownership_invalid(self):
+		self.assertRaises(TypeError, school_searched_by_ownership, -1)
+		self.assertRaises(ValueError, school_searched_by_ownership, 'privapublic')
+	def test_score_invalid(self):
+		self.assertRaises(ValueError, school_searched_by_SAT_MID, 3000)
+		self.assertRaises(TypeError, school_searched_by_ACT_cumulative_MID, 'superhigh')
 
 	def test_state_id_invalid(self):
 		self.assertRaises(ValueError, state_searched_by_id, -1)
