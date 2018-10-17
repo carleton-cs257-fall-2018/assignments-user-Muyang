@@ -101,29 +101,24 @@ class SchoogleTests(unittest.TestCase):
 	#There should be errors
 	def test_school_name_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_name, 3.1415926)
-
 	def test_school_id_invalid(self):
 		self.assertRaises(ValueError, school_searched_by_id, -1)
 		self.assertRaises(TypeError, school_searched_by_id, 1.5)
-
 	def test_school_major_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_major, 1)
 	def test_ownership_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_ownership, -1)
-		self.assertRaises(ValueError, school_searched_by_ownership, 'privapublic')
+		self.assertRaises(ValueError, school_searched_by_ownership, 'not private nor public')
 	def test_score_invalid(self):
 		self.assertRaises(ValueError, school_searched_by_SAT_MID, 3000)
-		self.assertRaises(TypeError, school_searched_by_ACT_cumulative_MID, 'superhigh')
-
+		self.assertRaises(ValueError, school_searched_by_SAT_MID, -1500)
+		self.assertRaises(TypeError, school_searched_by_ACT_cumulative_MID, 'not int')
 	def test_school_faculty_earning_invalid(self):
 		self.assertRaises(ValueError, school_searched_by_faculty_salary, -1)
 		self.assertRaises(TypeError, school_searched_by_faculty_salary, "not int")
-
 	def test_mean_earning_after_graduation_invalid(self):
-		self.assertRaises(ValueError, school_searched_by_mean_earning_after_graduation, -1)
-		self.assertRaises(TypeError, school_searched_by_mean_earning_after_graduation, "not int")
-
-
+		self.assertRaises(ValueError, school_searched_by_mean_earning_10_years_after_graduation, -1)
+		self.assertRaises(TypeError, school_searched_by_mean_earning_10_years_after_graduation, "not int")
 	def test_state_id_invalid(self):
 		self.assertRaises(ValueError, state_searched_by_id, -1)
 		self.assertRaises(TypeError, state_searched_by_id, 1.5)
@@ -148,7 +143,13 @@ class SchoogleTests(unittest.TestCase):
 		data_from_server = urllib.request.urlopen(test_url).read()
 		string_from_server = data_from_server.decode('utf-8')
 		fetched_list = json.loads(string_from_server)
-		self.assertEqual(fetched_list, [{}])		
+		self.assertEqual(fetched_list, [{}])	
+	def test_MN_college_no_result(self):
+		test_url = BASE_URL + "schools?state=MN&name=notcarleton college"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{}])	
 
 
 if __name__ == '__main__':
