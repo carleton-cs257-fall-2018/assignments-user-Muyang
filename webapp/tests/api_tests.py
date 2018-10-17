@@ -84,15 +84,27 @@ class SchoogleTests(unittest.TestCase):
 	#There should be errors
 	def test_school_name_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_name, 3.1415926)
+
 	def test_school_id_invalid(self):
 		self.assertRaises(ValueError, school_searched_by_id, -1)
 		self.assertRaises(TypeError, school_searched_by_id, 1.5)
+
 	def test_school_major_invalid(self):
 		self.assertRaises(TypeError, school_searched_by_major, 1)
+
+	def test_school_faculty_earning_invalid(self):
+		self.assertRaises(ValueError, school_searched_by_faculty_salary, -1)
+		self.assertRaises(TypeError, school_searched_by_faculty_salary, "not int")
+
+	def test_mean_earning_after_graduation_invalid(self):
+		self.assertRaises(ValueError, school_searched_by_mean_earning_after_graduation, -1)
+		self.assertRaises(TypeError, school_searched_by_mean_earning_after_graduation, "not int")
+
 
 	def test_state_id_invalid(self):
 		self.assertRaises(ValueError, state_searched_by_id, -1)
 		self.assertRaises(TypeError, state_searched_by_id, 1.5)
+
 
 
 	#There should be no results
