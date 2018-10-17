@@ -83,6 +83,13 @@ class SchoogleTests(unittest.TestCase):
 		fetched_list = json.loads(string_from_server)
 		self.assertEqual(fetched_list, [{}])
 
+	def test_percent_Asian(self):
+		test_url = BASE_URL + "schools?name=carleto&percent_Asian=0.01..0.2&fields=name,city"
+		data_from_server = urllib.request.urlopen(test_url).read()
+		string_from_server = data_from_server.decode('utf-8')
+		fetched_list = json.loads(string_from_server)
+		self.assertEqual(fetched_list, [{'name':'Carleton College', 'city': 'Northfield'}])
+
 	def test_school_searched_by_major(self):
 		test_url = BASE_URL + "schools?History=true&Mathematics_and_Statistics=true&name=carleto&fields=name,city"
 		data_from_server = urllib.request.urlopen(test_url).read()
