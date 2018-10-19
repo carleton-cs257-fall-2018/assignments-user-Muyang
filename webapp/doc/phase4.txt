@@ -3,9 +3,6 @@ For each table in database design, the SQL CREATE statement that is used to crea
 
 
 CREATE TABLE schools (
-	#Time (of data collection):
-	year TEXT,
-
 	#Basic Information:
 	id INT,
 	name TEXT,
@@ -14,8 +11,13 @@ CREATE TABLE schools (
 	school_url TEXT,
 	highest_degree TEXT,
 	locale TEXT,
-	admission_rate FLOAT,
 	ownership TEXT
+);
+
+CREATE TABLE school_stats (
+	school_id INT,
+	year INT,
+	admission_rate FLOAT,
 
 	#SAT:
 	SAT_average FLOAT,
