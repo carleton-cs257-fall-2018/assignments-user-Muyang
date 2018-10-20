@@ -71,7 +71,7 @@ state_match = {
 }
 
 #Convert highest degree/locale/ownership to English text
-def convert_int_text(metric, value):
+def convert_int_to_text(metric, value):
 	if metric == 'highest_degree':
 		if value == 0:
 			return 'Non-degree-granting'
@@ -142,14 +142,14 @@ def load_school(csv_file_name):
 	for row in reader:
 		assert len(row) == 1847
 		school = {
-		'id': row[0],
-		'name': row[3],
+		'school_id': row[0],
+		'school_name': row[3],
 		'city': row[4],
 		'state_id': row[17],
 		'school_url': row[8],
-		'highest_degree': convert_int_text('higest_degree', row[15]),
-		'locale':  convert_int_text('locale', row[19]),
-		'ownership': convert_int_text('ownership', row[16])
+		'highest_degree': convert_int_to_text('higest_degree', row[15]),
+		'locale':  convert_int_to_text('locale', row[19]),
+		'ownership': convert_int_to_text('ownership', row[16])
 		}
 		schools.append(school)
 	csv_file.close()
@@ -164,72 +164,75 @@ def load_school_stats(csv_file_name):
 	for row in reader:
 		assert len(row) == 1847
 		stats = {
-		'school_id' INT,
-		'year' INT,
-		'admission_rate' FLOAT,
+		'school_id': row[0],
+		'year': 2016,
+		'admission_rate': row[37],
 
 		#SAT:
-		'SAT_average' FLOAT,
-		'SAT_cr_MID' FLOAT
-		'SAT_cr_25_percentile' FLOAT,
-		'SAT_cr_75_percentile' FLOAT,
-		'SAT_math_MID' FLOAT,
-		'SAT_math_25_percentile' FLOAT,
-		'SAT_math_75_percentile' FLOAT,
+		'SAT_average': row[60],
+		'SAT_cr_MID': row[45],
+		'SAT_cr_25_percentile': row[39],
+		'SAT_cr_75_percentile': row[40],
+		'SAT_math_MID': row[46],
+		'SAT_math_25_percentile': row[41],
+		'SAT_math_75_percentile': row[42],
+		'SAT_wr_MID': row[47],
+		'SAT_wr_25_percentile': row[43],
+		'SAT_wr_75_percentile': row[44],
 
 		#ACT:
-		'ACT_cumulative_MID' FLOAT,
-		'ACT_cumulative_25_percentile' FLOAT,
-		'ACT_cumulative_75_percentile' FLOAT,
-		'ACT_eng_MID' FLOAT,
-		'ACT_eng_25_percentile' FLOAT,
-		'ACT_eng_75_percentile' FLOAT,
-		'ACT_math_MID' FLOAT,
-		'ACT_math_25_percentile' FLOAT,
-		'ACT_math_75_percentile' FLOAT,
-		'ACT_writing_MID' FLOAT,
-		'ACT_writing_25_percentile' FLOAT,
-		'ACT_writing_75_percentile' FLOAT,
+		'ACT_cumulative_MID': row[56],
+		'ACT_cumulative_25_percentile': row[48],
+		'ACT_cumulative_75_percentile': row[49],
+		'ACT_eng_MID': row[57],
+		'ACT_eng_25_percentile': row[50],
+		'ACT_eng_75_percentile': row[51],
+		'ACT_math_MID': row[58],
+		'ACT_math_25_percentile': row[52],
+		'ACT_math_75_percentile': row[53],
+		'ACT_writing_MID': row[59],
+		'ACT_writing_25_percentile': row[54],
+		'ACT_writing_75_percentile': row[55],
 
 		#Academics:
-		'Agriculture' BOOLEAN,
-		'Natural_Resource' BOOLEAN,
-		'Architecture' BOOLEAN,
-		'Area_Ethnic_Cultural_Gender_Group_Studies' BOOLEAN,
-		'Communication_Journalism' BOOLEAN,
-		'Communication_Technologies' BOOLEAN,
-		'Computer_Information_Sciences' BOOLEAN,
-		'Personal_Culinary_Services' BOOLEAN,
-		'Education' BOOLEAN,
-		'Engineering' BOOLEAN,
-		'Engineering_Technologies' BOOLEAN
-		'Foreign_Languages_Literatures_Linguistics' BOOLEAN,
-		'Human_Sciences' BOOLEAN,
-		'Legal_Professions_Studies' BOOLEAN,
-		'English_Language_And_Literature' BOOLEAN,
-		'General_Studies_And_Humanities' BOOLEAN,
-		'Library_Science' BOOLEAN,
-		'Biological_and_Biomedical_Sciences' BOOLEAN,
-		'Mathematics_and_Statistics' BOOLEAN,
-		'Military_Technologies_and_Applied_Sciences' BOOLEAN,
-		'Interdiciplinary' Studies BOOLEAN,
-		'Parks_Recreation_Leisure_Fitness_Studies' BOOLEAN,
-		'Philosophy_and_Religious_Studies' BOOLEAN,
-		'Theology_and_Religious_Vocations' BOOLEAN
-		'Physical_Sciences' BOOLEAN,
-		'Science_Technologies' BOOLEAN,
-		'Psychology' BOOLEAN,
-		'Homeland_Security_Law_Enforcement_Firefighting' BOOLEAN,
-		'Public_Administration_and_Social_Service' BOOLEAN,
-		'Social_Sciences' BOOLEAN,
-		'Construction_Trade' BOOLEAN,
-		'Mechanic_and_Repair_Technology' BOOLEAN,
-		'Precision_Production' BOOLEAN,
-		'Transportation_and_Materials_Moving' BOOLEAN,
-		'Visual_and_Performing_Arts' BOOLEAN,
-		'Health_Professions' BOOLEAN,
-		'Business_Management_Marketing' BOOLEAN,
-		'History' BOOLEAN,
+		'Agriculture': row[],
+		'Natural_Resource': row[],
+		'Architecture': row[],
+		'Area_Ethnic_Cultural_Gender_Group_Studies': row[],
+		'Communication_Journalism': row[],
+		'Communication_Technologies': row[],
+		'Computer_Information_Sciences': row[],
+		'Personal_Culinary_Services': row[],
+		'Education': row[],
+		'Engineering': row[],
+		'Engineering_Technologies': row[]
+		'Foreign_Languages_Literatures_Linguistics': row[],
+		'Human_Sciences': row[],
+		'Legal_Professions_Studies': row[],
+		'English_Language_And_Literature': row[],
+		'General_Studies_And_Humanities': row[],
+		'Library_Science': row[],
+		'Biological_and_Biomedical_Sciences': row[],
+		'Mathematics_and_Statistics': row[],
+		'Military_Technologies_and_Applied_Sciences': row[],
+		'Interdiciplinary_Studies': row[],
+		'Parks_Recreation_Leisure_Fitness_Studies': row[],
+		'Philosophy_and_Religious_Studies': row[],
+		'Theology_and_Religious_Vocations': row[]
+		'Physical_Sciences': row[],
+		'Science_Technologies': row[],
+		'Psychology': row[],
+		'Homeland_Security_Law_Enforcement_Firefighting': row[],
+		'Public_Administration_and_Social_Service': row[],
+		'Social_Sciences': row[],
+		'Construction_Trade': row[],
+		'Mechanic_and_Repair_Technology': row[],
+		'Precision_Production': row[],
+		'Transportation_and_Materials_Moving': row[],
+		'Visual_and_Performing_Arts': row[],
+		'Health_Professions': row[],
+		'Business_Management_Marketing': row[],
+		'History': row[],
 
 		#Student Body: (Didn't find information about age)
 		'enrollment' INT
