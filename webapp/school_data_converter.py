@@ -241,51 +241,23 @@ def load_school_stats(csv_file_name):
 		'History': _convert_int_to_boolean(row[289]),
 
 		#Student Body: (Didn't find information about age)
-		'enrollment' INT
-		'percent_white' FLOAT,
-		'percent_black' FLOAT,
-		'percent_Hispanic' FLOAT,
-		'percent_Asian' FLOAT,
-		'percent_American_Indian' FLOAT,
-		'percent_Native_Hawaiian' FLOAT,
-		'percent_nonresident_aliens' FLOAT
-		'percent_aged_25'+ FLOAT,
+		'enrollment': row[290],
+		'percent_white': row[292],
+		'percent_black': row[293],
+		'percent_Hispanic': row[294],
+		'percent_Asian': row[295],
+		'percent_American_Indian': row[296],
+		'percent_Native_Hawaiian': row[297],
+		'percent_nonresident_aliens': row[299],
 
 		#Cost & Earnings:
-		'average_net_price_public_institutions' INT,
-		'average_net_price_private_institutions' INT,
+		'average_net_price_public_institutions': row[316],
+		'average_net_price_private_institutions': row[317],
 
-		'percent_student_of_Pell_Grant' FLOAT,
-		'percent_student_of_Federal_Loan' FLOAT,
-
-		'median_earning_6_years_after_entry' INT,
-		'median_earning_8_years_after_entry' INT,
-		'median_earning_10_years_after_entry' INT,
-
-		'mean_earning_6_years_after_entry' INT,
-		'mean_earning_8_years_after_entry' INT,
-		'mean_earning_10_years_after_entry' INT,
-		'standard_deviation_earnings_6_years_after_entry' FLOAT,
-		'standard_deviation_earnings_8_years_after_entry' FLOAT,
-		'standard_deviation_earnings_10_years_after_entry' FLOAT,
-
-		'10th_percentile_earnings_6_years_after_entry' INT,
-		'25th_percentile_earnings_6_years_after_entry' INT,
-		'75th_percentile_earnings_6_years_after_entry' INT,
-		'90th_percentile_earnings_6_years_after_entry' INT,
-
-		'10th_percentile_earnings_8_years_after_entry' INT,
-		'25th_percentile_earnings_8_years_after_entry' INT,
-		'75th_percentile_earnings_8_years_after_entry' INT,
-		'90th_percentile_earnings_8_years_after_entry' INT,
-
-		'10th_percentile_earnings_10_years_after_entry' INT,
-		'25th_percentile_earnings_10_years_after_entry' INT,
-		'75th_percentile_earnings_10_years_after_entry' INT,
-		'90th_percentile_earnings_10_years_after_entry' INT,
-
-		'average_faculty_earnings' INT
+		'percent_student_of_Pell_Grant': row[385],
+		'percent_student_of_Federal_Loan': row[437]
 		}
+		
 		schools_stats.append(stats)
 	csv_file.close()
 	return schools_stats
