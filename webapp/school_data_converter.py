@@ -142,14 +142,14 @@ def load_school(csv_file_name):
 	#column16(HIGHDEG) is INT highest_degree, CONVERTE TO TEXT!!!
 	#column20(LOCALE) is INT locale, CONVERTE TO TEXT!!!
 	#column17(CONTROL) is INT ownership, CONVERTE TO TEXT!!!
-	csv_file = open(csv_file_name)
+	csv_file = open(csv_file_name, encoding='utf-8-sig')
 	reader = csv.reader(csv_file)
 
 	schools = []
 	school = {}
 	for row in reader:
 		school = {
-		'school_id': row[0],
+		'school_id': int(row[0]),
 		'school_name': row[3],
 		'city': row[4],
 		'state_id': row[17],
