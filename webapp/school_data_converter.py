@@ -70,14 +70,14 @@ state_match = {
 'ST_FIPS': 'State Name'
 }
 #Convert the major offered in INT to BOOLEAN value
-def convert_int_to_boolean(value):
+def _convert_int_to_boolean(value):
 	if value == 0: #Program not offered
 		return False
 	else: #Program offered
 		return True
 
 #Convert highest degree/locale/ownership to English text
-def convert_int_to_text(metric, value):
+def _convert_int_to_text(metric, value):
 	if metric == 'highest_degree':
 		if value == 0:
 			return 'Non-degree-granting'
@@ -153,9 +153,9 @@ def load_school(csv_file_name):
 		'city': row[4],
 		'state_id': row[17],
 		'school_url': row[8],
-		'highest_degree': convert_int_to_text('higest_degree', row[15]),
-		'locale':  convert_int_to_text('locale', row[19]),
-		'ownership': convert_int_to_text('ownership', row[16])
+		'highest_degree': _convert_int_to_text('higest_degree', row[15]),
+		'locale':  _convert_int_to_text('locale', row[19]),
+		'ownership': _convert_int_to_text('ownership', row[16])
 		}
 		schools.append(school)
 	csv_file.close()
@@ -201,44 +201,44 @@ def load_school_stats(csv_file_name):
 		'ACT_writing_75_percentile': row[55],
 
 		#Academics:
-		'Agriculture': convert_int_to_boolean(row[104]),
-		'Natural_Resource': convert_int_to_boolean(row[109]),
-		'Architecture': convert_int_to_boolean(row[114]),
-		'Area_Ethnic_Cultural_Gender_Group_Studies': convert_int_to_boolean(row[119]),
-		'Communication_Journalism': convert_int_to_boolean(row[124]),
-		'Communication_Technologies': convert_int_to_boolean(row[129]),
-		'Computer_Information_Sciences': convert_int_to_boolean(row[134]),
-		'Personal_Culinary_Services': convert_int_to_boolean(row[139]),
-		'Education': convert_int_to_boolean(row[144]),
-		'Engineering': convert_int_to_boolean(row[149]),
-		'Engineering_Technologies': convert_int_to_boolean(row[154])
-		'Foreign_Languages_Literatures_Linguistics': convert_int_to_boolean(row[159]),
-		'Human_Sciences': convert_int_to_boolean(row[164]),
-		'Legal_Professions_Studies': convert_int_to_boolean(row[169]),
-		'English_Language_And_Literature': convert_int_to_boolean(row[174]),
-		'General_Studies_And_Humanities': convert_int_to_boolean(row[179]),
-		'Library_Science': convert_int_to_boolean(row[184]),
-		'Biological_and_Biomedical_Sciences': convert_int_to_boolean(row[189]),
-		'Mathematics_and_Statistics': convert_int_to_boolean(row[194]),
-		'Military_Technologies_and_Applied_Sciences': convert_int_to_boolean(row[199]),
-		'Interdiciplinary_Studies': convert_int_to_boolean(row[204]),
-		'Parks_Recreation_Leisure_Fitness_Studies': convert_int_to_boolean(row[209]),
-		'Philosophy_and_Religious_Studies': convert_int_to_boolean(row[214]),
-		'Theology_and_Religious_Vocations': convert_int_to_boolean(row[219])
-		'Physical_Sciences': convert_int_to_boolean(row[224]),
-		'Science_Technologies': convert_int_to_boolean(row[229]),
-		'Psychology': convert_int_to_boolean(row[234]),
-		'Homeland_Security_Law_Enforcement_Firefighting': convert_int_to_boolean(row[239]),
-		'Public_Administration_and_Social_Service': convert_int_to_boolean(row[244]),
-		'Social_Sciences': convert_int_to_boolean(row[249]),
-		'Construction_Trade': convert_int_to_boolean(row[254]),
-		'Mechanic_and_Repair_Technology': convert_int_to_boolean(row[259]),
-		'Precision_Production': convert_int_to_boolean(row[264]),
-		'Transportation_and_Materials_Moving': convert_int_to_boolean(row[269]),
-		'Visual_and_Performing_Arts': convert_int_to_boolean(row[274]),
-		'Health_Professions': convert_int_to_boolean(row[279]),
-		'Business_Management_Marketing': convert_int_to_boolean(row[284]),
-		'History': convert_int_to_boolean(row[289]),
+		'Agriculture': _convert_int_to_boolean(row[104]),
+		'Natural_Resource': _convert_int_to_boolean(row[109]),
+		'Architecture': _convert_int_to_boolean(row[114]),
+		'Area_Ethnic_Cultural_Gender_Group_Studies': _convert_int_to_boolean(row[119]),
+		'Communication_Journalism': _convert_int_to_boolean(row[124]),
+		'Communication_Technologies': _convert_int_to_boolean(row[129]),
+		'Computer_Information_Sciences': _convert_int_to_boolean(row[134]),
+		'Personal_Culinary_Services': _convert_int_to_boolean(row[139]),
+		'Education': _convert_int_to_boolean(row[144]),
+		'Engineering': _convert_int_to_boolean(row[149]),
+		'Engineering_Technologies': _convert_int_to_boolean(row[154])
+		'Foreign_Languages_Literatures_Linguistics': _convert_int_to_boolean(row[159]),
+		'Human_Sciences': _convert_int_to_boolean(row[164]),
+		'Legal_Professions_Studies': _convert_int_to_boolean(row[169]),
+		'English_Language_And_Literature': _convert_int_to_boolean(row[174]),
+		'General_Studies_And_Humanities': _convert_int_to_boolean(row[179]),
+		'Library_Science': _convert_int_to_boolean(row[184]),
+		'Biological_and_Biomedical_Sciences': _convert_int_to_boolean(row[189]),
+		'Mathematics_and_Statistics': _convert_int_to_boolean(row[194]),
+		'Military_Technologies_and_Applied_Sciences': _convert_int_to_boolean(row[199]),
+		'Interdiciplinary_Studies': _convert_int_to_boolean(row[204]),
+		'Parks_Recreation_Leisure_Fitness_Studies': _convert_int_to_boolean(row[209]),
+		'Philosophy_and_Religious_Studies': _convert_int_to_boolean(row[214]),
+		'Theology_and_Religious_Vocations': _convert_int_to_boolean(row[219])
+		'Physical_Sciences': _convert_int_to_boolean(row[224]),
+		'Science_Technologies': _convert_int_to_boolean(row[229]),
+		'Psychology': _convert_int_to_boolean(row[234]),
+		'Homeland_Security_Law_Enforcement_Firefighting': _convert_int_to_boolean(row[239]),
+		'Public_Administration_and_Social_Service': _convert_int_to_boolean(row[244]),
+		'Social_Sciences': _convert_int_to_boolean(row[249]),
+		'Construction_Trade': _convert_int_to_boolean(row[254]),
+		'Mechanic_and_Repair_Technology': _convert_int_to_boolean(row[259]),
+		'Precision_Production': _convert_int_to_boolean(row[264]),
+		'Transportation_and_Materials_Moving': _convert_int_to_boolean(row[269]),
+		'Visual_and_Performing_Arts': _convert_int_to_boolean(row[274]),
+		'Health_Professions': _convert_int_to_boolean(row[279]),
+		'Business_Management_Marketing': _convert_int_to_boolean(row[284]),
+		'History': _convert_int_to_boolean(row[289]),
 
 		#Student Body: (Didn't find information about age)
 		'enrollment' INT
