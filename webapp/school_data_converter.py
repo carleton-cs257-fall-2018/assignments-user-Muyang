@@ -148,7 +148,6 @@ def load_school(csv_file_name):
 	schools = []
 	school = {}
 	for row in reader:
-		assert len(row) == 1847
 		school = {
 		'school_id': row[0],
 		'school_name': row[3],
