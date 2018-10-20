@@ -6,7 +6,7 @@ import re
 import csv
 
 
-
+#Assigned state ID matched to state name
 state_match = {
 '1': 'Alabama',
 '2': 'Alaska',
@@ -70,7 +70,7 @@ state_match = {
 'ST_FIPS': 'State Name'
 }
 
-
+#Convert highest degree/locale/ownership to English text
 def convert_int_text(metric, value):
 	if metric == 'highest_degree':
 		if value == 0:
