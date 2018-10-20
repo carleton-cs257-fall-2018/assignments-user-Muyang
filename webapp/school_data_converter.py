@@ -156,7 +156,130 @@ def load_school(csv_file_name):
 	return schools
 
 def load_school_stats(csv_file_name):
-	pass
+	csv_file = open(csv_file_name)
+	reader = csv.reader(csv_file)
+
+	schools_stats = []
+	stats = {}
+	for row in reader:
+		assert len(row) == 1847
+		stats = {
+		'school_id' INT,
+		'year' INT,
+		'admission_rate' FLOAT,
+
+		#SAT:
+		'SAT_average' FLOAT,
+		'SAT_cr_MID' FLOAT
+		'SAT_cr_25_percentile' FLOAT,
+		'SAT_cr_75_percentile' FLOAT,
+		'SAT_math_MID' FLOAT,
+		'SAT_math_25_percentile' FLOAT,
+		'SAT_math_75_percentile' FLOAT,
+
+		#ACT:
+		'ACT_cumulative_MID' FLOAT,
+		'ACT_cumulative_25_percentile' FLOAT,
+		'ACT_cumulative_75_percentile' FLOAT,
+		'ACT_eng_MID' FLOAT,
+		'ACT_eng_25_percentile' FLOAT,
+		'ACT_eng_75_percentile' FLOAT,
+		'ACT_math_MID' FLOAT,
+		'ACT_math_25_percentile' FLOAT,
+		'ACT_math_75_percentile' FLOAT,
+		'ACT_writing_MID' FLOAT,
+		'ACT_writing_25_percentile' FLOAT,
+		'ACT_writing_75_percentile' FLOAT,
+
+		#Academics:
+		'Agriculture' BOOLEAN,
+		'Natural_Resource' BOOLEAN,
+		'Architecture' BOOLEAN,
+		'Area_Ethnic_Cultural_Gender_Group_Studies' BOOLEAN,
+		'Communication_Journalism' BOOLEAN,
+		'Communication_Technologies' BOOLEAN,
+		'Computer_Information_Sciences' BOOLEAN,
+		'Personal_Culinary_Services' BOOLEAN,
+		'Education' BOOLEAN,
+		'Engineering' BOOLEAN,
+		'Engineering_Technologies' BOOLEAN
+		'Foreign_Languages_Literatures_Linguistics' BOOLEAN,
+		'Human_Sciences' BOOLEAN,
+		'Legal_Professions_Studies' BOOLEAN,
+		'English_Language_And_Literature' BOOLEAN,
+		'General_Studies_And_Humanities' BOOLEAN,
+		'Library_Science' BOOLEAN,
+		'Biological_and_Biomedical_Sciences' BOOLEAN,
+		'Mathematics_and_Statistics' BOOLEAN,
+		'Military_Technologies_and_Applied_Sciences' BOOLEAN,
+		'Interdiciplinary' Studies BOOLEAN,
+		'Parks_Recreation_Leisure_Fitness_Studies' BOOLEAN,
+		'Philosophy_and_Religious_Studies' BOOLEAN,
+		'Theology_and_Religious_Vocations' BOOLEAN
+		'Physical_Sciences' BOOLEAN,
+		'Science_Technologies' BOOLEAN,
+		'Psychology' BOOLEAN,
+		'Homeland_Security_Law_Enforcement_Firefighting' BOOLEAN,
+		'Public_Administration_and_Social_Service' BOOLEAN,
+		'Social_Sciences' BOOLEAN,
+		'Construction_Trade' BOOLEAN,
+		'Mechanic_and_Repair_Technology' BOOLEAN,
+		'Precision_Production' BOOLEAN,
+		'Transportation_and_Materials_Moving' BOOLEAN,
+		'Visual_and_Performing_Arts' BOOLEAN,
+		'Health_Professions' BOOLEAN,
+		'Business_Management_Marketing' BOOLEAN,
+		'History' BOOLEAN,
+
+		#Student Body: (Didn't find information about age)
+		'enrollment' INT
+		'percent_white' FLOAT,
+		'percent_black' FLOAT,
+		'percent_Hispanic' FLOAT,
+		'percent_Asian' FLOAT,
+		'percent_American_Indian' FLOAT,
+		'percent_Native_Hawaiian' FLOAT,
+		'percent_nonresident_aliens' FLOAT
+		'percent_aged_25'+ FLOAT,
+
+		#Cost & Earnings:
+		'average_net_price_public_institutions' INT,
+		'average_net_price_private_institutions' INT,
+
+		'percent_student_of_Pell_Grant' FLOAT,
+		'percent_student_of_Federal_Loan' FLOAT,
+
+		'median_earning_6_years_after_entry' INT,
+		'median_earning_8_years_after_entry' INT,
+		'median_earning_10_years_after_entry' INT,
+
+		'mean_earning_6_years_after_entry' INT,
+		'mean_earning_8_years_after_entry' INT,
+		'mean_earning_10_years_after_entry' INT,
+		'standard_deviation_earnings_6_years_after_entry' FLOAT,
+		'standard_deviation_earnings_8_years_after_entry' FLOAT,
+		'standard_deviation_earnings_10_years_after_entry' FLOAT,
+
+		'10th_percentile_earnings_6_years_after_entry' INT,
+		'25th_percentile_earnings_6_years_after_entry' INT,
+		'75th_percentile_earnings_6_years_after_entry' INT,
+		'90th_percentile_earnings_6_years_after_entry' INT,
+
+		'10th_percentile_earnings_8_years_after_entry' INT,
+		'25th_percentile_earnings_8_years_after_entry' INT,
+		'75th_percentile_earnings_8_years_after_entry' INT,
+		'90th_percentile_earnings_8_years_after_entry' INT,
+
+		'10th_percentile_earnings_10_years_after_entry' INT,
+		'25th_percentile_earnings_10_years_after_entry' INT,
+		'75th_percentile_earnings_10_years_after_entry' INT,
+		'90th_percentile_earnings_10_years_after_entry' INT,
+
+		'average_faculty_earnings' INT
+		}
+		schools_stats.append(stats)
+	csv_file.close()
+	return schools_stats
 def load_state(csv_file_name):
 	csv_file = open(csv_file_name)
 	reader = csv.reader(csv_file)
