@@ -79,18 +79,20 @@ def _convert_int_to_boolean(value):
 #Convert highest degree/locale/ownership to English text
 def _convert_int_to_text(metric, value):
 	if metric == 'highest_degree':
-		if value == 0:
+		if value == '0':
 			return 'Non-degree-granting'
-		elif value == 1:
+		elif value == '1':
 			return 'Certificate degree'
-		elif value == 2:
+		elif value == '2':
 			return 'Associate degree'
-		elif value == 3:
+		elif value == '3':
 			return 'Bachelor\'s degree'
-		elif value == 4:
+		elif value == '4':
 			return 'Graduate degree'
+		elif value == 'NULL':
+			return 'NULL'
 		else:
-			return 'unkown highest degree'
+			return 'illegal'
 
 	elif metric == 'locale':
 		if value == '11':
@@ -153,7 +155,7 @@ def load_school(csv_file_name):
 		'city': row[4],
 		'state_id': row[17],
 		'school_url': row[8],
-		'highest_degree': _convert_int_to_text('higest_degree', row[15]),
+		'highest_degree': _convert_int_to_text('highest_degree', row[15]),
 		'locale':  _convert_int_to_text('locale', row[19]),
 		'ownership': _convert_int_to_text('ownership', row[16])
 		}
@@ -278,9 +280,24 @@ def load_state(csv_file_name):
 	csv_file.close()
 	return states
 
+
+def save_schools_table(schools, csv_file_name):
+    ''' Save the books in CSV form, with each row containing
+        (id, title, publication year). '''
+    output_file = open(csv_file_name, 'w')
+    writer = csv.writer(output_file)
+    for school in schools:
+        school_row = [school['school_id'], school['school_name'], school['city'],
+        school['state_id'], school['school_url'], school['highest_degree'], 
+        school['locale'], school['ownership']]
+        writer.writerow(school_row)
+    output_file.close()
+
+
+
+
 def main():
-	for i in range(100):
-		print(load_school_stats('MERGED2016_17_PP.csv')[i])
+	save_schools_table(load_school('MERGED2016_17_PP.csv'), 'schools.csv')
 
 
 
