@@ -163,7 +163,7 @@ def load_school(csv_file_name):
 	return schools
 
 def load_school_stats(csv_file_name):
-	csv_file = open(csv_file_name)
+	csv_file = open(csv_file_name, encoding='utf-8-sig')
 	reader = csv.reader(csv_file)
 
 	schools_stats = []
@@ -262,7 +262,7 @@ def load_school_stats(csv_file_name):
 		schools_stats.append(stats)
 	csv_file.close()
 	return schools_stats
-def load_state(csv_file_name):
+def load_state(csv_file_name, encoding='utf-8-sig'):
 	csv_file = open(csv_file_name)
 	reader = csv.reader(csv_file)
 
