@@ -3,9 +3,9 @@ For each table in database design, the SQL CREATE statement that is used to crea
 
 
 CREATE TABLE schools (
-	#Basic Information:
-	id INT,
-	name TEXT,
+
+	school_id INT,
+	school_name TEXT,
 	city TEXT,
 	state_id INT,
 	school_url TEXT,
@@ -19,16 +19,19 @@ CREATE TABLE school_stats (
 	year INT,
 	admission_rate FLOAT,
 
-	#SAT:
+
 	SAT_average FLOAT,
-	SAT_cr_MID FLOAT
+	SAT_cr_MID FLOAT,
 	SAT_cr_25_percentile FLOAT,
 	SAT_cr_75_percentile FLOAT,
 	SAT_math_MID FLOAT,
 	SAT_math_25_percentile FLOAT,
 	SAT_math_75_percentile FLOAT,
+	SAT_wr_MID FLOAT,
+	SAT_wr_25_percentile FLOAT,
+	SAT_wr_75_percentile FLOAT,
 
-	#ACT:
+
 	ACT_cumulative_MID FLOAT,
 	ACT_cumulative_25_percentile FLOAT,
 	ACT_cumulative_75_percentile FLOAT,
@@ -42,7 +45,7 @@ CREATE TABLE school_stats (
 	ACT_writing_25_percentile FLOAT,
 	ACT_writing_75_percentile FLOAT,
 
-	#Academics:
+
 	Agriculture BOOLEAN,
 	Natural_Resource BOOLEAN,
 	Architecture BOOLEAN,
@@ -53,7 +56,7 @@ CREATE TABLE school_stats (
 	Personal_Culinary_Services BOOLEAN,
 	Education BOOLEAN,
 	Engineering BOOLEAN,
-	Engineering_Technologies BOOLEAN
+	Engineering_Technologies BOOLEAN,
 	Foreign_Languages_Literatures_Linguistics BOOLEAN,
 	Human_Sciences BOOLEAN,
 	Legal_Professions_Studies BOOLEAN,
@@ -63,10 +66,10 @@ CREATE TABLE school_stats (
 	Biological_and_Biomedical_Sciences BOOLEAN,
 	Mathematics_and_Statistics BOOLEAN,
 	Military_Technologies_and_Applied_Sciences BOOLEAN,
-	Interdiciplinary Studies BOOLEAN,
+	Interdiciplinary_Studies BOOLEAN,
 	Parks_Recreation_Leisure_Fitness_Studies BOOLEAN,
 	Philosophy_and_Religious_Studies BOOLEAN,
-	Theology_and_Religious_Vocations BOOLEAN
+	Theology_and_Religious_Vocations BOOLEAN,
 	Physical_Sciences BOOLEAN,
 	Science_Technologies BOOLEAN,
 	Psychology BOOLEAN,
@@ -82,58 +85,31 @@ CREATE TABLE school_stats (
 	Business_Management_Marketing BOOLEAN,
 	History BOOLEAN,
 
-	#Student Body: (Didn't find information about age)
-	enrollment INT
+
+	enrollment INT,
 	percent_white FLOAT,
 	percent_black FLOAT,
 	percent_Hispanic FLOAT,
 	percent_Asian FLOAT,
 	percent_American_Indian FLOAT,
 	percent_Native_Hawaiian FLOAT,
-	percent_non-resident_aliens FLOAT
-	percent_aged_25+ FLOAT,
+	percent_nonresident_aliens FLOAT,
 
-	#Cost & Earnings:
+
 	average_net_price_public_institutions INT,
 	average_net_price_private_institutions INT,
 
 	percent_student_of_Pell_Grant FLOAT,
 	percent_student_of_Federal_Loan FLOAT,
 
-	median_earning_6_years_after_entry INT,
-	median_earning_8_years_after_entry INT,
-	median_earning_10_years_after_entry INT,
-
-	mean_earning_6_years_after_entry INT,
-	mean_earning_8_years_after_entry INT,
-	mean_earning_10_years_after_entry INT,
-	standard_deviation_earnings_6_years_after_entry FLOAT,
-	standard_deviation_earnings_8_years_after_entry FLOAT,
-	standard_deviation_earnings_10_years_after_entry FLOAT,
-
-	10th_percentile_earnings_6_years_after_entry INT,
-	25th_percentile_earnings_6_years_after_entry INT,
-	75th_percentile_earnings_6_years_after_entry INT,
-	90th_percentile_earnings_6_years_after_entry INT,
-
-	10th_percentile_earnings_8_years_after_entry INT,
-	25th_percentile_earnings_8_years_after_entry INT,
-	75th_percentile_earnings_8_years_after_entry INT,
-	90th_percentile_earnings_8_years_after_entry INT,
-
-	10th_percentile_earnings_10_years_after_entry INT,
-	25th_percentile_earnings_10_years_after_entry INT,
-	75th_percentile_earnings_10_years_after_entry INT,
-	90th_percentile_earnings_10_years_after_entry INT,
-
-	average_faculty_earnings INT,
+	average_faculty_earnings INT
 );
 
 
 CREATE TABLE state (
 	state_id INT,
 	state_name TEXT,
-	state_abbreviation TEXT,
+	state_abbreviation TEXT
 );
 
 
