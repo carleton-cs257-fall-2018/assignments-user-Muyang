@@ -69,6 +69,12 @@ state_match = {
 '78': 'Virgin Islands',
 'ST_FIPS': 'State Name'
 }
+#Convert the major offered in INT to BOOLEAN value
+def convert_int_to_boolean(value):
+	if value == 0: #Program not offered
+		return False
+	else: #Program offered
+		return True
 
 #Convert highest degree/locale/ownership to English text
 def convert_int_to_text(metric, value):
