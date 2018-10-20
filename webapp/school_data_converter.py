@@ -211,7 +211,7 @@ def load_school_stats(csv_file_name):
 		'Personal_Culinary_Services': _convert_int_to_boolean(row[139]),
 		'Education': _convert_int_to_boolean(row[144]),
 		'Engineering': _convert_int_to_boolean(row[149]),
-		'Engineering_Technologies': _convert_int_to_boolean(row[154])
+		'Engineering_Technologies': _convert_int_to_boolean(row[154]),
 		'Foreign_Languages_Literatures_Linguistics': _convert_int_to_boolean(row[159]),
 		'Human_Sciences': _convert_int_to_boolean(row[164]),
 		'Legal_Professions_Studies': _convert_int_to_boolean(row[169]),
@@ -224,7 +224,7 @@ def load_school_stats(csv_file_name):
 		'Interdiciplinary_Studies': _convert_int_to_boolean(row[204]),
 		'Parks_Recreation_Leisure_Fitness_Studies': _convert_int_to_boolean(row[209]),
 		'Philosophy_and_Religious_Studies': _convert_int_to_boolean(row[214]),
-		'Theology_and_Religious_Vocations': _convert_int_to_boolean(row[219])
+		'Theology_and_Religious_Vocations': _convert_int_to_boolean(row[219]),
 		'Physical_Sciences': _convert_int_to_boolean(row[224]),
 		'Science_Technologies': _convert_int_to_boolean(row[229]),
 		'Psychology': _convert_int_to_boolean(row[234]),
@@ -257,7 +257,7 @@ def load_school_stats(csv_file_name):
 		'percent_student_of_Pell_Grant': row[385],
 		'percent_student_of_Federal_Loan': row[437]
 		}
-		
+
 		schools_stats.append(stats)
 	csv_file.close()
 	return schools_stats
@@ -279,7 +279,8 @@ def load_state(csv_file_name):
 	return states
 
 def main():
-	print(load_state('MERGED2016_17_PP.csv'))
+	for i in range(100):
+		print(load_school_stats('MERGED2016_17_PP.csv')[i])
 
 
 
