@@ -153,6 +153,7 @@ def get_schools():
     highest_degree = flask.request.args.get('highest_degree', default=None)
     locale = flask.request.args.get('locale', default=None)
     ownership = flask.request.args.get('ownership', default=None)
+
     SAT_average = flask.request.args.get('SAT_average', default=None),
     SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None),
     SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None),
@@ -237,11 +238,15 @@ def get_schools():
 
     average_faculty_earnings = flask.request.args.get('city', default=None)
 
-    school_list = _get_all_school_stats()
+    school_list = _get_all_school_stats() #All the schools to be filtered
+
     if school_id is not None:
         school_list = _filter_school_by_id(school_list, school_id)
     if school_name is not None:
         school_list = _filter_school_by_name(school_list, school_name)
+    if city is not None:
+        school_list = _filter_school_by_city(school_list, city)
+
     
     return json.dumps(school_list)
 
@@ -287,7 +292,16 @@ def _get_all_school_stats():
         school_stats.append(_create_dictionary(basic_list+stats_list+state_list,row))
     connection.close()
     return school_stats
-
+def _filter_school_by_city(school_list, city):
+    #In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(city.lower() not in school_list[school_index]['city'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
 def _filter_school_by_name(school_list, school_name):
     #In filtering, python shifts the list if an entry is removed
     #to account for the shift, we use tricks (I mean the -=1 and +=1)
@@ -298,9 +312,6 @@ def _filter_school_by_name(school_list, school_name):
             school_index -= 1
         school_index += 1
     return school_list
-
-
-
 def _filter_school_by_id(school_list, school_id):
     #In filtering, python shifts the list if an entry is removed
     #to account for the shift, we use tricks (I mean the -=1 and +=1)
