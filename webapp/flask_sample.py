@@ -13,6 +13,14 @@ import config
 import psycopg2
 
 app = flask.Flask(__name__)
+basic_list = ['school_id' ,'school_name', 'city','state_name','school_url','highest_degree','locale','ownership']
+
+def _create_dictionary(keys, values):
+    #assert len(keys) == len(values)
+    returned_dict = {}
+    for i in range (len(keys)):
+        returned_dict[keys[i]] = values[i]
+    return returned_dict
 
 def get_connection():
     '''
@@ -29,30 +37,6 @@ def get_connection():
         print(e, file=sys.stderr)
     return connection
 
-# Who needs a database when you can just hard-code some actors and movies?
-# actors = [
-#     {'last_name': 'Pickford', 'first_name': 'Mary'},
-#     {'last_name': 'Rains', 'first_name': 'Claude'},
-#     {'last_name': 'Lorre', 'first_name': 'Peter'},
-#     {'last_name': 'Greenstreet', 'first_name': 'Sydney'},
-#     {'last_name': 'Bergman', 'first_name': 'Ingrid'},
-#     {'last_name': 'Grant', 'first_name': 'Cary'},
-#     {'last_name': 'Colbert', 'first_name': 'Claudette'},
-#     {'last_name': 'McDormand', 'first_name': 'Frances'},
-#     {'last_name': 'Wiig', 'first_name': 'Kristen'},
-#     {'last_name': 'Adams', 'first_name': 'Amy'}
-# ]
-
-# movies = [
-#     {'title': 'Casablanca', 'year': 1942, 'genre': 'drama'},
-#     {'title': 'North By Northwest', 'year': 1959, 'genre': 'thriller'},
-#     {'title': 'Alien', 'year': 1979, 'genre': 'scifi'},
-#     {'title': 'Bridesmaids', 'year': 2011, 'genre': 'comedy'},
-#     {'title': 'Arrival', 'year': 2016, 'genre': 'scifi'},
-#     {'title': 'It Happened One Night', 'year': 1934, 'genre': 'comedy'},
-#     {'title': 'Fargo', 'year': 1996, 'genre': 'thriller'},
-#     {'title': 'Clueless', 'year': 1995, 'genre': 'comedy'}
-# ]
 
 @app.route('/')
 def hello():
@@ -71,20 +55,26 @@ def hello():
 
 @app.route('/schools')
 def get_schools():
-    #Returns a list of all schools:
+    #Returns a list of all schools with basic information:
     connection = get_connection()
     try:
         cursor = connection.cursor()
-        query = 'SELECT schools.school_name, states.state_name FROM schools, states WHERE schools.state_id = states.state_id'
+        query = '''SELECT school_id ,school_name, city,state_name,school_url,highest_degree,locale,ownership 
+                    FROM schools, states 
+                    WHERE schools.state_id = states.state_id'''
         cursor.execute(query)
     except Exception as e:
         print(e)
         exit()
-
+        
     schools = []
     for row in cursor:
-        schools.append({ 'state name': row[1], 'school name': row[0]})
+        schools.append(_create_dictionary(basic_list,row))
+    connection.close()
     return json.dumps(schools)
+# def get_school():
+#     #Returns a list of specs of a specific school:
+#     connection = 
 
 
 
