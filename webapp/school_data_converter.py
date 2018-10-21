@@ -290,7 +290,8 @@ def load_state(csv_file_name, encoding='utf-8-sig'):
 		'state_name': state_match[row[17]],
 		'state_abbreviation': row[5],
 		}
-		states.append(state)
+		if state not in states:
+			states.append(state)
 	csv_file.close()
 	return states
 
