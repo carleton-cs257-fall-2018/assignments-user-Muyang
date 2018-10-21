@@ -4021,8 +4021,8 @@
 243577,Universidad Politecnica de Puerto Rico,Hato Rey,72,www.pupr.edu,Graduate degree,City: Large,Private nonprofit
 243586,Pontifical Catholic University of Puerto Rico-Mayaguez,Mayaguez,72,www.pucpr.edu//mayaguez/,Graduate degree,City: Small,Private nonprofit
 243601,Universidad del Turabo,Gurabo,72,ut.suagm.edu,Graduate degree,Suburb: Large,Private nonprofit
-243638,College of Micronesia-FSM,Pohnpei,64,www.comfsm.fm,Associate degree,locale unkown,Public
-243647,Palau Community College,Koror,70,www.palau.edu,Associate degree,locale unkown,Public
+243638,College of Micronesia-FSM,Pohnpei,64,www.comfsm.fm,Associate degree,locale unknown,Public
+243647,Palau Community College,Koror,70,www.palau.edu,Associate degree,locale unknown,Public
 243665,University of the Virgin Islands,Charlotte Amalie,78,www.uvi.edu,Graduate degree,Town: Remote,Public
 243744,Stanford University,Stanford,6,www.stanford.edu/,Graduate degree,Suburb: Large,Private nonprofit
 243780,Purdue University-Main Campus,West Lafayette,18,www.purdue.edu,Graduate degree,City: Small,Public
@@ -4321,7 +4321,7 @@
 376446,Academy of Hair Technology,Greenville,45,www.hairchamps.com,Certificate degree,Suburb: Large,Private for-profit
 376631,Mr Wayne's School of Unisex Hair Design,Cookeville,47,www.misterwaynes.com,Certificate degree,Town: Remote,Private for-profit
 376677,Queen City College,Clarksville,47,www.queencitycollege.com,Certificate degree,City: Midsize,Private for-profit
-376695,College of the Marshall Islands,Majuro,68,www.cmi.edu,Associate degree,locale unkown,Public
+376695,College of the Marshall Islands,Majuro,68,www.cmi.edu,Associate degree,locale unknown,Public
 377111,Remington College-Fort Worth Campus,Fort Worth,48,www.remingtoncollege.edu/fort-worth-texas-career-schools-overview,Associate degree,City: Large,Private nonprofit
 377193,UCAS University of Cosmetology Arts & Sciences,San Antonio,48,www.ucastx.com,Certificate degree,City: Large,Private for-profit
 377218,School of Automotive Machinists & Technology,Houston,48,samtech.edu,Associate degree,City: Large,Private for-profit
@@ -6735,441 +6735,441 @@
 489937,Piedmont International University,Winston-Salem,37,www.piedmontu.edu,Graduate degree,City: Midsize,Private nonprofit
 490009,Spartan College of Aeronautics and Technology,Westminster,8,www.spartan.edu,Associate degree,Suburb: Large,Private for-profit
 490018,National Personal Training Institute-Tampa,Tampa,12,nationalpti.edu/school/tampa-fl/,Certificate degree,Suburb: Large,Private for-profit
-10236801,Troy University-Phenix City Campus,Phenix City,1,www.troy.edu/phenixcity/,Non-degree-granting,locale unkown,Public
-10236802,Troy University-Montgomery Campus,Montgomery,1,www.troy.edu/montgomery/,Non-degree-granting,locale unkown,Public
-10236803,Troy University-Dothan Campus,Dothan,1,www.troy.edu/dothan/,Non-degree-granting,locale unkown,Public
-10236808,Troy University-Online,Troy,1,online.troy.edu/index.html,Non-degree-granting,locale unkown,Public
-10236809,Troy University-Support Locations,Troy,1,www.troy.edu/servicecenters/,Non-degree-granting,locale unkown,Public
-10635101,Arkansas College of Barbering and Hair Design,Little Rock,5,www.arkansascollegeofbarbering.com,Non-degree-granting,locale unkown,Private for-profit
-10635102,Arkansas College of Barbering & Hair Design -  SWLR Campus,Little Rock,5,NULL,Non-degree-granting,locale unkown,Private for-profit
-10704401,Harding School of Theology,Memphis,47,hst.edu/,Non-degree-granting,locale unkown,Private nonprofit
-10722001,Career Academy of Hair Design-Siloam Springs,Siloam Springs,5,www.beautynwa.com,Non-degree-granting,locale unkown,Private for-profit
-10722002,Career Academy of Hair Design-Rogers,Rogers,5,www.beautynwa.com,Non-degree-granting,locale unkown,Private for-profit
-10722003,Career Academy of Hair Design-Fayetteville,Fayetteville,5,www.beautynwa.com,Non-degree-granting,locale unkown,Private for-profit
-10722004,Career Academy of Hair Design - Fort Smith,Fort Smith,5,www.beautynwa.com,Non-degree-granting,locale unkown,Private for-profit
-10729301,Academy of Salon and Spa -,Tahlequah,40,www.academysalonspa.com,Non-degree-granting,locale unkown,Private for-profit
-10772501,University of Arkansas Community College at Hope - Texarkana,Texarkana,5,www.uacch.edu,Non-degree-granting,locale unkown,Public
-11021901,Bryan University - Tempe,Tempe,4,bryanuniversity.edu,Non-degree-granting,locale unkown,Private for-profit
-11046801,Alliant International University-Fresno,Fresno,6,www.alliant.edu,Non-degree-granting,locale unkown,Private for-profit
-11046802,Alliant International University-Los Angeles,Alhambra,6,https://www.alliant.edu,Non-degree-granting,locale unkown,Private for-profit
-11046803,Alliant International University-San Francisco,San Francisco,6,https://www.alliant.edu,Non-degree-granting,locale unkown,Private for-profit
-11046804,Alliant International University-Irvine,Irvine,6,https://www.alliant.edu,Non-degree-granting,locale unkown,Private for-profit
-11046805,Alliant International University-Sacramento,Sacramento,6,https://www.alliant.edu,Non-degree-granting,locale unkown,Private for-profit
-11163801,Casa Loma College-Anaheim Campus,Anaheim,6,casalomacollege.edu,Non-degree-granting,locale unkown,Private nonprofit
-11458501,San Jose Campus,San Jose,6,www.fivebranches.edu,Non-degree-granting,locale unkown,Private for-profit
-11473401,Franciscan School of Theology,Oceanside,6,www.fst.edu,Non-degree-granting,locale unkown,Private nonprofit
-11508303,Golden Gate University-Los Angeles,Los Angeles,6,www.ggu.edu/,Non-degree-granting,locale unkown,Private nonprofit
-11508305,Golden Gate University-Seattle,Seattle,53,www.ggu.edu/,Non-degree-granting,locale unkown,Private nonprofit
-11508306,Golden Gate University-Silicon Valley,Santa Clara,6,www.ggu.edu/,Non-degree-granting,locale unkown,Private nonprofit
-11577301,Humphreys College-Modesto,Modesto,6,humphreys.edu,Non-degree-granting,locale unkown,Private nonprofit
-11635001,International School of Cosmetology,Costa Mesa,6,toniguy.com/academy/costa_mesa_beauty_school/default.aspx,Non-degree-granting,locale unkown,Private for-profit
-11643901,ATEP at IVC,Tustin,6,www.atep.us/,Non-degree-granting,locale unkown,Public
-11710401,Life Pacific College-Ignite,Christiansburg,51,lifepacific.edu/extension-campus,Non-degree-granting,locale unkown,Private nonprofit
-11854101,Marymount University - Waterfront Campus,San Pedro,6,www.marymountcalifornia.edu,Non-degree-granting,locale unkown,Private nonprofit
-11854102,Marymount California University - Lakeside Campus,Lucerne,6,www.marymountcalifornia.edu/lakeside/explore,Non-degree-granting,locale unkown,Private nonprofit
-11891201,MiraCosta College -,Cardiff,6,miracosta.edu,Non-degree-granting,locale unkown,Public
-11917301,Mount Saint Mary's University - Doheny Campus,Los Angeles,6,www.msmu.edu,Non-degree-granting,locale unkown,Private nonprofit
-12240901,San Diego State University-Imperial Valley Campus,Calexico,6,www.ivcampus.sdsu.edu,Non-degree-granting,locale unkown,Public
-12265801,San Joaquin General Hospital School of Radiation Technology,French Camp,6,www.deltacollege.edu/index.html,Non-degree-granting,locale unkown,Public
-12268501,San Joaquin Valley College - Hanford,Hanford,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268502,San Joaquin Valley College-Online,Visalia,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268503,San Joaquin Valley College-Bakersfield,Bakersfield,6,www.sjvc.edu/,Non-degree-granting,locale unkown,Private for-profit
-12268504,San Joaquin Valley College-Fresno,Fresno,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268505,San Joaquin Valley College-Fresno Aviation,Fresno,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268506,San Joaquin Valley College-Ontario,Ontario,6,sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268507,San Joaquin Valley College-Modesto,Salida,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268508,San Joaquin Valley College-Rancho Cordova,Rancho Cordova,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268510,San Joaquin Valley College-Hesperia,Hesperia,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268511,San Joaquin Valley College-Temecula,Temecula,6,www.sjvc.edu/,Non-degree-granting,locale unkown,Private for-profit
-12268512,San Joaquin Valley College-Lancaster,Lancaster,6,www.sjvc.edu/,Non-degree-granting,locale unkown,Private for-profit
-12268513,San Joaquin Valley College-San Diego,Chula Vista,6,www.sjvc.edu/,Non-degree-granting,locale unkown,Private for-profit
-12268514,San Joaquin Valley College - Madera,Madera,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12268515,San Joaquin Valley College - Delano,Delano,6,www.sjvc.edu,Non-degree-granting,locale unkown,Private for-profit
-12293101,Jesuit School of Theology of Santa Clara University,Berkeley,6,www.scu.edu/jst,Non-degree-granting,locale unkown,Private nonprofit
-12508201,Bridges Beauty College -,Rancho Cucamonga,6,www.bridgesbeautycollege.com,Non-degree-granting,locale unkown,Private for-profit
-12682703,Colorado Technical University-Denver,Aurora,8,www.coloradotech.edu/Denver,Non-degree-granting,locale unkown,Private for-profit
-12697901,Denver Seminary - Washington DC,Landover,24,www.denverseminary.edu/dc/,Non-degree-granting,locale unkown,Private nonprofit
-13017401,Porter and Chester Institute of Rocky Hill,Rocky Hill,9,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017402,Porter and Chester Institute of Enfield,Enfield,9,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017403,Porter and Chester Institute of Waterbury,Waterbury,9,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017404,Porter and Chester Institute of Chicopee,Chicopee,25,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017405,Porter and Chester Institute of Worcester,Worcester,25,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017406,Porter and Chester Institute of Canton,Canton,25,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13017407,Porter and Chester Institute of Woburn -closed 10/6/2017,Woburn,25,www.porterchester.com,Non-degree-granting,locale unkown,Private for-profit
-13090701,Delaware Technical Community College-Owens,Georgetown,10,https://www.dtcc.edu/our-campuses/georgetown,Non-degree-granting,locale unkown,Public
-13090702,Delaware Technical Community College-Stanton/Wilmington,Wilmington,10,https://www.dtcc.edu/our-campuses/wilmington,Non-degree-granting,locale unkown,Public
-13180301,Strayer University-Takoma Park Campus,Washington,11,www.strayer.edu/district-columbia/takoma-park,Non-degree-granting,locale unkown,Private for-profit
-13247101,Barry University Law School,Orlando,12,www.barry.edu/law/,Non-degree-granting,locale unkown,Private nonprofit
-13508101,Keiser University-Melbourne,Melbourne,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508102,Keiser University-Tallahassee,Tallahassee,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508103,Keiser University-Daytona,Daytona Beach,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508104,Keiser University-Lakeland,Lakeland,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508105,Keiser University- Miami,Miami,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508106,Keiser University-Orlando,Orlando,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508107,Keiser University-Sarasota,Sarasota,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508108,Keiser University-Jacksonville,Jacksonville,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508109,Keiser University-Tampa,Tampa,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508110,Keiser University-Pembroke Pines,Pembroke Pines,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508111,Keiser University-Port St Lucie,Port St Lucie,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508112,Keiser University-West Palm Beach,West Palm Beach,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508113,Keiser University-Ft Myers,Ft Myers,12,www.keiseruniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-13508114,Keiser University -  Clearwater,Clearwater,12,www.keiseruniversity.edu/clearwater/,Non-degree-granting,locale unkown,Private nonprofit
-13508115,Keiser University - NPR,New Port Richey,12,www.keiseruniversity.edu/new-port-richey/,Non-degree-granting,locale unkown,Private nonprofit
-13508116,Keiser University - Residential,West Palm Beach,12,www.keiseruniversity.edu/residential/,Non-degree-granting,locale unkown,Private nonprofit
-13830901,Rasmussen College-New Port Richey,New Port Richey,12,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-13830902,Rasmussen College-Fort Myers,Fort Myers,12,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-13830903,Rasmussen College-Tampa/Brandon,Tampa,12,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-13830904,Rasmussen College-Land O' Lakes,Land O'Lakes,12,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-13962101,East Georgia State College - Statesboro,Statesboro,13,www.ega.edu/statesboro,Non-degree-granting,locale unkown,Public
-13962102,East Georgia State College - Augusta,Augusta,13,www.ega.edu/augusta,Non-degree-granting,locale unkown,Public
-14736901,Moody Theological Seminary and Graduate School--Michigan,Plymouth,26,www.moody.edu/mts-michigan/,Non-degree-granting,locale unkown,Private nonprofit
-14736902,Moody Bible Institute-Spokane,Spokane,53,www.moody.edu/spokane/,Non-degree-granting,locale unkown,Private nonprofit
-14902801,Saint Anthony College of Nursing - Highland Community College Campus,Freeport,17,www.sacn.edu,Non-degree-granting,locale unkown,Private nonprofit
-14902802,Saint Anthony College of Nursing - Sauk Valley Community College Campus,Dixon,17,www.sacn.edu,Non-degree-granting,locale unkown,Private nonprofit
-14953201,Triton College - Intl Union of Operating Engr Local 399 Trning Fac.,Chicago,17,www.triton.edu,Non-degree-granting,locale unkown,Public
-15085301,PJ's College of Cosmetology- Brownsburg,Brownsburg,18,https://www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15085302,PJ's College of Cosmetology-Crestwood,Crestwood,21,https://www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15085303,PJ's College of Cosmetology- Jeffersonville,Jeffersonville,18,https://www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15098701,Ivy Tech Community College-Northcentral,South Bend,18,www.ivytech.edu/,Non-degree-granting,locale unkown,Public
-15098702,Ivy Tech Community College-Columbus,Columbus,18,www.ivytech.edu/columbus/,Non-degree-granting,locale unkown,Public
-15098703,Ivy Tech Community College-East Central,Muncie,18,www.ivytech.edu/muncie/,Non-degree-granting,locale unkown,Public
-15098704,Ivy Tech Community College-Kokomo,Kokomo,18,www.ivytech.edu/kokomo/,Non-degree-granting,locale unkown,Public
-15098705,Ivy Tech Community College-Lafayette,Lafayette,18,www.ivytech.edu/lafayette/,Non-degree-granting,locale unkown,Public
-15098706,Ivy Tech Community College-Northeast,Fort Wayne,18,www.ivytech.edu/fortwayne/,Non-degree-granting,locale unkown,Public
-15098707,Ivy Tech Community College-South Central,Sellersburg,18,www.ivytech.edu/sellersburg/,Non-degree-granting,locale unkown,Public
-15098708,Ivy Tech Community College-Southwest,Evansville,18,www.ivytech.edu/evansville/,Non-degree-granting,locale unkown,Public
-15098709,Ivy Tech Community College-Wabash Valley,Terre Haute,18,www.ivytech.edu/wabashvalley,Non-degree-granting,locale unkown,Public
-15098710,Ivy Tech Community College-Richmond,Richmond,18,www.ivytech.edu/richmond/,Non-degree-granting,locale unkown,Public
-15098711,Ivy Tech Community College-Northwest,Gary,18,www.ivytech.edu/northwest/,Non-degree-granting,locale unkown,Public
-15098712,Ivy Tech Community College-Southeast,Madison,18,www.ivytech.edu/madison/,Non-degree-granting,locale unkown,Public
-15098713,Ivy Tech Community College-Bloomington,Bloomington,18,www.ivytech.edu/bloomington/,Non-degree-granting,locale unkown,Public
-15098714,Ivy Tech Community College-Central Indiana,Indianapolis,18,www.ivytech.edu/indianapolis/,Non-degree-granting,locale unkown,Public
-15116601,Harrison College-Anderson,Anderson,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116602,Harrison College-Columbus,Columbus,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116604,Harrison College-Terre Haute,Terre Haute,18,www.harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116605,Harrison College-Lafayette,Lafayette,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116606,Harrison College-Indianapolis East,Indianapolis,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116607,Harrison College-Evansville,Evansville,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116608,Harrison College-Fort Wayne,Fort Wayne,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116609,Harrison College-Northwest,Indianapolis,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15116610,Harrison College-Elkhart,Elkhart,18,harrison.edu,Non-degree-granting,locale unkown,Private for-profit
-15178601,Marian University,Indianapolis,18,www.marian.edu,Non-degree-granting,locale unkown,Private nonprofit
-15336601,Graceland University - Independence,Independence,29,www.graceland.edu,Non-degree-granting,locale unkown,Private nonprofit
-15468801,Baker University School of Nursing,Topeka,20,www.bakeru.edu,Non-degree-granting,locale unkown,Private nonprofit
-15468802,Baker University School of Professional and Graduate Studies and Graduate School of Education,Overland Park,20,www.bakeru.edu,Non-degree-granting,locale unkown,Private nonprofit
-15483701,CBTS - Wisconsin,Elm Grove,55,www.cbts.edu,Non-degree-granting,locale unkown,Private nonprofit
-15492501,Coffeyville Technical Campus,Coffeyville,20,WWW.COFFEYVILLE.EDU,Non-degree-granting,locale unkown,Public
-15492502,Columbus Technical Campus,Columbus,20,www.coffeyville.edu,Non-degree-granting,locale unkown,Public
-15628601,Bellarmine University - Bullitt County,Shepherdsville,21,NULL,Non-degree-granting,locale unkown,Private nonprofit
-15628602,Bellarmine University - Oldham County,Crestwood,21,NULL,Non-degree-granting,locale unkown,Private nonprofit
-15631001,PJ's College of Cosmetology- Greenfield,Greenfield,18,www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15631002,PJ's College of Cosmetology- Muncie,Muncie,18,www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15631003,PJ's College of Cosmetology- Indianapolis,Indianapolis,18,www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15631004,PJ's College of Cosmetology- Plainfield,Plainfield,18,www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-15631005,PJ's College of Cosmetology- Louisville,Louisville,21,https://www.gotopjs.com,Non-degree-granting,locale unkown,Private for-profit
-16061201,Southeastern Louisiana University - EBR Parish School System Prof Dev,Baton Rouge,22,www.southeastern.edu,Non-degree-granting,locale unkown,Public
-16061202,Southeastern Louisiana University - St Amant High School,St Amant,22,www.southeastern.edu,Non-degree-granting,locale unkown,Public
-16149302,Empire Beauty School-Caribou,Caribou,23,www.empire.edu,Non-degree-granting,locale unkown,Private for-profit
-16149303,Empire Beauty School-Bangor,Bangor,23,www.empire.edu,Non-degree-granting,locale unkown,Private for-profit
-16822701,Wentworth Institute of Technology,Boston,25,www.wit.edu,Non-degree-granting,locale unkown,Private nonprofit
-16822702,Wentworth Institute of Technology,Dorchester,25,www.wit.edu,Non-degree-granting,locale unkown,Private nonprofit
-16822703,Wentworth Institute of Technology,Fall River,25,www.wit.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884701,Baker College of Owosso,Owosso,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884702,Baker College of Allen Park,Allen Park,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884703,Baker College of Auburn Hills,Auburn Hills,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884704,Baker College of Cadillac,Cadillac,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884705,Baker College of Clinton Township,Clinton Township,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884706,Baker College of Jackson,Jackson,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884707,Baker College of Muskegon,Muskegon,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16884709,Baker College of Port Huron,Port Huron,26,www.baker.edu/,Non-degree-granting,locale unkown,Private nonprofit
-16884710,Baker College Center for Graduate Studies,Flint,26,www.baker.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947903,Davenport University-Warren Location,Warren,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947904,Davenport University-Kalamazoo Location,Kalamazoo,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947905,Davenport University-Lansing Location,Lansing,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947907,Davenport University-Midland Location,Midland,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947909,Davenport University-Holland Location,Holland,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947910,Davenport University-Flint Location,Fenton,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947912,Davenport University-Traverse City Location,Traverse City,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947918,Davenport University-Livonia Location,Livonia,26,www.davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947920,Davenport University-Grand Rapids Downtown,Grand Rapids,26,davenport.edu,Non-degree-granting,locale unkown,Private nonprofit
-16947921,Davenport University - Treasury Site Dimondale,Dimondale,26,NULL,Non-degree-granting,locale unkown,Private nonprofit
-17296301,Anoka-Ramsey Community College-Cambridge Campus,Cambridge,27,www.anokaramsey.edu/,Non-degree-granting,locale unkown,Public
-17320301,Central Lakes College-Staples Campus,Staples,27,WWW.CLCMN.EDU,Non-degree-granting,locale unkown,Public
-17355901,M State - Detroit Lakes Campus,Detroit Lakes,27,www.minnesota.edu,Non-degree-granting,locale unkown,Public
-17355902,M State - Moorhead Campus,Moorhead,27,www.minnesota.edu,Non-degree-granting,locale unkown,Public
-17355903,M State - Wadena Campus,Wadena,27,www.minnesota.edu,Non-degree-granting,locale unkown,Public
-17391101,South Central College-Faribault,Faribault,27,www.southcentral.edu,Non-degree-granting,locale unkown,Public
-17399301,Mesabi Range College,Eveleth,27,www.mesabirange.edu,Non-degree-granting,locale unkown,Public
-17447301,Northland Community and Technical College - East Grand Forks,East Grand Forks,27,www.northlandcollege.edu/,Non-degree-granting,locale unkown,Public
-17501401,Rasmussen College-Bloomington,Bloomington,27,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17501402,Rasmussen College-Eagan,Eagan,27,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17501403,Rasmussen College-Mankato,Mankato,27,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17501404,Rasmussen College-Brooklyn Park,Brooklyn Park,27,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17501405,Rasmussen College-Lake Elmo/Woodbury,Lake Elmo,27,https://www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17501406,Rasmussen College-Blaine,Blaine,27,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-17523601,Ridgewater College,Hutchinson,27,www.ridgewater.edu,Non-degree-granting,locale unkown,Public
-17526301,Minnesota State College-SE Technical-Red Wing,Red Wing,27,www.southeastmn.edu/,Non-degree-granting,locale unkown,Public
-17557301,Copiah-Lincoln Community College Simpson County Center,Mendenhall,28,www.colin.edu,Non-degree-granting,locale unkown,Public
-17557302,Copiah-Lincoln Community College-Natchez Campus,Natchez,28,www.colin.edu,Non-degree-granting,locale unkown,Public
-17601701,University of Mississippi Medical Center,Jackson,28,https://www.umc.edu,Non-degree-granting,locale unkown,Public
-17623901,Pearl River Community College-Forrest County Center,Hattiesburg,28,www.prcc.edu,Non-degree-granting,locale unkown,Public
-17706501,Columbia College - Redstone Arsenal,Redstone Arsenal,1,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706502,Columbia College - Coast Guard Island,Alameda,6,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706503,Columbia College - Denver,Centennial,8,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706504,Columbia College - NAS Jacksonville,Jacksonville,12,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706505,Columbia College - Orlando,Orlando,12,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706506,Columbia College - Crystal Lake Campus,Crystal Lake,17,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706507,Columbia College - Kansas City,Kansas City,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706508,Columbia College - Fort Leonard Wood,Fort Leonard Wood,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706509,Columbia College - Jefferson City,Jefferson City,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706510,Columbia College - Lake Ozark,Osage Beach,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706511,Columbia College - Saint Louis,Saint Louis,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706512,Columbia College - Fort Worth,Fort Worth,48,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706513,Columbia College - Salt Lake,Murray,49,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706514,Columbia College - Lake County,Gurnee,17,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706515,Columbia College - Naval Station Everett/Marysville,Marysville,53,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706516,Columbia College - Freeport,Freeport,17,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706517,Columbia College - Springfield,Springfield,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706518,Columbia College - Rolla,Rolla,29,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706519,Columbia College - Los Alamitos,Los Alamitos,6,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706520,Columbia College - Patrick AFB,Patrick Air Force Base,12,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706521,Columbia College - Lemoore,NAS Lemoore,6,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706522,Columbia College - San Luis Obispo,San Luis Obispo,6,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706523,Columbia College - Fort Stewart,Ft. Stewart,13,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706524,Columbia College - Hunter Army Airfield,Hunter Army Airfield,13,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706525,Columbia College - Elgin,Elgin,17,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706526,Columbia College - Hancock Field,Syracuse,36,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706527,Columbia College - Whidbey Island,Oak Harbor,53,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706528,Columbia College - Fort Drum,Ft. Drum,36,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706529,Columbia College -  Jacksonville,Jacksonville,12,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706530,Columbia College - Fort Sill,Fort Sill,40,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706531,Columbia College-Joint Base Charleston-Weapons Station,Goose Creek,45,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706532,Columbia College - San Diego,San Diego,6,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17706533,Columbia College - Mesquite,Mesquite,48,www.ccis.edu,Non-degree-granting,locale unkown,Private nonprofit
-17796801,Lindenwood University-Belleville,Belleville,17,www.lindenwood.edu/belleville/,Non-degree-granting,locale unkown,Private nonprofit
-18017901,City College Montana State University Billings,Billings,30,www.msubillings.edu/citycollege/,Non-degree-granting,locale unkown,Public
-18048901,The University of Montana - Missoula College,Missoula,30,www.umt.edu,Non-degree-granting,locale unkown,Public
-18303501,New Hampshire Institute for Therapeutic Arts,Bridgton,23,www.nhita.com,Non-degree-granting,locale unkown,Private for-profit
-18409201,American Institute,Clifton,34,www.americaninstitute.com,Non-degree-granting,locale unkown,Private for-profit
-18557201,Monmouth University -  Monmouth Park Corporate Center,West Long Branch,34,www.monmouth.edu,Non-degree-granting,locale unkown,Private nonprofit
-18922801,Berkeley College - Westchester Campus,White Plains,36,www.BerkeleyCollege.edu,Non-degree-granting,locale unkown,Private for-profit
-18945901,Briarcliffe College-Bohemia,Bohemia,36,www.briarcliffe.edu,Non-degree-granting,locale unkown,Private for-profit
-19050301,Culinary Institute of America at Greystone,St. Helena,6,www.ciachef.edu,Non-degree-granting,locale unkown,Private nonprofit
-19050302,Culinary Institute of America San Antonio,San Antonio,48,www.ciachef.edu,Non-degree-granting,locale unkown,Private nonprofit
-19200401,Jamestown Business College -,Salamanca,36,www.jbc.edu,Non-degree-granting,locale unkown,Private for-profit
-19457801,Pratt Manhattan-A Division of Pratt Institute,New York,36,https://www.pratt.edu,Non-degree-granting,locale unkown,Private nonprofit
-19554401,St. Joseph's College Long Island,Patchogue,36,www.sjcny.edu,Non-degree-granting,locale unkown,Private nonprofit
-19570201,Saint Elizabeth College of Nursing,Utica,36,www.secon.edu,Non-degree-granting,locale unkown,Private nonprofit
-19857001,Gaston College,Lincolnton,37,www.gaston.edu,Non-degree-granting,locale unkown,Public
-20306701,Hebrew Union College-Jewish Institute of Religion-Cincinnati,Cincinnati,39,huc.edu/,Non-degree-granting,locale unkown,Private nonprofit
-20306702,Hebrew Union College-Jewish Institute of Religion-Los Angeles,Los Angeles,6,huc.edu/,Non-degree-granting,locale unkown,Private nonprofit
-20354401,Kettering College - Ollie Davis Medical Arts and Education Center,Beavercreek,39,kc.edu,Non-degree-granting,locale unkown,Private nonprofit
-20417601,Mount Carmel College of Nursing - Fairfield,Lancaster,39,www.mccn.edu,Non-degree-granting,locale unkown,Private nonprofit
-20627901,Los Angeles Center,Los Angeles,6,www.myunion.edu,Non-degree-granting,locale unkown,Private nonprofit
-20627902,Florida Center,Hollywood,12,www.myunion.edu,Non-degree-granting,locale unkown,Private nonprofit
-20627903,Sacramento Center,Sacramento,6,www.myunion.edu,Non-degree-granting,locale unkown,Private nonprofit
-20627906,New England Center,Brattleboro,50,www.myunion.edu,Non-degree-granting,locale unkown,Private nonprofit
-20651601,Winebrenner Theological Seminary -,Scotland,42,www.winebrenner.edu,Non-degree-granting,locale unkown,Private nonprofit
-20750001,University of Oklahoma - Douglass Learning Center,Lawton,40,NULL,Non-degree-granting,locale unkown,Public
-20750002,University of Oklahoma - Ft. Benning GA - AP,Ft Benning,13,NULL,Non-degree-granting,locale unkown,Public
-21036801,Western Seminary-San Jose,Milpitas,6,www.westernseminary.edu,Non-degree-granting,locale unkown,Private nonprofit
-21036802,Western Seminary-Sacramento,Rocklin,6,www.westernseminary.edu,Non-degree-granting,locale unkown,Private nonprofit
-21078401,Toni&Guy Hairdressing Academy,Philadelphia,42,www.thebeautyinstituteskp.edu,Non-degree-granting,locale unkown,Private for-profit
-21130701,Bucks County Community College-Upper Bucks Campus,Perkasie,42,www.bucks.edu,Non-degree-granting,locale unkown,Public
-21130702,Bucks County Community College-Lower Bucks Campus,Bristol,42,www.bucks.edu,Non-degree-granting,locale unkown,Public
-21287801,Harrisburg Area Community College-Lancaster,Lancaster,42,www.hacc.edu,Non-degree-granting,locale unkown,Public
-21287802,Harrisburg Area Community College-Gettysburg,Gettysburg,42,www.hacc.edu,Non-degree-granting,locale unkown,Public
-21287803,Harrisburg Area Community College-Lebanon,Lebanon,42,www.hacc.edu,Non-degree-granting,locale unkown,Public
-21287804,Harrisburg Area Community College-York,York,42,www.hacc.edu/,Non-degree-granting,locale unkown,Public
-21429001,New Castle School of Trades,Pulaski,42,www.ncstrades.edu,Non-degree-granting,locale unkown,Private for-profit
-21437901,Northampton County Area Community College-Monroe,Tannersville,42,www.northampton.edu,Non-degree-granting,locale unkown,Public
-21510501,Villanova University - Summer Music Studies Program,Villanova,42,www.uarts.edu/academics/music/mm-music-education,Non-degree-granting,locale unkown,Private nonprofit
-21608301,South Hills School of Business and Technology-Altoona,Altoona,42,https://www.southhills.edu,Non-degree-granting,locale unkown,Private for-profit
-22039401,Tennessee College of Applied Technology-Jacksboro -,LaFollette,47,www.tcatjacksboro.edu,Non-degree-granting,locale unkown,Public
-22496101,Galveston College - Charlie Thomas Family Applied Technology Center,Galveston,48,www.gc.edu,Non-degree-granting,locale unkown,Public
-22797901,San Jacinto College-North Campus,Houston,48,www.sanjac.edu/,Non-degree-granting,locale unkown,Public
-22797902,San Jacinto College-South Campus,Houston,48,www.sanjac.edu,Non-degree-granting,locale unkown,Public
-22828201,Southwest School of Business and Technical Careers-South Texas,McAllen,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-22828202,Southwest School of Business and Technical Careers-Corpus Christi,Corpus Christi,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-22872301,Texas A & M University Health Science Center,Bryan,48,tamhsc.edu/,Non-degree-granting,locale unkown,Public
-23059701,Snow College-Richfield Campus,Richfield,49,https://www.snow.edu/richfield/,Non-degree-granting,locale unkown,Public
-23368401,Strayer University-Alexandria Campus,Alexandria,51,www.strayer.edu/virginia/alexandria,Non-degree-granting,locale unkown,Private for-profit
-23368402,Strayer University-Woodbridge Campus,Woodbridge,51,www.strayer.edu/virginia/woodbridge,Non-degree-granting,locale unkown,Private for-profit
-23368403,Strayer University-Manassas Campus,Manassas,51,www.strayer.edu/virginia/manassas,Non-degree-granting,locale unkown,Private for-profit
-23368404,Strayer University-Loudoun Campus,Ashburn,51,www.strayer.edu/virginia/loudoun,Non-degree-granting,locale unkown,Private for-profit
-23368405,Strayer University-Fredericksburg Campus,Fredericksburg,51,www.strayer.edu/virginia/fredericksburg,Non-degree-granting,locale unkown,Private for-profit
-23368407,Strayer University-Henrico Campus,Glen Allen,51,www.strayer.edu/virginia/henrico,Non-degree-granting,locale unkown,Private for-profit
-23368408,Strayer University-Chesterfield Campus,Midlothian,51,www.strayer.edu/virginia/chesterfield,Non-degree-granting,locale unkown,Private for-profit
-23368409,Strayer University-Chesapeake Campus,Chesapeake,51,www.strayer.edu/virginia/chesapeake,Non-degree-granting,locale unkown,Private for-profit
-23368410,Strayer University-Newport News Campus,Newport News,51,www.strayer.edu/virginia/newport-news,Non-degree-granting,locale unkown,Private for-profit
-23368411,Strayer University-Virginia Beach Campus,Virginia Beach,51,www.strayer.edu/virginia/virginia-beach,Non-degree-granting,locale unkown,Private for-profit
-23384201,Union Presbyterian Seminary-Charlotte,Charlotte,37,www.upsem.edu,Non-degree-granting,locale unkown,Private nonprofit
-23693901,Washington State University-Vancouver,Vancouver,53,https://www.vancouver.wsu.edu/,Non-degree-granting,locale unkown,Public
-23693902,Washington State University-Spokane,Spokane,53,https://spokane.wsu.edu/,Non-degree-granting,locale unkown,Public
-23693903,Washington State University-Tri Cities,Richland,53,https://www.tricity.wsu.edu/,Non-degree-granting,locale unkown,Public
-23797801,West Virginia Business College-Nutter Fort,Nutter Fort,54,www.wvbc.edu,Non-degree-granting,locale unkown,Private for-profit
-24366501,University of the Virgin Islands-Albert A. Sheen,St. Croix,78,www.uvi.edu,Non-degree-granting,locale unkown,Public
-24378001,Purdue University - Purdue Polytechnic Anderson,Anderson,18,polytechnic.purdue.edu/anderson,Non-degree-granting,locale unkown,Public
-24378002,Purdue University - Purdue Polytechnic Indianapolis,Indianapolis,18,polytechnic.purdue.edu/indianapolis,Non-degree-granting,locale unkown,Public
-24378003,Purdue University - Purdue Polytechnic South Bend,South Bend,18,polytechnic.purdue.edu/south-bend,Non-degree-granting,locale unkown,Public
-24378004,Purdue University - Purdue Polytechnic New Albany,New Albany,18,polytechnic.purdue.edu/new-albany,Non-degree-granting,locale unkown,Public
-24378006,Purdue University - Purdue Polytechnic Columbus,Columbus,18,polytechnic.purdue.edu/columbus,Non-degree-granting,locale unkown,Public
-24378007,Purdue University - Purdue Polytechnic Kokomo,Kokomo,18,polytechnic.purdue.edu/kokomo,Non-degree-granting,locale unkown,Public
-24378008,Purdue University - Purdue Polytechnic Richmond,Richmond,18,polytechnic.purdue.edu/richmond,Non-degree-granting,locale unkown,Public
-24378009,Purdue University - Purdue Polytechnic Lafayette,Lafayette,18,polytechnic.purdue.edu/lafayette,Non-degree-granting,locale unkown,Public
-24378010,Purdue University - Purdue Polytechnic Vincennes,Vincennes,18,polytechnic.purdue.edu/vincennes,Non-degree-granting,locale unkown,Public
-24893401,ECPI University-Newport News,Newport News,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893402,ECPI University-Greensboro,Greensboro,37,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893403,ECPI University-Charlotte,Charlotte,37,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893404,ECPI University-Greenville,Greenville,45,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893405,ECPI University-Manassas,Manassas,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893406,ECPI University-Charleston,North Charleston,45,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893407,ECPI University-Raleigh,Raleigh,37,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893408,ECPI University-Columbia,Columbia,45,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893409,ECPI University-Concord,Charlotte,37,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893410,ECPI University-Culinary Institute of Virginia,Norfolk,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893411,ECPI University-Virginia Beach Health Sciences,Virginia Beach,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893412,ECPI University-Richmond South,Richmond,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893413,ECPI University-Innsbrook,Glen Allen,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893414,ECPI University-Richmond West,Richmond,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893415,ECPI University - Roanoke,Roanoke,51,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-24893416,ECPI University - College of Nursing - Orlando,Lake Mary,12,www.ecpi.edu,Non-degree-granting,locale unkown,Private for-profit
-36520401,Vista College Amarillo,Amarillo,48,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520402,Vista College Lubbock,Lubbock,48,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520403,Computer Career Center-Las Cruces,Las Cruces,35,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520404,Vista College-Beaumont,Beaumont,48,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520405,Vista College-Longview,Longview,48,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520406,Vista College-Killeen,Killeen,48,vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520407,Vista College - College Station,College Station,48,www.vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-36520408,Vista College - Ft. Smith,Ft. Smith,5,www.vistacollege.edu,Non-degree-granting,locale unkown,Private for-profit
-37207301,Fremont College,Los Angeles,6,www.fremont.edu,Non-degree-granting,locale unkown,Private for-profit
-37369601,Rob Roy Academy - Woonsocket,Woonsocket,44,www.rob-roy.com,Non-degree-granting,locale unkown,Private for-profit
-37564701,CC's Cosmetology College,Oklahoma City,40,www.cccosmetologycollege.com,Non-degree-granting,locale unkown,Private for-profit
-37564702,CC's Cosmetology College,Sapulpa,40,www.cccosmetologycollege.com,Non-degree-granting,locale unkown,Private for-profit
-37564704,CC's Cosmetology College-Texarkana,Texarkana,48,www.cccosmetologcollege.com,Non-degree-granting,locale unkown,Private for-profit
-37564705,CC's Cosmetology College-Texarkana,Texarkana,5,www.cccosmetologcollege.com,Non-degree-granting,locale unkown,Private for-profit
-37593901,YTI Career Institute - Altoona,Altoona,42,www.yti.edu,Non-degree-granting,locale unkown,Private for-profit
-37727201,SW School of Business & Technical Careers,Uvalde,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-37727202,SW School of Business & Technical Careers,San Antonio,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-37728101,SW School of Business and Technical Careers-Del Rio,Del Rio,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-37728102,SW School of Business and Technical Careers-North Campus,Austin,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-37728103,SW School of Business and Technical Careers-South Campus,Austin,48,www.sws.edu,Non-degree-granting,locale unkown,Private for-profit
-38227601,Westech College,Moreno Valley,6,www.westech.edu,Non-degree-granting,locale unkown,Private for-profit
-38227602,Westech College,Victorville,6,www.westech.edu,Non-degree-granting,locale unkown,Private for-profit
-38561901,Everglades University-Orlando,Maitland,12,www.EvergladesUniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-38561902,Everglades University-Sarasota,Sarasota,12,www.EvergladesUniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-38561903,Everglades University - Tampa,Tampa,12,www.evergladesuniversity.edu,Non-degree-granting,locale unkown,Private nonprofit
-40884401,Florida National University-South Campus,Miami,12,www.fnu.edu,Non-degree-granting,locale unkown,Private for-profit
-40884402,Florida National University Training Center,Hialeah,12,www.fnu.edu,Non-degree-granting,locale unkown,Private for-profit
-41724801,Connecticut Aero Tech  School,Hartford,9,www.cttech.org/cats/,Non-degree-granting,locale unkown,Public
-42312001,Compu-Med Vocational Careers Corp,Miami,12,compumedschool.com,Non-degree-granting,locale unkown,Private for-profit
-42799101,Technical Education Center Osceola - St. Cloud Campus,St. Cloud,12,teco.osceolaschools.net,Non-degree-granting,locale unkown,Public
-42799102,Technical Education Center Osceola - Poinciana Campus,Kissimmee,12,teco.osceolaschools.net,Non-degree-granting,locale unkown,Public
-42817001,Southeastern College-Miami Lakes,Miami Lakes,12,www.sec.edu,Non-degree-granting,locale unkown,Private for-profit
-42817002,Southeastern College-St. Petersburg,St. Petersburg,12,www.sec.edu,Non-degree-granting,locale unkown,Private for-profit
-42817003,Southeastern College-New Port Richey,New Port Richey,12,www.sec.edu,Non-degree-granting,locale unkown,Private for-profit
-42817005,Southeastern College - Tampa,Tampa,12,www.sec.edu,Non-degree-granting,locale unkown,Private for-profit
-43018401,Strayer University-Rockville Campus,Rockville,24,www.strayer.edu/maryland/rockville,Non-degree-granting,locale unkown,Private for-profit
-43018402,Strayer University-Anne Arundel Campus,Millersville,24,www.strayer.edu/maryland/anne-arundel,Non-degree-granting,locale unkown,Private for-profit
-43018403,Strayer University-White Marsh Campus,Baltimore,24,www.strayer.edu/maryland/white-marsh,Non-degree-granting,locale unkown,Private for-profit
-43018404,Strayer University-Owings Mills Campus,Owings Mills,24,www.strayer.edu/maryland/owings-mills,Non-degree-granting,locale unkown,Private for-profit
-43342001,California Aeronautical University,Bakersfield,6,NULL,Non-degree-granting,locale unkown,Private for-profit
-43482101,Blue Cliff College,Metairie,22,www.bluecliffcollege.edu,Non-degree-granting,locale unkown,Private for-profit
-43601201,Franklin Career Institute,Brooklyn,36,www.franklincareer.edu,Non-degree-granting,locale unkown,Private nonprofit
-43723701,International Yacht Restoration School,Newport,44,iyrs.edu,Non-degree-granting,locale unkown,Private nonprofit
-44098901,Texas Barber College - Branch Campus #1,Dallas,48,www.txbarber.edu,Non-degree-granting,locale unkown,Private for-profit
-44098902,Texas Barber College - Branch Campus #2,Dallas,48,www.txbarber.edu,Non-degree-granting,locale unkown,Private for-profit
-44098904,Texas Barber College - Branch Campus #5,Houston,48,www.txbarber.edu,Non-degree-granting,locale unkown,Private for-profit
-44125601,Design's School of Cosmetology,Pleasanton,6,www.designsschool.edu,Non-degree-granting,locale unkown,Private for-profit
-44376601,Strayer University-Nashville Campus,Nashville,47,www.strayer.edu/tennessee/nashville,Non-degree-granting,locale unkown,Private for-profit
-44376602,Strayer University-Shelby Oaks Campus,Memphis,47,www.strayer.edu/tennessee/shelby,Non-degree-granting,locale unkown,Private for-profit
-44376603,Strayer University-Knoxville Campus,Knoxville,47,www.strayer.edu/tennessee/knoxville,Non-degree-granting,locale unkown,Private for-profit
-44378401,Strayer University-Delaware County Campus,Springfield,42,www.strayer.edu/pennsylvania/delaware-county,Non-degree-granting,locale unkown,Private for-profit
-44378403,Strayer University-Center City Campus,Philadelphia,42,www.strayer.edu/pennsylvania/center-city,Non-degree-granting,locale unkown,Private for-profit
-44378404,Strayer University-Lower Bucks County Campus,Trevose,42,www.strayer.edu/pennsylvania/lower-bucks-county,Non-degree-granting,locale unkown,Private for-profit
-44378405,Strayer University-Warrendale Campus,Warrendale,42,www.strayer.edu/pennsylvania/warrendale,Non-degree-granting,locale unkown,Private for-profit
-44378406,Strayer University-Allentown Campus,Center Valley,42,www.strayer.edu/pennsylvania/allentown,Non-degree-granting,locale unkown,Private for-profit
-44459201,New Directions Beauty Institute,Columbus,39,Newdirectionsbeautyinstitute.com,Non-degree-granting,locale unkown,Private nonprofit
-44467101,Industrial Technical College - Naguabo,Naguabo,72,www.industrialtechnicalcollege.com/docs/divulgaciones,Non-degree-granting,locale unkown,Private for-profit
-44598401,Xtreme Career Institute -,Arecibo,72,www.xtreme-career.com,Non-degree-granting,locale unkown,Private for-profit
-44781001,Blake Austin College Beauty Academy,Vacaville,6,blakeaustincollege.edu,Non-degree-granting,locale unkown,Private for-profit
-44801701,Healing Touch Career College - Jackson,Jackson,28,healingtouchms.com,Non-degree-granting,locale unkown,Private for-profit
-44867301,Rasmussen College-Aurora,Aurora,17,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-44867302,Rasmussen College-Romeoville/Joliet,Romeoville,17,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-44867303,Rasmussen College-Mokena/Tinley Park,Mokena,17,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-44903801,Strayer University-Tampa East Campus,Tampa,12,www.strayer.edu/florida/tampa-east,Non-degree-granting,locale unkown,Private for-profit
-44903802,Strayer University-Maitland Campus,Maitland,12,www.strayer.edu/florida/maitland,Non-degree-granting,locale unkown,Private for-profit
-44903803,Strayer University-Orlando East Campus,Orlando,12,www.strayer.edu/florida/orlando-east,Non-degree-granting,locale unkown,Private for-profit
-44903804,Strayer University-Sand Lake Campus,Orlando,12,www.strayer.edu/florida/sand-lake,Non-degree-granting,locale unkown,Private for-profit
-44903805,Strayer University-Baymeadows Campus,Jacksonville,12,www.strayer.edu/florida/baymeadows,Non-degree-granting,locale unkown,Private for-profit
-44903806,Strayer University-Palm Beach Gardens Campus,Palm Beach Gardens,12,www.strayer.edu/florida/palm-beach-gardens,Non-degree-granting,locale unkown,Private for-profit
-44903808,Strayer University-Fort Lauderdale Campus,Fort Lauderdale,12,www.strayer.edu/florida/fort-lauderdale,Non-degree-granting,locale unkown,Private for-profit
-44903809,Strayer University-Miramar Campus,Miramar,12,www.strayer.edu/florida/miramar,Non-degree-granting,locale unkown,Private for-profit
-44903810,Strayer University-Doral,Miami,12,www.strayer.edu/florida/doral,Non-degree-granting,locale unkown,Private for-profit
-44903811,Strayer University-Brickell,Miami,12,www.strayer.edu/florida/brickell,Non-degree-granting,locale unkown,Private for-profit
-44936601,Make-up Designory,New York,36,www.mud.edu,Non-degree-granting,locale unkown,Private for-profit
-44970001,Dayton School of Medical Massage-Lima,Lima,39,www.massageschools.com,Non-degree-granting,locale unkown,Private for-profit
-44970002,Cincinnati School of Medical Massage,Cincinnati,39,www.massageschools.com,Non-degree-granting,locale unkown,Private for-profit
-44970003,Cleveland Institute of Medical Massage,Middleburg Heights,39,www.massageschools.com,Non-degree-granting,locale unkown,Private for-profit
-44977302,CCI Training Center,Dallas,48,ccitraining.edu,Non-degree-granting,locale unkown,Private for-profit
-45037701,Strayer University-Huntsville Campus,Huntsville,1,www.strayer.edu/alabama/huntsville,Non-degree-granting,locale unkown,Private for-profit
-45057101,Rasmussen College-Appleton,Appleton,55,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-45057102,Rasmussen College-Wausau,Wausau,55,www.rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-45133401,Academy of Hair Design - Austin,Austin,48,NULL,Non-degree-granting,locale unkown,Private for-profit
-45316301,Strayer University-North Charlotte,Charlotte,37,www.strayer.edu/north-carolina/north-charlotte,Non-degree-granting,locale unkown,Private for-profit
-45316302,Strayer University-South Charlotte,Charlotte,37,www.strayer.edu/north-carolina/south-charlotte,Non-degree-granting,locale unkown,Private for-profit
-45316303,Strayer University-North Raleigh Campus,Raleigh,37,www.strayer.edu/north-carolina/north-raleigh,Non-degree-granting,locale unkown,Private for-profit
-45316304,Strayer University-Greensboro Campus,Greensboro,37,www.strayer.edu/north-carolina/greensboro,Non-degree-granting,locale unkown,Private for-profit
-45316305,Strayer University-Huntersville Campus,Raleigh,37,www.strayer.edu/north-carolina/huntersville,Non-degree-granting,locale unkown,Private for-profit
-45316306,Strayer University-South Raleigh Campus,Raleigh,37,www.strayer.edu/north-carolina/south-raleigh,Non-degree-granting,locale unkown,Private for-profit
-45321501,Strayer University-Willingboro Campus,Willingboro,34,www.strayer.edu/new-jersey/willingboro,Non-degree-granting,locale unkown,Private for-profit
-45321502,Strayer University-Lawrenceville,Lawrenceville,34,www.strayer.edu/new-jersey/lawrenceville,Non-degree-granting,locale unkown,Private for-profit
-45321503,Strayer University-Piscataway,Piscataway,34,www.strayer.edu/new-jersey/piscataway,Non-degree-granting,locale unkown,Private for-profit
-45486501,Cambridge Institute of Allied Health & Technology,Atlanta,13,www.cambridgehealth.edu/,Non-degree-granting,locale unkown,Private for-profit
-45490801,Professional Hands Institute,Miami,12,www.prohands.edu,Non-degree-granting,locale unkown,Private for-profit
-45491701,Celebrity School of Beauty - Hialeah,Hialeah,12,NULL,Non-degree-granting,locale unkown,Private for-profit
-45538101,Utah County Campus,Orem,49,www.skinscienceinstitute.com/,Non-degree-granting,locale unkown,Private for-profit
-45763301,L'esprit Academy - Royal Oak,Royal Oak,26,lespritacademy.com,Non-degree-granting,locale unkown,Private for-profit
-45776701,National Career Institute - Jersey City Branch,Jersey City,34,nciedu.com,Non-degree-granting,locale unkown,Private for-profit
-45794301,Somerset County Technology Center - Bedford Site,Bedford,42,www.sctc.net,Non-degree-granting,locale unkown,Public
-45891901,Strayer University-Cobb Campus,Atlanta,13,www.strayer.edu/georgia/cobb-county,Non-degree-granting,locale unkown,Private for-profit
-45891902,Strayer University-Morrow Campus,Morrow,13,www.strayer.edu/georgia/morrow,Non-degree-granting,locale unkown,Private for-profit
-45891903,Strayer University-Roswell Campus,Roswell,13,www.strayer.edu/georgia/roswell,Non-degree-granting,locale unkown,Private for-profit
-45891904,Strayer University-Douglasville Campus,Douglasville,13,www.strayer.edu/georgia/douglasville,Non-degree-granting,locale unkown,Private for-profit
-45891905,Strayer University-Lithonia Campus,Lithonia,13,www.strayer.edu/georgia/lithonia,Non-degree-granting,locale unkown,Private for-profit
-45891906,Strayer University-Savannah Campus,Savannah,13,www.strayer.edu/georgia/savannah,Non-degree-granting,locale unkown,Private for-profit
-45891907,Strayer University-Augusta Campus,Augusta,13,www.strayer.edu/georgia/augusta,Non-degree-granting,locale unkown,Private for-profit
-45891908,Strayer University-Columbus,Columbus,13,www.strayer.edu/georgia/columbus,Non-degree-granting,locale unkown,Private for-profit
-45896401,Strayer University-Columbia Campus,Columbia,45,www.strayer.edu/south-carolina/columbia,Non-degree-granting,locale unkown,Private for-profit
-45896402,Strayer University-Charleston Campus,North Charleston,45,www.strayer.edu/south-carolina/charleston,Non-degree-granting,locale unkown,Private for-profit
-45897301,Strayer University-Irving,Irving,48,www.strayer.edu/texas/irving,Non-degree-granting,locale unkown,Private for-profit
-45897302,Strayer University-Katy,Houston,48,www.strayer.edu/texas/katy,Non-degree-granting,locale unkown,Private for-profit
-45897303,Strayer University-Northwest Houston,Houston,48,www.strayer.edu/texas/northwest-houston,Non-degree-granting,locale unkown,Private for-profit
-45897304,Strayer University-Plano,Plano,48,www.strayer.edu/texas/plano,Non-degree-granting,locale unkown,Private for-profit
-45897305,Strayer University-Cedar Hill,Cedar Hill,48,www.strayer.edu/texas/cedar-hill,Non-degree-granting,locale unkown,Private for-profit
-45897306,Strayer University-North Dallas,Dallas,48,www.strayer.edu/texas/north-dallas,Non-degree-granting,locale unkown,Private for-profit
-45897307,Strayer University-San Antonio,San Antonio,48,www.strayer.edu/texas/san-antonio,Non-degree-granting,locale unkown,Private for-profit
-45897308,Strayer University-Stafford,Stafford,48,www.strayer.edu/texas/stafford,Non-degree-granting,locale unkown,Private for-profit
-45920401,Unitek College,Fremont,6,www.unitekcollege.edu/,Non-degree-granting,locale unkown,Private for-profit
-47503301,Relay Graduate School of Education - Newark,Newark,34,relay.edu/location/relay-newark,Non-degree-granting,locale unkown,Private nonprofit
-47503302,Relay Graduate School of Education - New Orleans,New Orleans,22,relay.edu/location/relay-new-orleans,Non-degree-granting,locale unkown,Private nonprofit
-47503303,Relay Graduate School of Education - Delaware,Wilmington,10,relay.edu/location/relay-delaware,Non-degree-granting,locale unkown,Private nonprofit
-47503304,Relay Graduate School of Education - Memphis,Memphis,47,relay.edu/location/relay-memphis,Non-degree-granting,locale unkown,Private nonprofit
-47503305,Relay Graduate School of Education - Houston,Houston,48,relay.edu/location/relay-houston,Non-degree-granting,locale unkown,Private nonprofit
-47503306,Relay Graduate School of Education - Chicago,Chicago,17,relay.edu/location/relay-chicago,Non-degree-granting,locale unkown,Private nonprofit
-47503307,Relay Graduate School of Education - Baton Rouge,Baton Rouge,22,relay.edu/location/relay-baton-rouge,Non-degree-granting,locale unkown,Private nonprofit
-47503308,Relay Graduate School of Education - Philadelphia & Camden,Philadelphia,42,relay.edu/location/relay-philadelphia-camden,Non-degree-granting,locale unkown,Private nonprofit
-47503309,Relay Graduate School of Education - Denver,Denver,8,relay.edu/location/relay-denver,Non-degree-granting,locale unkown,Private nonprofit
-47503310,Relay Graduate School of Education - Nashville,Nashville,47,relay.edu/location/relay-nashville,Non-degree-granting,locale unkown,Private nonprofit
-47647001,WestMed College - Merced,Merced,6,www.westmedcollege.edu,Non-degree-granting,locale unkown,Private nonprofit
-47657701,Vantage College,El Paso,48,www.vantage.edu,Non-degree-granting,locale unkown,Private for-profit
-47657702,Vantage College,Austin,48,www.vantage.edu,Non-degree-granting,locale unkown,Private for-profit
-47662901,Salon Institute - Columbus Campus,Lewis Center,39,www.saloninstitute.edu,Non-degree-granting,locale unkown,Private for-profit
-47691101,SAE Institute of Technology San Francisco,Emeryville,6,usa.sae.edu,Non-degree-granting,locale unkown,Private for-profit
-48065701,Rasmussen College - Overland Park,Overland Park,20,rasmussen.edu,Non-degree-granting,locale unkown,Private for-profit
-48154401,National Personal Training Institute of Cleveland,Highland Heights,39,nptiohio.edu,Non-degree-granting,locale unkown,Private for-profit
-48305401,Barber School of Pittsburgh - Ambridge,Ambridge,42,www.bsp.edu,Non-degree-granting,locale unkown,Private for-profit
-48387801,Bay Area Medical Academy - San Jose Satellite Location,San Jose,6,www.bamasf.com/,Non-degree-granting,locale unkown,Private for-profit
-48400201,High Desert Medical College,Lancaster,6,www.hdmc.edu,Non-degree-granting,locale unkown,Private for-profit
-48414501,Vantage College-San Antonio,San Antonio,48,www.vantage.edu,Non-degree-granting,locale unkown,Private for-profit
-48778201,BCI - Malden,Malden,25,bostoncareer.org,Non-degree-granting,locale unkown,Private nonprofit
+10236801,Troy University-Phenix City Campus,Phenix City,1,www.troy.edu/phenixcity/,Non-degree-granting,NULL,Public
+10236802,Troy University-Montgomery Campus,Montgomery,1,www.troy.edu/montgomery/,Non-degree-granting,NULL,Public
+10236803,Troy University-Dothan Campus,Dothan,1,www.troy.edu/dothan/,Non-degree-granting,NULL,Public
+10236808,Troy University-Online,Troy,1,online.troy.edu/index.html,Non-degree-granting,NULL,Public
+10236809,Troy University-Support Locations,Troy,1,www.troy.edu/servicecenters/,Non-degree-granting,NULL,Public
+10635101,Arkansas College of Barbering and Hair Design,Little Rock,5,www.arkansascollegeofbarbering.com,Non-degree-granting,NULL,Private for-profit
+10635102,Arkansas College of Barbering & Hair Design -  SWLR Campus,Little Rock,5,NULL,Non-degree-granting,NULL,Private for-profit
+10704401,Harding School of Theology,Memphis,47,hst.edu/,Non-degree-granting,NULL,Private nonprofit
+10722001,Career Academy of Hair Design-Siloam Springs,Siloam Springs,5,www.beautynwa.com,Non-degree-granting,NULL,Private for-profit
+10722002,Career Academy of Hair Design-Rogers,Rogers,5,www.beautynwa.com,Non-degree-granting,NULL,Private for-profit
+10722003,Career Academy of Hair Design-Fayetteville,Fayetteville,5,www.beautynwa.com,Non-degree-granting,NULL,Private for-profit
+10722004,Career Academy of Hair Design - Fort Smith,Fort Smith,5,www.beautynwa.com,Non-degree-granting,NULL,Private for-profit
+10729301,Academy of Salon and Spa -,Tahlequah,40,www.academysalonspa.com,Non-degree-granting,NULL,Private for-profit
+10772501,University of Arkansas Community College at Hope - Texarkana,Texarkana,5,www.uacch.edu,Non-degree-granting,NULL,Public
+11021901,Bryan University - Tempe,Tempe,4,bryanuniversity.edu,Non-degree-granting,NULL,Private for-profit
+11046801,Alliant International University-Fresno,Fresno,6,www.alliant.edu,Non-degree-granting,NULL,Private for-profit
+11046802,Alliant International University-Los Angeles,Alhambra,6,https://www.alliant.edu,Non-degree-granting,NULL,Private for-profit
+11046803,Alliant International University-San Francisco,San Francisco,6,https://www.alliant.edu,Non-degree-granting,NULL,Private for-profit
+11046804,Alliant International University-Irvine,Irvine,6,https://www.alliant.edu,Non-degree-granting,NULL,Private for-profit
+11046805,Alliant International University-Sacramento,Sacramento,6,https://www.alliant.edu,Non-degree-granting,NULL,Private for-profit
+11163801,Casa Loma College-Anaheim Campus,Anaheim,6,casalomacollege.edu,Non-degree-granting,NULL,Private nonprofit
+11458501,San Jose Campus,San Jose,6,www.fivebranches.edu,Non-degree-granting,NULL,Private for-profit
+11473401,Franciscan School of Theology,Oceanside,6,www.fst.edu,Non-degree-granting,NULL,Private nonprofit
+11508303,Golden Gate University-Los Angeles,Los Angeles,6,www.ggu.edu/,Non-degree-granting,NULL,Private nonprofit
+11508305,Golden Gate University-Seattle,Seattle,53,www.ggu.edu/,Non-degree-granting,NULL,Private nonprofit
+11508306,Golden Gate University-Silicon Valley,Santa Clara,6,www.ggu.edu/,Non-degree-granting,NULL,Private nonprofit
+11577301,Humphreys College-Modesto,Modesto,6,humphreys.edu,Non-degree-granting,NULL,Private nonprofit
+11635001,International School of Cosmetology,Costa Mesa,6,toniguy.com/academy/costa_mesa_beauty_school/default.aspx,Non-degree-granting,NULL,Private for-profit
+11643901,ATEP at IVC,Tustin,6,www.atep.us/,Non-degree-granting,NULL,Public
+11710401,Life Pacific College-Ignite,Christiansburg,51,lifepacific.edu/extension-campus,Non-degree-granting,NULL,Private nonprofit
+11854101,Marymount University - Waterfront Campus,San Pedro,6,www.marymountcalifornia.edu,Non-degree-granting,NULL,Private nonprofit
+11854102,Marymount California University - Lakeside Campus,Lucerne,6,www.marymountcalifornia.edu/lakeside/explore,Non-degree-granting,NULL,Private nonprofit
+11891201,MiraCosta College -,Cardiff,6,miracosta.edu,Non-degree-granting,NULL,Public
+11917301,Mount Saint Mary's University - Doheny Campus,Los Angeles,6,www.msmu.edu,Non-degree-granting,NULL,Private nonprofit
+12240901,San Diego State University-Imperial Valley Campus,Calexico,6,www.ivcampus.sdsu.edu,Non-degree-granting,NULL,Public
+12265801,San Joaquin General Hospital School of Radiation Technology,French Camp,6,www.deltacollege.edu/index.html,Non-degree-granting,NULL,Public
+12268501,San Joaquin Valley College - Hanford,Hanford,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268502,San Joaquin Valley College-Online,Visalia,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268503,San Joaquin Valley College-Bakersfield,Bakersfield,6,www.sjvc.edu/,Non-degree-granting,NULL,Private for-profit
+12268504,San Joaquin Valley College-Fresno,Fresno,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268505,San Joaquin Valley College-Fresno Aviation,Fresno,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268506,San Joaquin Valley College-Ontario,Ontario,6,sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268507,San Joaquin Valley College-Modesto,Salida,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268508,San Joaquin Valley College-Rancho Cordova,Rancho Cordova,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268510,San Joaquin Valley College-Hesperia,Hesperia,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268511,San Joaquin Valley College-Temecula,Temecula,6,www.sjvc.edu/,Non-degree-granting,NULL,Private for-profit
+12268512,San Joaquin Valley College-Lancaster,Lancaster,6,www.sjvc.edu/,Non-degree-granting,NULL,Private for-profit
+12268513,San Joaquin Valley College-San Diego,Chula Vista,6,www.sjvc.edu/,Non-degree-granting,NULL,Private for-profit
+12268514,San Joaquin Valley College - Madera,Madera,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12268515,San Joaquin Valley College - Delano,Delano,6,www.sjvc.edu,Non-degree-granting,NULL,Private for-profit
+12293101,Jesuit School of Theology of Santa Clara University,Berkeley,6,www.scu.edu/jst,Non-degree-granting,NULL,Private nonprofit
+12508201,Bridges Beauty College -,Rancho Cucamonga,6,www.bridgesbeautycollege.com,Non-degree-granting,NULL,Private for-profit
+12682703,Colorado Technical University-Denver,Aurora,8,www.coloradotech.edu/Denver,Non-degree-granting,NULL,Private for-profit
+12697901,Denver Seminary - Washington DC,Landover,24,www.denverseminary.edu/dc/,Non-degree-granting,NULL,Private nonprofit
+13017401,Porter and Chester Institute of Rocky Hill,Rocky Hill,9,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017402,Porter and Chester Institute of Enfield,Enfield,9,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017403,Porter and Chester Institute of Waterbury,Waterbury,9,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017404,Porter and Chester Institute of Chicopee,Chicopee,25,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017405,Porter and Chester Institute of Worcester,Worcester,25,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017406,Porter and Chester Institute of Canton,Canton,25,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13017407,Porter and Chester Institute of Woburn -closed 10/6/2017,Woburn,25,www.porterchester.com,Non-degree-granting,NULL,Private for-profit
+13090701,Delaware Technical Community College-Owens,Georgetown,10,https://www.dtcc.edu/our-campuses/georgetown,Non-degree-granting,NULL,Public
+13090702,Delaware Technical Community College-Stanton/Wilmington,Wilmington,10,https://www.dtcc.edu/our-campuses/wilmington,Non-degree-granting,NULL,Public
+13180301,Strayer University-Takoma Park Campus,Washington,11,www.strayer.edu/district-columbia/takoma-park,Non-degree-granting,NULL,Private for-profit
+13247101,Barry University Law School,Orlando,12,www.barry.edu/law/,Non-degree-granting,NULL,Private nonprofit
+13508101,Keiser University-Melbourne,Melbourne,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508102,Keiser University-Tallahassee,Tallahassee,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508103,Keiser University-Daytona,Daytona Beach,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508104,Keiser University-Lakeland,Lakeland,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508105,Keiser University- Miami,Miami,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508106,Keiser University-Orlando,Orlando,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508107,Keiser University-Sarasota,Sarasota,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508108,Keiser University-Jacksonville,Jacksonville,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508109,Keiser University-Tampa,Tampa,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508110,Keiser University-Pembroke Pines,Pembroke Pines,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508111,Keiser University-Port St Lucie,Port St Lucie,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508112,Keiser University-West Palm Beach,West Palm Beach,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508113,Keiser University-Ft Myers,Ft Myers,12,www.keiseruniversity.edu,Non-degree-granting,NULL,Private nonprofit
+13508114,Keiser University -  Clearwater,Clearwater,12,www.keiseruniversity.edu/clearwater/,Non-degree-granting,NULL,Private nonprofit
+13508115,Keiser University - NPR,New Port Richey,12,www.keiseruniversity.edu/new-port-richey/,Non-degree-granting,NULL,Private nonprofit
+13508116,Keiser University - Residential,West Palm Beach,12,www.keiseruniversity.edu/residential/,Non-degree-granting,NULL,Private nonprofit
+13830901,Rasmussen College-New Port Richey,New Port Richey,12,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+13830902,Rasmussen College-Fort Myers,Fort Myers,12,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+13830903,Rasmussen College-Tampa/Brandon,Tampa,12,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+13830904,Rasmussen College-Land O' Lakes,Land O'Lakes,12,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+13962101,East Georgia State College - Statesboro,Statesboro,13,www.ega.edu/statesboro,Non-degree-granting,NULL,Public
+13962102,East Georgia State College - Augusta,Augusta,13,www.ega.edu/augusta,Non-degree-granting,NULL,Public
+14736901,Moody Theological Seminary and Graduate School--Michigan,Plymouth,26,www.moody.edu/mts-michigan/,Non-degree-granting,NULL,Private nonprofit
+14736902,Moody Bible Institute-Spokane,Spokane,53,www.moody.edu/spokane/,Non-degree-granting,NULL,Private nonprofit
+14902801,Saint Anthony College of Nursing - Highland Community College Campus,Freeport,17,www.sacn.edu,Non-degree-granting,NULL,Private nonprofit
+14902802,Saint Anthony College of Nursing - Sauk Valley Community College Campus,Dixon,17,www.sacn.edu,Non-degree-granting,NULL,Private nonprofit
+14953201,Triton College - Intl Union of Operating Engr Local 399 Trning Fac.,Chicago,17,www.triton.edu,Non-degree-granting,NULL,Public
+15085301,PJ's College of Cosmetology- Brownsburg,Brownsburg,18,https://www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15085302,PJ's College of Cosmetology-Crestwood,Crestwood,21,https://www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15085303,PJ's College of Cosmetology- Jeffersonville,Jeffersonville,18,https://www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15098701,Ivy Tech Community College-Northcentral,South Bend,18,www.ivytech.edu/,Non-degree-granting,NULL,Public
+15098702,Ivy Tech Community College-Columbus,Columbus,18,www.ivytech.edu/columbus/,Non-degree-granting,NULL,Public
+15098703,Ivy Tech Community College-East Central,Muncie,18,www.ivytech.edu/muncie/,Non-degree-granting,NULL,Public
+15098704,Ivy Tech Community College-Kokomo,Kokomo,18,www.ivytech.edu/kokomo/,Non-degree-granting,NULL,Public
+15098705,Ivy Tech Community College-Lafayette,Lafayette,18,www.ivytech.edu/lafayette/,Non-degree-granting,NULL,Public
+15098706,Ivy Tech Community College-Northeast,Fort Wayne,18,www.ivytech.edu/fortwayne/,Non-degree-granting,NULL,Public
+15098707,Ivy Tech Community College-South Central,Sellersburg,18,www.ivytech.edu/sellersburg/,Non-degree-granting,NULL,Public
+15098708,Ivy Tech Community College-Southwest,Evansville,18,www.ivytech.edu/evansville/,Non-degree-granting,NULL,Public
+15098709,Ivy Tech Community College-Wabash Valley,Terre Haute,18,www.ivytech.edu/wabashvalley,Non-degree-granting,NULL,Public
+15098710,Ivy Tech Community College-Richmond,Richmond,18,www.ivytech.edu/richmond/,Non-degree-granting,NULL,Public
+15098711,Ivy Tech Community College-Northwest,Gary,18,www.ivytech.edu/northwest/,Non-degree-granting,NULL,Public
+15098712,Ivy Tech Community College-Southeast,Madison,18,www.ivytech.edu/madison/,Non-degree-granting,NULL,Public
+15098713,Ivy Tech Community College-Bloomington,Bloomington,18,www.ivytech.edu/bloomington/,Non-degree-granting,NULL,Public
+15098714,Ivy Tech Community College-Central Indiana,Indianapolis,18,www.ivytech.edu/indianapolis/,Non-degree-granting,NULL,Public
+15116601,Harrison College-Anderson,Anderson,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116602,Harrison College-Columbus,Columbus,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116604,Harrison College-Terre Haute,Terre Haute,18,www.harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116605,Harrison College-Lafayette,Lafayette,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116606,Harrison College-Indianapolis East,Indianapolis,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116607,Harrison College-Evansville,Evansville,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116608,Harrison College-Fort Wayne,Fort Wayne,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116609,Harrison College-Northwest,Indianapolis,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15116610,Harrison College-Elkhart,Elkhart,18,harrison.edu,Non-degree-granting,NULL,Private for-profit
+15178601,Marian University,Indianapolis,18,www.marian.edu,Non-degree-granting,NULL,Private nonprofit
+15336601,Graceland University - Independence,Independence,29,www.graceland.edu,Non-degree-granting,NULL,Private nonprofit
+15468801,Baker University School of Nursing,Topeka,20,www.bakeru.edu,Non-degree-granting,NULL,Private nonprofit
+15468802,Baker University School of Professional and Graduate Studies and Graduate School of Education,Overland Park,20,www.bakeru.edu,Non-degree-granting,NULL,Private nonprofit
+15483701,CBTS - Wisconsin,Elm Grove,55,www.cbts.edu,Non-degree-granting,NULL,Private nonprofit
+15492501,Coffeyville Technical Campus,Coffeyville,20,WWW.COFFEYVILLE.EDU,Non-degree-granting,NULL,Public
+15492502,Columbus Technical Campus,Columbus,20,www.coffeyville.edu,Non-degree-granting,NULL,Public
+15628601,Bellarmine University - Bullitt County,Shepherdsville,21,NULL,Non-degree-granting,NULL,Private nonprofit
+15628602,Bellarmine University - Oldham County,Crestwood,21,NULL,Non-degree-granting,NULL,Private nonprofit
+15631001,PJ's College of Cosmetology- Greenfield,Greenfield,18,www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15631002,PJ's College of Cosmetology- Muncie,Muncie,18,www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15631003,PJ's College of Cosmetology- Indianapolis,Indianapolis,18,www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15631004,PJ's College of Cosmetology- Plainfield,Plainfield,18,www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+15631005,PJ's College of Cosmetology- Louisville,Louisville,21,https://www.gotopjs.com,Non-degree-granting,NULL,Private for-profit
+16061201,Southeastern Louisiana University - EBR Parish School System Prof Dev,Baton Rouge,22,www.southeastern.edu,Non-degree-granting,NULL,Public
+16061202,Southeastern Louisiana University - St Amant High School,St Amant,22,www.southeastern.edu,Non-degree-granting,NULL,Public
+16149302,Empire Beauty School-Caribou,Caribou,23,www.empire.edu,Non-degree-granting,NULL,Private for-profit
+16149303,Empire Beauty School-Bangor,Bangor,23,www.empire.edu,Non-degree-granting,NULL,Private for-profit
+16822701,Wentworth Institute of Technology,Boston,25,www.wit.edu,Non-degree-granting,NULL,Private nonprofit
+16822702,Wentworth Institute of Technology,Dorchester,25,www.wit.edu,Non-degree-granting,NULL,Private nonprofit
+16822703,Wentworth Institute of Technology,Fall River,25,www.wit.edu,Non-degree-granting,NULL,Private nonprofit
+16884701,Baker College of Owosso,Owosso,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884702,Baker College of Allen Park,Allen Park,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884703,Baker College of Auburn Hills,Auburn Hills,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884704,Baker College of Cadillac,Cadillac,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884705,Baker College of Clinton Township,Clinton Township,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884706,Baker College of Jackson,Jackson,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884707,Baker College of Muskegon,Muskegon,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16884709,Baker College of Port Huron,Port Huron,26,www.baker.edu/,Non-degree-granting,NULL,Private nonprofit
+16884710,Baker College Center for Graduate Studies,Flint,26,www.baker.edu,Non-degree-granting,NULL,Private nonprofit
+16947903,Davenport University-Warren Location,Warren,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947904,Davenport University-Kalamazoo Location,Kalamazoo,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947905,Davenport University-Lansing Location,Lansing,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947907,Davenport University-Midland Location,Midland,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947909,Davenport University-Holland Location,Holland,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947910,Davenport University-Flint Location,Fenton,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947912,Davenport University-Traverse City Location,Traverse City,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947918,Davenport University-Livonia Location,Livonia,26,www.davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947920,Davenport University-Grand Rapids Downtown,Grand Rapids,26,davenport.edu,Non-degree-granting,NULL,Private nonprofit
+16947921,Davenport University - Treasury Site Dimondale,Dimondale,26,NULL,Non-degree-granting,NULL,Private nonprofit
+17296301,Anoka-Ramsey Community College-Cambridge Campus,Cambridge,27,www.anokaramsey.edu/,Non-degree-granting,NULL,Public
+17320301,Central Lakes College-Staples Campus,Staples,27,WWW.CLCMN.EDU,Non-degree-granting,NULL,Public
+17355901,M State - Detroit Lakes Campus,Detroit Lakes,27,www.minnesota.edu,Non-degree-granting,NULL,Public
+17355902,M State - Moorhead Campus,Moorhead,27,www.minnesota.edu,Non-degree-granting,NULL,Public
+17355903,M State - Wadena Campus,Wadena,27,www.minnesota.edu,Non-degree-granting,NULL,Public
+17391101,South Central College-Faribault,Faribault,27,www.southcentral.edu,Non-degree-granting,NULL,Public
+17399301,Mesabi Range College,Eveleth,27,www.mesabirange.edu,Non-degree-granting,NULL,Public
+17447301,Northland Community and Technical College - East Grand Forks,East Grand Forks,27,www.northlandcollege.edu/,Non-degree-granting,NULL,Public
+17501401,Rasmussen College-Bloomington,Bloomington,27,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17501402,Rasmussen College-Eagan,Eagan,27,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17501403,Rasmussen College-Mankato,Mankato,27,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17501404,Rasmussen College-Brooklyn Park,Brooklyn Park,27,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17501405,Rasmussen College-Lake Elmo/Woodbury,Lake Elmo,27,https://www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17501406,Rasmussen College-Blaine,Blaine,27,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+17523601,Ridgewater College,Hutchinson,27,www.ridgewater.edu,Non-degree-granting,NULL,Public
+17526301,Minnesota State College-SE Technical-Red Wing,Red Wing,27,www.southeastmn.edu/,Non-degree-granting,NULL,Public
+17557301,Copiah-Lincoln Community College Simpson County Center,Mendenhall,28,www.colin.edu,Non-degree-granting,NULL,Public
+17557302,Copiah-Lincoln Community College-Natchez Campus,Natchez,28,www.colin.edu,Non-degree-granting,NULL,Public
+17601701,University of Mississippi Medical Center,Jackson,28,https://www.umc.edu,Non-degree-granting,NULL,Public
+17623901,Pearl River Community College-Forrest County Center,Hattiesburg,28,www.prcc.edu,Non-degree-granting,NULL,Public
+17706501,Columbia College - Redstone Arsenal,Redstone Arsenal,1,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706502,Columbia College - Coast Guard Island,Alameda,6,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706503,Columbia College - Denver,Centennial,8,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706504,Columbia College - NAS Jacksonville,Jacksonville,12,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706505,Columbia College - Orlando,Orlando,12,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706506,Columbia College - Crystal Lake Campus,Crystal Lake,17,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706507,Columbia College - Kansas City,Kansas City,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706508,Columbia College - Fort Leonard Wood,Fort Leonard Wood,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706509,Columbia College - Jefferson City,Jefferson City,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706510,Columbia College - Lake Ozark,Osage Beach,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706511,Columbia College - Saint Louis,Saint Louis,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706512,Columbia College - Fort Worth,Fort Worth,48,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706513,Columbia College - Salt Lake,Murray,49,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706514,Columbia College - Lake County,Gurnee,17,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706515,Columbia College - Naval Station Everett/Marysville,Marysville,53,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706516,Columbia College - Freeport,Freeport,17,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706517,Columbia College - Springfield,Springfield,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706518,Columbia College - Rolla,Rolla,29,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706519,Columbia College - Los Alamitos,Los Alamitos,6,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706520,Columbia College - Patrick AFB,Patrick Air Force Base,12,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706521,Columbia College - Lemoore,NAS Lemoore,6,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706522,Columbia College - San Luis Obispo,San Luis Obispo,6,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706523,Columbia College - Fort Stewart,Ft. Stewart,13,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706524,Columbia College - Hunter Army Airfield,Hunter Army Airfield,13,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706525,Columbia College - Elgin,Elgin,17,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706526,Columbia College - Hancock Field,Syracuse,36,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706527,Columbia College - Whidbey Island,Oak Harbor,53,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706528,Columbia College - Fort Drum,Ft. Drum,36,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706529,Columbia College -  Jacksonville,Jacksonville,12,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706530,Columbia College - Fort Sill,Fort Sill,40,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706531,Columbia College-Joint Base Charleston-Weapons Station,Goose Creek,45,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706532,Columbia College - San Diego,San Diego,6,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17706533,Columbia College - Mesquite,Mesquite,48,www.ccis.edu,Non-degree-granting,NULL,Private nonprofit
+17796801,Lindenwood University-Belleville,Belleville,17,www.lindenwood.edu/belleville/,Non-degree-granting,NULL,Private nonprofit
+18017901,City College Montana State University Billings,Billings,30,www.msubillings.edu/citycollege/,Non-degree-granting,NULL,Public
+18048901,The University of Montana - Missoula College,Missoula,30,www.umt.edu,Non-degree-granting,NULL,Public
+18303501,New Hampshire Institute for Therapeutic Arts,Bridgton,23,www.nhita.com,Non-degree-granting,NULL,Private for-profit
+18409201,American Institute,Clifton,34,www.americaninstitute.com,Non-degree-granting,NULL,Private for-profit
+18557201,Monmouth University -  Monmouth Park Corporate Center,West Long Branch,34,www.monmouth.edu,Non-degree-granting,NULL,Private nonprofit
+18922801,Berkeley College - Westchester Campus,White Plains,36,www.BerkeleyCollege.edu,Non-degree-granting,NULL,Private for-profit
+18945901,Briarcliffe College-Bohemia,Bohemia,36,www.briarcliffe.edu,Non-degree-granting,NULL,Private for-profit
+19050301,Culinary Institute of America at Greystone,St. Helena,6,www.ciachef.edu,Non-degree-granting,NULL,Private nonprofit
+19050302,Culinary Institute of America San Antonio,San Antonio,48,www.ciachef.edu,Non-degree-granting,NULL,Private nonprofit
+19200401,Jamestown Business College -,Salamanca,36,www.jbc.edu,Non-degree-granting,NULL,Private for-profit
+19457801,Pratt Manhattan-A Division of Pratt Institute,New York,36,https://www.pratt.edu,Non-degree-granting,NULL,Private nonprofit
+19554401,St. Joseph's College Long Island,Patchogue,36,www.sjcny.edu,Non-degree-granting,NULL,Private nonprofit
+19570201,Saint Elizabeth College of Nursing,Utica,36,www.secon.edu,Non-degree-granting,NULL,Private nonprofit
+19857001,Gaston College,Lincolnton,37,www.gaston.edu,Non-degree-granting,NULL,Public
+20306701,Hebrew Union College-Jewish Institute of Religion-Cincinnati,Cincinnati,39,huc.edu/,Non-degree-granting,NULL,Private nonprofit
+20306702,Hebrew Union College-Jewish Institute of Religion-Los Angeles,Los Angeles,6,huc.edu/,Non-degree-granting,NULL,Private nonprofit
+20354401,Kettering College - Ollie Davis Medical Arts and Education Center,Beavercreek,39,kc.edu,Non-degree-granting,NULL,Private nonprofit
+20417601,Mount Carmel College of Nursing - Fairfield,Lancaster,39,www.mccn.edu,Non-degree-granting,NULL,Private nonprofit
+20627901,Los Angeles Center,Los Angeles,6,www.myunion.edu,Non-degree-granting,NULL,Private nonprofit
+20627902,Florida Center,Hollywood,12,www.myunion.edu,Non-degree-granting,NULL,Private nonprofit
+20627903,Sacramento Center,Sacramento,6,www.myunion.edu,Non-degree-granting,NULL,Private nonprofit
+20627906,New England Center,Brattleboro,50,www.myunion.edu,Non-degree-granting,NULL,Private nonprofit
+20651601,Winebrenner Theological Seminary -,Scotland,42,www.winebrenner.edu,Non-degree-granting,NULL,Private nonprofit
+20750001,University of Oklahoma - Douglass Learning Center,Lawton,40,NULL,Non-degree-granting,NULL,Public
+20750002,University of Oklahoma - Ft. Benning GA - AP,Ft Benning,13,NULL,Non-degree-granting,NULL,Public
+21036801,Western Seminary-San Jose,Milpitas,6,www.westernseminary.edu,Non-degree-granting,NULL,Private nonprofit
+21036802,Western Seminary-Sacramento,Rocklin,6,www.westernseminary.edu,Non-degree-granting,NULL,Private nonprofit
+21078401,Toni&Guy Hairdressing Academy,Philadelphia,42,www.thebeautyinstituteskp.edu,Non-degree-granting,NULL,Private for-profit
+21130701,Bucks County Community College-Upper Bucks Campus,Perkasie,42,www.bucks.edu,Non-degree-granting,NULL,Public
+21130702,Bucks County Community College-Lower Bucks Campus,Bristol,42,www.bucks.edu,Non-degree-granting,NULL,Public
+21287801,Harrisburg Area Community College-Lancaster,Lancaster,42,www.hacc.edu,Non-degree-granting,NULL,Public
+21287802,Harrisburg Area Community College-Gettysburg,Gettysburg,42,www.hacc.edu,Non-degree-granting,NULL,Public
+21287803,Harrisburg Area Community College-Lebanon,Lebanon,42,www.hacc.edu,Non-degree-granting,NULL,Public
+21287804,Harrisburg Area Community College-York,York,42,www.hacc.edu/,Non-degree-granting,NULL,Public
+21429001,New Castle School of Trades,Pulaski,42,www.ncstrades.edu,Non-degree-granting,NULL,Private for-profit
+21437901,Northampton County Area Community College-Monroe,Tannersville,42,www.northampton.edu,Non-degree-granting,NULL,Public
+21510501,Villanova University - Summer Music Studies Program,Villanova,42,www.uarts.edu/academics/music/mm-music-education,Non-degree-granting,NULL,Private nonprofit
+21608301,South Hills School of Business and Technology-Altoona,Altoona,42,https://www.southhills.edu,Non-degree-granting,NULL,Private for-profit
+22039401,Tennessee College of Applied Technology-Jacksboro -,LaFollette,47,www.tcatjacksboro.edu,Non-degree-granting,NULL,Public
+22496101,Galveston College - Charlie Thomas Family Applied Technology Center,Galveston,48,www.gc.edu,Non-degree-granting,NULL,Public
+22797901,San Jacinto College-North Campus,Houston,48,www.sanjac.edu/,Non-degree-granting,NULL,Public
+22797902,San Jacinto College-South Campus,Houston,48,www.sanjac.edu,Non-degree-granting,NULL,Public
+22828201,Southwest School of Business and Technical Careers-South Texas,McAllen,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+22828202,Southwest School of Business and Technical Careers-Corpus Christi,Corpus Christi,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+22872301,Texas A & M University Health Science Center,Bryan,48,tamhsc.edu/,Non-degree-granting,NULL,Public
+23059701,Snow College-Richfield Campus,Richfield,49,https://www.snow.edu/richfield/,Non-degree-granting,NULL,Public
+23368401,Strayer University-Alexandria Campus,Alexandria,51,www.strayer.edu/virginia/alexandria,Non-degree-granting,NULL,Private for-profit
+23368402,Strayer University-Woodbridge Campus,Woodbridge,51,www.strayer.edu/virginia/woodbridge,Non-degree-granting,NULL,Private for-profit
+23368403,Strayer University-Manassas Campus,Manassas,51,www.strayer.edu/virginia/manassas,Non-degree-granting,NULL,Private for-profit
+23368404,Strayer University-Loudoun Campus,Ashburn,51,www.strayer.edu/virginia/loudoun,Non-degree-granting,NULL,Private for-profit
+23368405,Strayer University-Fredericksburg Campus,Fredericksburg,51,www.strayer.edu/virginia/fredericksburg,Non-degree-granting,NULL,Private for-profit
+23368407,Strayer University-Henrico Campus,Glen Allen,51,www.strayer.edu/virginia/henrico,Non-degree-granting,NULL,Private for-profit
+23368408,Strayer University-Chesterfield Campus,Midlothian,51,www.strayer.edu/virginia/chesterfield,Non-degree-granting,NULL,Private for-profit
+23368409,Strayer University-Chesapeake Campus,Chesapeake,51,www.strayer.edu/virginia/chesapeake,Non-degree-granting,NULL,Private for-profit
+23368410,Strayer University-Newport News Campus,Newport News,51,www.strayer.edu/virginia/newport-news,Non-degree-granting,NULL,Private for-profit
+23368411,Strayer University-Virginia Beach Campus,Virginia Beach,51,www.strayer.edu/virginia/virginia-beach,Non-degree-granting,NULL,Private for-profit
+23384201,Union Presbyterian Seminary-Charlotte,Charlotte,37,www.upsem.edu,Non-degree-granting,NULL,Private nonprofit
+23693901,Washington State University-Vancouver,Vancouver,53,https://www.vancouver.wsu.edu/,Non-degree-granting,NULL,Public
+23693902,Washington State University-Spokane,Spokane,53,https://spokane.wsu.edu/,Non-degree-granting,NULL,Public
+23693903,Washington State University-Tri Cities,Richland,53,https://www.tricity.wsu.edu/,Non-degree-granting,NULL,Public
+23797801,West Virginia Business College-Nutter Fort,Nutter Fort,54,www.wvbc.edu,Non-degree-granting,NULL,Private for-profit
+24366501,University of the Virgin Islands-Albert A. Sheen,St. Croix,78,www.uvi.edu,Non-degree-granting,NULL,Public
+24378001,Purdue University - Purdue Polytechnic Anderson,Anderson,18,polytechnic.purdue.edu/anderson,Non-degree-granting,NULL,Public
+24378002,Purdue University - Purdue Polytechnic Indianapolis,Indianapolis,18,polytechnic.purdue.edu/indianapolis,Non-degree-granting,NULL,Public
+24378003,Purdue University - Purdue Polytechnic South Bend,South Bend,18,polytechnic.purdue.edu/south-bend,Non-degree-granting,NULL,Public
+24378004,Purdue University - Purdue Polytechnic New Albany,New Albany,18,polytechnic.purdue.edu/new-albany,Non-degree-granting,NULL,Public
+24378006,Purdue University - Purdue Polytechnic Columbus,Columbus,18,polytechnic.purdue.edu/columbus,Non-degree-granting,NULL,Public
+24378007,Purdue University - Purdue Polytechnic Kokomo,Kokomo,18,polytechnic.purdue.edu/kokomo,Non-degree-granting,NULL,Public
+24378008,Purdue University - Purdue Polytechnic Richmond,Richmond,18,polytechnic.purdue.edu/richmond,Non-degree-granting,NULL,Public
+24378009,Purdue University - Purdue Polytechnic Lafayette,Lafayette,18,polytechnic.purdue.edu/lafayette,Non-degree-granting,NULL,Public
+24378010,Purdue University - Purdue Polytechnic Vincennes,Vincennes,18,polytechnic.purdue.edu/vincennes,Non-degree-granting,NULL,Public
+24893401,ECPI University-Newport News,Newport News,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893402,ECPI University-Greensboro,Greensboro,37,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893403,ECPI University-Charlotte,Charlotte,37,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893404,ECPI University-Greenville,Greenville,45,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893405,ECPI University-Manassas,Manassas,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893406,ECPI University-Charleston,North Charleston,45,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893407,ECPI University-Raleigh,Raleigh,37,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893408,ECPI University-Columbia,Columbia,45,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893409,ECPI University-Concord,Charlotte,37,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893410,ECPI University-Culinary Institute of Virginia,Norfolk,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893411,ECPI University-Virginia Beach Health Sciences,Virginia Beach,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893412,ECPI University-Richmond South,Richmond,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893413,ECPI University-Innsbrook,Glen Allen,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893414,ECPI University-Richmond West,Richmond,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893415,ECPI University - Roanoke,Roanoke,51,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+24893416,ECPI University - College of Nursing - Orlando,Lake Mary,12,www.ecpi.edu,Non-degree-granting,NULL,Private for-profit
+36520401,Vista College Amarillo,Amarillo,48,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520402,Vista College Lubbock,Lubbock,48,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520403,Computer Career Center-Las Cruces,Las Cruces,35,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520404,Vista College-Beaumont,Beaumont,48,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520405,Vista College-Longview,Longview,48,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520406,Vista College-Killeen,Killeen,48,vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520407,Vista College - College Station,College Station,48,www.vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+36520408,Vista College - Ft. Smith,Ft. Smith,5,www.vistacollege.edu,Non-degree-granting,NULL,Private for-profit
+37207301,Fremont College,Los Angeles,6,www.fremont.edu,Non-degree-granting,NULL,Private for-profit
+37369601,Rob Roy Academy - Woonsocket,Woonsocket,44,www.rob-roy.com,Non-degree-granting,NULL,Private for-profit
+37564701,CC's Cosmetology College,Oklahoma City,40,www.cccosmetologycollege.com,Non-degree-granting,NULL,Private for-profit
+37564702,CC's Cosmetology College,Sapulpa,40,www.cccosmetologycollege.com,Non-degree-granting,NULL,Private for-profit
+37564704,CC's Cosmetology College-Texarkana,Texarkana,48,www.cccosmetologcollege.com,Non-degree-granting,NULL,Private for-profit
+37564705,CC's Cosmetology College-Texarkana,Texarkana,5,www.cccosmetologcollege.com,Non-degree-granting,NULL,Private for-profit
+37593901,YTI Career Institute - Altoona,Altoona,42,www.yti.edu,Non-degree-granting,NULL,Private for-profit
+37727201,SW School of Business & Technical Careers,Uvalde,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+37727202,SW School of Business & Technical Careers,San Antonio,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+37728101,SW School of Business and Technical Careers-Del Rio,Del Rio,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+37728102,SW School of Business and Technical Careers-North Campus,Austin,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+37728103,SW School of Business and Technical Careers-South Campus,Austin,48,www.sws.edu,Non-degree-granting,NULL,Private for-profit
+38227601,Westech College,Moreno Valley,6,www.westech.edu,Non-degree-granting,NULL,Private for-profit
+38227602,Westech College,Victorville,6,www.westech.edu,Non-degree-granting,NULL,Private for-profit
+38561901,Everglades University-Orlando,Maitland,12,www.EvergladesUniversity.edu,Non-degree-granting,NULL,Private nonprofit
+38561902,Everglades University-Sarasota,Sarasota,12,www.EvergladesUniversity.edu,Non-degree-granting,NULL,Private nonprofit
+38561903,Everglades University - Tampa,Tampa,12,www.evergladesuniversity.edu,Non-degree-granting,NULL,Private nonprofit
+40884401,Florida National University-South Campus,Miami,12,www.fnu.edu,Non-degree-granting,NULL,Private for-profit
+40884402,Florida National University Training Center,Hialeah,12,www.fnu.edu,Non-degree-granting,NULL,Private for-profit
+41724801,Connecticut Aero Tech  School,Hartford,9,www.cttech.org/cats/,Non-degree-granting,NULL,Public
+42312001,Compu-Med Vocational Careers Corp,Miami,12,compumedschool.com,Non-degree-granting,NULL,Private for-profit
+42799101,Technical Education Center Osceola - St. Cloud Campus,St. Cloud,12,teco.osceolaschools.net,Non-degree-granting,NULL,Public
+42799102,Technical Education Center Osceola - Poinciana Campus,Kissimmee,12,teco.osceolaschools.net,Non-degree-granting,NULL,Public
+42817001,Southeastern College-Miami Lakes,Miami Lakes,12,www.sec.edu,Non-degree-granting,NULL,Private for-profit
+42817002,Southeastern College-St. Petersburg,St. Petersburg,12,www.sec.edu,Non-degree-granting,NULL,Private for-profit
+42817003,Southeastern College-New Port Richey,New Port Richey,12,www.sec.edu,Non-degree-granting,NULL,Private for-profit
+42817005,Southeastern College - Tampa,Tampa,12,www.sec.edu,Non-degree-granting,NULL,Private for-profit
+43018401,Strayer University-Rockville Campus,Rockville,24,www.strayer.edu/maryland/rockville,Non-degree-granting,NULL,Private for-profit
+43018402,Strayer University-Anne Arundel Campus,Millersville,24,www.strayer.edu/maryland/anne-arundel,Non-degree-granting,NULL,Private for-profit
+43018403,Strayer University-White Marsh Campus,Baltimore,24,www.strayer.edu/maryland/white-marsh,Non-degree-granting,NULL,Private for-profit
+43018404,Strayer University-Owings Mills Campus,Owings Mills,24,www.strayer.edu/maryland/owings-mills,Non-degree-granting,NULL,Private for-profit
+43342001,California Aeronautical University,Bakersfield,6,NULL,Non-degree-granting,NULL,Private for-profit
+43482101,Blue Cliff College,Metairie,22,www.bluecliffcollege.edu,Non-degree-granting,NULL,Private for-profit
+43601201,Franklin Career Institute,Brooklyn,36,www.franklincareer.edu,Non-degree-granting,NULL,Private nonprofit
+43723701,International Yacht Restoration School,Newport,44,iyrs.edu,Non-degree-granting,NULL,Private nonprofit
+44098901,Texas Barber College - Branch Campus #1,Dallas,48,www.txbarber.edu,Non-degree-granting,NULL,Private for-profit
+44098902,Texas Barber College - Branch Campus #2,Dallas,48,www.txbarber.edu,Non-degree-granting,NULL,Private for-profit
+44098904,Texas Barber College - Branch Campus #5,Houston,48,www.txbarber.edu,Non-degree-granting,NULL,Private for-profit
+44125601,Design's School of Cosmetology,Pleasanton,6,www.designsschool.edu,Non-degree-granting,NULL,Private for-profit
+44376601,Strayer University-Nashville Campus,Nashville,47,www.strayer.edu/tennessee/nashville,Non-degree-granting,NULL,Private for-profit
+44376602,Strayer University-Shelby Oaks Campus,Memphis,47,www.strayer.edu/tennessee/shelby,Non-degree-granting,NULL,Private for-profit
+44376603,Strayer University-Knoxville Campus,Knoxville,47,www.strayer.edu/tennessee/knoxville,Non-degree-granting,NULL,Private for-profit
+44378401,Strayer University-Delaware County Campus,Springfield,42,www.strayer.edu/pennsylvania/delaware-county,Non-degree-granting,NULL,Private for-profit
+44378403,Strayer University-Center City Campus,Philadelphia,42,www.strayer.edu/pennsylvania/center-city,Non-degree-granting,NULL,Private for-profit
+44378404,Strayer University-Lower Bucks County Campus,Trevose,42,www.strayer.edu/pennsylvania/lower-bucks-county,Non-degree-granting,NULL,Private for-profit
+44378405,Strayer University-Warrendale Campus,Warrendale,42,www.strayer.edu/pennsylvania/warrendale,Non-degree-granting,NULL,Private for-profit
+44378406,Strayer University-Allentown Campus,Center Valley,42,www.strayer.edu/pennsylvania/allentown,Non-degree-granting,NULL,Private for-profit
+44459201,New Directions Beauty Institute,Columbus,39,Newdirectionsbeautyinstitute.com,Non-degree-granting,NULL,Private nonprofit
+44467101,Industrial Technical College - Naguabo,Naguabo,72,www.industrialtechnicalcollege.com/docs/divulgaciones,Non-degree-granting,NULL,Private for-profit
+44598401,Xtreme Career Institute -,Arecibo,72,www.xtreme-career.com,Non-degree-granting,NULL,Private for-profit
+44781001,Blake Austin College Beauty Academy,Vacaville,6,blakeaustincollege.edu,Non-degree-granting,NULL,Private for-profit
+44801701,Healing Touch Career College - Jackson,Jackson,28,healingtouchms.com,Non-degree-granting,NULL,Private for-profit
+44867301,Rasmussen College-Aurora,Aurora,17,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+44867302,Rasmussen College-Romeoville/Joliet,Romeoville,17,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+44867303,Rasmussen College-Mokena/Tinley Park,Mokena,17,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+44903801,Strayer University-Tampa East Campus,Tampa,12,www.strayer.edu/florida/tampa-east,Non-degree-granting,NULL,Private for-profit
+44903802,Strayer University-Maitland Campus,Maitland,12,www.strayer.edu/florida/maitland,Non-degree-granting,NULL,Private for-profit
+44903803,Strayer University-Orlando East Campus,Orlando,12,www.strayer.edu/florida/orlando-east,Non-degree-granting,NULL,Private for-profit
+44903804,Strayer University-Sand Lake Campus,Orlando,12,www.strayer.edu/florida/sand-lake,Non-degree-granting,NULL,Private for-profit
+44903805,Strayer University-Baymeadows Campus,Jacksonville,12,www.strayer.edu/florida/baymeadows,Non-degree-granting,NULL,Private for-profit
+44903806,Strayer University-Palm Beach Gardens Campus,Palm Beach Gardens,12,www.strayer.edu/florida/palm-beach-gardens,Non-degree-granting,NULL,Private for-profit
+44903808,Strayer University-Fort Lauderdale Campus,Fort Lauderdale,12,www.strayer.edu/florida/fort-lauderdale,Non-degree-granting,NULL,Private for-profit
+44903809,Strayer University-Miramar Campus,Miramar,12,www.strayer.edu/florida/miramar,Non-degree-granting,NULL,Private for-profit
+44903810,Strayer University-Doral,Miami,12,www.strayer.edu/florida/doral,Non-degree-granting,NULL,Private for-profit
+44903811,Strayer University-Brickell,Miami,12,www.strayer.edu/florida/brickell,Non-degree-granting,NULL,Private for-profit
+44936601,Make-up Designory,New York,36,www.mud.edu,Non-degree-granting,NULL,Private for-profit
+44970001,Dayton School of Medical Massage-Lima,Lima,39,www.massageschools.com,Non-degree-granting,NULL,Private for-profit
+44970002,Cincinnati School of Medical Massage,Cincinnati,39,www.massageschools.com,Non-degree-granting,NULL,Private for-profit
+44970003,Cleveland Institute of Medical Massage,Middleburg Heights,39,www.massageschools.com,Non-degree-granting,NULL,Private for-profit
+44977302,CCI Training Center,Dallas,48,ccitraining.edu,Non-degree-granting,NULL,Private for-profit
+45037701,Strayer University-Huntsville Campus,Huntsville,1,www.strayer.edu/alabama/huntsville,Non-degree-granting,NULL,Private for-profit
+45057101,Rasmussen College-Appleton,Appleton,55,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+45057102,Rasmussen College-Wausau,Wausau,55,www.rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+45133401,Academy of Hair Design - Austin,Austin,48,NULL,Non-degree-granting,NULL,Private for-profit
+45316301,Strayer University-North Charlotte,Charlotte,37,www.strayer.edu/north-carolina/north-charlotte,Non-degree-granting,NULL,Private for-profit
+45316302,Strayer University-South Charlotte,Charlotte,37,www.strayer.edu/north-carolina/south-charlotte,Non-degree-granting,NULL,Private for-profit
+45316303,Strayer University-North Raleigh Campus,Raleigh,37,www.strayer.edu/north-carolina/north-raleigh,Non-degree-granting,NULL,Private for-profit
+45316304,Strayer University-Greensboro Campus,Greensboro,37,www.strayer.edu/north-carolina/greensboro,Non-degree-granting,NULL,Private for-profit
+45316305,Strayer University-Huntersville Campus,Raleigh,37,www.strayer.edu/north-carolina/huntersville,Non-degree-granting,NULL,Private for-profit
+45316306,Strayer University-South Raleigh Campus,Raleigh,37,www.strayer.edu/north-carolina/south-raleigh,Non-degree-granting,NULL,Private for-profit
+45321501,Strayer University-Willingboro Campus,Willingboro,34,www.strayer.edu/new-jersey/willingboro,Non-degree-granting,NULL,Private for-profit
+45321502,Strayer University-Lawrenceville,Lawrenceville,34,www.strayer.edu/new-jersey/lawrenceville,Non-degree-granting,NULL,Private for-profit
+45321503,Strayer University-Piscataway,Piscataway,34,www.strayer.edu/new-jersey/piscataway,Non-degree-granting,NULL,Private for-profit
+45486501,Cambridge Institute of Allied Health & Technology,Atlanta,13,www.cambridgehealth.edu/,Non-degree-granting,NULL,Private for-profit
+45490801,Professional Hands Institute,Miami,12,www.prohands.edu,Non-degree-granting,NULL,Private for-profit
+45491701,Celebrity School of Beauty - Hialeah,Hialeah,12,NULL,Non-degree-granting,NULL,Private for-profit
+45538101,Utah County Campus,Orem,49,www.skinscienceinstitute.com/,Non-degree-granting,NULL,Private for-profit
+45763301,L'esprit Academy - Royal Oak,Royal Oak,26,lespritacademy.com,Non-degree-granting,NULL,Private for-profit
+45776701,National Career Institute - Jersey City Branch,Jersey City,34,nciedu.com,Non-degree-granting,NULL,Private for-profit
+45794301,Somerset County Technology Center - Bedford Site,Bedford,42,www.sctc.net,Non-degree-granting,NULL,Public
+45891901,Strayer University-Cobb Campus,Atlanta,13,www.strayer.edu/georgia/cobb-county,Non-degree-granting,NULL,Private for-profit
+45891902,Strayer University-Morrow Campus,Morrow,13,www.strayer.edu/georgia/morrow,Non-degree-granting,NULL,Private for-profit
+45891903,Strayer University-Roswell Campus,Roswell,13,www.strayer.edu/georgia/roswell,Non-degree-granting,NULL,Private for-profit
+45891904,Strayer University-Douglasville Campus,Douglasville,13,www.strayer.edu/georgia/douglasville,Non-degree-granting,NULL,Private for-profit
+45891905,Strayer University-Lithonia Campus,Lithonia,13,www.strayer.edu/georgia/lithonia,Non-degree-granting,NULL,Private for-profit
+45891906,Strayer University-Savannah Campus,Savannah,13,www.strayer.edu/georgia/savannah,Non-degree-granting,NULL,Private for-profit
+45891907,Strayer University-Augusta Campus,Augusta,13,www.strayer.edu/georgia/augusta,Non-degree-granting,NULL,Private for-profit
+45891908,Strayer University-Columbus,Columbus,13,www.strayer.edu/georgia/columbus,Non-degree-granting,NULL,Private for-profit
+45896401,Strayer University-Columbia Campus,Columbia,45,www.strayer.edu/south-carolina/columbia,Non-degree-granting,NULL,Private for-profit
+45896402,Strayer University-Charleston Campus,North Charleston,45,www.strayer.edu/south-carolina/charleston,Non-degree-granting,NULL,Private for-profit
+45897301,Strayer University-Irving,Irving,48,www.strayer.edu/texas/irving,Non-degree-granting,NULL,Private for-profit
+45897302,Strayer University-Katy,Houston,48,www.strayer.edu/texas/katy,Non-degree-granting,NULL,Private for-profit
+45897303,Strayer University-Northwest Houston,Houston,48,www.strayer.edu/texas/northwest-houston,Non-degree-granting,NULL,Private for-profit
+45897304,Strayer University-Plano,Plano,48,www.strayer.edu/texas/plano,Non-degree-granting,NULL,Private for-profit
+45897305,Strayer University-Cedar Hill,Cedar Hill,48,www.strayer.edu/texas/cedar-hill,Non-degree-granting,NULL,Private for-profit
+45897306,Strayer University-North Dallas,Dallas,48,www.strayer.edu/texas/north-dallas,Non-degree-granting,NULL,Private for-profit
+45897307,Strayer University-San Antonio,San Antonio,48,www.strayer.edu/texas/san-antonio,Non-degree-granting,NULL,Private for-profit
+45897308,Strayer University-Stafford,Stafford,48,www.strayer.edu/texas/stafford,Non-degree-granting,NULL,Private for-profit
+45920401,Unitek College,Fremont,6,www.unitekcollege.edu/,Non-degree-granting,NULL,Private for-profit
+47503301,Relay Graduate School of Education - Newark,Newark,34,relay.edu/location/relay-newark,Non-degree-granting,NULL,Private nonprofit
+47503302,Relay Graduate School of Education - New Orleans,New Orleans,22,relay.edu/location/relay-new-orleans,Non-degree-granting,NULL,Private nonprofit
+47503303,Relay Graduate School of Education - Delaware,Wilmington,10,relay.edu/location/relay-delaware,Non-degree-granting,NULL,Private nonprofit
+47503304,Relay Graduate School of Education - Memphis,Memphis,47,relay.edu/location/relay-memphis,Non-degree-granting,NULL,Private nonprofit
+47503305,Relay Graduate School of Education - Houston,Houston,48,relay.edu/location/relay-houston,Non-degree-granting,NULL,Private nonprofit
+47503306,Relay Graduate School of Education - Chicago,Chicago,17,relay.edu/location/relay-chicago,Non-degree-granting,NULL,Private nonprofit
+47503307,Relay Graduate School of Education - Baton Rouge,Baton Rouge,22,relay.edu/location/relay-baton-rouge,Non-degree-granting,NULL,Private nonprofit
+47503308,Relay Graduate School of Education - Philadelphia & Camden,Philadelphia,42,relay.edu/location/relay-philadelphia-camden,Non-degree-granting,NULL,Private nonprofit
+47503309,Relay Graduate School of Education - Denver,Denver,8,relay.edu/location/relay-denver,Non-degree-granting,NULL,Private nonprofit
+47503310,Relay Graduate School of Education - Nashville,Nashville,47,relay.edu/location/relay-nashville,Non-degree-granting,NULL,Private nonprofit
+47647001,WestMed College - Merced,Merced,6,www.westmedcollege.edu,Non-degree-granting,NULL,Private nonprofit
+47657701,Vantage College,El Paso,48,www.vantage.edu,Non-degree-granting,NULL,Private for-profit
+47657702,Vantage College,Austin,48,www.vantage.edu,Non-degree-granting,NULL,Private for-profit
+47662901,Salon Institute - Columbus Campus,Lewis Center,39,www.saloninstitute.edu,Non-degree-granting,NULL,Private for-profit
+47691101,SAE Institute of Technology San Francisco,Emeryville,6,usa.sae.edu,Non-degree-granting,NULL,Private for-profit
+48065701,Rasmussen College - Overland Park,Overland Park,20,rasmussen.edu,Non-degree-granting,NULL,Private for-profit
+48154401,National Personal Training Institute of Cleveland,Highland Heights,39,nptiohio.edu,Non-degree-granting,NULL,Private for-profit
+48305401,Barber School of Pittsburgh - Ambridge,Ambridge,42,www.bsp.edu,Non-degree-granting,NULL,Private for-profit
+48387801,Bay Area Medical Academy - San Jose Satellite Location,San Jose,6,www.bamasf.com/,Non-degree-granting,NULL,Private for-profit
+48400201,High Desert Medical College,Lancaster,6,www.hdmc.edu,Non-degree-granting,NULL,Private for-profit
+48414501,Vantage College-San Antonio,San Antonio,48,www.vantage.edu,Non-degree-granting,NULL,Private for-profit
+48778201,BCI - Malden,Malden,25,bostoncareer.org,Non-degree-granting,NULL,Private nonprofit

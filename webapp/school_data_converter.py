@@ -69,9 +69,9 @@ state_match = {
 '78': 'Virgin Islands',
 'ST_FIPS': 'State Name'
 }
-#Convert the major offered in INT to BOOLEAN value
+#Convert the major offered in INT expression to BOOLEAN expression
 def _convert_int_to_boolean(value):
-	if value == 0: #Program not offered
+	if value == '0': #Program not offered
 		return False
 	else: #Program offered
 		return True
@@ -119,8 +119,10 @@ def _convert_int_to_text(metric, value):
 			return 'Rural: Distant'
 		elif value == '43':
 			return 'Rural: Remote'
+		elif value == 'NULL':
+			return 'NULL'
 		else:
-			return 'locale unkown'
+			return 'locale unknown'
 
 	elif metric == 'ownership':
 		if value == '1':
@@ -129,9 +131,21 @@ def _convert_int_to_text(metric, value):
 			return 'Private nonprofit'
 		elif value == '3':
 			return 'Private for-profit'
+		elif value == 'NULL':
+			return 'NULL'
 		else:
-			return 'unkown ownership'
-
+			return 'unknown ownership'
+#Checking if the school stats information is null
+def float_stats_null_checker(value):
+	if value == 'NULL':
+		return 'NULL'
+	else:
+		return float(value)
+def int_stats_null_checker(value):
+	if value == 'NULL':
+		return 'NULL'
+	else:
+		return int(value)
 
 def load_school(csv_file_name):
 	#column1(UNITID) is INT school ID
@@ -173,33 +187,33 @@ def load_school_stats(csv_file_name):
 		stats = {
 		'school_id': int(row[0]),
 		'year': 2016,
-		'admission_rate': float(row[37-1]),
+		'admission_rate': float_stats_null_checker(row[37-1]),
 
 		#SAT:
-		'SAT_average': float([60-1]),
-		'SAT_cr_MID': float([45-1]),
-		'SAT_cr_25_percentile': float([39-1]),
-		'SAT_cr_75_percentile': float([40-1]),
-		'SAT_math_MID': float([46-1]),
-		'SAT_math_25_percentile': float([41-1]),
-		'SAT_math_75_percentile': float([42-1]),
-		'SAT_wr_MID': float([47-1]),
-		'SAT_wr_25_percentile': float([43-1]),
-		'SAT_wr_75_percentile': float([44-1]),
+		'SAT_average': float_stats_null_checker(row[60-1]),
+		'SAT_cr_MID': float_stats_null_checker(row[45-1]),
+		'SAT_cr_25_percentile': float_stats_null_checker(row[39-1]),
+		'SAT_cr_75_percentile': float_stats_null_checker(row[40-1]),
+		'SAT_math_MID': float_stats_null_checker(row[46-1]),
+		'SAT_math_25_percentile': float_stats_null_checker(row[41-1]),
+		'SAT_math_75_percentile': float_stats_null_checker(row[42-1]),
+		'SAT_wr_MID': float_stats_null_checker(row[47-1]),
+		'SAT_wr_25_percentile': float_stats_null_checker(row[43-1]),
+		'SAT_wr_75_percentile': float_stats_null_checker(row[44-1]),
 
 		#ACT:
-		'ACT_cumulative_MID': float([56-1]),
-		'ACT_cumulative_25_percentile': float([48-1]),
-		'ACT_cumulative_75_percentile': float([49-1]),
-		'ACT_eng_MID': float([57-1]),
-		'ACT_eng_25_percentile': float([50-1]),
-		'ACT_eng_75_percentile': float([51-1]),
-		'ACT_math_MID': float([58-1]),
-		'ACT_math_25_percentile': float([52-1]),
-		'ACT_math_75_percentile': float([53-1]),
-		'ACT_writing_MID': float([59-1]),
-		'ACT_writing_25_percentile': float([54-1]),
-		'ACT_writing_75_percentile': float([55-1]),
+		'ACT_cumulative_MID': float_stats_null_checker(row[56-1]),
+		'ACT_cumulative_25_percentile': float_stats_null_checker(row[48-1]),
+		'ACT_cumulative_75_percentile': float_stats_null_checker(row[49-1]),
+		'ACT_eng_MID': float_stats_null_checker(row[57-1]),
+		'ACT_eng_25_percentile': float_stats_null_checker(row[50-1]),
+		'ACT_eng_75_percentile': float_stats_null_checker(row[51-1]),
+		'ACT_math_MID': float_stats_null_checker(row[58-1]),
+		'ACT_math_25_percentile': float_stats_null_checker(row[52-1]),
+		'ACT_math_75_percentile': float_stats_null_checker(row[53-1]),
+		'ACT_writing_MID': float_stats_null_checker(row[59-1]),
+		'ACT_writing_25_percentile': float_stats_null_checker(row[54-1]),
+		'ACT_writing_75_percentile': float_stats_null_checker(row[55-1]),
 
 		#Academics:
 		'Agriculture': _convert_int_to_boolean(row[104-1]),
@@ -242,23 +256,24 @@ def load_school_stats(csv_file_name):
 		'History': _convert_int_to_boolean(row[289-1]),
 
 		#Student Body: (Didn't find information about age)
-		'enrollment': row[290],
-		'percent_white': row[292],
-		'percent_black': row[293],
-		'percent_Hispanic': row[294],
-		'percent_Asian': row[295],
-		'percent_American_Indian': row[296],
-		'percent_Native_Hawaiian': row[297],
-		'percent_nonresident_aliens': row[299],
+		'enrollment': int_stats_null_checker(row[290]),
+		'percent_white': float_stats_null_checker(row[292]),
+		'percent_black': float_stats_null_checker(row[293]),
+		'percent_Hispanic': float_stats_null_checker(row[294]),
+		'percent_Asian': float_stats_null_checker(row[295]),
+		'percent_American_Indian': float_stats_null_checker(row[296]),
+		'percent_Native_Hawaiian': float_stats_null_checker(row[297]),
+		'percent_nonresident_aliens': float_stats_null_checker(row[299]),
 
 		#Cost & Earnings:
-		'average_net_price_public_institutions': row[316],
-		'average_net_price_private_institutions': row[317],
+		'average_net_price_public_institutions': int_stats_null_checker(row[316]),
+		'average_net_price_private_institutions': int_stats_null_checker(row[317]),
 
-		'percent_student_of_Pell_Grant': row[385],
-		'percent_student_of_Federal_Loan': row[437]
+		'percent_student_of_Pell_Grant': float_stats_null_checker(row[385]),
+		'percent_student_of_Federal_Loan': float_stats_null_checker(row[437]),
+
+		'average_faculty_earnings': int_stats_null_checker(row[383])
 		}
-
 		schools_stats.append(stats)
 	csv_file.close()
 	return schools_stats
@@ -281,12 +296,12 @@ def load_state(csv_file_name, encoding='utf-8-sig'):
 
 
 def save_schools_table(schools, csv_file_name):
-    ''' Save the books in CSV form, with each row containing
-        (id, title, publication year). '''
+    ''' Save the schools in CSV form, with each row containing
+        (school_id, school_name, city, state_id, school_url, highest_degree, locale, ownership). '''
     output_file = open(csv_file_name, 'w')
     writer = csv.writer(output_file)
     for school in schools:
-        school_row = [school['school_id'],
+        school_row = [	school['school_id'],
         				school['school_name'],
         				school['city'],
         				school['state_id'],
@@ -297,13 +312,114 @@ def save_schools_table(schools, csv_file_name):
         writer.writerow(school_row)
     output_file.close()
 
+def save_school_stats_table(school_stats, csv_file_name):
+    ''' Save the school_stats in CSV form, with each row containing the following
+    '''
+    output_file = open(csv_file_name, 'w')
+    writer = csv.writer(output_file)
+    for stats in school_stats:
+        school_stats_row = [stats['school_id'],
+							stats['year'],
+							stats['admission_rate'],
+		#SAT:
+							stats['SAT_average'],
+							stats['SAT_cr_MID'],
+							stats['SAT_cr_25_percentile'],
+							stats['SAT_cr_75_percentile'],
+							stats['SAT_math_MID'],
+							stats['SAT_math_25_percentile'],
+							stats['SAT_math_75_percentile'],
+							stats['SAT_wr_MID'],
+							stats['SAT_wr_25_percentile'],
+							stats['SAT_wr_75_percentile'],
+		#ACT:
+							stats['ACT_cumulative_MID'],
+							stats['ACT_cumulative_25_percentile'],
+							stats['ACT_cumulative_75_percentile'],
+							stats['ACT_eng_MID'],
+							stats['ACT_eng_25_percentile'],
+							stats['ACT_eng_75_percentile'],
+							stats['ACT_math_MID'],
+							stats['ACT_math_25_percentile'],
+							stats['ACT_math_75_percentile'],
+							stats['ACT_writing_MID'],
+							stats['ACT_writing_25_percentile'],
+							stats['ACT_writing_75_percentile'],
+		#Academics:
+							stats['Agriculture'],
+							stats['Natural_Resource'],
+							stats['Architecture'],
+							stats['Area_Ethnic_Cultural_Gender_Group_Studies'],
+							stats['Communication_Journalism'],
+							stats['Communication_Technologies'],
+							stats['Computer_Information_Sciences'],
+							stats['Personal_Culinary_Services'],
+							stats['Education'],
+							stats['Engineering'],
+							stats['Engineering_Technologies'],
+							stats['Foreign_Languages_Literatures_Linguistics'],
+							stats['Human_Sciences'],
+							stats['Legal_Professions_Studies'],
+							stats['English_Language_And_Literature'],
+							stats['General_Studies_And_Humanities'],
+							stats['Library_Science'],
+							stats['Biological_and_Biomedical_Sciences'],
+							stats['Mathematics_and_Statistics'],
+							stats['Military_Technologies_and_Applied_Sciences'],
+							stats['Interdiciplinary_Studies'],
+							stats['Parks_Recreation_Leisure_Fitness_Studies'],
+							stats['Philosophy_and_Religious_Studies'],
+							stats['Theology_and_Religious_Vocations'],
+							stats['Physical_Sciences'],
+							stats['Science_Technologies'],
+							stats['Psychology'],
+							stats['Homeland_Security_Law_Enforcement_Firefighting'],
+							stats['Public_Administration_and_Social_Service'],
+							stats['Social_Sciences'],
+							stats['Construction_Trade'],
+							stats['Mechanic_and_Repair_Technology'],
+							stats['Precision_Production'],
+							stats['Transportation_and_Materials_Moving'],
+							stats['Visual_and_Performing_Arts'],
+							stats['Health_Professions'],
+							stats['Business_Management_Marketing'],
+							stats['History'],
+		#Student Body: (Didn't find information about age)
+							stats['enrollment'],
+							stats['percent_white'],
+							stats['percent_black'],
+							stats['percent_Hispanic'],
+							stats['percent_Asian'],
+							stats['percent_American_Indian'],
+							stats['percent_Native_Hawaiian'],
+							stats['percent_nonresident_aliens'],
+		#Cost & Earnings:
+							stats['average_net_price_public_institutions'],
+							stats['average_net_price_private_institutions'],
 
+							stats['percent_student_of_Pell_Grant'],
+							stats['percent_student_of_Federal_Loan'],
 
+							stats['average_faculty_earnings']]
+        writer.writerow(school_stats_row)
+    output_file.close()
+
+def save_states_table(states, csv_file_name):
+    ''' Save the states in CSV form, with each row containing
+        (state id, state name, and state abbreviation). '''
+    output_file = open(csv_file_name, 'w')
+    writer = csv.writer(output_file)
+    for state in states:
+        state_row = [	state['state_id'],
+        				state['state_name'],
+        				state['state_abbreviation']]
+        writer.writerow(state_row)
+    output_file.close()
 
 def main():
 	save_schools_table(load_school('MERGED2016_17_PP.csv'), 'schools.csv')
 	save_school_stats_table(load_school_stats('MERGED2016_17_PP.csv'), 'school_stats.csv')
-
+	save_states_table(load_state('MERGED2016_17_PP.csv'),'states.csv')
 
 if __name__ == '__main__':
 	main()
