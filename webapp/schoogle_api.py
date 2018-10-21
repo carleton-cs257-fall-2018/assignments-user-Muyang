@@ -153,7 +153,89 @@ def get_schools():
     highest_degree = flask.request.args.get('school_name', default=None)
     locale = flask.request.args.get('school_name', default=None)
     ownership = flask.request.args.get('school_name', default=None)
-    
+    SAT_average = flask.request.args.get('school_name', default=None),
+    SAT_cr_MID = flask.request.args.get('school_name', default=None),
+    SAT_cr_25_percentile = flask.request.args.get('school_name', default=None),
+    SAT_cr_75_percentile = flask.request.args.get('school_name', default=None),
+    SAT_math_MID = flask.request.args.get('school_name', default=None),
+    SAT_math_25_percentile = flask.request.args.get('school_name', default=None),
+    SAT_math_75_percentile = flask.request.args.get('school_name', default=None),
+    SAT_wr_MID = flask.request.args.get('school_name', default=None),
+    SAT_wr_25_percentile = flask.request.args.get('school_name', default=None),
+    SAT_wr_75_percentile = flask.request.args.get('school_name', default=None),
+
+
+    ACT_cumulative_MID = flask.request.args.get('school_name', default=None),
+    ACT_cumulative_25_percentile = flask.request.args.get('school_name', default=None),
+    ACT_cumulative_75_percentile = flask.request.args.get('school_name', default=None),
+    ACT_eng_MID = flask.request.args.get('school_name', default=None),
+    ACT_eng_25_percentile = flask.request.args.get('school_name', default=None),
+    ACT_eng_75_percentile = flask.request.args.get('school_name', default=None),
+    ACT_math_MID = flask.request.args.get('school_name', default=None),
+    ACT_math_25_percentile = flask.request.args.get('school_name', default=None),
+    ACT_math_75_percentile = flask.request.args.get('school_name', default=None),
+    ACT_writing_MID = flask.request.args.get('school_name', default=None),
+    ACT_writing_25_percentile = flask.request.args.get('school_name', default=None),
+    ACT_writing_75_percentile = flask.request.args.get('school_name', default=None),
+
+
+    Agriculture = flask.request.args.get('school_name', default=None),
+    Natural_Resource = flask.request.args.get('school_name', default=None),
+    Architecture = flask.request.args.get('school_name', default=None),
+    Area_Ethnic_Cultural_Gender_Group_Studies = flask.request.args.get('school_name', default=None),
+    Communication_Journalism = flask.request.args.get('school_name', default=None),
+    Communication_Technologies = flask.request.args.get('school_name', default=None),
+    Computer_Information_Sciences = flask.request.args.get('school_name', default=None),
+    Personal_Culinary_Services = flask.request.args.get('school_name', default=None),
+    Education = flask.request.args.get('school_name', default=None),
+    Engineering = flask.request.args.get('school_name', default=None),
+    Engineering_Technologies = flask.request.args.get('school_name', default=None),
+    Foreign_Languages_Literatures_Linguistics = flask.request.args.get('school_name', default=None),
+    Human_Sciences = flask.request.args.get('school_name', default=None),
+    Legal_Professions_Studies = flask.request.args.get('school_name', default=None),
+    English_Language_And_Literature = flask.request.args.get('school_name', default=None),
+    General_Studies_And_Humanities = flask.request.args.get('school_name', default=None),
+    Library_Science = flask.request.args.get('school_name', default=None),
+    Biological_and_Biomedical_Sciences = flask.request.args.get('school_name', default=None),
+    Mathematics_and_Statistics = flask.request.args.get('school_name', default=None),
+    Military_Technologies_and_Applied_Sciences = flask.request.args.get('school_name', default=None),
+    Interdiciplinary_Studies = flask.request.args.get('school_name', default=None),
+    Parks_Recreation_Leisure_Fitness_Studies = flask.request.args.get('school_name', default=None),
+    Philosophy_and_Religious_Studies = flask.request.args.get('school_name', default=None),
+    Theology_and_Religious_Vocations = flask.request.args.get('school_name', default=None),
+    Physical_Sciences = flask.request.args.get('school_name', default=None),
+    Science_Technologies = flask.request.args.get('school_name', default=None),
+    Psychology = flask.request.args.get('school_name', default=None),
+    Homeland_Security_Law_Enforcement_Firefighting = flask.request.args.get('school_name', default=None),
+    Public_Administration_and_Social_Service = flask.request.args.get('school_name', default=None),
+    Social_Sciences = flask.request.args.get('school_name', default=None),
+    Construction_Trade = flask.request.args.get('school_name', default=None),
+    Mechanic_and_Repair_Technology = flask.request.args.get('school_name', default=None),
+    Precision_Production = flask.request.args.get('school_name', default=None),
+    Transportation_and_Materials_Moving = flask.request.args.get('school_name', default=None),
+    Visual_and_Performing_Arts = flask.request.args.get('school_name', default=None),
+    Health_Professions = flask.request.args.get('school_name', default=None),
+    Business_Management_Marketing = flask.request.args.get('school_name', default=None),
+    History = flask.request.args.get('school_name', default=None),
+
+
+    enrollment = flask.request.args.get('school_name', default=None),
+    percent_white = flask.request.args.get('school_name', default=None),
+    percent_black = flask.request.args.get('school_name', default=None),
+    percent_Hispanic = flask.request.args.get('school_name', default=None),
+    percent_Asian = flask.request.args.get('school_name', default=None),
+    percent_American_Indian = flask.request.args.get('school_name', default=None),
+    percent_Native_Hawaiian = flask.request.args.get('school_name', default=None),
+    percent_nonresident_aliens = flask.request.args.get('school_name', default=None),
+
+
+    average_net_price_public_institutions = flask.request.args.get('school_name', default=None),
+    average_net_price_private_institutions = flask.request.args.get('school_name', default=None),
+
+    percent_student_of_Pell_Grant = flask.request.args.get('school_name', default=None),
+    percent_student_of_Federal_Loan = flask.request.args.get('school_name', default=None),
+
+    average_faculty_earnings = flask.request.args.get('school_name', default=None)
 
     school_list = _get_all_school_stats()
     if school_id is not None:
@@ -168,28 +250,6 @@ def get_schools():
 
 
 
-
-
-
-def _filter_school_by_name(school_list, school_name):
-    school_index = 0    
-    while school_index < len(school_list):
-        if(school_name.lower() not in school_list[school_index]['school_name'].lower()):
-            school_list.remove(school_list[school_index])
-            school_index -= 1
-        school_index += 1
-    return school_list
-
-
-
-def _filter_school_by_id(school_list, school_id):
-    school_index = 0
-    while school_index < len(school_list):
-        if(school_id != str(school_list[school_index]['school_id'])):
-            school_list.remove(school_list[school_index])
-            school_index -= 1
-        school_index += 1
-    return school_list
 
 def _get_all_schools_basics():
     connection = get_connection()
@@ -209,7 +269,6 @@ def _get_all_schools_basics():
     connection.close()
     return schools
 
-
 def _get_all_school_stats():
     connection = get_connection()
     try:
@@ -228,6 +287,32 @@ def _get_all_school_stats():
         school_stats.append(_create_dictionary(basic_list+stats_list+state_list,row))
     connection.close()
     return school_stats
+
+def _filter_school_by_name(school_list, school_name):
+    #In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(school_name.lower() not in school_list[school_index]['school_name'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+
+
+
+def _filter_school_by_id(school_list, school_id):
+    #In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0
+    while school_index < len(school_list):
+        if(school_id != str(school_list[school_index]['school_id'])):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+
+
 
 
 
