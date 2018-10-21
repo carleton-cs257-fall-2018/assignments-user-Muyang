@@ -171,35 +171,35 @@ def load_school_stats(csv_file_name):
 	for row in reader:
 		assert len(row) == 1847
 		stats = {
-		'school_id': row[0],
+		'school_id': int(row[0]),
 		'year': 2016,
-		'admission_rate': row[37-1],
+		'admission_rate': float(row[37-1]),
 
 		#SAT:
-		'SAT_average': row[60-1],
-		'SAT_cr_MID': row[45-1],
-		'SAT_cr_25_percentile': row[39-1],
-		'SAT_cr_75_percentile': row[40-1],
-		'SAT_math_MID': row[46-1],
-		'SAT_math_25_percentile': row[41-1],
-		'SAT_math_75_percentile': row[42-1],
-		'SAT_wr_MID': row[47-1],
-		'SAT_wr_25_percentile': row[43-1],
-		'SAT_wr_75_percentile': row[44-1],
+		'SAT_average': float([60-1]),
+		'SAT_cr_MID': float([45-1]),
+		'SAT_cr_25_percentile': float([39-1]),
+		'SAT_cr_75_percentile': float([40-1]),
+		'SAT_math_MID': float([46-1]),
+		'SAT_math_25_percentile': float([41-1]),
+		'SAT_math_75_percentile': float([42-1]),
+		'SAT_wr_MID': float([47-1]),
+		'SAT_wr_25_percentile': float([43-1]),
+		'SAT_wr_75_percentile': float([44-1]),
 
 		#ACT:
-		'ACT_cumulative_MID': row[56-1],
-		'ACT_cumulative_25_percentile': row[48-1],
-		'ACT_cumulative_75_percentile': row[49-1],
-		'ACT_eng_MID': row[57-1],
-		'ACT_eng_25_percentile': row[50-1],
-		'ACT_eng_75_percentile': row[51-1],
-		'ACT_math_MID': row[58-1],
-		'ACT_math_25_percentile': row[52-1],
-		'ACT_math_75_percentile': row[53-1],
-		'ACT_writing_MID': row[59-1],
-		'ACT_writing_25_percentile': row[54-1],
-		'ACT_writing_75_percentile': row[55-1],
+		'ACT_cumulative_MID': float([56-1]),
+		'ACT_cumulative_25_percentile': float([48-1]),
+		'ACT_cumulative_75_percentile': float([49-1]),
+		'ACT_eng_MID': float([57-1]),
+		'ACT_eng_25_percentile': float([50-1]),
+		'ACT_eng_75_percentile': float([51-1]),
+		'ACT_math_MID': float([58-1]),
+		'ACT_math_25_percentile': float([52-1]),
+		'ACT_math_75_percentile': float([53-1]),
+		'ACT_writing_MID': float([59-1]),
+		'ACT_writing_25_percentile': float([54-1]),
+		'ACT_writing_75_percentile': float([55-1]),
 
 		#Academics:
 		'Agriculture': _convert_int_to_boolean(row[104-1]),
@@ -286,9 +286,14 @@ def save_schools_table(schools, csv_file_name):
     output_file = open(csv_file_name, 'w')
     writer = csv.writer(output_file)
     for school in schools:
-        school_row = [school['school_id'], school['school_name'], school['city'],
-        school['state_id'], school['school_url'], school['highest_degree'], 
-        school['locale'], school['ownership']]
+        school_row = [school['school_id'],
+        				school['school_name'],
+        				school['city'],
+        				school['state_id'],
+        				school['school_url'],
+        				school['highest_degree'],
+        				school['locale'],
+        				school['ownership']]
         writer.writerow(school_row)
     output_file.close()
 
@@ -297,7 +302,7 @@ def save_schools_table(schools, csv_file_name):
 
 def main():
 	save_schools_table(load_school('MERGED2016_17_PP.csv'), 'schools.csv')
-
+	save_school_stats_table(load_school_stats('MERGED2016_17_PP.csv'), 'school_stats.csv')
 
 
 if __name__ == '__main__':
