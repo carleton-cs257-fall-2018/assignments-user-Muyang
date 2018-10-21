@@ -11,9 +11,99 @@ import flask
 import json
 import config
 import psycopg2
+from flask import Flask, request
 
 app = flask.Flask(__name__)
 basic_list = ['school_id' ,'school_name', 'city','state_name','school_url','highest_degree','locale','ownership']
+stats_list = [
+    'school_id',
+    'year',
+    'admission_rate',
+
+    'SAT_average',
+    'SAT_cr_MID',
+    'SAT_cr_25_percentile',
+    'SAT_cr_75_percentile',
+    'SAT_math_MID',
+    'SAT_math_25_percentile',
+    'SAT_math_75_percentile',
+    'SAT_wr_MID',
+    'SAT_wr_25_percentile',
+    'SAT_wr_75_percentile',
+
+    'ACT_cumulative_MID',
+    'ACT_cumulative_25_percentile',
+    'ACT_cumulative_75_percentile',
+    'ACT_eng_MID',
+    'ACT_eng_25_percentile',
+    'ACT_eng_75_percentile',
+    'ACT_math_MID',
+    'ACT_math_25_percentile',
+    'ACT_math_75_percentile',
+    'ACT_writing_MID',
+    'ACT_writing_25_percentile',
+    'ACT_writing_75_percentile',
+
+    'Agriculture',
+    'Natural_Resource',
+    'Architecture',
+    'Area_Ethnic_Cultural_Gender_Group_Studies',
+    'Communication_Journalism',
+    'Communication_Technologies',
+    'Computer_Information_Sciences',
+    'Personal_Culinary_Services',
+    'Education',
+    'Engineering',
+    'Engineering_Technologies',
+    'Foreign_Languages_Literatures_Linguistics',
+    'Human_Sciences',
+    'Legal_Professions_Studies',
+    'English_Language_And_Literature',
+    'General_Studies_And_Humanities',
+    'Library_Science',
+    'Biological_and_Biomedical_Sciences',
+    'Mathematics_and_Statistics',
+    'Military_Technologies_and_Applied_Sciences',
+    'Interdiciplinary_Studies',
+    'Parks_Recreation_Leisure_Fitness_Studies',
+    'Philosophy_and_Religious_Studies',
+    'Theology_and_Religious_Vocations',
+    'Physical_Sciences',
+    'Science_Technologies',
+    'Psychology',
+    'Homeland_Security_Law_Enforcement_Firefighting',
+    'Public_Administration_and_Social_Service',
+    'Social_Sciences',
+    'Construction_Trade',
+    'Mechanic_and_Repair_Technology',
+    'Precision_Production',
+    'Transportation_and_Materials_Moving',
+    'Visual_and_Performing_Arts',
+    'Health_Professions',
+    'Business_Management_Marketing',
+    'History',
+
+    'enrollment',
+    'percent_white',
+    'percent_black',
+    'percent_Hispanic',
+    'percent_Asian',
+    'percent_American_Indian',
+    'percent_Native_Hawaiian',
+    'percent_nonresident_aliens',
+
+    'average_net_price_public_institutions',
+    'average_net_price_private_institutions',
+
+    'percent_student_of_Pell_Grant',
+    'percent_student_of_Federal_Loan',
+
+    'average_faculty_earnings']
+state_list = [
+    'state_id',
+    'state_name',
+    'state_abbreviation'
+]
 
 def _create_dictionary(keys, values):
     #assert len(keys) == len(values)
@@ -66,15 +156,38 @@ def get_schools():
     except Exception as e:
         print(e)
         exit()
-        
+
     schools = []
     for row in cursor:
         schools.append(_create_dictionary(basic_list,row))
     connection.close()
     return json.dumps(schools)
-# def get_school():
-#     #Returns a list of specs of a specific school:
-#     connection = 
+@app.route('/school_stats')
+def get_school():
+    #Returns a list of specs of a specific school:
+    school_id = request.args.get('school_id',None)
+
+
+    connection = get_connection()
+    try:
+        cursor = connection.cursor()
+        query = '''SELECT * 
+                    FROM schools, school_stats, states 
+                    WHERE schools.state_id = states.state_id
+                    AND schools.school_id = school_stats.school_id'''
+        cursor.execute(query)
+    except Exception as e:
+        print(e)
+        exit()
+
+
+    school_stats = []
+    for row in cursor:
+        added_dict = _create_dictionary(basic_list+stats_list+state_list,row)
+        #if(added_dict['school_id'] == school_id):
+        school_stats.append(added_dict)
+    connection.close()
+    return json.dumps(school_stats)
 
 
 
