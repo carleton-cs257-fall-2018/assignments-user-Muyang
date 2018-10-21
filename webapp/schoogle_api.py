@@ -11,7 +11,6 @@ import flask
 import json
 import config
 import psycopg2
-from flask import Flask, request
 
 app = flask.Flask(__name__)
 basic_list = ['school_id' ,'school_name', 'city','state_name','school_url','highest_degree','locale','ownership']
@@ -146,6 +145,61 @@ def hello():
 @app.route('/schools')
 def get_schools():
     #Returns a list of all schools with basic information:
+    school_id = flask.request.args.get('school_id', default=None)
+    search_name = flask.request.args.get('search_name', default=None)
+    if school_id is not None:
+        return json.dumps(_get_school_by_id(school_id))
+    if search_name is not None:
+        return json.dumps(_get_school_by_name(search_name))
+
+    
+    return json.dumps(_get_all_schools_basics())
+
+
+def _get_school_by_name(search_name):
+    connection = get_connection()
+    try:
+        cursor = connection.cursor()
+        query = '''SELECT * 
+                    FROM schools, school_stats, states 
+                    WHERE schools.state_id = states.state_id
+                    AND schools.school_id = school_stats.school_id'''
+        cursor.execute(query)
+    except Exception as e:
+        print(e)
+        exit()
+
+    school_stats = []
+    for row in cursor:
+        added_dict = _create_dictionary(basic_list+stats_list+state_list,row)
+        if(search_name.lower() in added_dict['school_name'].lower()):
+            school_stats.append(added_dict)
+    connection.close()
+    return school_stats
+
+
+def _get_school_by_id(school_id):
+    connection = get_connection()
+    try:
+        cursor = connection.cursor()
+        query = '''SELECT * 
+                    FROM schools, school_stats, states 
+                    WHERE schools.state_id = states.state_id
+                    AND schools.school_id = school_stats.school_id'''
+        cursor.execute(query)
+    except Exception as e:
+        print(e)
+        exit()
+
+    school_stats = []
+    for row in cursor:
+        added_dict = _create_dictionary(basic_list+stats_list+state_list,row)
+        if(str(added_dict['school_id']) == school_id):
+            school_stats.append(added_dict)
+    connection.close()
+    return school_stats
+
+def _get_all_schools_basics():
     connection = get_connection()
     try:
         cursor = connection.cursor()
@@ -161,35 +215,7 @@ def get_schools():
     for row in cursor:
         schools.append(_create_dictionary(basic_list,row))
     connection.close()
-    return json.dumps(schools)
-@app.route('/school_stats')
-def get_school():
-    #Returns a list of specs of a specific school:
-    school_id = request.args.get('school_id',None)
-
-
-    connection = get_connection()
-    try:
-        cursor = connection.cursor()
-        query = '''SELECT * 
-                    FROM schools, school_stats, states 
-                    WHERE schools.state_id = states.state_id
-                    AND schools.school_id = school_stats.school_id'''
-        cursor.execute(query)
-    except Exception as e:
-        print(e)
-        exit()
-
-
-    school_stats = []
-    for row in cursor:
-        added_dict = _create_dictionary(basic_list+stats_list+state_list,row)
-        #if(added_dict['school_id'] == school_id):
-        school_stats.append(added_dict)
-    connection.close()
-    return json.dumps(school_stats)
-
-
+    return schools
 
 
 
