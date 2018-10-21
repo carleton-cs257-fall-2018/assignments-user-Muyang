@@ -106,7 +106,7 @@ CREATE TABLE school_stats (
 );
 
 
-CREATE TABLE state (
+CREATE TABLE states (
 	state_id INT,
 	state_name TEXT,
 	state_abbreviation TEXT
