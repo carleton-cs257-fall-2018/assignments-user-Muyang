@@ -246,7 +246,16 @@ def get_schools():
         school_list = _filter_school_by_name(school_list, school_name)
     if city is not None:
         school_list = _filter_school_by_city(school_list, city)
-
+    if state_id is not None:
+    	school_list = _filter_school_by_state_id(school_list, state_id)
+    if state_name is not None:
+    	school_list = _filter_school_by_state_name(school_list, state_name)
+    if highest_degree is not None:
+    	school_list = _filter_school_by_highest_degree(school_list, state_id)
+    if locale is not None:
+    	school_list = _filter_school_by_locale(school_list, locale)
+    if ownership is not None:
+    	school_list = _filter_school_by_ownership(school_list, ownership)
     
     return json.dumps(school_list)
 
@@ -292,16 +301,7 @@ def _get_all_school_stats():
         school_stats.append(_create_dictionary(basic_list+stats_list+state_list,row))
     connection.close()
     return school_stats
-def _filter_school_by_city(school_list, city):
-    #In filtering, python shifts the list if an entry is removed
-    #to account for the shift, we use tricks (I mean the -=1 and +=1)
-    school_index = 0    
-    while school_index < len(school_list):
-        if(city.lower() not in school_list[school_index]['city'].lower()):
-            school_list.remove(school_list[school_index])
-            school_index -= 1
-        school_index += 1
-    return school_list
+
 def _filter_school_by_name(school_list, school_name):
     #In filtering, python shifts the list if an entry is removed
     #to account for the shift, we use tricks (I mean the -=1 and +=1)
@@ -322,11 +322,66 @@ def _filter_school_by_id(school_list, school_id):
             school_index -= 1
         school_index += 1
     return school_list
-
-
-
-
-
+def _filter_school_by_city(school_list, city):
+    #In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(city.lower() not in school_list[school_index]['city'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+def _filter_school_by_state_id(school_list, state_id):
+	#In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(state_id not in str(school_list[school_index]['state_id'].lower())):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+def _filter_school_by_state_name(school_list, state_name):
+	#In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(state_name not in str(school_list[school_index]['state_name'].lower())):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list	
+def _filter_school_by_highest_degree(school_list, degree):
+	#In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(degree not in school_list[school_index]['highest_degree'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+def _filter_school_by_locale(school_list, locale):
+	#In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(locale not in school_list[school_index]['locale'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
+def _filter_school_by_ownership(school_list, ownership):
+	#In filtering, python shifts the list if an entry is removed
+    #to account for the shift, we use tricks (I mean the -=1 and +=1)
+    school_index = 0    
+    while school_index < len(school_list):
+        if(ownership not in school_list[school_index]['ownership'].lower()):
+            school_list.remove(school_list[school_index])
+            school_index -= 1
+        school_index += 1
+    return school_list
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
