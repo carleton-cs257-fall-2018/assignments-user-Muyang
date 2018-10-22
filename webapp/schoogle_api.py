@@ -180,8 +180,8 @@ def get_schools():
 	ACT_writing_25_percentile = flask.request.args.get('ACT_writing_25_percentile', default=None),
 	ACT_writing_75_percentile = flask.request.args.get('ACT_writing_75_percentile', default=None),
 
-
-	Agriculture = flask.request.args.get('Agriculture', default=False),
+	#All the majors were stored as BOOLEAN, and request.args.get returns tuple
+	Agriculture = flask.request.args.get('Agriculture', default=None),
 	Natural_Resource = flask.request.args.get('Natural_Resource', default=None),
 	Architecture = flask.request.args.get('Architecture', default=None),
 	Area_Ethnic_Cultural_Gender_Group_Studies = flask.request.args.get('Area_Ethnic_Cultural_Gender_Group_Studies', default=None),
@@ -261,18 +261,17 @@ def get_schools():
 		school_list = _filter_school_by_locale(school_list, locale)
 	if ownership is not None:
 		school_list = _filter_school_by_ownership(school_list, ownership)
-	# if SAT_average is not None:
-	#  	school_list = _filter_school_by_SAT_average(school_list, SAT_average)
-	#Majors
-	if Agriculture is 'true':
-		for school in school_list:
-			return json.dumps(school['Agriculture'])
-		school_list = _filter_school_by_Agriculture(school_list, Agriculture)
+
+
+	if Agriculture[0] == 'True': #Agriculture is a tuple
+		school_list = _filter_school_by_Agriculture(school_list, True)
+	#return json.dumps(school_list)
+
+	if SAT_average[0] is not None:
+
+		school_list = _filter_school_by_SAT_average(school_list, SAT_average[0])
 
 	return json.dumps(school_list)
-
-
-
 
 
 
@@ -320,7 +319,7 @@ def __cast_int(num):
 	try:
 		return int(num)
 	except:
-		return cast_float(num)
+		return __cast_float(num)
 def __cast_float(num):
 	try:
 		return float(num)
@@ -330,21 +329,21 @@ def __cast_float(num):
 		quit()
 
 def __get_min_max(input):
-	min_and_max = {}
+	min_and_max = {'min': None, 'max': None}
 	for i in range(len(input)):
 		if i > 0 and input[i] == '.' and input[i-1] =='.':
-			min_and_max={'min': __cast_int(input[:i-1]), 'max': __cast_int(input[i+1:])}			
+			min_and_max['min'] = __cast_int(input[:i-1]) 
+			min_and_max['max'] = __cast_int(input[i+1:])		
 	return min_and_max
 	#return {'min':None, 'max': None}
 
 
-
 def _filter_school_by_SAT_average(school_list, SAT_average):
 	school_index = 0
-	SAT_average_range = __get_min_max(SAT_average)
+	SAT_average_range_dict = __get_min_max(SAT_average)
 	while school_index < len(school_list):
 		if school_list[school_index]['SAT_average'] is not None:
-			if (school_list[school_index]['SAT_average'] < __get_min_max(SAT_average)['min'] or school_list[school_index]['SAT_average'] > __get_min_max(SAT_average)['max']):
+			if (school_list[school_index]['SAT_average'] < SAT_average_range_dict['min'] or school_list[school_index]['SAT_average'] > SAT_average_range_dict['max']):
 				school_list.remove(school_list[school_index])
 				school_index -= 1
 		school_index += 1
