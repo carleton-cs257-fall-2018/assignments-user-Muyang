@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 '''
-	example_flask_app.py
-	Jeff Ondich, 22 April 2016
+	schoogle_api.py
+	Johnny Reichman and Muyang Shi, 21 Oct 2018
 
-	A slightly more complicated Flask sample app than the
-	"hello world" app found at http://flask.pocoo.org/.
 '''
 import sys
 import flask
@@ -129,28 +127,16 @@ def get_connection():
 
 @app.route('/')
 def hello():
-	return 'Hello, Citizen of CS257.'
-
-# @app.route('/actor/<last_name>')
-# def get_actor(last_name):
-#     ''' Returns the first matching actor, or an empty dictionary if there's no match. '''
-#     actor_dictionary = {}
-#     lower_last_name = last_name.lower()
-#     for actor in actors:
-#         if actor['last_name'].lower().startswith(lower_last_name):
-#             actor_dictionary = actor
-#             break
-#     return json.dumps(actor_dictionary)
+	return 'Hello, Users of Schoogle.'
 
 @app.route('/schools')
 def get_schools():
-	#Returns a list of all schools with basic information:
+	#basic information:
 	school_id = flask.request.args.get('school_id', default=None)
 	school_name = flask.request.args.get('school_name', default=None)
 	city = flask.request.args.get('city', default=None)
 	state_id = flask.request.args.get('state_id', default=None)
 	state_name = flask.request.args.get('state_name', default=None)
-	#school_url = flask.request.args.get('school_url', default=None)
 	highest_degree = flask.request.args.get('highest_degree', default=None)
 	locale = flask.request.args.get('locale', default=None)
 	ownership = flask.request.args.get('ownership', default=None)
@@ -222,23 +208,23 @@ def get_schools():
 	History = flask.request.args.get('History', default=None),
 
 	#All these numeric values also come in tuple
-	enrollment = flask.request.args.get('city', default=None),
-	percent_white = flask.request.args.get('city', default=None),
-	percent_black = flask.request.args.get('city', default=None),
-	percent_Hispanic = flask.request.args.get('city', default=None),
-	percent_Asian = flask.request.args.get('city', default=None),
-	percent_American_Indian = flask.request.args.get('city', default=None),
-	percent_Native_Hawaiian = flask.request.args.get('city', default=None),
-	percent_nonresident_aliens = flask.request.args.get('city', default=None),
+	enrollment = flask.request.args.get('enrollment', default=None),
+	percent_white = flask.request.args.get('percent_white', default=None),
+	percent_black = flask.request.args.get('percent_black', default=None),
+	percent_Hispanic = flask.request.args.get('percent_Hispanic', default=None),
+	percent_Asian = flask.request.args.get('percent_Asian', default=None),
+	percent_American_Indian = flask.request.args.get('percent_American_Indian', default=None),
+	percent_Native_Hawaiian = flask.request.args.get('percent_Native_Hawaiian', default=None),
+	percent_nonresident_aliens = flask.request.args.get('percent_nonresident_aliens', default=None),
 
 
-	average_net_price_public_institutions = flask.request.args.get('city', default=None),
-	average_net_price_private_institutions = flask.request.args.get('city', default=None),
+	average_net_price_public_institutions = flask.request.args.get('average_net_price_public_institutions', default=None),
+	average_net_price_private_institutions = flask.request.args.get('average_net_price_private_institutions', default=None),
 
-	percent_student_of_Pell_Grant = flask.request.args.get('city', default=None),
-	percent_student_of_Federal_Loan = flask.request.args.get('city', default=None),
+	percent_student_of_Pell_Grant = flask.request.args.get('percent_student_of_Pell_Grant', default=None),
+	percent_student_of_Federal_Loan = flask.request.args.get('percent_student_of_Federal_Loan', default=None),
 
-	average_faculty_earnings = flask.request.args.get('city', default=None)
+	average_faculty_earnings = flask.request.args.get('average_faculty_earnings', default=None)
 
 
 
@@ -341,8 +327,77 @@ def get_schools():
 	if History[0] == 'True':
 		school_list = _filter_school_by_major(school_list, 'History')
 
+	#number comparisons
 	if SAT_average[0] is not None:
-		school_list = _filter_school_by_SAT_average(school_list, SAT_average[0])
+		school_list = _filter_school_by_number_range(school_list, SAT_average[0], 'SAT_average')
+	if SAT_cr_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_MID[0], 'SAT_cr_MID')
+	if SAT_cr_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_25_percentile[0], 'SAT_cr_25_percentile')
+	if SAT_cr_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_75_percentile[0], 'SAT_cr_75_percentile')
+	if SAT_math_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_MID[0], 'SAT_math_MID')
+	if SAT_math_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_25_percentile[0], 'SAT_math_25_percentile')
+	if SAT_math_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_75_percentile[0], 'SAT_math_75_percentile')
+	if SAT_wr_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_MID[0], 'SAT_wr_MID')
+	if SAT_wr_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_25_percentile[0], 'SAT_wr_25_percentile')
+	if SAT_wr_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_75_percentile[0], 'SAT_wr_75_percentile')
+	if ACT_cumulative_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_MID[0], 'ACT_cumulative_MID')
+	if ACT_cumulative_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_25_percentile[0], 'ACT_cumulative_25_percentile')
+	if ACT_cumulative_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_75_percentile[0], 'ACT_cumulative_75_percentile')
+	if ACT_eng_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_MID[0], 'ACT_eng_MID')
+	if ACT_eng_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_25_percentile[0], 'ACT_eng_25_percentile')
+	if ACT_eng_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_75_percentile[0], 'ACT_eng_75_percentile')
+	if ACT_math_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_MID[0], 'ACT_math_MID')
+	if ACT_math_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_25_percentile[0], 'ACT_math_25_percentile')
+	if ACT_math_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_75_percentile[0], 'ACT_math_75_percentile')
+	if ACT_writing_MID[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_MID[0], 'ACT_writing_MID')
+	if ACT_writing_25_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_25_percentile[0], 'ACT_writing_25_percentile')
+	if ACT_writing_75_percentile[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_75_percentile[0], 'ACT_writing_75_percentile')
+
+	if enrollment[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, enrollment[0], 'enrollment')
+	if percent_white[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_white[0], 'percent_white')
+	if percent_black[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_black[0], 'percent_black')
+	if percent_Hispanic[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_Hispanic[0], 'percent_Hispanic')
+	if percent_Asian[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_Asian[0], 'percent_Asian')
+	if percent_American_Indian[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_American_Indian[0], 'percent_American_Indian')
+	if percent_nonresident_aliens[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_nonresident_aliens[0], 'percent_nonresident_aliens')
+	if average_net_price_public_institutions[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, average_net_price_public_institutions[0], 'average_net_price_public_institutions')
+	if average_net_price_private_institutions[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, average_net_price_private_institutions[0], 'average_net_price_private_institutions')
+	if percent_student_of_Pell_Grant[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_student_of_Pell_Grant[0], 'percent_student_of_Pell_Grant')
+	if percent_student_of_Federal_Loan[0] is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_student_of_Federal_Loan[0], 'percent_student_of_Federal_Loan')
+	if average_faculty_earnings is not None:
+		school_list = _filter_school_by_number_range(school_list, average_faculty_earnings, 'average_faculty_earnings')
+
 
 	return json.dumps(school_list)
 
@@ -408,15 +463,14 @@ def __get_min_max(input):
 			min_and_max['min'] = __cast_int(input[:i-1]) 
 			min_and_max['max'] = __cast_int(input[i+1:])		
 	return min_and_max
-	#return {'min':None, 'max': None}
 
 
-def _filter_school_by_SAT_average(school_list, SAT_average):
+def _filter_school_by_number_range(school_list, metric, metric_name):
 	school_index = 0
-	SAT_average_range_dict = __get_min_max(SAT_average)
+	range_dict = __get_min_max(metric)
 	while school_index < len(school_list):
-		if school_list[school_index]['SAT_average'] is not None:
-			if (school_list[school_index]['SAT_average'] < SAT_average_range_dict['min'] or school_list[school_index]['SAT_average'] > SAT_average_range_dict['max']):
+		if school_list[school_index][metric_name] is not None:
+			if (school_list[school_index][metric_name] < range_dict['min'] or school_list[school_index][metric_name] > range_dict['max']):
 				school_list.remove(school_list[school_index])
 				school_index -= 1
 		school_index += 1
