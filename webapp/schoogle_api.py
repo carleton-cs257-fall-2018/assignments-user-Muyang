@@ -155,6 +155,7 @@ def get_schools():
 	locale = flask.request.args.get('locale', default=None)
 	ownership = flask.request.args.get('ownership', default=None)
 
+	#All the test scores were stored as numeric values, and they come in tuple
 	SAT_average = flask.request.args.get('SAT_average', default=None),
 	SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None),
 	SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None),
@@ -220,7 +221,7 @@ def get_schools():
 	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None),
 	History = flask.request.args.get('History', default=None),
 
-
+	#All these numeric values also come in tuple
 	enrollment = flask.request.args.get('city', default=None),
 	percent_white = flask.request.args.get('city', default=None),
 	percent_black = flask.request.args.get('city', default=None),
@@ -262,13 +263,85 @@ def get_schools():
 	if ownership is not None:
 		school_list = _filter_school_by_ownership(school_list, ownership)
 
-
-	if Agriculture[0] == 'True': #Agriculture is a tuple
-		school_list = _filter_school_by_Agriculture(school_list, True)
-	#return json.dumps(school_list)
+	#Majors
+	if Agriculture[0] == 'True': #Agriculture is a tuple, Agriculture[1] is a string
+		school_list = _filter_school_by_major(school_list, 'Agriculture')
+	if Natural_Resource[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Natural_Resource')
+	if Architecture[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Architecture')
+	if Area_Ethnic_Cultural_Gender_Group_Studies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Area_Ethnic_Cultural_Gender_Group_Studies')
+	if Communication_Journalism[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Communication_Journalism')
+	if Communication_Technologies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Communication_Technologies')
+	if Computer_Information_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Computer_Information_Sciences')
+	if Personal_Culinary_Services[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Personal_Culinary_Services')
+	if Education[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Education')
+	if Engineering[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Engineering')
+	if Engineering_Technologies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Engineering_Technologies')
+	if Foreign_Languages_Literatures_Linguistics[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Foreign_Languages_Literatures_Linguistics')
+	if Human_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Human_Sciences')
+	if Legal_Professions_Studies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Legal_Professions_Studies')
+	if English_Language_And_Literature[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'English_Language_And_Literature')
+	if General_Studies_And_Humanities[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'General_Studies_And_Humanities')
+	if Library_Science[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Library_Science')
+	if Biological_and_Biomedical_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Biological_and_Biomedical_Sciences')
+	if Mathematics_and_Statistics[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Mathematics_and_Statistics')
+	if Military_Technologies_and_Applied_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Military_Technologies_and_Applied_Sciences')
+	if Interdiciplinary_Studies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Interdiciplinary_Studies')
+	if Parks_Recreation_Leisure_Fitness_Studies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Parks_Recreation_Leisure_Fitness_Studies')
+	if Philosophy_and_Religious_Studies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Philosophy_and_Religious_Studies')
+	if Theology_and_Religious_Vocations[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Theology_and_Religious_Vocations')
+	if Physical_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Physical_Sciences')
+	if Science_Technologies[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Science_Technologies')
+	if Psychology[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Psychology')
+	if Homeland_Security_Law_Enforcement_Firefighting[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Homeland_Security_Law_Enforcement_Firefighting')
+	if Public_Administration_and_Social_Service[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Public_Administration_and_Social_Service')
+	if Social_Sciences[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Social_Sciences')
+	if Construction_Trade[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Construction_Trade')
+	if Mechanic_and_Repair_Technology[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Mechanic_and_Repair_Technology')
+	if Precision_Production[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Precision_Production')
+	if Transportation_and_Materials_Moving[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Transportation_and_Materials_Moving')
+	if Visual_and_Performing_Arts[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Visual_and_Performing_Arts')
+	if Health_Professions[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Health_Professions')
+	if Business_Management_Marketing[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'Business_Management_Marketing')
+	if History[0] == 'True':
+		school_list = _filter_school_by_major(school_list, 'History')
 
 	if SAT_average[0] is not None:
-
 		school_list = _filter_school_by_SAT_average(school_list, SAT_average[0])
 
 	return json.dumps(school_list)
@@ -349,12 +422,12 @@ def _filter_school_by_SAT_average(school_list, SAT_average):
 		school_index += 1
 	return school_list
 
-def _filter_school_by_Agriculture(school_list, Agriculture):
+def _filter_school_by_major(school_list, major):
 	#In filtering, python shifts the list if an entry is removed
 	#to account for the shift, we use tricks (I mean the -=1 and +=1)
 	school_index = 0
 	while school_index < len(school_list):
-		if (school_list[school_index]['Agriculture'] == False):			
+		if (school_list[school_index][major] == False):			
 			school_list.remove(school_list[school_index])
 			school_index -= 1
 		school_index += 1
