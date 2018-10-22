@@ -261,11 +261,12 @@ def get_schools():
 		school_list = _filter_school_by_locale(school_list, locale)
 	if ownership is not None:
 		school_list = _filter_school_by_ownership(school_list, ownership)
-	if SAT_average is not None:
-	 	school_list = _filter_school_by_SAT_average(school_list, SAT_average)
+	# if SAT_average is not None:
+	#  	school_list = _filter_school_by_SAT_average(school_list, SAT_average)
 	#Majors
 	if Agriculture is 'true':
-		return json.dumps(school_list)
+		for school in school_list:
+			return json.dumps(school['Agriculture'])
 		school_list = _filter_school_by_Agriculture(school_list, Agriculture)
 
 	return json.dumps(school_list)
