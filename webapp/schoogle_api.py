@@ -250,7 +250,7 @@ def get_schools():
 		school_list = _filter_school_by_ownership(school_list, ownership)
 
 	#Majors
-	if Agriculture[0] == 'True': #Agriculture is a tuple, Agriculture[1] is a string
+	if Agriculture[0] == 'True': #Agriculture is a tuple, Agriculture[0] is a string
 		school_list = _filter_school_by_major(school_list, 'Agriculture')
 	if Natural_Resource[0] == 'True':
 		school_list = _filter_school_by_major(school_list, 'Natural_Resource')
