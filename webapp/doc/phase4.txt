@@ -116,30 +116,16 @@ CREATE TABLE states (
 ########################## C ##########################
 #Because we have so many metrics, I was thinking we could organize these queries by HOW they are retrieved instead of WHAT is retrieved
 
-Schools:(default sorted by name)
 
+SYNOPSIS: Get the school with the corresponding metric
 
-SYNOPSIS: Get the school with the corresponding id number
-
-Query (GET): /schools?id=<school_id>&sort=name
+Query (GET): /schools?<metric_name>=<metric_value>
 
 RESPONSE: a dictionary, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?id=1&sort=name
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?id=173258
 
-{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}
-
-
-
-SYNOPSIS: Get the school with the corresponding id number, with the fields being searched for
-
-Query (GET): /schools?id=<school_id>&fields=metric_1,metric_2,...metric_n&sort=name
-
-RESPONSE: a dictionary, with each key describing a trait about the school 
-
-EXAMPLE: http://whatever.com/schools?id=1&fields=admission_rate,name&sort=name
-
-{'name': 'Carleton College', 'admission rate': 0.22}
+{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000, ......}
 
 
 
@@ -149,7 +135,7 @@ Query (GET): /schools?metric=<text>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?name="car"&sort=name
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?name="car"
 
 [{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon University', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
@@ -161,8 +147,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?enrollment=10000..MAX&sort=name
-
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?enrollment=10000..
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
 
@@ -174,7 +159,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?enrollment=0..10000&sort=name
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?enrollment=0..10000
 
 [{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
@@ -187,8 +172,7 @@ Query (GET): /schools?metric=<value1>..<value2>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?admission_rate=0.7..MAX&sort=name
-
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?admission_rate=0.7..
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
 
@@ -199,7 +183,7 @@ Query (GET): /schools?metric=<value_small>..<value_large>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?admission_rate=0.0..0.08&sort=name
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?admission_rate=0.0..0.08
 
 [{'name': 'Harvard College', 'city': 'Cambridge... 'average_faculty_earnings':300,000}, {'name': 'Yale College', 'city': 'New Haven... 'average_faculty_earnings':250,000}...]
 
@@ -212,33 +196,7 @@ Query (GET): /schools?metric=<value>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://whatever.com/schools?Engineering=true&sort=name
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?Engineering=True
 
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
-
-
-
-#State:
-
-SYNOPSIS: Get the state with the corresponding id number, typically only used internally(for display purposes)
-
-Query (GET): /state?id=<state_id>
-
-RESPONSE: a dictionary, with each key describing a trait about the state 
-
-EXAMPLE: http://whatever.com/state?id=1
-
-{'name': 'Texas', 'abbreviation': 'TX'}
-
-
-
-SYNOPSIS: Get the state with the corresponding name/abbreviation, typically only used internally(for display purposes)
-
-Query (GET): /state?name=<state_name>
-
-RESPONSE: a dictionary, with each key describing a trait about the state 
-
-EXAMPLE: http://whatever.com/state?name=TX
-
-{'name': 'Texas', 'abbreviation': 'TX'}
