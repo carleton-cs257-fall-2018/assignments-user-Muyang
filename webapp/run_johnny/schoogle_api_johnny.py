@@ -7,7 +7,7 @@
 import sys
 import flask
 import json
-import config
+import config_johnny
 import psycopg2
 
 app = flask.Flask(__name__)
@@ -117,9 +117,9 @@ def get_connection():
 	'''
 	connection = None
 	try:
-		connection = psycopg2.connect(database=config.database,
-									  user=config.user,
-									  password=config.password)
+		connection = psycopg2.connect(database=config_johnny.database,
+									  user=config_johnny.user,
+									  password=config_johnny.password)
 	except Exception as e:
 		print(e, file=sys.stderr)
 	return connection
@@ -141,7 +141,7 @@ def get_schools():
 	locale = flask.request.args.get('locale', default=None)
 	ownership = flask.request.args.get('ownership', default=None)
 
-	#Filters by test score
+	#All the test scores were stored as numeric values, and they come in tuple
 	SAT_average = flask.request.args.get('SAT_average', default=None)
 	SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None)
 	SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None)
@@ -167,7 +167,7 @@ def get_schools():
 	ACT_writing_25_percentile = flask.request.args.get('ACT_writing_25_percentile', default=None)
 	ACT_writing_75_percentile = flask.request.args.get('ACT_writing_75_percentile', default=None)
 
-	#Filters by offering of specific majors
+	#All the majors were stored as BOOLEAN, and request.args.get returns tuple
 	Agriculture = flask.request.args.get('Agriculture', default=None)
 	Natural_Resource = flask.request.args.get('Natural_Resource', default=None)
 	Architecture = flask.request.args.get('Architecture', default=None)
@@ -207,9 +207,7 @@ def get_schools():
 	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None)
 	History = flask.request.args.get('History', default=None)
 
-
-	admission_rate = flask.request.args.get('admission_rate', default=None)
-
+	#All these numeric values also come in tuple
 	enrollment = flask.request.args.get('enrollment', default=None)
 	percent_white = flask.request.args.get('percent_white', default=None)
 	percent_black = flask.request.args.get('percent_black', default=None)
@@ -219,12 +217,16 @@ def get_schools():
 	percent_Native_Hawaiian = flask.request.args.get('percent_Native_Hawaiian', default=None)
 	percent_nonresident_aliens = flask.request.args.get('percent_nonresident_aliens', default=None)
 
-	#Filters by misc other metrics
+
 	average_net_price_public_institutions = flask.request.args.get('average_net_price_public_institutions', default=None)
 	average_net_price_private_institutions = flask.request.args.get('average_net_price_private_institutions', default=None)
+
 	percent_student_of_Pell_Grant = flask.request.args.get('percent_student_of_Pell_Grant', default=None)
 	percent_student_of_Federal_Loan = flask.request.args.get('percent_student_of_Federal_Loan', default=None)
+
 	average_faculty_earnings = flask.request.args.get('average_faculty_earnings', default=None)
+
+
 
 
 	school_list = _get_all_school_stats() #All the schools to be filtered
@@ -371,9 +373,6 @@ def get_schools():
 	if ACT_writing_75_percentile is not None:
 		school_list = _filter_school_by_number_range(school_list, ACT_writing_75_percentile, 'ACT_writing_75_percentile')
 
-	if admission_rate is not None:
-		school_list = _filter_school_by_number_range(school_list, admission_rate, 'admission_rate')
-
 	if enrollment is not None:
 		school_list = _filter_school_by_number_range(school_list, enrollment, 'enrollment')
 	if percent_white is not None:
@@ -462,15 +461,9 @@ def __get_min_max(input):
 	for i in range(len(input)):
 		if i > 0 and input[i] == '.' and input[i-1] =='.':
 			if input[:i-1] != '':
-				try:
-					min_and_max['min'] = __cast_int(input[:i-1])
-				except Exception as e:
-					raise ValueError('must be numeric range')
+				min_and_max['min'] = __cast_int(input[:i-1])
 			if input[i+1:] != '':
-				try:
-					min_and_max['max'] = __cast_int(input[i+1:])
-				except Exception as e:
-					raise ValueError('must be numeric range')
+				min_and_max['max'] = __cast_int(input[i+1:])
 	return min_and_max
 
 def _filter_school_by_basics(school_list, metric_value, metric_name):
