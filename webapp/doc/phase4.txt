@@ -123,7 +123,7 @@ Query (GET): /schools?<metric_name>=<metric_value>
 
 RESPONSE: a dictionary, with each key describing a trait about the school 
 
-EXAMPLE: http://perlman.mathcs.carleton.edu/schools?id=173258
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?school_id=173258
 
 {'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000, ......}
 
@@ -135,7 +135,7 @@ Query (GET): /schools?metric=<text>
 
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
-EXAMPLE: http://perlman.mathcs.carleton.edu/schools?name="car"
+EXAMPLE: http://perlman.mathcs.carleton.edu/schools?school_name="car"
 
 [{'name': 'Carleton College', 'city': 'Northfield... 'average_faculty_earnings':100,000}, {'name': 'Carnegie Melon University', 'city': 'Pittsburgh... 'average_faculty_earnings':80,000}...]
 
@@ -173,6 +173,7 @@ Query (GET): /schools?metric=<value1>..<value2>
 RESPONSE: a list of a dictionaries, with each key describing a trait about the school 
 
 EXAMPLE: http://perlman.mathcs.carleton.edu/schools?admission_rate=0.7..
+
 [{'name': 'Arizona University', 'city': 'Phoenix... 'average_faculty_earnings':120,000}, {'name': 'Arizona State', 'city': 'Tempe... 'average_faculty_earnings':80,000}...]
 
 
