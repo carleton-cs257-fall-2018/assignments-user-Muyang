@@ -142,87 +142,87 @@ def get_schools():
 	ownership = flask.request.args.get('ownership', default=None)
 
 	#All the test scores were stored as numeric values, and they come in tuple
-	SAT_average = flask.request.args.get('SAT_average', default=None),
-	SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None),
-	SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None),
-	SAT_cr_75_percentile = flask.request.args.get('SAT_cr_75_percentile', default=None),
-	SAT_math_MID = flask.request.args.get('SAT_math_MID', default=None),
-	SAT_math_25_percentile = flask.request.args.get('SAT_math_25_percentile', default=None),
-	SAT_math_75_percentile = flask.request.args.get('SAT_math_75_percentile', default=None),
-	SAT_wr_MID = flask.request.args.get('SAT_wr_MID', default=None),
-	SAT_wr_25_percentile = flask.request.args.get('SAT_wr_25_percentile', default=None),
-	SAT_wr_75_percentile = flask.request.args.get('SAT_wr_75_percentile', default=None),
+	SAT_average = flask.request.args.get('SAT_average', default=None)
+	SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None)
+	SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None)
+	SAT_cr_75_percentile = flask.request.args.get('SAT_cr_75_percentile', default=None)
+	SAT_math_MID = flask.request.args.get('SAT_math_MID', default=None)
+	SAT_math_25_percentile = flask.request.args.get('SAT_math_25_percentile', default=None)
+	SAT_math_75_percentile = flask.request.args.get('SAT_math_75_percentile', default=None)
+	SAT_wr_MID = flask.request.args.get('SAT_wr_MID', default=None)
+	SAT_wr_25_percentile = flask.request.args.get('SAT_wr_25_percentile', default=None)
+	SAT_wr_75_percentile = flask.request.args.get('SAT_wr_75_percentile', default=None)
 
 
-	ACT_cumulative_MID = flask.request.args.get('ACT_cumulative_MID', default=None),
-	ACT_cumulative_25_percentile = flask.request.args.get('ACT_cumulative_25_percentile', default=None),
-	ACT_cumulative_75_percentile = flask.request.args.get('ACT_cumulative_75_percentile', default=None),
-	ACT_eng_MID = flask.request.args.get('ACT_eng_MID', default=None),
-	ACT_eng_25_percentile = flask.request.args.get('ACT_eng_25_percentile', default=None),
-	ACT_eng_75_percentile = flask.request.args.get('ACT_eng_75_percentile', default=None),
-	ACT_math_MID = flask.request.args.get('ACT_math_MID', default=None),
-	ACT_math_25_percentile = flask.request.args.get('ACT_math_25_percentile', default=None),
-	ACT_math_75_percentile = flask.request.args.get('ACT_math_75_percentile', default=None),
-	ACT_writing_MID = flask.request.args.get('ACT_writing_MID', default=None),
-	ACT_writing_25_percentile = flask.request.args.get('ACT_writing_25_percentile', default=None),
-	ACT_writing_75_percentile = flask.request.args.get('ACT_writing_75_percentile', default=None),
+	ACT_cumulative_MID = flask.request.args.get('ACT_cumulative_MID', default=None)
+	ACT_cumulative_25_percentile = flask.request.args.get('ACT_cumulative_25_percentile', default=None)
+	ACT_cumulative_75_percentile = flask.request.args.get('ACT_cumulative_75_percentile', default=None)
+	ACT_eng_MID = flask.request.args.get('ACT_eng_MID', default=None)
+	ACT_eng_25_percentile = flask.request.args.get('ACT_eng_25_percentile', default=None)
+	ACT_eng_75_percentile = flask.request.args.get('ACT_eng_75_percentile', default=None)
+	ACT_math_MID = flask.request.args.get('ACT_math_MID', default=None)
+	ACT_math_25_percentile = flask.request.args.get('ACT_math_25_percentile', default=None)
+	ACT_math_75_percentile = flask.request.args.get('ACT_math_75_percentile', default=None)
+	ACT_writing_MID = flask.request.args.get('ACT_writing_MID', default=None)
+	ACT_writing_25_percentile = flask.request.args.get('ACT_writing_25_percentile', default=None)
+	ACT_writing_75_percentile = flask.request.args.get('ACT_writing_75_percentile', default=None)
 
 	#All the majors were stored as BOOLEAN, and request.args.get returns tuple
-	Agriculture = flask.request.args.get('Agriculture', default=None),
-	Natural_Resource = flask.request.args.get('Natural_Resource', default=None),
-	Architecture = flask.request.args.get('Architecture', default=None),
-	Area_Ethnic_Cultural_Gender_Group_Studies = flask.request.args.get('Area_Ethnic_Cultural_Gender_Group_Studies', default=None),
-	Communication_Journalism = flask.request.args.get('Communication_Journalism', default=None),
-	Communication_Technologies = flask.request.args.get('Communication_Technologies', default=None),
-	Computer_Information_Sciences = flask.request.args.get('Computer_Information_Sciences', default=None),
-	Personal_Culinary_Services = flask.request.args.get('Personal_Culinary_Services', default=None),
-	Education = flask.request.args.get('Education', default=None),
-	Engineering = flask.request.args.get('Engineering', default=None),
-	Engineering_Technologies = flask.request.args.get('Engineering_Technologies', default=None),
-	Foreign_Languages_Literatures_Linguistics = flask.request.args.get('Foreign_Languages_Literatures_Linguistics', default=None),
-	Human_Sciences = flask.request.args.get('Human_Sciences', default=None),
-	Legal_Professions_Studies = flask.request.args.get('Legal_Professions_Studies', default=None),
-	English_Language_And_Literature = flask.request.args.get('English_Language_And_Literature', default=None),
-	General_Studies_And_Humanities = flask.request.args.get('General_Studies_And_Humanities', default=None),
-	Library_Science = flask.request.args.get('Library_Science', default=None),
-	Biological_and_Biomedical_Sciences = flask.request.args.get('Biological_and_Biomedical_Sciences', default=None),
-	Mathematics_and_Statistics = flask.request.args.get('Mathematics_and_Statistics', default=None),
-	Military_Technologies_and_Applied_Sciences = flask.request.args.get('Military_Technologies_and_Applied_Sciences', default=None),
-	Interdiciplinary_Studies = flask.request.args.get('Interdiciplinary_Studies', default=None),
-	Parks_Recreation_Leisure_Fitness_Studies = flask.request.args.get('Parks_Recreation_Leisure_Fitness_Studies', default=None),
-	Philosophy_and_Religious_Studies = flask.request.args.get('Philosophy_and_Religious_Studies', default=None),
-	Theology_and_Religious_Vocations = flask.request.args.get('Theology_and_Religious_Vocations', default=None),
-	Physical_Sciences = flask.request.args.get('Physical_Sciences', default=None),
-	Science_Technologies = flask.request.args.get('Science_Technologies', default=None),
-	Psychology = flask.request.args.get('Psychology', default=None),
-	Homeland_Security_Law_Enforcement_Firefighting = flask.request.args.get('Homeland_Security_Law_Enforcement_Firefighting', default=None),
-	Public_Administration_and_Social_Service = flask.request.args.get('Public_Administration_and_Social_Service', default=None),
-	Social_Sciences = flask.request.args.get('Social_Sciences', default=None),
-	Construction_Trade = flask.request.args.get('Construction_Trade', default=None),
-	Mechanic_and_Repair_Technology = flask.request.args.get('Mechanic_and_Repair_Technology', default=None),
-	Precision_Production = flask.request.args.get('Precision_Production', default=None),
-	Transportation_and_Materials_Moving = flask.request.args.get('Transportation_and_Materials_Moving', default=None),
-	Visual_and_Performing_Arts = flask.request.args.get('Visual_and_Performing_Arts', default=None),
-	Health_Professions = flask.request.args.get('Health_Professions', default=None),
-	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None),
-	History = flask.request.args.get('History', default=None),
+	Agriculture = flask.request.args.get('Agriculture', default=None)
+	Natural_Resource = flask.request.args.get('Natural_Resource', default=None)
+	Architecture = flask.request.args.get('Architecture', default=None)
+	Area_Ethnic_Cultural_Gender_Group_Studies = flask.request.args.get('Area_Ethnic_Cultural_Gender_Group_Studies', default=None)
+	Communication_Journalism = flask.request.args.get('Communication_Journalism', default=None)
+	Communication_Technologies = flask.request.args.get('Communication_Technologies', default=None)
+	Computer_Information_Sciences = flask.request.args.get('Computer_Information_Sciences', default=None)
+	Personal_Culinary_Services = flask.request.args.get('Personal_Culinary_Services', default=None)
+	Education = flask.request.args.get('Education', default=None)
+	Engineering = flask.request.args.get('Engineering', default=None)
+	Engineering_Technologies = flask.request.args.get('Engineering_Technologies', default=None)
+	Foreign_Languages_Literatures_Linguistics = flask.request.args.get('Foreign_Languages_Literatures_Linguistics', default=None)
+	Human_Sciences = flask.request.args.get('Human_Sciences', default=None)
+	Legal_Professions_Studies = flask.request.args.get('Legal_Professions_Studies', default=None)
+	English_Language_And_Literature = flask.request.args.get('English_Language_And_Literature', default=None)
+	General_Studies_And_Humanities = flask.request.args.get('General_Studies_And_Humanities', default=None)
+	Library_Science = flask.request.args.get('Library_Science', default=None)
+	Biological_and_Biomedical_Sciences = flask.request.args.get('Biological_and_Biomedical_Sciences', default=None)
+	Mathematics_and_Statistics = flask.request.args.get('Mathematics_and_Statistics', default=None)
+	Military_Technologies_and_Applied_Sciences = flask.request.args.get('Military_Technologies_and_Applied_Sciences', default=None)
+	Interdiciplinary_Studies = flask.request.args.get('Interdiciplinary_Studies', default=None)
+	Parks_Recreation_Leisure_Fitness_Studies = flask.request.args.get('Parks_Recreation_Leisure_Fitness_Studies', default=None)
+	Philosophy_and_Religious_Studies = flask.request.args.get('Philosophy_and_Religious_Studies', default=None)
+	Theology_and_Religious_Vocations = flask.request.args.get('Theology_and_Religious_Vocations', default=None)
+	Physical_Sciences = flask.request.args.get('Physical_Sciences', default=None)
+	Science_Technologies = flask.request.args.get('Science_Technologies', default=None)
+	Psychology = flask.request.args.get('Psychology', default=None)
+	Homeland_Security_Law_Enforcement_Firefighting = flask.request.args.get('Homeland_Security_Law_Enforcement_Firefighting', default=None)
+	Public_Administration_and_Social_Service = flask.request.args.get('Public_Administration_and_Social_Service', default=None)
+	Social_Sciences = flask.request.args.get('Social_Sciences', default=None)
+	Construction_Trade = flask.request.args.get('Construction_Trade', default=None)
+	Mechanic_and_Repair_Technology = flask.request.args.get('Mechanic_and_Repair_Technology', default=None)
+	Precision_Production = flask.request.args.get('Precision_Production', default=None)
+	Transportation_and_Materials_Moving = flask.request.args.get('Transportation_and_Materials_Moving', default=None)
+	Visual_and_Performing_Arts = flask.request.args.get('Visual_and_Performing_Arts', default=None)
+	Health_Professions = flask.request.args.get('Health_Professions', default=None)
+	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None)
+	History = flask.request.args.get('History', default=None)
 
 	#All these numeric values also come in tuple
-	enrollment = flask.request.args.get('enrollment', default=None),
-	percent_white = flask.request.args.get('percent_white', default=None),
-	percent_black = flask.request.args.get('percent_black', default=None),
-	percent_Hispanic = flask.request.args.get('percent_Hispanic', default=None),
-	percent_Asian = flask.request.args.get('percent_Asian', default=None),
-	percent_American_Indian = flask.request.args.get('percent_American_Indian', default=None),
-	percent_Native_Hawaiian = flask.request.args.get('percent_Native_Hawaiian', default=None),
-	percent_nonresident_aliens = flask.request.args.get('percent_nonresident_aliens', default=None),
+	enrollment = flask.request.args.get('enrollment', default=None)
+	percent_white = flask.request.args.get('percent_white', default=None)
+	percent_black = flask.request.args.get('percent_black', default=None)
+	percent_Hispanic = flask.request.args.get('percent_Hispanic', default=None)
+	percent_Asian = flask.request.args.get('percent_Asian', default=None)
+	percent_American_Indian = flask.request.args.get('percent_American_Indian', default=None)
+	percent_Native_Hawaiian = flask.request.args.get('percent_Native_Hawaiian', default=None)
+	percent_nonresident_aliens = flask.request.args.get('percent_nonresident_aliens', default=None)
 
 
-	average_net_price_public_institutions = flask.request.args.get('average_net_price_public_institutions', default=None),
-	average_net_price_private_institutions = flask.request.args.get('average_net_price_private_institutions', default=None),
+	average_net_price_public_institutions = flask.request.args.get('average_net_price_public_institutions', default=None)
+	average_net_price_private_institutions = flask.request.args.get('average_net_price_private_institutions', default=None)
 
-	percent_student_of_Pell_Grant = flask.request.args.get('percent_student_of_Pell_Grant', default=None),
-	percent_student_of_Federal_Loan = flask.request.args.get('percent_student_of_Federal_Loan', default=None),
+	percent_student_of_Pell_Grant = flask.request.args.get('percent_student_of_Pell_Grant', default=None)
+	percent_student_of_Federal_Loan = flask.request.args.get('percent_student_of_Federal_Loan', default=None)
 
 	average_faculty_earnings = flask.request.args.get('average_faculty_earnings', default=None)
 
@@ -250,151 +250,151 @@ def get_schools():
 		school_list = _filter_school_by_ownership(school_list, ownership)
 
 	#Majors
-	if Agriculture[0] == 'True': #Agriculture is a tuple, Agriculture[0] is a string
+	if Agriculture == 'True': 
 		school_list = _filter_school_by_major(school_list, 'Agriculture')
-	if Natural_Resource[0] == 'True':
+	if Natural_Resource == 'True':
 		school_list = _filter_school_by_major(school_list, 'Natural_Resource')
-	if Architecture[0] == 'True':
+	if Architecture == 'True':
 		school_list = _filter_school_by_major(school_list, 'Architecture')
-	if Area_Ethnic_Cultural_Gender_Group_Studies[0] == 'True':
+	if Area_Ethnic_Cultural_Gender_Group_Studies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Area_Ethnic_Cultural_Gender_Group_Studies')
-	if Communication_Journalism[0] == 'True':
+	if Communication_Journalism == 'True':
 		school_list = _filter_school_by_major(school_list, 'Communication_Journalism')
-	if Communication_Technologies[0] == 'True':
+	if Communication_Technologies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Communication_Technologies')
-	if Computer_Information_Sciences[0] == 'True':
+	if Computer_Information_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Computer_Information_Sciences')
-	if Personal_Culinary_Services[0] == 'True':
+	if Personal_Culinary_Services == 'True':
 		school_list = _filter_school_by_major(school_list, 'Personal_Culinary_Services')
-	if Education[0] == 'True':
+	if Education == 'True':
 		school_list = _filter_school_by_major(school_list, 'Education')
-	if Engineering[0] == 'True':
+	if Engineering == 'True':
 		school_list = _filter_school_by_major(school_list, 'Engineering')
-	if Engineering_Technologies[0] == 'True':
+	if Engineering_Technologies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Engineering_Technologies')
-	if Foreign_Languages_Literatures_Linguistics[0] == 'True':
+	if Foreign_Languages_Literatures_Linguistics == 'True':
 		school_list = _filter_school_by_major(school_list, 'Foreign_Languages_Literatures_Linguistics')
-	if Human_Sciences[0] == 'True':
+	if Human_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Human_Sciences')
-	if Legal_Professions_Studies[0] == 'True':
+	if Legal_Professions_Studies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Legal_Professions_Studies')
-	if English_Language_And_Literature[0] == 'True':
+	if English_Language_And_Literature == 'True':
 		school_list = _filter_school_by_major(school_list, 'English_Language_And_Literature')
-	if General_Studies_And_Humanities[0] == 'True':
+	if General_Studies_And_Humanities == 'True':
 		school_list = _filter_school_by_major(school_list, 'General_Studies_And_Humanities')
-	if Library_Science[0] == 'True':
+	if Library_Science == 'True':
 		school_list = _filter_school_by_major(school_list, 'Library_Science')
-	if Biological_and_Biomedical_Sciences[0] == 'True':
+	if Biological_and_Biomedical_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Biological_and_Biomedical_Sciences')
-	if Mathematics_and_Statistics[0] == 'True':
+	if Mathematics_and_Statistics == 'True':
 		school_list = _filter_school_by_major(school_list, 'Mathematics_and_Statistics')
-	if Military_Technologies_and_Applied_Sciences[0] == 'True':
+	if Military_Technologies_and_Applied_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Military_Technologies_and_Applied_Sciences')
-	if Interdiciplinary_Studies[0] == 'True':
+	if Interdiciplinary_Studies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Interdiciplinary_Studies')
-	if Parks_Recreation_Leisure_Fitness_Studies[0] == 'True':
+	if Parks_Recreation_Leisure_Fitness_Studies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Parks_Recreation_Leisure_Fitness_Studies')
-	if Philosophy_and_Religious_Studies[0] == 'True':
+	if Philosophy_and_Religious_Studies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Philosophy_and_Religious_Studies')
-	if Theology_and_Religious_Vocations[0] == 'True':
+	if Theology_and_Religious_Vocations == 'True':
 		school_list = _filter_school_by_major(school_list, 'Theology_and_Religious_Vocations')
-	if Physical_Sciences[0] == 'True':
+	if Physical_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Physical_Sciences')
-	if Science_Technologies[0] == 'True':
+	if Science_Technologies == 'True':
 		school_list = _filter_school_by_major(school_list, 'Science_Technologies')
-	if Psychology[0] == 'True':
+	if Psychology == 'True':
 		school_list = _filter_school_by_major(school_list, 'Psychology')
-	if Homeland_Security_Law_Enforcement_Firefighting[0] == 'True':
+	if Homeland_Security_Law_Enforcement_Firefighting == 'True':
 		school_list = _filter_school_by_major(school_list, 'Homeland_Security_Law_Enforcement_Firefighting')
-	if Public_Administration_and_Social_Service[0] == 'True':
+	if Public_Administration_and_Social_Service == 'True':
 		school_list = _filter_school_by_major(school_list, 'Public_Administration_and_Social_Service')
-	if Social_Sciences[0] == 'True':
+	if Social_Sciences == 'True':
 		school_list = _filter_school_by_major(school_list, 'Social_Sciences')
-	if Construction_Trade[0] == 'True':
+	if Construction_Trade == 'True':
 		school_list = _filter_school_by_major(school_list, 'Construction_Trade')
-	if Mechanic_and_Repair_Technology[0] == 'True':
+	if Mechanic_and_Repair_Technology == 'True':
 		school_list = _filter_school_by_major(school_list, 'Mechanic_and_Repair_Technology')
-	if Precision_Production[0] == 'True':
+	if Precision_Production == 'True':
 		school_list = _filter_school_by_major(school_list, 'Precision_Production')
-	if Transportation_and_Materials_Moving[0] == 'True':
+	if Transportation_and_Materials_Moving == 'True':
 		school_list = _filter_school_by_major(school_list, 'Transportation_and_Materials_Moving')
-	if Visual_and_Performing_Arts[0] == 'True':
+	if Visual_and_Performing_Arts == 'True':
 		school_list = _filter_school_by_major(school_list, 'Visual_and_Performing_Arts')
-	if Health_Professions[0] == 'True':
+	if Health_Professions == 'True':
 		school_list = _filter_school_by_major(school_list, 'Health_Professions')
-	if Business_Management_Marketing[0] == 'True':
+	if Business_Management_Marketing == 'True':
 		school_list = _filter_school_by_major(school_list, 'Business_Management_Marketing')
-	if History[0] == 'True':
+	if History == 'True':
 		school_list = _filter_school_by_major(school_list, 'History')
 
 	#number comparisons
-	if SAT_average[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_average[0], 'SAT_average')
-	if SAT_cr_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_cr_MID[0], 'SAT_cr_MID')
-	if SAT_cr_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_cr_25_percentile[0], 'SAT_cr_25_percentile')
-	if SAT_cr_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_cr_75_percentile[0], 'SAT_cr_75_percentile')
-	if SAT_math_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_math_MID[0], 'SAT_math_MID')
-	if SAT_math_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_math_25_percentile[0], 'SAT_math_25_percentile')
-	if SAT_math_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_math_75_percentile[0], 'SAT_math_75_percentile')
-	if SAT_wr_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_wr_MID[0], 'SAT_wr_MID')
-	if SAT_wr_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_wr_25_percentile[0], 'SAT_wr_25_percentile')
-	if SAT_wr_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, SAT_wr_75_percentile[0], 'SAT_wr_75_percentile')
-	if ACT_cumulative_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_MID[0], 'ACT_cumulative_MID')
-	if ACT_cumulative_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_25_percentile[0], 'ACT_cumulative_25_percentile')
-	if ACT_cumulative_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_75_percentile[0], 'ACT_cumulative_75_percentile')
-	if ACT_eng_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_eng_MID[0], 'ACT_eng_MID')
-	if ACT_eng_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_eng_25_percentile[0], 'ACT_eng_25_percentile')
-	if ACT_eng_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_eng_75_percentile[0], 'ACT_eng_75_percentile')
-	if ACT_math_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_math_MID[0], 'ACT_math_MID')
-	if ACT_math_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_math_25_percentile[0], 'ACT_math_25_percentile')
-	if ACT_math_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_math_75_percentile[0], 'ACT_math_75_percentile')
-	if ACT_writing_MID[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_writing_MID[0], 'ACT_writing_MID')
-	if ACT_writing_25_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_writing_25_percentile[0], 'ACT_writing_25_percentile')
-	if ACT_writing_75_percentile[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, ACT_writing_75_percentile[0], 'ACT_writing_75_percentile')
+	if SAT_average is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_average, 'SAT_average')
+	if SAT_cr_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_MID, 'SAT_cr_MID')
+	if SAT_cr_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_25_percentile, 'SAT_cr_25_percentile')
+	if SAT_cr_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_cr_75_percentile, 'SAT_cr_75_percentile')
+	if SAT_math_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_MID, 'SAT_math_MID')
+	if SAT_math_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_25_percentile, 'SAT_math_25_percentile')
+	if SAT_math_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_math_75_percentile, 'SAT_math_75_percentile')
+	if SAT_wr_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_MID, 'SAT_wr_MID')
+	if SAT_wr_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_25_percentile, 'SAT_wr_25_percentile')
+	if SAT_wr_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, SAT_wr_75_percentile, 'SAT_wr_75_percentile')
+	if ACT_cumulative_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_MID, 'ACT_cumulative_MID')
+	if ACT_cumulative_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_25_percentile, 'ACT_cumulative_25_percentile')
+	if ACT_cumulative_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_cumulative_75_percentile, 'ACT_cumulative_75_percentile')
+	if ACT_eng_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_MID, 'ACT_eng_MID')
+	if ACT_eng_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_25_percentile, 'ACT_eng_25_percentile')
+	if ACT_eng_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_eng_75_percentile, 'ACT_eng_75_percentile')
+	if ACT_math_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_MID, 'ACT_math_MID')
+	if ACT_math_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_25_percentile, 'ACT_math_25_percentile')
+	if ACT_math_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_math_75_percentile, 'ACT_math_75_percentile')
+	if ACT_writing_MID is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_MID, 'ACT_writing_MID')
+	if ACT_writing_25_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_25_percentile, 'ACT_writing_25_percentile')
+	if ACT_writing_75_percentile is not None:
+		school_list = _filter_school_by_number_range(school_list, ACT_writing_75_percentile, 'ACT_writing_75_percentile')
 
-	if enrollment[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, enrollment[0], 'enrollment')
-	if percent_white[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_white[0], 'percent_white')
-	if percent_black[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_black[0], 'percent_black')
-	if percent_Hispanic[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_Hispanic[0], 'percent_Hispanic')
-	if percent_Asian[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_Asian[0], 'percent_Asian')
-	if percent_American_Indian[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_American_Indian[0], 'percent_American_Indian')
-	if percent_nonresident_aliens[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_nonresident_aliens[0], 'percent_nonresident_aliens')
-	if average_net_price_public_institutions[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, average_net_price_public_institutions[0], 'average_net_price_public_institutions')
-	if average_net_price_private_institutions[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, average_net_price_private_institutions[0], 'average_net_price_private_institutions')
-	if percent_student_of_Pell_Grant[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_student_of_Pell_Grant[0], 'percent_student_of_Pell_Grant')
-	if percent_student_of_Federal_Loan[0] is not None:
-		school_list = _filter_school_by_number_range(school_list, percent_student_of_Federal_Loan[0], 'percent_student_of_Federal_Loan')
+	if enrollment is not None:
+		school_list = _filter_school_by_number_range(school_list, enrollment, 'enrollment')
+	if percent_white is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_white, 'percent_white')
+	if percent_black is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_black, 'percent_black')
+	if percent_Hispanic is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_Hispanic, 'percent_Hispanic')
+	if percent_Asian is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_Asian, 'percent_Asian')
+	if percent_American_Indian is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_American_Indian, 'percent_American_Indian')
+	if percent_nonresident_aliens is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_nonresident_aliens, 'percent_nonresident_aliens')
+	if average_net_price_public_institutions is not None:
+		school_list = _filter_school_by_number_range(school_list, average_net_price_public_institutions, 'average_net_price_public_institutions')
+	if average_net_price_private_institutions is not None:
+		school_list = _filter_school_by_number_range(school_list, average_net_price_private_institutions, 'average_net_price_private_institutions')
+	if percent_student_of_Pell_Grant is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_student_of_Pell_Grant, 'percent_student_of_Pell_Grant')
+	if percent_student_of_Federal_Loan is not None:
+		school_list = _filter_school_by_number_range(school_list, percent_student_of_Federal_Loan, 'percent_student_of_Federal_Loan')
 	if average_faculty_earnings is not None:
 		school_list = _filter_school_by_number_range(school_list, average_faculty_earnings, 'average_faculty_earnings')
 
@@ -457,11 +457,14 @@ def __cast_float(num):
 		quit()
 
 def __get_min_max(input):
-	min_and_max = {'min': None, 'max': None}
+	#The maximum int psql stored is 2147483647
+	min_and_max = {'min': -1, 'max': 2147483647}
 	for i in range(len(input)):
 		if i > 0 and input[i] == '.' and input[i-1] =='.':
-			min_and_max['min'] = __cast_int(input[:i-1]) 
-			min_and_max['max'] = __cast_int(input[i+1:])		
+			if input[:i-1] != '':
+				min_and_max['min'] = __cast_int(input[:i-1])
+			if input[i+1:] != '':
+				min_and_max['max'] = __cast_int(input[i+1:])
 	return min_and_max
 
 
