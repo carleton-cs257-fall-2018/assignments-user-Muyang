@@ -141,7 +141,7 @@ def get_schools():
 	locale = flask.request.args.get('locale', default=None)
 	ownership = flask.request.args.get('ownership', default=None)
 
-	#All the test scores were stored as numeric values, and they come in tuple
+	#Filters by test score
 	SAT_average = flask.request.args.get('SAT_average', default=None)
 	SAT_cr_MID = flask.request.args.get('SAT_cr_MID', default=None)
 	SAT_cr_25_percentile = flask.request.args.get('SAT_cr_25_percentile', default=None)
@@ -167,7 +167,7 @@ def get_schools():
 	ACT_writing_25_percentile = flask.request.args.get('ACT_writing_25_percentile', default=None)
 	ACT_writing_75_percentile = flask.request.args.get('ACT_writing_75_percentile', default=None)
 
-	#All the majors were stored as BOOLEAN, and request.args.get returns tuple
+	#Filters by offering of specific majors
 	Agriculture = flask.request.args.get('Agriculture', default=None)
 	Natural_Resource = flask.request.args.get('Natural_Resource', default=None)
 	Architecture = flask.request.args.get('Architecture', default=None)
@@ -207,7 +207,7 @@ def get_schools():
 	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None)
 	History = flask.request.args.get('History', default=None)
 
-	#All these numeric values also come in tuple
+	#Filters y=by demographic
 	enrollment = flask.request.args.get('enrollment', default=None)
 	percent_white = flask.request.args.get('percent_white', default=None)
 	percent_black = flask.request.args.get('percent_black', default=None)
@@ -217,16 +217,12 @@ def get_schools():
 	percent_Native_Hawaiian = flask.request.args.get('percent_Native_Hawaiian', default=None)
 	percent_nonresident_aliens = flask.request.args.get('percent_nonresident_aliens', default=None)
 
-
+	#Filters by misc other metrics
 	average_net_price_public_institutions = flask.request.args.get('average_net_price_public_institutions', default=None)
 	average_net_price_private_institutions = flask.request.args.get('average_net_price_private_institutions', default=None)
-
 	percent_student_of_Pell_Grant = flask.request.args.get('percent_student_of_Pell_Grant', default=None)
 	percent_student_of_Federal_Loan = flask.request.args.get('percent_student_of_Federal_Loan', default=None)
-
 	average_faculty_earnings = flask.request.args.get('average_faculty_earnings', default=None)
-
-
 
 
 	school_list = _get_all_school_stats() #All the schools to be filtered
