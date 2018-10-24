@@ -233,28 +233,20 @@ def get_schools():
 
 	#Basic Information
 	if school_id is not None:
-		#school_list = _filter_school_by_id(school_list, school_id)
 		school_list = _filter_school_by_basics(school_list, school_id, 'school_id')
 	if school_name is not None:
-		#school_list = _filter_school_by_name(school_list, school_name)
 		school_list = _filter_school_by_basics(school_list, school_name, 'school_name')
 	if city is not None:
-		#school_list = _filter_school_by_city(school_list, city)
 		school_list = _filter_school_by_basics(school_list, city, 'city')
 	if state_id is not None:
-		#school_list = _filter_school_by_state_id(school_list, state_id)
 		school_list = _filter_school_by_basics(school_list, state_id, 'state_id')
 	if state_name is not None:
-		#school_list = _filter_school_by_state_name(school_list, state_name)
 		school_list = _filter_school_by_basics(school_list, state_name, 'state_name')
 	if highest_degree is not None:
-		#school_list = _filter_school_by_highest_degree(school_list, state_id)
 		school_list = _filter_school_by_basics(school_list, highest_degree, 'highest_degree')
 	if locale is not None:
-		#school_list = _filter_school_by_locale(school_list, locale)
 		school_list = _filter_school_by_basics(school_list, locale, 'locale')
 	if ownership is not None:
-		#school_list = _filter_school_by_ownership(school_list, ownership)
 		school_list = _filter_school_by_basics(school_list, ownership, 'ownership')
 
 	#Majors
@@ -473,7 +465,7 @@ def __get_min_max(input):
 			if input[i+1:] != '':
 				min_and_max['max'] = __cast_int(input[i+1:])
 	return min_and_max
-	
+
 def _filter_school_by_basics(school_list, metric_value, metric_name):
 	school_index = 0
 	while school_index < len(school_list):
