@@ -207,7 +207,7 @@ def get_schools():
 	Business_Management_Marketing = flask.request.args.get('Business_Management_Marketing', default=None)
 	History = flask.request.args.get('History', default=None)
 
-	#All these numeric values also come in tuple
+	admission_rate = flask.request.args.get('admission_rate', default=None)
 	enrollment = flask.request.args.get('enrollment', default=None)
 	percent_white = flask.request.args.get('percent_white', default=None)
 	percent_black = flask.request.args.get('percent_black', default=None)
@@ -373,6 +373,9 @@ def get_schools():
 	if ACT_writing_75_percentile is not None:
 		school_list = _filter_school_by_number_range(school_list, ACT_writing_75_percentile, 'ACT_writing_75_percentile')
 
+	if admission_rate is not None:
+		school_list = _filter_school_by_number_range(school_list, admission_rate, 'admission_rate')
+
 	if enrollment is not None:
 		school_list = _filter_school_by_number_range(school_list, enrollment, 'enrollment')
 	if percent_white is not None:
@@ -461,9 +464,15 @@ def __get_min_max(input):
 	for i in range(len(input)):
 		if i > 0 and input[i] == '.' and input[i-1] =='.':
 			if input[:i-1] != '':
-				min_and_max['min'] = __cast_int(input[:i-1])
+				try:
+					min_and_max['min'] = __cast_int(input[:i-1])
+				except Exception as e:
+					raise ValueError('must be numeric range')
 			if input[i+1:] != '':
-				min_and_max['max'] = __cast_int(input[i+1:])
+				try:
+					min_and_max['max'] = __cast_int(input[i+1:])
+				except Exception as e:
+					raise ValueError('must be numeric range')
 	return min_and_max
 
 def _filter_school_by_basics(school_list, metric_value, metric_name):
