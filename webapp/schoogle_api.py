@@ -7,6 +7,7 @@
 import sys
 import flask
 import json
+import config_johnny
 import config
 import psycopg2
 
@@ -120,8 +121,13 @@ def get_connection():
 		connection = psycopg2.connect(database=config.database,
 									  user=config.user,
 									  password=config.password)
-	except Exception as e:
-		print(e, file=sys.stderr)
+	except:
+		try:
+			connection = psycopg2.connect(database=config_johnny.database,
+									  user=config_johnny.user,
+									  password=config_johnny.password)
+		except Exception as e:
+			print(e, file=sys.stderr)
 	return connection
 
 
@@ -487,9 +493,12 @@ def _filter_school_by_number_range(school_list, metric_value, metric_name):
 	range_dict = __get_min_max(metric_value)
 	while school_index < len(school_list):
 		if school_list[school_index][metric_name] is not None:
-			if (school_list[school_index][metric_name] < range_dict['min'] or school_list[school_index][metric_name] > range_dict['max']):
+			if (str(school_list[school_index][metric_name]) == "null" or school_list[school_index][metric_name] < range_dict['min'] or school_list[school_index][metric_name] > range_dict['max']):
 				school_list.remove(school_list[school_index])
 				school_index -= 1
+		else:
+			school_list.remove(school_list[school_index])
+			school_index -= 1
 		school_index += 1
 	return school_list
 
