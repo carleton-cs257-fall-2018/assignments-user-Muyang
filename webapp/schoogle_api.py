@@ -492,11 +492,7 @@ def _filter_school_by_number_range(school_list, metric_value, metric_name):
 	school_index = 0
 	range_dict = __get_min_max(metric_value)
 	while school_index < len(school_list):
-		if school_list[school_index][metric_name] is not None:
-			if (str(school_list[school_index][metric_name]) == "null" or school_list[school_index][metric_name] < range_dict['min'] or school_list[school_index][metric_name] > range_dict['max']):
-				school_list.remove(school_list[school_index])
-				school_index -= 1
-		else:
+		if (school_list[school_index][metric_name] is None or school_list[school_index][metric_name] < range_dict['min'] or school_list[school_index][metric_name] > range_dict['max']):
 			school_list.remove(school_list[school_index])
 			school_index -= 1
 		school_index += 1
