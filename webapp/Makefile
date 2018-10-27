@@ -1,7 +1,7 @@
-upload:
-	scp schoogle_api.py reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
+upload_big:
+	scp -r ../webapp reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang
 
 
-
-run:
-	python3 schoogle_api.py perlman.mathcs.carleton.edu 5120
+upload_small:
+	scp -r ../webapp/templates reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
+	scp -r ../webapp/static reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
