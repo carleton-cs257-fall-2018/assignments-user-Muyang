@@ -3,5 +3,4 @@ upload_big:
 
 
 upload_small:
-	scp -r ../webapp/templates reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
-	scp -r ../webapp/static reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
+	scp -r ../webapp/templates ../webapp/static reichmanj@perlman.mathcs.carleton.edu:/var/www/html/cs257/reichmanj/assignments-user-Muyang/webapp
