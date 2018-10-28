@@ -36,10 +36,6 @@ function getSchool(schoolID) {
 
 
 
-
-
-
-
 function onSearchButtonPress() {
 	alert('something else');
 	var url = getBaseURL() + '/schools';
@@ -54,10 +50,10 @@ function onSearchButtonPress() {
 		var tableBody = '';
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ")\">";
-			tableBody += schoolsList[k]['school_name'] + '</a>' + 	'</td>';
-			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
-			tableBody += '<td>' + schoolsList[k]['enrollment'] + '</td>';
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['school_id'] + '</a>' + '</td>';
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['school_name'] + '</a>' + '</td>';
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['city'] + '</a>' + '</td>'; 
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['enrollment']  + '</a>' + '</td>';
 			tableBody += '</tr>';
 		}
 
