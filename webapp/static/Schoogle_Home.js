@@ -8,7 +8,7 @@ function getSchool(schoolID) {
 	// Very similar pattern to onAuthorsButtonClicked, so I'm not
 	// repeating those comments here. Read through this code
 	// and see if it makes sense to you.
-	var url = getBaseURL() + '/schools?school_id =' + schoolID;
+	var url = getBaseURL() + '/schools?school_id=' + schoolID;
 
 	fetch(url, {method: 'get'})
 
@@ -54,8 +54,8 @@ function onSearchButtonPress() {
 		var tableBody = '';
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
-			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
-			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ")\">";
+			tableBody += schoolsList[k]['school_name'] + '</a>' + 	'</td>';
 			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
 			tableBody += '<td>' + schoolsList[k]['enrollment'] + '</td>';
 			tableBody += '</tr>';
