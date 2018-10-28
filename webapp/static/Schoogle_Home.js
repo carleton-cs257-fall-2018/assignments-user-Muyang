@@ -3,6 +3,43 @@
 	Muyang Shi, 27 Oct 2018
  */
 
+
+function getSchool(schoolID) {
+    // Very similar pattern to onAuthorsButtonClicked, so I'm not
+    // repeating those comments here. Read through this code
+    // and see if it makes sense to you.
+    var url = getBaseURL() + '/schools?school_id =' + schoolID;
+
+    fetch(url, {method: 'get'})
+
+    .then((response) => response.json())
+
+    .then(function(schoolsList) {
+        var tableBody = '<tr><th>' + 'Results' + '</th></tr>';
+        for (var k = 0; k < schoolsList.length; k++) {
+            tableBody += '<tr>';
+            tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
+            tableBody += '<td>' + schoolsList[k]['city'] + '</td>';
+            tableBody += '</tr>';
+        }
+        var resultsTableElement = document.getElementById('results_table');
+        if (resultsTableElement) {
+            resultsTableElement.innerHTML = tableBody;
+        }
+    })
+
+    .catch(function(error) {
+        console.log(error);
+    });
+}
+
+
+
+
+
+
+
+
 function onSearchButtonPress() {
 	alert('something else');
 	var url = getBaseURL() + '/schools';
@@ -18,9 +55,8 @@ function onSearchButtonPress() {
         for (var k = 0; k < schoolsList.length; k++) {
             tableBody += '<tr>';
 
-            tableBody += '<td><a onclick="getAuthor(' + schoolsList[k]['school_id'] + ",'"
-                            + schoolsList[k]['school_name'] + '</a></td>';
-            tableBody += '<td>' + schoolsList[k]['city'] + '-';
+            tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')</a>';
+            tableBody += schoolsList[k]['school_name'] + '-' + schoolsList[k]['city'] + '-' + schoolsList[k]['enrollment'];
             tableBody += '</td>';
             tableBody += '</tr>';
         }
