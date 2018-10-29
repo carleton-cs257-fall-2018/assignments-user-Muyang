@@ -38,7 +38,8 @@ function getSchool(schoolID) {
 
 function onSearchButtonPress() {
 	alert('something else');
-	var url = getBaseURL() + '/schools';
+	var searchBarText = document.getElementById('searchBar')
+	var url = getBaseURL() + '/schools' + '?school_name=' + searchBarText.value;
 
 	// Send the request to the Schoogl API /schools endpoint
 	fetch(url, {method: 'get'})
