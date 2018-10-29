@@ -35,10 +35,19 @@ function seeMore(schoolID, returnSearch) {
 	.then(function(schoolsList) {
 		var school = schoolsList[0]
 		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
-		tableBody += '<tr>';
-		tableBody += '<td>' + school['school_name'] + '</td>';
-		tableBody += '<td>' + school['city'] + '</td>';
-		tableBody += '</tr>';
+		tableBody += '<tr><td>Name:</td><td>' + school['school_name'] + '</td></tr>';
+		tableBody += '<tr><td>City:</td><td>' + school['city'] + '</td></tr>';
+		tableBody += '<tr><td>State:</td><td>' + school['state_name'] + '</td></tr>';
+		tableBody += '<tr><td>Highest Degree:</td><td>' + school['highest_degree'] + '</td></tr>';
+		tableBody += '<tr><td>Locale:</td><td>' + school['locale'] + '</td></tr>';
+		tableBody += '<tr><td>Ownership:</td><td>' + school['ownership'] + '</td></tr>';
+		tableBody += '<tr><td>SAT Average:</td><td>' + school['SAT_average'] + '</td></tr>';
+
+		tableBody += '<tr><td>ACT Average:</td><td>' + school['ACT_cumulative_MID'] + '</td></tr>';
+		tableBody += '<tr><td>Admission Rate:</td><td>' + school['admission_rate'] + '</td></tr>';
+		tableBody += '<tr><td>Enrollment:</td><td>' + school['enrollment'] + '</td></tr>';
+		
+
 		
 		var resultsTableElement = document.getElementById('results_table');
 		if (resultsTableElement) {
