@@ -48,7 +48,7 @@ function onSearchButtonPress() {
 
 	.then(function(schoolsList) {
 		// Build the table body.
-		var tableBody = '';
+		var tableBody = '<tr><th>' + 'Results for ' + searchBarText.value + '</th></tr>';
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
 			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
