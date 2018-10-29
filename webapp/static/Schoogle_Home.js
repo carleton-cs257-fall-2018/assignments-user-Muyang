@@ -3,15 +3,21 @@
 	Muyang Shi, 27 Oct 2018
  */
 
+function onHomeButtonPress() {
+	document.getElementById('returnResultsButton').style.display = "none";
+	document.getElementById('searchBar').style.display = "initial";
+	document.getElementById('searchButton').style.display = "initial";
+	document.getElementById('results_table').style.display = "none";
+	initialize();
+}
+
+
+
 function onReturnButtonPress(returnSearch) {
 	document.getElementById("searchBar").innerHTML.value = returnSearch
 	document.getElementById('returnResultsButton').style.display = "none";
 	onSearchButtonPress();
 }
-
-
-
-
 
 
 function seeMore(schoolID, returnSearch) {
@@ -92,6 +98,7 @@ function initialize() {
 	var button = document.getElementById('searchButton');
 	var input = document.getElementById('searchBar');
 	document.getElementById('returnResultsButton').style.display = "none";
+	document.getElementById('homeButton').onclick = onHomeButtonPress;
 	input.addEventListener("keyup", function(event) {
     	event.preventDefault();
     		if (event.keyCode === 13) {
