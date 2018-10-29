@@ -17,7 +17,7 @@ app = flask.Flask(__name__, static_folder='static', template_folder='templates')
 def get_main_page():
 	''' This is the only route intended for human users '''
 	global api_port
-	return flask.render_template('index.html', api_port=api_port) #looks in folder names "templates". Looks into index.html for {{}} and evaluates as python code
+	return flask.render_template('index.html', api_port=api_port, port=port) #looks in folder names "templates". Looks into index.html for {{}} and evaluates as python code
 
 if __name__ == '__main__':
 	if len(sys.argv) != 4:

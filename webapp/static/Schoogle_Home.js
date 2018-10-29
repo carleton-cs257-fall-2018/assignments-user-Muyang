@@ -4,17 +4,15 @@
  */
 
 function onHomeButtonPress() {
-	document.getElementById('returnResultsButton').style.display = "none";
-	document.getElementById('searchBar').style.display = "initial";
-	document.getElementById('searchButton').style.display = "initial";
-	document.getElementById('results_table').style.display = "none";
-	initialize();
+	location.reload();
 }
 
 
 
 function onReturnButtonPress(returnSearch) {
 	document.getElementById("searchBar").innerHTML.value = returnSearch
+	document.getElementById("searchBar").style.display = "initial";
+	document.getElementById("searchButton").style.display = "initial";
 	document.getElementById('returnResultsButton').style.display = "none";
 	onSearchButtonPress();
 }
@@ -69,6 +67,7 @@ function onSearchButtonPress() {
 	.then(function(schoolsList) {
 		// Build the table body.
 		var tableBody = '<tr><th>' + 'Results for ' + searchBarText.value + '</th></tr>';
+		//column header
 		tableBody += '<tr><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
@@ -98,7 +97,11 @@ function initialize() {
 	var button = document.getElementById('searchButton');
 	var input = document.getElementById('searchBar');
 	document.getElementById('returnResultsButton').style.display = "none";
+
+	//go back to home page
 	document.getElementById('homeButton').onclick = onHomeButtonPress;
+
+	//search something and hit enter
 	input.addEventListener("keyup", function(event) {
     	event.preventDefault();
     		if (event.keyCode === 13) {
