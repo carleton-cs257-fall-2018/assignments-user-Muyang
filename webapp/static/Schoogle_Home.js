@@ -4,6 +4,40 @@
  */
 
 
+function seeMore(schoolID) {
+	// Very similar pattern to onAuthorsButtonClicked, so I'm not
+	// repeating those comments here. Read through this code
+	// and see if it makes sense to you.
+	var url = getBaseURL() + '/schools?school_id=' + schoolID;
+
+	fetch(url, {method: 'get'})
+
+	.then((response) => response.json())
+
+	.then(function(schoolsList) {
+		var school = schoolsList[0]
+		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
+		tableBody += '<tr>';
+		tableBody += '<td>' + school['school_name'] + '</td>';
+		tableBody += '<td>' + school['city'] + '</td>';
+		tableBody += '</tr>';
+		
+		var resultsTableElement = document.getElementById('results_table');
+		if (resultsTableElement) {
+			resultsTableElement.innerHTML = tableBody;
+		}
+	})
+
+	.catch(function(error) {
+		console.log(error);
+	});
+}
+
+
+
+
+
+
 function getSchool(schoolID) {
 	// Very similar pattern to onAuthorsButtonClicked, so I'm not
 	// repeating those comments here. Read through this code
@@ -55,7 +89,7 @@ function onSearchButtonPress() {
 			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
 			tableBody += '<td>' + schoolsList[k]['enrollment']  + '</td>';
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + '<button> See More </button>' + '</a>' + '</td>';
+			tableBody += '<td><a onclick="seeMore(' + schoolsList[k]['school_id'] + ')">' + '<button> See More </button>' + '</a>' + '</td>';
 			tableBody += '</tr>';
 		}
 
