@@ -63,6 +63,11 @@ function onSearchButtonPress() {
 			schools.innerHTML = tableBody;
 		}
 	})
+
+	// Log the error if anything went wrong during the fetch.
+	.catch(function(error) {
+		console.log(error);
+	});
 }
 
 function initialize() {
