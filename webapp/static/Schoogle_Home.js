@@ -3,8 +3,18 @@
 	Muyang Shi, 27 Oct 2018
  */
 
+function onReturnButtonPress(returnSearch) {
+	document.getElementById("searchBar").innerHTML.value = returnSearch
+	document.getElementById('returnResultsButton').style.display = "none";
+	onSearchButtonPress();
+}
 
-function seeMore(schoolID) {
+
+
+
+
+
+function seeMore(schoolID, returnSearch) {
 	// Very similar pattern to onAuthorsButtonClicked, so I'm not
 	// repeating those comments here. Read through this code
 	// and see if it makes sense to you.
@@ -31,11 +41,16 @@ function seeMore(schoolID) {
 	.catch(function(error) {
 		console.log(error);
 	});
+	document.getElementById('returnResultsButton').style.display = "block";
+	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
+	document.getElementById('searchBar').style.display = "none";
+	document.getElementById('searchButton').style.display = "none";
+	document.getElementById('compareButton').style.display = "none";
+
 }
 
 
 function onSearchButtonPress() {
-	alert('something else');
 	var searchBarText = document.getElementById('searchBar')
 	
 	var url = getBaseURL() + '/schools' + '?school_name=' + searchBarText.value;
@@ -48,13 +63,14 @@ function onSearchButtonPress() {
 	.then(function(schoolsList) {
 		// Build the table body.
 		var tableBody = '<tr><th>' + 'Results for ' + searchBarText.value + '</th></tr>';
+		tableBody += '<tr><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
 			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
 			tableBody += '<td>' + schoolsList[k]['enrollment']  + '</td>';
-			tableBody += '<td><a onclick="seeMore(' + schoolsList[k]['school_id'] + ')">' + '<button id="seeMoreButton"> See More </button>' + '</a>' + '</td>';
+			tableBody += '<td><a onclick="seeMore(' + schoolsList[k]['school_id'] + ',\'' + searchBarText.value +'\')">' + '<button id="seeMoreButton"> See More </button>' + '</a>' + '</td>';
 			tableBody += '</tr>';
 		}
 
@@ -75,6 +91,7 @@ function onSearchButtonPress() {
 function initialize() {
 	var button = document.getElementById('searchButton');
 	var input = document.getElementById('searchBar');
+	document.getElementById('returnResultsButton').style.display = "none";
 	input.addEventListener("keyup", function(event) {
     	event.preventDefault();
     		if (event.keyCode === 13) {
