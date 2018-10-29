@@ -35,10 +35,10 @@ function getSchool(schoolID) {
 
 
 
-
 function onSearchButtonPress() {
 	alert('something else');
 	var searchBarText = document.getElementById('searchBar')
+	
 	var url = getBaseURL() + '/schools' + '?school_name=' + searchBarText.value;
 
 	// Send the request to the Schoogl API /schools endpoint
@@ -51,10 +51,11 @@ function onSearchButtonPress() {
 		var tableBody = '';
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['school_id'] + '</a>' + '</td>';
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['school_name'] + '</a>' + '</td>';
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['city'] + '</a>' + '</td>'; 
-			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + schoolsList[k]['enrollment']  + '</a>' + '</td>';
+			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
+			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
+			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
+			tableBody += '<td>' + schoolsList[k]['enrollment']  + '</td>';
+			tableBody += '<td><a onclick="getSchool(' + schoolsList[k]['school_id'] + ')">' + '<button> See More </button>' + '</a>' + '</td>';
 			tableBody += '</tr>';
 		}
 
@@ -73,6 +74,13 @@ function onSearchButtonPress() {
 
 function initialize() {
 	var button = document.getElementById('searchButton');
+	var input = document.getElementById('searchBar');
+	input.addEventListener("keyup", function(event) {
+    	event.preventDefault();
+    		if (event.keyCode === 13) {
+        		button.click();
+    		}
+	});
 	if (button){
 		button.onclick = onSearchButtonPress;
 	}
