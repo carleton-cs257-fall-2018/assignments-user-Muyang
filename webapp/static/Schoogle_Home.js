@@ -70,12 +70,12 @@ function onSearchButtonPress() {
 
 	.then(function(schoolsList) {
 		// Build the table body.
-		var tableBody = '<tr><th>' + 'Results for ' + searchBarText.value + '</th></tr>';
+		var tableBody = '<tr><th align="left">' + 'Results for "' + searchBarText.value + '"' +'</th></tr>';
 		//column header
-		tableBody += '<tr><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
+		tableBody += '<tr><td>Check To Compare</td><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
-			
+			tableBody += '<td>' + '<input type="checkbox" value=' + schoolsList[k]['school_id'] + '>' + '<br>' + '</td>';
 			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
