@@ -130,6 +130,10 @@ def get_connection():
 			print(e, file=sys.stderr)
 	return connection
 
+@app.after_request
+def set_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 @app.route('/')
 def hello():
