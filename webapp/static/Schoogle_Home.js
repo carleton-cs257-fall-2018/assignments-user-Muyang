@@ -10,9 +10,13 @@ function onHomeButtonPress() {
 
 
 function onReturnButtonPress(returnSearch) {
+	//redo the search
 	document.getElementById("searchBar").innerHTML.value = returnSearch
+	//show the search bar and the search button
 	document.getElementById("searchBar").style.display = "initial";
 	document.getElementById("searchButton").style.display = "initial";
+	document.getElementById("compareButton").style.display = "initial";
+	//hide the return button
 	document.getElementById('returnResultsButton').style.display = "none";
 	onSearchButtonPress();
 }
@@ -71,6 +75,7 @@ function onSearchButtonPress() {
 		tableBody += '<tr><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
+			
 			tableBody += '<td>' + schoolsList[k]['school_id'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['school_name'] + '</td>';
 			tableBody += '<td>' + schoolsList[k]['city'] + '</td>'; 
