@@ -88,7 +88,7 @@ function onCompareButtonPress(){
 	.then((response) => response.json())
 
 	.then(function(schoolsList) {
-		var tableBody = '<tr><th align="left">' + 'Comparison for "' + "Insert School names" + '"' +'</th></tr>';
+		var tableBody = _addTableHeader(schoolsList);
 		tableBody = _addTableRow(tableBody, schoolsList, 'school_name');
 		tableBody = _addTableRow(tableBody, schoolsList, 'city');
 		tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
@@ -197,6 +197,17 @@ function _setOnClick(button, action){
 	}
 }
 
+
+function _addTableHeader(schoolsList) {
+	var tableBody = '<tr><th> Comparison Between: </th>';
+	for(var i= 0; i <schoolsList.length; i++){
+		tableBody += '<th>' + schoolsList[i]['school_name'] + '</th>';
+	}
+	tableBody += '</tr>';
+	return tableBody;
+
+
+}
 
 function _addTableRow(tableBody, schoolsList, metric){
 	display_metric = _convertMetricName(metric);
