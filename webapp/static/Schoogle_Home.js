@@ -119,38 +119,47 @@ function onCompareButtonPress(){
 			school_id_list.push(row.cells[1].innerHTML);
 		}
 	}
-
-	var tableBody = '<tr><th>' + 'Comparison between selected ' + '</th></tr>';
-
-	for (var j = 0; j < school_id_list.length; j++){
-		var url = getBaseURL() + '/schools?school_id=' + school_id_list[j];
-		fetch(url, {method: 'get'})
-		.then((response) => response.json())
-		.then(function(newSchool) {
-			alert(newSchool[0]['school_name']);
-			tableBody += '<tr><td>' + newSchool[0]['school_name'] + '</td></tr>';
-			tableBody += '<tr><td>' + newSchool[0]['city'] + '</td></tr>';
-		
-			var schools = document.getElementById('results_table');
-			if (schools) {
-				schools.innerHTML = tableBody;
-			}
-		
-		})
-		
-		.catch(function(error) {
-			console.log(error);
-		});		
-
-
-		
-
-		document.getElementById('returnResultsButton').style.display = "none";
-		document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
-		document.getElementById('searchBar').style.display = "none";
-		document.getElementById('searchButton').style.display = "none";
-		document.getElementById('compareButton').style.display = "none";	
+	var id_string = '';
+	for(var i =0; i< school_id_list.length; i++){
+		if(i > 0){
+			id_string += ',';
+		}
+		id_string += school_id_list[i];
 	}
+
+	var url = getBaseURL() + '/schools' + '?school_id=' + id_string;
+
+	// Send the request to the Schoogl API /schools endpoint
+	fetch(url, {method: 'get'})
+
+	.then((response) => response.json())
+
+	.then(function(schoolsList) {
+		var tableBody = '<tr><th align="left">' + 'Comparison for "' + "Insert School names" + '"' +'</th></tr>';
+		tableBody += '<tr>';
+		for(var i = 0; i < schoolsList.length; i++){
+			tableBody +='<td>' + schoolsList[i]['school_name'] + '</td>';
+		}
+		tableBody += '</tr>';
+		var schools = document.getElementById('results_table');
+		if (schools) {
+			schools.innerHTML = tableBody;
+		}
+	})
+
+	.catch(function(error) {
+		console.log(error);
+	});
+
+
+
+	
+	document.getElementById('returnResultsButton').style.display = "none";
+	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
+	document.getElementById('searchBar').style.display = "none";
+	document.getElementById('searchButton').style.display = "none";
+	document.getElementById('compareButton').style.display = "none";	
+
 }
 
 
