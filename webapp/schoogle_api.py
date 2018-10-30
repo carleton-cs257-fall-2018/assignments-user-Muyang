@@ -243,7 +243,7 @@ def get_schools():
 	if school_id is not None:
 		school_list = _filter_school_by_ids(school_list, school_id)
 	if school_name is not None:
-		school_list = _filter_school_by_basics(school_list, school_name, 'school_name')
+		school_list = _filter_school_by_names(school_list, school_name)
 	if city is not None:
 		school_list = _filter_school_by_basics(school_list, city, 'city')
 	if state_id is not None:
@@ -484,23 +484,33 @@ def __get_min_max(input):
 	return min_and_max
 
 
-def _create_id_list(id_string):
-	id_list = []
-	new_id = ''
-	for char in id_string:
+
+def _create_metric_list(metric_string):
+	metric_list = []
+	new_metric = ''
+	for char in metric_string:
 		if char != ',':
-			new_id += char
+			new_metric += char
 		else:
-			id_list.append(new_id)
-			new_id = ''
-	id_list.append(new_id)
-	print(id_list)
-	return id_list
+			metric_list.append(new_metric)
+			new_metric = ''
+	metric_list.append(new_metric)
+	print(metric_list)
+	return metric_list
+#search by school names for comparisons
+def _filter_school_by_names(school_list,name_string):
+	name_list = _create_metric_list(name_string)
+	school_index = 0
+	result_school_list = []
+	for name in name_list:
+		for school in school_list:
+			if (name.lower() in str(school['school_name']).lower()):
+				result_school_list.append(school)
+	return result_school_list
 
-
-
+#search by school ids for comparisons
 def _filter_school_by_ids(school_list,id_string):
-	id_list = _create_id_list(id_string)
+	id_list = _create_metric_list(id_string)
 	school_index = 0
 	while school_index < len(school_list):
 		if(str(school_list[school_index]['school_id']) not in id_list):
