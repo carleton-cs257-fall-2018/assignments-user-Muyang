@@ -128,18 +128,19 @@ function onCompareButtonPress(){
 		.then((response) => response.json())
 		.then(function(newSchool) {
 			alert(newSchool[0]['school_name']);
-			tableBody += '<td>' + newSchool[0]['school_name'] + '</td>';
-	
-
-		var schools = document.getElementById('results_table');
-		if (schools) {
-			schools.innerHTML = tableBody;
-		}
-	})
-
+			tableBody += '<tr><td>' + newSchool[0]['school_name'] + '</td></tr>';
+		
+			var schools = document.getElementById('results_table');
+			if (schools) {
+				schools.innerHTML = tableBody;
+			}
+		
+		})
 		.catch(function(error) {
 			console.log(error);
 		});		
+
+
 		
 
 		document.getElementById('returnResultsButton').style.display = "none";
