@@ -119,6 +119,12 @@ function onCompareButtonPress(){
 	document.getElementById('compareButton').style.display = "none";	
 
 }
+function onAdvancedButtonPress(){
+	var advanced_search_table = document.getElementById('advanced_search_table');
+	var tableBody = '<tr><th align="left">' + 'Advanced Options' + '</th><tr>';
+	tableBody += '<tr>' + '<td>Admission Rate</td>' + '<input type="text" id="admission_rate_small" placeholder="0.0" value="0.0">'
+	tableBody += '</tr';
+}
 
 
 function seeMore(schoolID, returnSearch) {
@@ -133,7 +139,7 @@ function seeMore(schoolID, returnSearch) {
 
 	.then(function(schoolsList) {
 		var school = schoolsList[0];
-		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
+		var tableBody = '<tr><th>' + 'More Info about ' + school['school_name'] +  '</th></tr>';
 		tableBody = _addTableRow(tableBody, schoolsList, 'school_name');
 		tableBody = _addTableRow(tableBody, schoolsList, 'city');
 		tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
@@ -168,6 +174,7 @@ function initialize() {
 	var compareButton = document.getElementById('compareButton');
 	var homeButton = document.getElementById('homeButton')
 	var input = document.getElementById('searchBar');
+	var advancedButton = document.getElementById('advanced');
 
 	document.getElementById('returnResultsButton').style.display = "none";
 	input.addEventListener("keyup", function() {_enterPressed(event);});
@@ -175,6 +182,7 @@ function initialize() {
 	_setOnClick(searchButton, onSearchButtonPress);
 	_setOnClick(compareButton, onCompareButtonPress);
 	_setOnClick(homeButton, onHomeButtonPress);
+	_setOnClick(advancedButton, onAdvancedButtonPress);
 	
 }
 

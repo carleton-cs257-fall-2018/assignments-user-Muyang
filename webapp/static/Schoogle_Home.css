@@ -10,6 +10,12 @@
 .SearchBar{
 	text-align: center;
 }
+.advanced{
+	text-align: center;
+}
+.results_table{
+	text-align: center;
+}
 
 body {
 	margin: 10px;
