@@ -89,16 +89,16 @@ function onCompareButtonPress(){
 
 	.then(function(schoolsList) {
 		var tableBody = '<tr><th align="left">' + 'Comparison for "' + "Insert School names" + '"' +'</th></tr>';
-		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
-		tableBody = _addTableRow(tableBody,schoolsList, 'city');
-		tableBody = _addTableRow(tableBody,schoolsList, 'state_name');
-		tableBody = _addTableRow(tableBody,schoolsList, 'highest_degree');
-		tableBody = _addTableRow(tableBody,schoolsList, 'locale');
-		tableBody = _addTableRow(tableBody,schoolsList, 'ownership');
-		tableBody = _addTableRow(tableBody,schoolsList, 'SAT_average');
-		tableBody = _addTableRow(tableBody,schoolsList, 'ACT_cumulative_MID');
-		tableBody = _addTableRow(tableBody,schoolsList, 'admission_rate');
-		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
+		tableBody = _addTableRow(tableBody, schoolsList, 'school_name');
+		tableBody = _addTableRow(tableBody, schoolsList, 'city');
+		tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
+		tableBody = _addTableRow(tableBody, schoolsList, 'highest_degree');
+		tableBody = _addTableRow(tableBody, schoolsList, 'locale');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ownership');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_average');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'admission_rate');
+		tableBody = _addTableRow(tableBody, schoolsList, 'enrollment');
 		var schools = document.getElementById('results_table');
 		if (schools) {
 			schools.innerHTML = tableBody;
