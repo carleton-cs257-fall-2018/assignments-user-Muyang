@@ -167,15 +167,34 @@ function onCompareButtonPress(){
 
 
 function _addTableRow(tableBody, schoolsList, metric){
+	display_metric = _convertMetricName(metric);
 	tableBody += '<tr>';
-	tableBody += '<td>'+ metric + '</td>';
+	tableBody += '<td>'+ display_metric + '</td>';
 		for(var i = 0; i < schoolsList.length; i++){
 			tableBody +='<td>' + schoolsList[i][metric] + '</td>';
 		}
 		tableBody += '</tr>';
-	return tableBody
+	return tableBody;
 }
 
+
+
+function _convertMetricName(metric){
+	var display_metric = '';
+	var new_word = true;
+	for(var i = 0; i <metric.length; i++){
+		if (new_word){
+			display_metric += metric.charAt(i).toUpperCase();
+			new_word = false
+		}else if(metric.charAt(i) =='_'){
+			display_metric += ' '
+			new_word = true
+		}else{
+			display_metric += metric.charAt(i);
+		}
+	}	
+	return display_metric;	
+}
 
 
 function initialize() {
