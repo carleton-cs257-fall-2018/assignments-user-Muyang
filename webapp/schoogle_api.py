@@ -241,7 +241,7 @@ def get_schools():
 
 	#Basic Information
 	if school_id is not None:
-		school_list = _filter_school_by_basics(school_list, school_id, 'school_id')
+		school_list = _filter_school_by_ids(school_list, school_id)
 	if school_name is not None:
 		school_list = _filter_school_by_basics(school_list, school_name, 'school_name')
 	if city is not None:
@@ -482,6 +482,34 @@ def __get_min_max(input):
 				except Exception as e:
 					raise ValueError('must be numeric range')
 	return min_and_max
+
+
+def _create_id_list(id_string):
+	id_list = []
+	new_id = ''
+	for char in id_string:
+		if char != ',':
+			new_id += char
+		else:
+			id_list.append(new_id)
+			new_id = ''
+	id_list.append(new_id)
+	print(id_list)
+	return id_list
+
+
+
+def _filter_school_by_ids(school_list,id_string):
+	id_list = _create_id_list(id_string)
+	school_index = 0
+	while school_index < len(school_list):
+		if(str(school_list[school_index]['school_id']) not in id_list):
+			school_list.remove(school_list[school_index])
+			school_index -= 1
+		school_index += 1
+	return school_list
+
+
 
 def _filter_school_by_basics(school_list, metric_value, metric_name):
 	school_index = 0
