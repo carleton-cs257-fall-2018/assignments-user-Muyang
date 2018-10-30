@@ -129,6 +129,7 @@ function onCompareButtonPress(){
 		.then(function(newSchool) {
 			alert(newSchool[0]['school_name']);
 			tableBody += '<tr><td>' + newSchool[0]['school_name'] + '</td></tr>';
+			tableBody += '<tr><td>' + newSchool[0]['city'] + '</td></tr>';
 		
 			var schools = document.getElementById('results_table');
 			if (schools) {
@@ -136,6 +137,7 @@ function onCompareButtonPress(){
 			}
 		
 		})
+		
 		.catch(function(error) {
 			console.log(error);
 		});		
