@@ -33,7 +33,7 @@ function seeMore(schoolID, returnSearch) {
 	.then((response) => response.json())
 
 	.then(function(schoolsList) {
-		var school = schoolsList[0]
+		var school = schoolsList[0];
 		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
 		tableBody += '<tr><td>Name:</td><td>' + school['school_name'] + '</td></tr>';
 		tableBody += '<tr><td>City:</td><td>' + school['city'] + '</td></tr>';
@@ -65,6 +65,7 @@ function seeMore(schoolID, returnSearch) {
 	document.getElementById('compareButton').style.display = "none";
 
 }
+
 
 
 function onSearchButtonPress() {
@@ -108,6 +109,7 @@ function onSearchButtonPress() {
 	});
 }
 
+
 function onCompareButtonPress(){
 	var table = document.getElementById("results_table");
 	var school_id_list = [];
@@ -117,47 +119,39 @@ function onCompareButtonPress(){
 			school_id_list.push(row.cells[1].innerHTML);
 		}
 	}
+
+	var tableBody = '<tr><th>' + 'Comparison between selected ' + '</th></tr>';
+
 	for (var j = 0; j < school_id_list.length; j++){
 		var url = getBaseURL() + '/schools?school_id=' + school_id_list[j];
-
 		fetch(url, {method: 'get'})
-
 		.then((response) => response.json())
-
-		.then(function(schoolsList) {
-			var school = schoolsList[0]
-			var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
-			tableBody += '<tr><td>Name:</td><td>' + school['school_name'] + '</td></tr>';
-			tableBody += '<tr><td>City:</td><td>' + school['city'] + '</td></tr>';
-			tableBody += '<tr><td>State:</td><td>' + school['state_name'] + '</td></tr>';
-			tableBody += '<tr><td>Highest Degree:</td><td>' + school['highest_degree'] + '</td></tr>';
-			tableBody += '<tr><td>Locale:</td><td>' + school['locale'] + '</td></tr>';
-			tableBody += '<tr><td>Ownership:</td><td>' + school['ownership'] + '</td></tr>';
-			tableBody += '<tr><td>SAT Average:</td><td>' + school['SAT_average'] + '</td></tr>';
-
-			tableBody += '<tr><td>ACT Average:</td><td>' + school['ACT_cumulative_MID'] + '</td></tr>';
-			tableBody += '<tr><td>Admission Rate:</td><td>' + school['admission_rate'] + '</td></tr>';
-			tableBody += '<tr><td>Enrollment:</td><td>' + school['enrollment'] + '</td></tr>';
-			
-
-			
-			var resultsTableElement = document.getElementById('results_table');
-			if (resultsTableElement) {
-				resultsTableElement.innerHTML = tableBody;
+		.then(function(newSchool) {
+			alert(newSchool[0]['school_name']);
+			tableBody += '<tr><td>' + newSchool[0]['school_name'] + '</td></tr>';
+			tableBody += '<tr><td>' + newSchool[0]['city'] + '</td></tr>';
+		
+			var schools = document.getElementById('results_table');
+			if (schools) {
+				schools.innerHTML = tableBody;
 			}
+		
 		})
-
+		
 		.catch(function(error) {
 			console.log(error);
-		});
-		document.getElementById('returnResultsButton').style.display = "block";
+		});		
+
+
+		
+
+		document.getElementById('returnResultsButton').style.display = "none";
 		document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
 		document.getElementById('searchBar').style.display = "none";
 		document.getElementById('searchButton').style.display = "none";
-		document.getElementById('compareButton').style.display = "none";
+		document.getElementById('compareButton').style.display = "none";	
 	}
 }
-
 
 
 
