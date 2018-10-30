@@ -35,19 +35,16 @@ function seeMore(schoolID, returnSearch) {
 	.then(function(schoolsList) {
 		var school = schoolsList[0];
 		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
-		tableBody += '<tr><td>Name:</td><td>' + school['school_name'] + '</td></tr>';
-		tableBody += '<tr><td>City:</td><td>' + school['city'] + '</td></tr>';
-		tableBody += '<tr><td>State:</td><td>' + school['state_name'] + '</td></tr>';
-		tableBody += '<tr><td>Highest Degree:</td><td>' + school['highest_degree'] + '</td></tr>';
-		tableBody += '<tr><td>Locale:</td><td>' + school['locale'] + '</td></tr>';
-		tableBody += '<tr><td>Ownership:</td><td>' + school['ownership'] + '</td></tr>';
-		tableBody += '<tr><td>SAT Average:</td><td>' + school['SAT_average'] + '</td></tr>';
-
-		tableBody += '<tr><td>ACT Average:</td><td>' + school['ACT_cumulative_MID'] + '</td></tr>';
-		tableBody += '<tr><td>Admission Rate:</td><td>' + school['admission_rate'] + '</td></tr>';
-		tableBody += '<tr><td>Enrollment:</td><td>' + school['enrollment'] + '</td></tr>';
-		
-
+		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'city');
+		tableBody = _addTableRow(tableBody,schoolsList, 'state_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'highest_degree');
+		tableBody = _addTableRow(tableBody,schoolsList, 'locale');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ownership');
+		tableBody = _addTableRow(tableBody,schoolsList, 'SAT_average');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ACT_cumulative_MID');
+		tableBody = _addTableRow(tableBody,schoolsList, 'admission_rate');
+		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
 		
 		var resultsTableElement = document.getElementById('results_table');
 		if (resultsTableElement) {
@@ -138,6 +135,13 @@ function onCompareButtonPress(){
 		var tableBody = '<tr><th align="left">' + 'Comparison for "' + "Insert School names" + '"' +'</th></tr>';
 		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
 		tableBody = _addTableRow(tableBody,schoolsList, 'city');
+		tableBody = _addTableRow(tableBody,schoolsList, 'state_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'highest_degree');
+		tableBody = _addTableRow(tableBody,schoolsList, 'locale');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ownership');
+		tableBody = _addTableRow(tableBody,schoolsList, 'SAT_average');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ACT_cumulative_MID');
+		tableBody = _addTableRow(tableBody,schoolsList, 'admission_rate');
 		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
 		var schools = document.getElementById('results_table');
 		if (schools) {
