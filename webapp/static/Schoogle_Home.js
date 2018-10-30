@@ -7,64 +7,6 @@ function onHomeButtonPress() {
 	location.reload();
 }
 
-
-
-function onReturnButtonPress(returnSearch) {
-	//redo the search
-	document.getElementById("searchBar").innerHTML.value = returnSearch
-	//show the search bar and the search button
-	document.getElementById("searchBar").style.display = "initial";
-	document.getElementById("searchButton").style.display = "initial";
-	document.getElementById("compareButton").style.display = "initial";
-	//hide the return button
-	document.getElementById('returnResultsButton').style.display = "none";
-	onSearchButtonPress();
-}
-
-
-function seeMore(schoolID, returnSearch) {
-	// Very similar pattern to onAuthorsButtonClicked, so I'm not
-	// repeating those comments here. Read through this code
-	// and see if it makes sense to you.
-	var url = getBaseURL() + '/schools?school_id=' + schoolID;
-
-	fetch(url, {method: 'get'})
-
-	.then((response) => response.json())
-
-	.then(function(schoolsList) {
-		var school = schoolsList[0];
-		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
-		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
-		tableBody = _addTableRow(tableBody,schoolsList, 'city');
-		tableBody = _addTableRow(tableBody,schoolsList, 'state_name');
-		tableBody = _addTableRow(tableBody,schoolsList, 'highest_degree');
-		tableBody = _addTableRow(tableBody,schoolsList, 'locale');
-		tableBody = _addTableRow(tableBody,schoolsList, 'ownership');
-		tableBody = _addTableRow(tableBody,schoolsList, 'SAT_average');
-		tableBody = _addTableRow(tableBody,schoolsList, 'ACT_cumulative_MID');
-		tableBody = _addTableRow(tableBody,schoolsList, 'admission_rate');
-		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
-		
-		var resultsTableElement = document.getElementById('results_table');
-		if (resultsTableElement) {
-			resultsTableElement.innerHTML = tableBody;
-		}
-	})
-
-	.catch(function(error) {
-		console.log(error);
-	});
-	document.getElementById('returnResultsButton').style.display = "block";
-	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
-	document.getElementById('searchBar').style.display = "none";
-	document.getElementById('searchButton').style.display = "none";
-	document.getElementById('compareButton').style.display = "none";
-
-}
-
-
-
 function onSearchButtonPress() {
 	var searchBarText = document.getElementById('searchBar')
 	
@@ -104,8 +46,22 @@ function onSearchButtonPress() {
 	.catch(function(error) {
 		console.log(error);
 	});
+
+	document.getElementById('initialDropdown').style.display = 'none';
 }
 
+
+function onReturnButtonPress(returnSearch) {
+	//redo the search
+	document.getElementById("searchBar").innerHTML.value = returnSearch
+	//show the search bar and the search button
+	document.getElementById("searchBar").style.display = "initial";
+	document.getElementById("searchButton").style.display = "initial";
+	document.getElementById("compareButton").style.display = "initial";
+	//hide the return button
+	document.getElementById('returnResultsButton').style.display = "none";
+	onSearchButtonPress();
+}
 
 function onCompareButtonPress(){
 	var table = document.getElementById("results_table");
@@ -165,6 +121,82 @@ function onCompareButtonPress(){
 }
 
 
+function seeMore(schoolID, returnSearch) {
+	// Very similar pattern to onAuthorsButtonClicked, so I'm not
+	// repeating those comments here. Read through this code
+	// and see if it makes sense to you.
+	var url = getBaseURL() + '/schools?school_id=' + schoolID;
+
+	fetch(url, {method: 'get'})
+
+	.then((response) => response.json())
+
+	.then(function(schoolsList) {
+		var school = schoolsList[0];
+		var tableBody = '<tr><th>' + 'Advanced Info about ' + school['school_name'] +  '</th></tr>';
+		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'city');
+		tableBody = _addTableRow(tableBody,schoolsList, 'state_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'highest_degree');
+		tableBody = _addTableRow(tableBody,schoolsList, 'locale');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ownership');
+		tableBody = _addTableRow(tableBody,schoolsList, 'SAT_average');
+		tableBody = _addTableRow(tableBody,schoolsList, 'ACT_cumulative_MID');
+		tableBody = _addTableRow(tableBody,schoolsList, 'admission_rate');
+		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
+		
+		var resultsTableElement = document.getElementById('results_table');
+		if (resultsTableElement) {
+			resultsTableElement.innerHTML = tableBody;
+		}
+	})
+
+	.catch(function(error) {
+		console.log(error);
+	});
+	document.getElementById('returnResultsButton').style.display = "block";
+	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
+	document.getElementById('searchBar').style.display = "none";
+	document.getElementById('searchButton').style.display = "none";
+	document.getElementById('compareButton').style.display = "none";
+
+}
+
+
+function initialize() {
+	var searchButton = document.getElementById('searchButton');
+	var compareButton = document.getElementById('compareButton');
+	var homeButton = document.getElementById('homeButton')
+	var input = document.getElementById('searchBar');
+
+	document.getElementById('returnResultsButton').style.display = "none";
+	input.addEventListener("keyup", function() {_enterPressed(event);});
+
+	_setOnClick(searchButton, onSearchButtonPress);
+	_setOnClick(compareButton, onCompareButtonPress);
+	_setOnClick(homeButton, onHomeButtonPress);
+	
+}
+
+function getBaseURL() {
+	var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + api_port;
+	return baseURL;
+}
+
+
+function _enterPressed(event) {
+	event.preventDefault();
+		if (event.keyCode === 13) {
+    		searchButton.click();
+		}
+}
+
+function _setOnClick(button, action){
+	if(button) {
+		button.onclick = action
+	}
+}
+
 
 function _addTableRow(tableBody, schoolsList, metric){
 	display_metric = _convertMetricName(metric);
@@ -176,8 +208,6 @@ function _addTableRow(tableBody, schoolsList, metric){
 		tableBody += '</tr>';
 	return tableBody;
 }
-
-
 
 function _convertMetricName(metric){
 	var display_metric = '';
@@ -194,37 +224,6 @@ function _convertMetricName(metric){
 		}
 	}	
 	return display_metric;	
-}
-
-
-function initialize() {
-	var searchButton = document.getElementById('searchButton');
-	var input = document.getElementById('searchBar');
-	document.getElementById('returnResultsButton').style.display = "none";
-
-	//go back to home page
-	document.getElementById('homeButton').onclick = onHomeButtonPress;
-
-	//search something and hit enter, or the user clicke the searchButton
-	input.addEventListener("keyup", function(event) {
-    	event.preventDefault();
-    		if (event.keyCode === 13) {
-        		searchButton.click();
-    		}
-	});
-	if (searchButton){
-		searchButton.onclick = onSearchButtonPress;
-	}
-
-	var compareButton = document.getElementById('compareButton');
-	if (compareButton){
-		compareButton.onclick = onCompareButtonPress;
-	}
-}
-
-function getBaseURL() {
-	var baseURL = window.location.protocol + '//' + window.location.hostname + ':' + api_port;
-	return baseURL;
 }
 
 window.onload = initialize;
