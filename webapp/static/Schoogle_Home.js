@@ -136,11 +136,9 @@ function onCompareButtonPress(){
 
 	.then(function(schoolsList) {
 		var tableBody = '<tr><th align="left">' + 'Comparison for "' + "Insert School names" + '"' +'</th></tr>';
-		tableBody += '<tr>';
-		for(var i = 0; i < schoolsList.length; i++){
-			tableBody +='<td>' + schoolsList[i]['school_name'] + '</td>';
-		}
-		tableBody += '</tr>';
+		tableBody = _addTableRow(tableBody,schoolsList, 'school_name');
+		tableBody = _addTableRow(tableBody,schoolsList, 'city');
+		tableBody = _addTableRow(tableBody,schoolsList, 'enrollment');
 		var schools = document.getElementById('results_table');
 		if (schools) {
 			schools.innerHTML = tableBody;
@@ -164,7 +162,15 @@ function onCompareButtonPress(){
 
 
 
-
+function _addTableRow(tableBody, schoolsList, metric){
+	tableBody += '<tr>';
+	tableBody += '<td>'+ metric + '</td>';
+		for(var i = 0; i < schoolsList.length; i++){
+			tableBody +='<td>' + schoolsList[i][metric] + '</td>';
+		}
+		tableBody += '</tr>';
+	return tableBody
+}
 
 
 
