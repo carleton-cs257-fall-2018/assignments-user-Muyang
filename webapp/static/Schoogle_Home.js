@@ -12,6 +12,12 @@ function onSearchButtonPress() {
 	
 	var url = getBaseURL() + '/schools' + '?school_name=' + searchBarText.value;
 
+
+	var highest_degree = document.getElementById('highest_degree').value;
+	alert(document.getElementById('highest_degree').value)
+	url += '&highest_degree=' + highest_degree;
+
+
 	// Send the request to the Schoogl API /schools endpoint
 	fetch(url, {method: 'get'})
 
@@ -47,7 +53,7 @@ function onSearchButtonPress() {
 		console.log(error);
 	});
 
-	document.getElementById('initialDropdown').style.display = 'none';
+	//document.getElementById('initialDropdown').style.display = 'none';
 }
 
 
@@ -109,9 +115,6 @@ function onCompareButtonPress(){
 		console.log(error);
 	});
 
-
-
-	
 	document.getElementById('returnResultsButton').style.display = "none";
 	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
 	document.getElementById('searchBar').style.display = "none";
@@ -120,10 +123,27 @@ function onCompareButtonPress(){
 
 }
 function onAdvancedButtonPress(){
-	var advanced_search_table = document.getElementById('advanced_search_table');
 	var tableBody = '<tr><th align="left">' + 'Advanced Options' + '</th><tr>';
-	tableBody += '<tr>' + '<td>Admission Rate</td>' + '<input type="text" id="admission_rate_small" placeholder="0.0" value="0.0">'
-	tableBody += '</tr';
+	tableBody += '<tr>' + '<td>Admission Rate</td>' 
+						+ '<td><input type="text" id="admission_rate_small" placeholder="0.0" value="0.0">'
+						+ 'to'
+						+ '<input type="text" id="admission_rate_large" placeholder="1.0" value="1.0">'
+						+ '</td>'
+				+'</tr>';
+	tableBody += '<tr>' + '<td>Highest Degree</td>' 
+						+ '<td><select id="highest_degree" value="">'
+						+ '<option value="bachelor">Bachelor</option>'
+						+ '<option value="Non-degree-granting">Non-degree-granting</option>'
+						+ '<option value="Certificate">Certificate</option>'
+						+ '<option value="Associate">Associate</option>'
+						+ '<option value="Graduate">Graduate</option>'
+						+ '</td>'
+				+'</tr>';
+
+	var table = document.getElementById('advanced_search_table');
+	if (table) {
+		table.innerHTML = tableBody;
+	}
 }
 
 
