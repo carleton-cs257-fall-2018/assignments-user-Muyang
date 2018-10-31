@@ -19,6 +19,11 @@ function onSearchButtonPress() {
 
 		url += '&admission_rate=' + admission_rate_small + '..' + admission_rate_large;
 
+		var enrollment_small = document.getElementById('enrollment_small').value;
+		var enrollment_large = document.getElementById('enrollment_large').value;
+
+		url += '&enrollment=' + enrollment_small + '..' + enrollment_large;
+
 		var highest_degree = document.getElementById('highest_degree').value;
 		url += '&highest_degree=' + highest_degree;
 
@@ -44,7 +49,7 @@ function onSearchButtonPress() {
 
 	.then(function(schoolsList) {
 		// Build the table body.
-		var tableBody = '<tr><th align="left">' + 'Results for "' + searchBarText.value + '"' +'</th></tr>';
+		var tableBody = '<tr><th align="center">' + 'Results' +'</th></tr>';
 		//column header
 		tableBody += '<tr><td>Check To Compare</td><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
@@ -149,6 +154,12 @@ function onAdvancedButtonPress(){
 						+ '<input type="text" id="admission_rate_large" placeholder="1.0" value="1.0">'
 						+ '</td>'
 				+'</tr>';
+	tableBody += '<tr>' + '<td>Enrollment</td>' 
+						+ '<td><input type="text" id="enrollment_small" placeholder="0" value="0">'
+						+ ' to '
+						+ '<input type="text" id="enrollment_large" placeholder="MAX" value="">'
+						+ '</td>'
+				+'</tr>';			
 	tableBody += '<tr>' + '<td>Program</td>' 
 						+ '<td><select id="program" value="">'
 						+ '<option value="Any"> Any </option>'			
@@ -233,7 +244,7 @@ function onAdvancedButtonPress(){
 				+'</tr>';
 	tableBody += '<tr>' + '<td>Highest Degree</td>' 
 						+ '<td><select id="highest_degree" value="">'
-						+ '<option value=""> </option>'
+						+ '<option value="">Any</option>'
 						+ '<option value="bachelor">Bachelor</option>'
 						+ '<option value="Non-degree-granting">Non-degree-granting</option>'
 						+ '<option value="Certificate">Certificate</option>'
@@ -246,7 +257,7 @@ function onAdvancedButtonPress(){
 						+ '</td>'
 				+'</tr>';
 	tableBody += '<tr>' + '<td>Average Faculty Earnings</td>' 
-						+ '<td><input type="text" id="average_faculty_earnings" placeholder="" value="">'
+						+ '<td><input type="text" id="average_faculty_earnings" placeholder="minimum amount" value="">'
 						+ '</td>'
 				+'</tr>';
 
