@@ -53,7 +53,7 @@ function onSearchButtonPress() {
 		// Build the table body.
 		var tableBody = '<tr><th align="center">' + 'Results' +'</th></tr>';
 		//column header
-		tableBody += '<tr><td>Check To Compare</td><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
+		tableBody += '<tr><td></td><td>ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
 			tableBody += '<td>' + '<input type="checkbox" id=checkbox' + k + '>' 
