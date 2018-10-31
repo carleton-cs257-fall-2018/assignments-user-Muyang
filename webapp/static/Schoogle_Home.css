@@ -6,7 +6,11 @@
 */
 
 .Logo{
-	text-align: center;
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	width: 300px; 
+	height: 185px;
 	}
 .SearchBar{
 	text-align: center;
