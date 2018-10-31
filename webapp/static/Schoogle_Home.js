@@ -3,8 +3,6 @@
 	Muyang Shi, 27 Oct 2018
  */
 
-
-
 function onHomeButtonPress() {
 	location.reload();
 }
@@ -53,7 +51,7 @@ function onSearchButtonPress() {
 		// Build the table body.
 		var tableBody = '<tr><th align="center">' + 'Results' +'</th></tr>';
 		//column header
-		tableBody += '<tr><td></td><td>ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
+		tableBody += '<tr><td></td><td>School ID</td> <td>School Name</td> <td>City</td> <td>Enrollment</td>'
 		for (var k = 0; k < schoolsList.length; k++) {
 			tableBody += '<tr>';
 			tableBody += '<td>' + '<input type="checkbox" id=checkbox' + k + '>' 
@@ -145,6 +143,28 @@ function onCompareButtonPress(){
 			tableBody = _addTableRow(tableBody, schoolsList, 'percent_Native_Hawaiian');
 			tableBody = _addTableRow(tableBody, schoolsList, 'percent_nonresident_aliens');
 			tableBody = _addTableRow(tableBody, schoolsList, 'average_faculty_earning');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_75_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_25_percentile');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_75_percentile');
+
+
 			var schools = document.getElementById('results_table');
 			if (schools) {
 				schools.innerHTML = tableBody;
@@ -321,6 +341,26 @@ function seeMore(schoolID, returnSearch) {
 		tableBody = _addTableRow(tableBody, schoolsList, 'percent_Native_Hawaiian');
 		tableBody = _addTableRow(tableBody, schoolsList, 'percent_nonresident_aliens');
 		tableBody = _addTableRow(tableBody, schoolsList, 'average_faculty_earning');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_cr_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_math_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_wr_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_eng_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_math_75_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_MID');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_25_percentile');
+		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_writing_75_percentile');
 		
 		var resultsTableElement = document.getElementById('results_table');
 		if (resultsTableElement) {
