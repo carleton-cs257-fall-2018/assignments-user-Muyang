@@ -329,7 +329,7 @@ function seeMore(schoolID, returnSearch) {
 	.catch(function(error) {
 		console.log(error);
 	});
-	document.getElementById('returnResultsButton').style.display = "block";
+	document.getElementById('returnResultsButton').style.display = "initial";
 	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
 	document.getElementById('searchBar').style.display = "none";
 	document.getElementById('searchButton').style.display = "none";
