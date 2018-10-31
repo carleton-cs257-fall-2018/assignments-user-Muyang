@@ -27,8 +27,67 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 800px;
-	background-color: white;
+}
 
+table{
+	background-color: #DCDCDC;
+}
+
+
+input#searchBar{
+		margin: 0 auto;
+		width: 90%;
+		height: 45px;
+		padding: 0 20px;
+		font-size: 1rem;
+		border: 1px solid #D0CFCE;
+		outline: none;
+		&:focus{
+		  border: 1px solid #008ABF;
+		  transition: 0.35s ease;
+		  color: #008ABF;
+		  &::-webkit-input-placeholder{
+			transition: opacity 0.45s ease; 
+			opacity: 0;
+		   }
+		  &::-moz-placeholder {
+			transition: opacity 0.45s ease; 
+			opacity: 0;
+		   }
+		  &:-ms-placeholder {
+		   transition: opacity 0.45s ease; 
+		   opacity: 0;
+		   }    
+		 }
+}
+
+
+
+
+
+.button {
+	margin-top: 5px;
+	padding: 0.75em 2em;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	border: 2px solid white;
+	font-size: 1rem;
+	display: inline-block;
+	border-radius: 0.3em;
+	transition: all 0.2s ease-in-out;
+}
+.button2{
+	margin-top: 5px;
+	padding: 0.75em 2em;
+	text-align: center;
+	text-decoration: none;
+	color: 	#808080;
+	border: 2px solid 	#808080;
+	font-size: 1rem;
+	display: inline-block;
+	border-radius: 0.3em;
+	transition: all 0.2s ease-in-out;
 }
 
 html { 

@@ -3,6 +3,8 @@
 	Muyang Shi, 27 Oct 2018
  */
 
+
+
 function onHomeButtonPress() {
 	location.reload();
 }
