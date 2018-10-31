@@ -77,7 +77,7 @@ function onSearchButtonPress() {
 		console.log(error);
 	});
 
-	//document.getElementById('initialDropdown').style.display = 'none';
+	document.getElementById('compareButton').style.display = "initial";
 }
 
 
@@ -118,20 +118,43 @@ function onCompareButtonPress(){
 	.then((response) => response.json())
 
 	.then(function(schoolsList) {
-		var tableBody = _addTableHeader(schoolsList);
-		tableBody = _addTableRow(tableBody, schoolsList, 'school_name');
-		tableBody = _addTableRow(tableBody, schoolsList, 'city');
-		tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
-		tableBody = _addTableRow(tableBody, schoolsList, 'highest_degree');
-		tableBody = _addTableRow(tableBody, schoolsList, 'locale');
-		tableBody = _addTableRow(tableBody, schoolsList, 'ownership');
-		tableBody = _addTableRow(tableBody, schoolsList, 'SAT_average');
-		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_MID');
-		tableBody = _addTableRow(tableBody, schoolsList, 'admission_rate');
-		tableBody = _addTableRow(tableBody, schoolsList, 'enrollment');
-		var schools = document.getElementById('results_table');
-		if (schools) {
-			schools.innerHTML = tableBody;
+		if(schoolsList.length == 0){
+			alert("Check boxes to select which schools to compare")
+
+		}
+		else{
+			var tableBody = _addTableHeader(schoolsList);
+			tableBody = _addTableRow(tableBody, schoolsList, 'city');
+			tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
+			tableBody = _addTableRow(tableBody, schoolsList, 'highest_degree');
+			tableBody = _addTableRow(tableBody, schoolsList, 'locale');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ownership');
+			tableBody = _addTableRow(tableBody, schoolsList, 'SAT_average');
+			tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_MID');
+			tableBody = _addTableRow(tableBody, schoolsList, 'admission_rate');
+			tableBody = _addTableRow(tableBody, schoolsList, 'enrollment');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_student_of_Pell_Grant');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_student_of_Federal_Loan');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_white');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_black');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_Hispanic');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_Asian');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_American_Indian');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_Native_Hawaiian');
+			tableBody = _addTableRow(tableBody, schoolsList, 'percent_nonresident_aliens');
+			tableBody = _addTableRow(tableBody, schoolsList, 'average_faculty_earning');
+			var schools = document.getElementById('results_table');
+			if (schools) {
+				schools.innerHTML = tableBody;
+			}
+			document.getElementById('returnResultsButton').style.display = "none";
+			document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
+			document.getElementById('searchBar').style.display = "none";
+			document.getElementById('searchButton').style.display = "none";
+			document.getElementById('compareButton').style.display = "none";
+			document.getElementById('advanced').style.display = 'none';
+			document.getElementById('advanced_search_table').style.display = 'none';
+			
 		}
 	})
 
@@ -139,11 +162,7 @@ function onCompareButtonPress(){
 		console.log(error);
 	});
 
-	document.getElementById('returnResultsButton').style.display = "none";
-	document.getElementById('returnResultsButton').onclick= function() {onReturnButtonPress(returnSearch);};
-	document.getElementById('searchBar').style.display = "none";
-	document.getElementById('searchButton').style.display = "none";
-	document.getElementById('compareButton').style.display = "none";	
+		
 
 }
 function onAdvancedButtonPress(){
@@ -280,8 +299,7 @@ function seeMore(schoolID, returnSearch) {
 
 	.then(function(schoolsList) {
 		var school = schoolsList[0];
-		var tableBody = '<tr><th>' + 'More Info about ' + school['school_name'] +  '</th></tr>';
-		tableBody = _addTableRow(tableBody, schoolsList, 'school_name');
+		var tableBody = '<tr><th>' + school['school_name'] +  '</th></tr>';
 		tableBody = _addTableRow(tableBody, schoolsList, 'city');
 		tableBody = _addTableRow(tableBody, schoolsList, 'state_name');
 		tableBody = _addTableRow(tableBody, schoolsList, 'highest_degree');
@@ -291,6 +309,16 @@ function seeMore(schoolID, returnSearch) {
 		tableBody = _addTableRow(tableBody, schoolsList, 'ACT_cumulative_MID');
 		tableBody = _addTableRow(tableBody, schoolsList, 'admission_rate');
 		tableBody = _addTableRow(tableBody, schoolsList, 'enrollment');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_student_of_Pell_Grant');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_student_of_Federal_Loan');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_white');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_black');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_Hispanic');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_Asian');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_American_Indian');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_Native_Hawaiian');
+		tableBody = _addTableRow(tableBody, schoolsList, 'percent_nonresident_aliens');
+		tableBody = _addTableRow(tableBody, schoolsList, 'average_faculty_earning');
 		
 		var resultsTableElement = document.getElementById('results_table');
 		if (resultsTableElement) {
@@ -306,6 +334,8 @@ function seeMore(schoolID, returnSearch) {
 	document.getElementById('searchBar').style.display = "none";
 	document.getElementById('searchButton').style.display = "none";
 	document.getElementById('compareButton').style.display = "none";
+	document.getElementById('advanced').style.display = 'none';
+	document.getElementById('advanced_search_table').style.display = 'none';
 
 }
 
@@ -318,6 +348,7 @@ function initialize() {
 	var advancedButton = document.getElementById('advanced');
 
 	document.getElementById('returnResultsButton').style.display = "none";
+	document.getElementById('compareButton').style.display = "none";
 	input.addEventListener("keyup", function() {_enterPressed(event);});
 
 	_setOnClick(searchButton, onSearchButtonPress);
@@ -363,7 +394,13 @@ function _addTableRow(tableBody, schoolsList, metric){
 	tableBody += '<tr>';
 	tableBody += '<td>'+ display_metric + '</td>';
 		for(var i = 0; i < schoolsList.length; i++){
-			tableBody +='<td>' + schoolsList[i][metric] + '</td>';
+			tableBody +='<td align="center">'
+			if(String(schoolsList[i][metric]) == 'undefined' || String(schoolsList[i][metric]) == 'null') {
+				tableBody += '--' + '</td>'
+			}
+			else{
+				tableBody += schoolsList[i][metric] + '</td>';
+			}
 		}
 		tableBody += '</tr>';
 	return tableBody;
@@ -385,5 +422,8 @@ function _convertMetricName(metric){
 	}	
 	return display_metric;	
 }
+
+
+
 
 window.onload = initialize;
