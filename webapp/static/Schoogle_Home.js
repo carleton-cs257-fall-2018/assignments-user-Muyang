@@ -12,10 +12,29 @@ function onSearchButtonPress() {
 	
 	var url = getBaseURL() + '/schools' + '?school_name=' + searchBarText.value;
 
+	//as long as the advanced option is opened
+	if(document.getElementById('admission_rate_small')){
+		var admission_rate_small = document.getElementById('admission_rate_small').value;
+		var admission_rate_large = document.getElementById('admission_rate_large').value;
 
-	var highest_degree = document.getElementById('highest_degree').value;
-	alert(document.getElementById('highest_degree').value)
-	url += '&highest_degree=' + highest_degree;
+		url += '&admission_rate=' + admission_rate_small + '..' + admission_rate_large;
+
+		var highest_degree = document.getElementById('highest_degree').value;
+		url += '&highest_degree=' + highest_degree;
+
+		var state_name = document.getElementById('state_name').value;
+		url += '&state_name=' + state_name;
+
+		var average_faculty_earnings = document.getElementById('average_faculty_earnings').value;
+		url += '&average_faculty_earnings=' + average_faculty_earnings + '..';
+
+		var major = document.getElementById('program').value;
+		if (major != 'Any'){
+			url += '&' + major + '=True';
+		}
+	}
+
+
 
 
 	// Send the request to the Schoogl API /schools endpoint
@@ -126,17 +145,108 @@ function onAdvancedButtonPress(){
 	var tableBody = '<tr><th align="left">' + 'Advanced Options' + '</th><tr>';
 	tableBody += '<tr>' + '<td>Admission Rate</td>' 
 						+ '<td><input type="text" id="admission_rate_small" placeholder="0.0" value="0.0">'
-						+ 'to'
+						+ ' to '
 						+ '<input type="text" id="admission_rate_large" placeholder="1.0" value="1.0">'
 						+ '</td>'
 				+'</tr>';
+	tableBody += '<tr>' + '<td>Program</td>' 
+						+ '<td><select id="program" value="">'
+						+ '<option value="Any"> Any </option>'			
+						+ '<option value="Agriculture">Agriculture, Agriculture Operations, and Related Sciences</option>'
+
+						+ '<option value="Architecture">Architecture and Related Services</option>'
+						
+						+ '<option value="Area_Ethnic_Cultural_Gender_Group_Studies">Area, Ethnic, Cultural, Gender, and Group Studies</option>'
+						
+						+ '<option value="Biological_and_Biomedical_Sciences">Biological and Biomedical Sciences</option>'
+						
+						+ '<option value="Business_Management_Marketing">Business, Management, Marketing, and Related Support Services</option>'
+						
+						+ '<option value="Communication_Journalism">Communication, Journalism, and Related Programs</option>'
+						
+						+ '<option value="Communication_Technologies">Communications Technologies/Technicians and Support Services</option>'
+						
+						+ '<option value="Computer_Information_Sciences">Computer and Information Sciences and Support Services</option>'
+						
+						+ '<option value="Construction_Trade">Construction Trades</option>'
+						
+						+ '<option value="Education">Education</option>'
+						
+						+ '<option value="Engineering">Engineering</option>'
+						
+						+ '<option value="Engineering_Technologies">Engineering Technologies and Engineering-Related Fields</option>'
+						
+						+ '<option value="English_Language_And_Literature">English Language and Literature/Letters</option>'
+						
+						+ '<option value="family_consumer_science">Family and Consumer Sciences</option>'
+
+						+ '<option value="Human_Sciences">Human Sciences</option>'
+						
+						+ '<option value="Foreign_Languages_Literatures_Linguistics">Foreign Languages, Literatures, and Linguistics</option>'
+						
+						+ '<option value="Health_Professions">Health Professions and Related Programs</option>'
+						
+						+ '<option value="History">History</option>'
+						
+						+ '<option value="Homeland_Security_Law_Enforcement_Firefighting">Homeland Security, Law Enforcement, Firefighting and Related Protective Services</option>'
+						
+						+ '<option value="Legal_Professions_Studies">Legal Professions and Studies</option>'
+						
+						+ '<option value="General_Studies_And_Humanities">Liberal Arts and Sciences, General Studies and Humanities</option>'
+						
+						+ '<option value="Library_Science">Library Science</option>'
+						
+						+ '<option value="Mathematics_and_Statistics">Mathematics and Statistics</option>'
+						
+						+ '<option value="Mechanic_and_Repair_Technology">Mechanic and Repair Technologies/Technicians</option>'
+						
+						+ '<option value="Military_Technologies_and_Applied_Sciences">Military Technologies and Applied Sciences</option>'
+						
+						+ '<option value="Interdiciplinary_Studies">Multi/Interdisciplinary Studies</option>'
+						
+						+ '<option value="Natural_Resource">Natural Resources and Conservation</option>'
+						
+						+ '<option value="Parks_Recreation_Leisure_Fitness_Studies">Parks, Recreation, Leisure, and Fitness Studies</option>'
+						
+						+ '<option value="Personal_Culinary_Services">Personal and Culinary Services</option>'
+						
+						+ '<option value="Philosophy_and_Religious_Studies">Philosophy and Religious Studies</option>'
+						
+						+ '<option value="Physical_Sciences">Physical Sciences</option>'
+						
+						+ '<option value="Precision_Production">Precision Production</option>'
+						
+						+ '<option value="Psychology">Psychology</option>'
+						
+						+ '<option value="Public_Administration_and_Social_Service">Public Administration and Social Service Professions</option>'
+						
+						+ '<option value="Science_Technologies">Science Technologies/Technicians</option>'
+						
+						+ '<option value="Social_Sciences">Social Sciences</option>'
+						
+						+ '<option value="Theology_and_Religious_Vocations">Theology and Religious Vocations</option>'
+						
+						+ '<option value="Transportation_and_Materials_Moving">Transportation and Materials Moving</option>'
+						
+						+ '<option value="Visual_and_Performing_Arts">Visual and Performing Arts</option>'
+				+ '</td>'
+				+'</tr>';
 	tableBody += '<tr>' + '<td>Highest Degree</td>' 
 						+ '<td><select id="highest_degree" value="">'
+						+ '<option value=""> </option>'
 						+ '<option value="bachelor">Bachelor</option>'
 						+ '<option value="Non-degree-granting">Non-degree-granting</option>'
 						+ '<option value="Certificate">Certificate</option>'
 						+ '<option value="Associate">Associate</option>'
 						+ '<option value="Graduate">Graduate</option>'
+						+ '</td>'
+				+'</tr>';
+	tableBody += '<tr>' + '<td>State Name</td>' 
+						+ '<td><input type="text" id="state_name" placeholder="name of the state" value="">'
+						+ '</td>'
+				+'</tr>';
+	tableBody += '<tr>' + '<td>Average Faculty Earnings</td>' 
+						+ '<td><input type="text" id="average_faculty_earnings" placeholder="" value="">'
 						+ '</td>'
 				+'</tr>';
 
@@ -215,7 +325,7 @@ function getBaseURL() {
 function _enterPressed(event) {
 	event.preventDefault();
 		if (event.keyCode === 13) {
-    		searchButton.click();
+			searchButton.click();
 		}
 }
 
