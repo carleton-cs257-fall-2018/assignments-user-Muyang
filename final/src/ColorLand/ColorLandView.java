@@ -60,7 +60,7 @@ public class ColorLandView extends Group {
         for (int row = 0; row < this.rowCount; row++) {
             for (int column = 0; column < this.columnCount; column++) {
                 ColorLandModel.CellValue cellValue = model.getCellValue(row, column);
-                if (cellValue == ColorLandModel.CellValue.DALEK) {
+                if (cellValue == ColorLandModel.CellValue.ColorLand) {
                     this.cellViews[row][column].setFill(Color.BLUE);
                 } else if (cellValue == ColorLandModel.CellValue.SCRAPHEAP) {
                     this.cellViews[row][column].setFill(Color.BLACK);

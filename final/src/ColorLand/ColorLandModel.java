@@ -5,7 +5,7 @@ import java.util.Random;
 public class ColorLandModel {
 
     public enum CellValue {
-        EMPTY, RUNNER, DALEK, SCRAPHEAP
+        EMPTY, RUNNER, ColorLand, SCRAPHEAP
     };
 
     private boolean gameOver;
@@ -71,7 +71,7 @@ public class ColorLandModel {
             int row = random.nextInt(rowCount);
             int column = random.nextInt(columnCount);
             if (this.cells[row][column] == CellValue.EMPTY) {
-                this.cells[row][column] = CellValue.DALEK;
+                this.cells[row][column] = CellValue.ColorLand;
             }
         }
     }
@@ -176,7 +176,7 @@ public class ColorLandModel {
                 if (cellValue != CellValue.EMPTY) {
                     int newRow = row;
                     int newColumn = column;
-                    if (cellValue == CellValue.DALEK){
+                    if (cellValue == CellValue.ColorLand){
                         if (newRow < this.runnerRow) {
                             newRow++;
                         } else if (newRow > this.runnerRow) {
@@ -194,11 +194,11 @@ public class ColorLandModel {
                         newCells[newRow][newColumn] = cellValue;
                     } else {
                         // Collision! Update score and reduce the number of living ColorLand.
-                        if (newCells[newRow][newColumn] == CellValue.DALEK) {
+                        if (newCells[newRow][newColumn] == CellValue.ColorLand) {
                             this.score++;
                             this.dalekCount--;
                         }
-                        if (cellValue == CellValue.DALEK) {
+                        if (cellValue == CellValue.ColorLand) {
                             this.score++;
                             this.dalekCount--;
                         }
@@ -212,7 +212,7 @@ public class ColorLandModel {
         if (newCells[this.runnerRow][this.runnerColumn] == CellValue.EMPTY) {
             newCells[this.runnerRow][this.runnerColumn] = CellValue.RUNNER;
         } else {
-            if (newCells[this.runnerRow][this.runnerColumn] == CellValue.DALEK) {
+            if (newCells[this.runnerRow][this.runnerColumn] == CellValue.ColorLand) {
                 this.score++;
                 this.dalekCount--;
             }
