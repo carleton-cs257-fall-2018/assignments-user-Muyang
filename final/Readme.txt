@@ -1,3 +1,5 @@
+Johnny and Muyang's ColorLand
+
 Player's goal is to cover the whole map with the color of your box. When your box move, it leaves a trail. The trail should go back to the player's territory to obtain the area enclosed by your trail. If other player touches your trail, you die. You can kill other player
 by touching their trial. Once a player dies, it loses all of its area (become blank). One can steal territory from other players. When the player covers the whole map, the player wins.
 
@@ -22,9 +24,48 @@ VIEW would be a gameboard showing
 	- rounds
 
 Core Classes (methods?) for Model
-	public enum CellValue {EMPTY, BOT_TERRITORY, BOT_TRAIL, BOT_HEAD,
+-	a Box class, storing its position, territory(list of cell[][]), trail, head)
+
+-	public enum CellValue {EMPTY, BOT_TERRITORY, BOT_TRAIL, BOT_HEAD,
 					PLAYER_TERRITORY, PLAYER_TRAIL, PLAYER_HEAD};
 	
+	Constructor()
+	startNewGame()
+	startNextLevel() -- more bots
+	isLevelComplete() {
+		return this.botCount == 0;
+	}
+	isGameOver()
+	initializeLevel
+	numberOfBotsForLevel
+	getRowCount()
+	getColumnCount()
+	getPercentageFor(param)
+	getCellValue()
+	moveBoxBy()
+		checkDirection  -- listen from View
+		changeCellValue	
+		botMovement()
+-	idea about movement:
+	initialize territory, trail, head-position
+
+	VIEW/CONTROLLER_Listen make a movement (do nothing/change direction)
+	MODEL moveBoxBy according to movement
+		store the old head position
+		change the head position
+
+		old head position -> trail
+		
+		if the new position of the head is empty||someone's territory -> mark it as this box's head
+		if the new position of the head is trail -> the box of the trail's color dies
+							 -> mark it as this box's head
+		if the new position of the head is my territory -> for each row:
+									for( start point: territory||first trail, end point: last trail||territory, i++)
+										change cell value to territory
 	
+
+
+
+
 
 
