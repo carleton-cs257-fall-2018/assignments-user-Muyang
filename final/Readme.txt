@@ -21,10 +21,10 @@ VIEW would be a gameboard showing
 	- time played
 	- rounds
 
-Core Classes for Model
+Core Classes (methods?) for Model
 	public enum CellValue {EMPTY, BOT_TERRITORY, BOT_TRAIL, BOT_HEAD,
 					PLAYER_TERRITORY, PLAYER_TRAIL, PLAYER_HEAD};
 	
-
+	
 
 
