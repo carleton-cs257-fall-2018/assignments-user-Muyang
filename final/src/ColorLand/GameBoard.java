@@ -1,0 +1,28 @@
+package ColorLand;
+
+public class GameBoard{
+    public enum CellValue{
+        EMPTY,
+        BOT_TERR, BOT_TRAIL, BOT_HEAD,
+        USER_TERR, USER_TRAIL, USER_HEAD
+    };
+
+    public CellValue[][] cells;
+    public int botCount;
+
+    public int userLandSize;
+    public int botLandSize;
+
+
+    public GameBoard(int rowCount, int ColumnCount){
+        assert rowCount > 0 && columnCount > 0;
+        this.cells = new CellValue[rowCount][ColumnCount];
+        this.userLandSize = 0;
+        this.botLandSize = 0;
+        this.botCount = 2;
+    }
+
+    public boolean isRoundComplete(){
+        return botCount == 0 || userLandSize == 100;
+    }
+}

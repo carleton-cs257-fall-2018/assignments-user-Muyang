@@ -2,8 +2,13 @@ package ColorLand;
 
 import java.util.Random;
 
-public class ColorLandModel {
+//user landsize and bot landsize in Model, not in GameBoard
 
+public class ColorLandModel {
+    /*
+    *   @param 
+    *
+    */
     public enum CellValue {
         EMPTY, RUNNER, ColorLand, SCRAPHEAP
     };
