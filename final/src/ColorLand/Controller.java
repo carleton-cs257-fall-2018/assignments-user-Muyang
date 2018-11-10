@@ -6,43 +6,69 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Controller implements EventHandler<KeyEvent> {
-    @FXML private Label scoreLabel;
-    @FXML private Label messageLabel;
-    @FXML private ColorLandView ColorLandView;
-    private ColorLandModel ColorLandModel;
+    final private double FRAMES_PER_SECOND = 40.0;
+    private Model model;
+    private String keyPressed;
+    private Timer timer;
 
     public Controller() {
-    }
 
+    }
     public void initialize() {
-        this.ColorLandModel = new ColorLandModel(this.ColorLandView.getRowCount(), this.ColorLandView.getColumnCount());
-        this.update();
+        this.model = new Model(50,50, 2);
+        //this.update();
+        this.startTimer();
     }
 
-    public double getBoardWidth() {
-        return ColorLandView.CELL_WIDTH * this.ColorLandView.getColumnCount();
+    private void startTimer() {
+        this.timer = new java.util.Timer();
+        TimerTask timerTask = new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        update(keyPressed);
+                    }
+                });
+            }
+        };
+
+        long frameTimeInMilliseconds = (long)(1000.0 / FRAMES_PER_SECOND);
+        this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
 
-    public double getBoardHeight() {
-        return ColorLandView.CELL_WIDTH * this.ColorLandView.getRowCount();
+
+
+    /*
+    *   Update the model, based on events
+    */
+    public void update(String keyPressed) {
+        this.model.update(keyPressed);
     }
 
-    private void update() {
-        this.ColorLandView.update(this.ColorLandModel);
-        this.scoreLabel.setText(String.format("Score: %d", this.ColorLandModel.getScore()));
-        if (this.ColorLandModel.isGameOver()) {
-            this.messageLabel.setText("Game Over. Hit G to start a new game.");
-        } else if (this.ColorLandModel.isLevelComplete()) {
-            this.messageLabel.setText("Nice job! Hit L to start the next level.");
-        } else {
-            this.messageLabel.setText("Use the keys surrounding the S to run from the ColorLand.");
-        }
-    }
 
+    /*
+    * Listen to key events
+    * changes velocity (direction) if certain key is pressed
+    * proceed the model if nothing happens in this time period
+    */
     @Override
     public void handle(KeyEvent keyEvent) {
-        boolean keyRecognized = true;
+        //boolean keyRecognized = true;
         KeyCode code = keyEvent.getCode();
 
         String s = code.getChar();
@@ -51,40 +77,48 @@ public class Controller implements EventHandler<KeyEvent> {
         }
 
         if (code == KeyCode.LEFT || code == KeyCode.A) {
-            this.ColorLandModel.moveRunnerBy(0, -1);
+            this.keyPressed = "LEFT";
         } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
-            this.ColorLandModel.moveRunnerBy(0, 1);
+            this.keyPressed = "RIGHT";
         } else if (code == KeyCode.UP || code == KeyCode.W) {
-            this.ColorLandModel.moveRunnerBy(-1, 0);
-        } else if (code == KeyCode.DOWN || code == KeyCode.X) {
-            this.ColorLandModel.moveRunnerBy(1, 0);
-        } else if (code == KeyCode.Q) {
-            this.ColorLandModel.moveRunnerBy(-1, -1);
-        } else if (code == KeyCode.E) {
-            this.ColorLandModel.moveRunnerBy(-1, 1);
-        } else if (code == KeyCode.Z) {
-            this.ColorLandModel.moveRunnerBy(1, -1);
-        } else if (code == KeyCode.C) {
-            this.ColorLandModel.moveRunnerBy(1, 1);
-        } else if (code == KeyCode.S) {
-            this.ColorLandModel.moveRunnerBy(0, 0);
-        } else if (code == KeyCode.T) {
-            this.ColorLandModel.teleportRunner();
-        } else if (code == KeyCode.G) {
-            if (this.ColorLandModel.isGameOver()) {
-                this.ColorLandModel.startNewGame();
-            }
-        } else if (code == KeyCode.L) {
-            if (this.ColorLandModel.isLevelComplete()) {
-                this.ColorLandModel.startNextLevel();
-            }
+            this.keyPressed = "UP";
+        } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+            this.keyPressed = "DOWN";
+        // } else if (code == KeyCode.G) {
+        //     if (this.model.isGameOver()) {
+        //         this.model.startNewGame();
+        //     }
+        // } else if (code == KeyCode.L) {
+        //     if (this.model.isLevelComplete()) {
+        //         this.model.startNextLevel();
+        //     }
         } else {
-            keyRecognized = false;
-        }
+            //keyRecognized = false;
+            keyPressed = "N/A";
+        }        
+        
+        keyEvent.consume();
 
-        if (keyRecognized) {
-            this.update();
-            keyEvent.consume();
-        }
     }
+
+
+
+/*    
+    @FXML private Label scoreLabel;
+    @FXML private Label messageLabel;
+    @FXML private ColorLandView ColorLandView;
+    private ColorLandModel ColorLandModel;
+*/
+    
+
+//These lines might also be included in View
+/*
+ *   public double getBoardWidth() {
+ *       return ColorLandView.CELL_WIDTH * this.ColorLandView.getColumnCount();
+ *   }
+ *
+ *   public double getBoardHeight() {
+ *       return ColorLandView.CELL_WIDTH * this.ColorLandView.getRowCount();
+ *   }
+*/
 }

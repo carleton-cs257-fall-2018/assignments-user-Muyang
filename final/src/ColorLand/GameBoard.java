@@ -13,10 +13,9 @@ public class GameBoard{
     public int userLandSize;
     public int botLandSize;
 
-
-    public GameBoard(int rowCount, int ColumnCount){
+    public GameBoard(int rowCount, int columnCount){
         assert rowCount > 0 && columnCount > 0;
-        this.cells = new CellValue[rowCount][ColumnCount];
+        this.cells = new CellValue[rowCount][columnCount];
         this.userLandSize = 0;
         this.botLandSize = 0;
         this.botCount = 2;
