@@ -20,24 +20,25 @@ public class ColorLandView extends Group {
     public ColorLandView() {
     }
 
-    public int getRowCount() {
+    public int getRowCount(){
         return this.rowCount;
     }
-
-    public void setRowCount(int rowCount) {
+    public int getColumnCount(){
+        return this.columnCount;
+    }
+    public void setRowCount(int rowCount){
         this.rowCount = rowCount;
         this.initializeGrid();
     }
-
-    public int getColumnCount() {
-        return this.columnCount;
-    }
-
-    public void setColumnCount(int columnCount) {
+    public void setColumnCount(int columnCount){
         this.columnCount = columnCount;
         this.initializeGrid();
     }
 
+
+    /* Creates the initial grid
+    *
+     */
     private void initializeGrid() {
         if (this.rowCount > 0 && this.columnCount > 0) {
             this.cellViews = new Rectangle[this.rowCount][this.columnCount];
@@ -55,17 +56,21 @@ public class ColorLandView extends Group {
         }
     }
 
-    public void update(ColorLandModel model) {
-        assert model.getRowCount() == this.rowCount && model.getColumnCount() == this.columnCount;
+
+    /* Updates the look of the grid/percentages to reflect the model
+    * @param model: the model
+    */
+    public void refresh(Model model) {
+        //assert model.getRowCount() == this.rowCount && model.getColumnCount() == this.columnCount;
         for (int row = 0; row < this.rowCount; row++) {
             for (int column = 0; column < this.columnCount; column++) {
-                ColorLandModel.CellValue cellValue = model.getCellValue(row, column);
-                if (cellValue == ColorLandModel.CellValue.ColorLand) {
-                    this.cellViews[row][column].setFill(Color.BLUE);
-                } else if (cellValue == ColorLandModel.CellValue.SCRAPHEAP) {
+                GameBoard.CellValue cellValue = model.board.getCellValue(row, column);
+                if (cellValue == GameBoard.CellValue.USER_HEAD) {
+                    this.cellViews[row][column].setFill(Color.RED);
+                } else if (cellValue == GameBoard.CellValue.EMPTY) {
                     this.cellViews[row][column].setFill(Color.BLACK);
-                } else if (cellValue == ColorLandModel.CellValue.RUNNER) {
-                    this.cellViews[row][column].setFill(Color.YELLOW);
+                } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
+                    this.cellViews[row][column].setFill(Color.GREEN);
                 } else {
                     this.cellViews[row][column].setFill(Color.WHITE);
                 }

@@ -20,7 +20,7 @@
     </top>
 
     <center>
-        <ColorLandView fx:id="ColorLandView" rowCount="25" columnCount="40" />
+        <ColorLandView fx:id="view" rowCount="25" columnCount="40" />
     </center>
 
     <bottom>

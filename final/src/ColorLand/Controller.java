@@ -25,12 +25,13 @@ public class Controller implements EventHandler<KeyEvent> {
     private Model model;
     private String keyPressed;
     private Timer timer;
+    @FXML private ColorLandView view;
 
     public Controller() {
 
     }
     public void initialize() {
-        this.model = new Model(50,50, 2);
+        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 2);
         //this.update();
         this.startTimer();
     }
@@ -58,6 +59,7 @@ public class Controller implements EventHandler<KeyEvent> {
     */
     public void update(String keyPressed) {
         this.model.update(keyPressed);
+        this.view.refresh(this.model);
     }
 
 

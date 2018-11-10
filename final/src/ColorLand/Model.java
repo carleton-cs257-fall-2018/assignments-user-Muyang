@@ -4,7 +4,7 @@ import java.util.*;
 import java.lang.*;
 
 public class Model{
-    private GameBoard board;
+    public GameBoard board;
     private Box user;
     private Box[] bots;
     private Timer timer;
@@ -34,17 +34,9 @@ public class Model{
         updateCPUBox();
         updatePercentage();
         updateTime();
-
-        updateView();
     }
 
-    /*
-     * update the view
-     */
-    public void updateView(){
-        //View.refresh();
 
-    }
 
     /*
     * Update the cellvalues, botLandSize, userLandSize,

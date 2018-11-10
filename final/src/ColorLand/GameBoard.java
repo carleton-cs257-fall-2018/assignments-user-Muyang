@@ -21,6 +21,10 @@ public class GameBoard{
         this.botCount = 2;
     }
 
+    public CellValue getCellValue(int row, int column){
+        return this.cells[row][column];
+    }
+
     public boolean isRoundComplete(){
         return botCount == 0 || userLandSize == 100;
     }
