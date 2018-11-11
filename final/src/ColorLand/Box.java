@@ -52,4 +52,32 @@ public class Box{
     public HashMap<String, Integer> getHeadPosition(){
         return this.headPosition;
     }
+
+    public void updatePosition() {
+        HashMap<String, Integer> currentHead = this.headPosition;
+        int currentX = this.headPosition.get("X-coordinate");
+        int currentY = this.headPosition.get("Y-coordinate");
+        int nextX = currentX + this.velocity.get("X-velocity");
+        int nextY = currentY + this.velocity.get("Y-velocity");
+        this.trailPosition.add(currentHead);
+        this.headPosition.replace("X-coordinate", nextX);
+        this.headPosition.replace("Y-coordinate", nextY);
+    }
+
+    public void updateVelocity(String button) {
+        if (button.equals("UP")){
+            velocity.replace("X-velocity", 0);
+            velocity.replace("Y-velocity", -1);
+        } else if (button.equals("LEFT")){
+            velocity.replace("X-velocity", -1);
+            velocity.replace("Y-velocity", 0);
+        } else if(button.equals("DOWN")){
+            velocity.replace("X-velocity", 0);
+            velocity.replace("Y-velocity", 1);
+        }
+        else {
+            velocity.replace("X-velocity", 1);
+            velocity.replace("Y-velocity", 0);
+        }
+    }
 }

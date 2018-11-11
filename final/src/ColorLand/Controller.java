@@ -79,6 +79,10 @@ public class Controller implements EventHandler<KeyEvent> {
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
 
+        if (code == null){
+            keyPressed = "NA";
+        }
+
         if (code == KeyCode.LEFT || code == KeyCode.A) {
             this.keyPressed = "LEFT";
         } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
@@ -87,9 +91,7 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "UP";
         } else if (code == KeyCode.DOWN || code == KeyCode.S) {
             this.keyPressed = "DOWN";
-        } else {
-            keyPressed = "N/A";
-        }        
+        }
         
         keyEvent.consume();
 

@@ -83,7 +83,13 @@ public class Model{
      * @param button the button pressed, passed from the controller
      */
     public void updateUserBox(String button){
-        
+        this.user.updateVelocity(button);
+        this.user.updatePosition();
+        int columnPosition = user.getHeadPosition().get("X-coordinate");
+        int rowPosition = user.getHeadPosition().get("Y-coordinate");
+        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
+
+
 
     }
 

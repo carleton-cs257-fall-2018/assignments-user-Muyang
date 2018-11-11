@@ -2,7 +2,7 @@ Plan for Software Design final:
 
 1. User Box
 	randomly place(make sure we don't double-place!!!)
-	allow for movement
+	allow for movement(stop at walls or kill)
 	create trail
 	initial terrotory
 2.CPU box(es)
