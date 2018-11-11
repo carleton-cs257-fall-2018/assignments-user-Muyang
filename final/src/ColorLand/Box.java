@@ -16,22 +16,25 @@ public class Box{
      * Initialize the headPosition, trailPosition, and territoryPosition.
      * @param type -- either user or bot
      */
-    public Box(String type){
+    public Box(String type, int rowCount, int columnCount){
         this.type = type;
-        this.headPosition = initializePosition();
+        this.headPosition = initializePosition(rowCount, columnCount);
         this.trailPosition = new ArrayList<>();
         this.territoryPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
     }
 
+
+
     /**
      * Randomizes position for box creation
      * @return the initialized position coordinates
      */
-    public HashMap<String, Integer> initializePosition(){
+    public HashMap<String, Integer> initializePosition(int rowCount, int columnCount){
+        Random rand = new Random();
         headPosition = new HashMap<>();
-        headPosition.put("X-coordinate", 0);
-        headPosition.put("Y-coordinate", 0);
+        headPosition.put("X-coordinate", rand.nextInt(columnCount));
+        headPosition.put("Y-coordinate", rand.nextInt(rowCount));
         return headPosition;
     }
     /**
@@ -43,5 +46,10 @@ public class Box{
         velocity.put("X-velocity", 1);
         velocity.put("Y-velocity", 0);
         return velocity;
+    }
+
+
+    public HashMap<String, Integer> getHeadPosition(){
+        return this.headPosition;
     }
 }

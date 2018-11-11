@@ -1,6 +1,7 @@
 package ColorLand;
 
 public class GameBoard{
+
     public enum CellValue{
         EMPTY,
         BOT_TERR, BOT_TRAIL, BOT_HEAD,
@@ -59,4 +60,10 @@ public class GameBoard{
     public int getUserLandSize(){
         return this.userLandSize;
     }
+
+    public void updateCellValue(CellValue cellvalue, int rowPosition, int columnPosition) {
+        this.cells[rowPosition][columnPosition] = cellvalue;
+
+    }
 }
+

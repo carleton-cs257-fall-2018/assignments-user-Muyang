@@ -22,8 +22,17 @@ public class Model{
      */
     public Model(int rowCount, int columnCount, int numBots){
         this.board = new GameBoard(rowCount, columnCount);
-        this.user = new Box("user");
-        this.bots = initializeBots(numBots);
+        this.user = this.initializeUser(rowCount, columnCount);
+        this.bots = this.initializeBots(numBots, rowCount, columnCount);
+    }
+
+
+    private Box initializeUser(int rowCount, int columnCount){
+        Box user = new Box("user", rowCount, columnCount);
+        int columnPosition = user.getHeadPosition().get("X-coordinate");
+        int rowPosition = user.getHeadPosition().get("Y-coordinate");
+        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
+        return user;
     }
 
     /**
@@ -31,10 +40,10 @@ public class Model{
      * @param numBots number of bots
      * @return the initialized Box[] bots
      */
-    public Box[] initializeBots(int numBots){
+    public Box[] initializeBots(int numBots, int rowCount, int columnCount){
         Box[] bots = new Box[numBots];
         for (int i = 0; i < numBots; i++){
-            bots[i] = new Box("bot");
+            bots[i] = new Box("bot", rowCount, columnCount);
         }
         return bots;
     }
@@ -63,7 +72,6 @@ public class Model{
     * and check if Round is complete
     */
     public void updateGameBoard(){
-
     }
 
     /**
