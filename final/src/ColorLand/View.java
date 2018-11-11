@@ -20,24 +20,47 @@ public class View extends Group {
     public View() {
     }
 
+
+    /**
+     * Returns the number of rows in the visual gameboard
+     * @return this.rowCount: rows in the gameboard
+     */
     public int getRowCount(){
         return this.rowCount;
     }
+
+
+    /**
+     * Returns the number of columns in the visual gameboard
+     * @return this.columnCount: columns in the gameboard
+     */
     public int getColumnCount(){
         return this.columnCount;
     }
+
+
+    /**
+     * Sets the number of rows in the visual gameboard
+     * @param rowCount: number of rows desired
+     */
     public void setRowCount(int rowCount){
         this.rowCount = rowCount;
         this.initializeGrid();
     }
+
+
+    /**
+     * Sets the number of columns in the visual gameboard
+     * @param columnCount: number of columns desired
+     */
     public void setColumnCount(int columnCount){
         this.columnCount = columnCount;
         this.initializeGrid();
     }
 
 
-    /* Creates the initial grid
-    *
+    /**
+     * Creates the initial grid
      */
     private void initializeGrid() {
         if (this.rowCount > 0 && this.columnCount > 0) {
@@ -57,11 +80,11 @@ public class View extends Group {
     }
 
 
-    /* Updates the look of the grid/percentages to reflect the model
-    * @param model: the model
-    */
+    /**
+     * Updates the look of the grid/percentages to reflect the model
+     * @param model: the model
+     */
     public void refresh(Model model) {
-        //assert model.getRowCount() == this.rowCount && model.getColumnCount() == this.columnCount;
         for (int row = 0; row < this.rowCount; row++) {
             for (int column = 0; column < this.columnCount; column++) {
                 GameBoard.CellValue cellValue = model.board.getCellValue(row, column);

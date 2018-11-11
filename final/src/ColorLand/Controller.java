@@ -28,14 +28,21 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML private View view;
 
     public Controller() {
-
     }
+
+
+    /**
+     * Creates a model linked to the controller and starts the timer
+     */
     public void initialize() {
         this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 2);
-        //this.update();
         this.startTimer();
     }
 
+
+    /**
+     * Runs methods that are timer-based(kind of a black box)
+     */
     private void startTimer() {
         this.timer = new java.util.Timer();
         TimerTask timerTask = new TimerTask() {
@@ -53,9 +60,8 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
 
-
-    /*
-    *   Update the model, based on events
+    /**
+     * Runs methods that are key-event-based
     */
     public void update(String keyPressed) {
         this.model.update(keyPressed);
@@ -63,11 +69,12 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
 
-    /*
-    * Listen to key events
-    * changes velocity (direction) if certain key is pressed
-    * proceed the model if nothing happens in this time period
-    */
+    /**
+     * Listen to key events
+     * changes velocity (direction) if certain key is pressed
+     * proceed the model if nothing happens in this time period
+     * @param keyEvent: a pressed keyboard key
+     */
     @Override
     public void handle(KeyEvent keyEvent) {
         //boolean keyRecognized = true;
@@ -86,16 +93,7 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "UP";
         } else if (code == KeyCode.DOWN || code == KeyCode.S) {
             this.keyPressed = "DOWN";
-        // } else if (code == KeyCode.G) {
-        //     if (this.model.isGameOver()) {
-        //         this.model.startNewGame();
-        //     }
-        // } else if (code == KeyCode.L) {
-        //     if (this.model.isLevelComplete()) {
-        //         this.model.startNextLevel();
-        //     }
         } else {
-            //keyRecognized = false;
             keyPressed = "N/A";
         }        
         
@@ -104,20 +102,19 @@ public class Controller implements EventHandler<KeyEvent> {
     }
 
 
-
-/*    
-    @FXML private Label scoreLabel;
-    @FXML private Label messageLabel;
-    @FXML private View View;
-    private ColorLandModel ColorLandModel;
-*/
-    
-
-//These lines might also be included in View
+    /**
+     * Returns the board's width, in pixels
+     * @return View.CELL_WIDTH * this.view.getColumnCount(): size of board width, in px
+     */
     public double getBoardWidth() {
         return View.CELL_WIDTH * this.view.getColumnCount();
     }
 
+
+    /**
+     * Returns the board's height, in pixels
+     * @return View.CELL_WIDTH * this.view.getRowCount(): size of board height, in px
+     */
     public double getBoardHeight() {
         return View.CELL_WIDTH * this.view.getRowCount();
     }
