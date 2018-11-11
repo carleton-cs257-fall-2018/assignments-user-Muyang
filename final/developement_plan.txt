@@ -1,0 +1,23 @@
+Plan for Software Design final:
+
+1. User Box
+	randomly place
+	allow for movement
+	create trail
+	initial terrotory
+2.CPU box(es)
+	randomly place
+	allow for movement
+	create trail
+	initial territory
+	simple AI
+3.Killing bots
+4.Add territories
+
+5. Misc game features
+	pause
+	score
+	levels
+	multiple bots
+	end game
+	new game
