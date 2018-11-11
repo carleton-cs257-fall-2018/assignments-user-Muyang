@@ -65,6 +65,9 @@ public class Box{
     }
 
     public void updateVelocity(String button) {
+        if (button == null){
+            button = "RIGHT";
+        }
         if (button.equals("UP")){
             velocity.replace("X-velocity", 0);
             velocity.replace("Y-velocity", -1);
@@ -75,7 +78,7 @@ public class Box{
             velocity.replace("X-velocity", 0);
             velocity.replace("Y-velocity", 1);
         }
-        else {
+        else if (button.equals("RIGHT")){
             velocity.replace("X-velocity", 1);
             velocity.replace("Y-velocity", 0);
         }
