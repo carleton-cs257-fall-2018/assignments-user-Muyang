@@ -11,7 +11,7 @@ public class Box{
 
 
 
-    /*
+    /**
      * Constructor
      * Initialize the headPosition, trailPosition, and territoryPosition.
      * @param type -- either user or bot
@@ -24,7 +24,7 @@ public class Box{
         this.velocity = initializeVelocity();
     }
 
-    /*
+    /**
      * Randomizes position for box creation
      * @return the initialized position coordinates
      */
@@ -34,8 +34,8 @@ public class Box{
         headPosition.put("Y-coordinate", 0);
         return headPosition;
     }
-    /*
-     * Initialize velocity
+    /**
+     * Initialize velocity, default is to the right
      * @return the velocity of this box
      */
     public HashMap<String, Integer> initializeVelocity(){

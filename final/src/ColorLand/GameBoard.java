@@ -5,13 +5,19 @@ public class GameBoard{
         EMPTY,
         BOT_TERR, BOT_TRAIL, BOT_HEAD,
         USER_TERR, USER_TRAIL, USER_HEAD
-    };
+    }
 
     public CellValue[][] cells;
 
     public int userLandSize;
     public int botLandSize;
 
+    /**
+     * Constructor, instantiate an empty game board
+     * initialized the value of userLandSize and botLandSize to be 0
+     * @param rowCount the number of rows of the game board
+     * @param columnCount the number of column of the game board
+     */
     public GameBoard(int rowCount, int columnCount){
         assert rowCount > 0 && columnCount > 0;
         this.cells = createEmptyBoard(rowCount, columnCount);
@@ -19,6 +25,13 @@ public class GameBoard{
         this.botLandSize = 0;
     }
 
+    /**
+     * a helper method called in the constructor
+     * create a gameboard and set all cell values to be EMPTY
+     * @param rowCount the number of rows of the game board
+     * @param columnCount the number of columns of the game board
+     * @return the created board/cells
+     */
     public CellValue[][] createEmptyBoard(int rowCount, int columnCount){
         CellValue[][] returnCells = new CellValue[rowCount][columnCount];
         for (int row = 0; row < rowCount; row++){
@@ -29,11 +42,20 @@ public class GameBoard{
         return returnCells;
     }
 
-
+    /**
+     * get the value of a cell on a specific position
+     * @param row the position of the row
+     * @param column the position of the column
+     * @return the value of the cell
+     */
     public CellValue getCellValue(int row, int column){
         return this.cells[row][column];
     }
 
+    /**
+     * get the value of the user's land size
+     * @return the size of the user's land size
+     */
     public int getUserLandSize(){
         return this.userLandSize;
     }
