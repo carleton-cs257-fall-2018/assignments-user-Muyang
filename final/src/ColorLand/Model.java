@@ -44,6 +44,9 @@ public class Model{
         Box[] bots = new Box[numBots];
         for (int i = 0; i < numBots; i++){
             bots[i] = new Box("bot", rowCount, columnCount);
+            int columnPosition = bots[i].getHeadPosition().get("X-coordinate");
+            int rowPosition = bots[i].getHeadPosition().get("Y-coordinate");
+            this.board.updateCellValue(GameBoard.CellValue.BOT_HEAD, rowPosition, columnPosition);
         }
         return bots;
     }
@@ -80,7 +83,7 @@ public class Model{
      * @param button the button pressed, passed from the controller
      */
     public void updateUserBox(String button){
-
+        
 
     }
 

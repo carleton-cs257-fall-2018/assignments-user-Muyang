@@ -1,7 +1,7 @@
 Plan for Software Design final:
 
 1. User Box
-	randomly place
+	randomly place(make sure we don't double-place!!!)
 	allow for movement
 	create trail
 	initial terrotory
