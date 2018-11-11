@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.layout.AnchorPane?><?import ColorLand.ColorLandView?>
+<?import javafx.scene.layout.AnchorPane?><?import ColorLand.View?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,7 +20,7 @@
     </top>
 
     <center>
-        <ColorLandView fx:id="view" rowCount="25" columnCount="40" />
+        <View fx:id="view" rowCount="25" columnCount="40" />
     </center>
 
     <bottom>

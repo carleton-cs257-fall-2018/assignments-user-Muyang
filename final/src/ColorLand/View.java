@@ -10,14 +10,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class ColorLandView extends Group {
+public class View extends Group {
     public final static double CELL_WIDTH = 20.0;
 
     @FXML private int rowCount;
     @FXML private int columnCount;
     private Rectangle[][] cellViews;
 
-    public ColorLandView() {
+    public View() {
     }
 
     public int getRowCount(){

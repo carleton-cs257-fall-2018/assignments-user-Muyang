@@ -25,7 +25,7 @@ public class Controller implements EventHandler<KeyEvent> {
     private Model model;
     private String keyPressed;
     private Timer timer;
-    @FXML private ColorLandView view;
+    @FXML private View view;
 
     public Controller() {
 
@@ -108,18 +108,18 @@ public class Controller implements EventHandler<KeyEvent> {
 /*    
     @FXML private Label scoreLabel;
     @FXML private Label messageLabel;
-    @FXML private ColorLandView ColorLandView;
+    @FXML private View View;
     private ColorLandModel ColorLandModel;
 */
     
 
 //These lines might also be included in View
     public double getBoardWidth() {
-        return ColorLandView.CELL_WIDTH * this.view.getColumnCount();
+        return View.CELL_WIDTH * this.view.getColumnCount();
     }
 
     public double getBoardHeight() {
-        return ColorLandView.CELL_WIDTH * this.view.getRowCount();
+        return View.CELL_WIDTH * this.view.getRowCount();
     }
 
 }
