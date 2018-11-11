@@ -8,24 +8,33 @@ public class GameBoard{
     };
 
     public CellValue[][] cells;
-    public int botCount;
 
     public int userLandSize;
     public int botLandSize;
 
     public GameBoard(int rowCount, int columnCount){
         assert rowCount > 0 && columnCount > 0;
-        this.cells = new CellValue[rowCount][columnCount];
+        this.cells = createEmptyBoard(rowCount, columnCount);
         this.userLandSize = 0;
         this.botLandSize = 0;
-        this.botCount = 2;
     }
+
+    public CellValue[][] createEmptyBoard(int rowCount, int columnCount){
+        CellValue[][] returnCells = new CellValue[rowCount][columnCount];
+        for (int row = 0; row < rowCount; row++){
+            for (int column = 0; column < columnCount; column++){
+                returnCells[row][column] = CellValue.EMPTY;
+            }
+        }
+        return returnCells;
+    }
+
 
     public CellValue getCellValue(int row, int column){
         return this.cells[row][column];
     }
 
-    public boolean isRoundComplete(){
-        return botCount == 0 || userLandSize == 100;
+    public int getUserLandSize(){
+        return this.userLandSize;
     }
 }

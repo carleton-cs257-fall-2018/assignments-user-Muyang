@@ -114,13 +114,12 @@ public class Controller implements EventHandler<KeyEvent> {
     
 
 //These lines might also be included in View
-/*
- *   public double getBoardWidth() {
- *       return ColorLandView.CELL_WIDTH * this.ColorLandView.getColumnCount();
- *   }
- *
- *   public double getBoardHeight() {
- *       return ColorLandView.CELL_WIDTH * this.ColorLandView.getRowCount();
- *   }
-*/
+    public double getBoardWidth() {
+        return ColorLandView.CELL_WIDTH * this.view.getColumnCount();
+    }
+
+    public double getBoardHeight() {
+        return ColorLandView.CELL_WIDTH * this.view.getRowCount();
+    }
+
 }

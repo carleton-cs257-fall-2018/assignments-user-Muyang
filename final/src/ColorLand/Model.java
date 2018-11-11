@@ -76,4 +76,8 @@ public class Model{
 
     }
 
+    public boolean isRoundComplete(){
+        return bots.length == 0 || board.getUserLandSize() == 100;
+    }
+
 }

@@ -68,11 +68,11 @@ public class ColorLandView extends Group {
                 if (cellValue == GameBoard.CellValue.USER_HEAD) {
                     this.cellViews[row][column].setFill(Color.RED);
                 } else if (cellValue == GameBoard.CellValue.EMPTY) {
-                    this.cellViews[row][column].setFill(Color.BLACK);
-                } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
-                    this.cellViews[row][column].setFill(Color.GREEN);
-                } else {
                     this.cellViews[row][column].setFill(Color.WHITE);
+                } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
+                    this.cellViews[row][column].setFill(Color.BLUE);
+                } else {
+                    this.cellViews[row][column].setFill(Color.BLACK);
                 }
             }
         }

@@ -26,7 +26,7 @@
     <bottom>
         <HBox prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px; -fx-background-color: #FF7F50">
             <Label style="-fx-font-size: 140%; -fx-text-fill: white"
-                   text="Help: ? / Teleport: T / Stay: S / Move: W E D C X Z A / New game: G" />
+                   text="Help: ? /  Move: arrow keys / New game: G" />
         </HBox>
     </bottom>
 </BorderPane>
