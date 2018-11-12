@@ -18,9 +18,12 @@ public class Box{
      */
     public Box(String type, int rowCount, int columnCount){
         this.type = type;
-        this.headPosition = initializePosition(rowCount, columnCount);
+        HashMap<String, Integer> initialHead = initializePosition(rowCount, columnCount);
+        this.headPosition = initialHead;
         this.trailPosition = new ArrayList<>();
-        this.territoryPosition = new ArrayList<>();
+        ArrayList<HashMap<String, Integer>> initialTERR = new ArrayList<>();
+        initialTERR.add(initialHead);
+        this.territoryPosition = initialTERR;
         this.velocity = initializeVelocity();
     }
 
@@ -55,13 +58,18 @@ public class Box{
 
     public void updatePosition() {
         HashMap<String, Integer> currentHead = this.headPosition;
+
+        this.trailPosition.add(currentHead);
         int currentX = this.headPosition.get("X-coordinate");
         int currentY = this.headPosition.get("Y-coordinate");
         int nextX = currentX + this.velocity.get("X-velocity");
         int nextY = currentY + this.velocity.get("Y-velocity");
-        this.trailPosition.add(currentHead);
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
+
+
+
+
     }
 
     public void updateVelocity(String button) {
@@ -88,5 +96,9 @@ public class Box{
             velocity.replace("Y-velocity", 0);
             velocity.replace("X-velocity", 0);
         }
+    }
+
+    public ArrayList<HashMap<String, Integer>> getTrailPosition() {
+        return this.trailPosition;
     }
 }

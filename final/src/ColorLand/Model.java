@@ -31,7 +31,7 @@ public class Model{
         Box user = new Box("user", rowCount, columnCount);
         int columnPosition = user.getHeadPosition().get("X-coordinate");
         int rowPosition = user.getHeadPosition().get("Y-coordinate");
-        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
+        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, rowPosition, columnPosition);
         return user;
     }
 
@@ -65,6 +65,7 @@ public class Model{
         updateCPUBox();
         updatePercentage();
         updateTime();
+
     }
 
 
@@ -75,6 +76,12 @@ public class Model{
     * and check if Round is complete
     */
     public void updateGameBoard(){
+
+        for (HashMap<String, Integer> trailGrid : user.getTrailPosition()){
+            int trailRow = (int) trailGrid.get("Y-coordinate");
+            int trailColumn = (int) trailGrid.get("X-coordinate");
+            this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
+        }
     }
 
     /**

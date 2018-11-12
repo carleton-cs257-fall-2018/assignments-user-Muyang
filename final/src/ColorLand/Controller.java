@@ -23,7 +23,7 @@ import java.util.TimerTask;
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 20.0;
     private Model model;
-    private String keyPressed = "initial";
+    private String keyPressed;
     private Timer timer;
     @FXML private View view;
 
@@ -170,7 +170,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
     }
 
-    
+
 
     /**
      * Returns the board's width, in pixels

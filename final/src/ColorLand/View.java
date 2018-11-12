@@ -89,7 +89,11 @@ public class View extends Group {
             for (int column = 0; column < this.columnCount; column++) {
                 GameBoard.CellValue cellValue = model.board.getCellValue(row, column);
                 if (cellValue == GameBoard.CellValue.USER_HEAD) {
-                    this.cellViews[row][column].setFill(Color.YELLOW);
+                    this.cellViews[row][column].setFill(Color.RED);
+                } else if (cellValue == GameBoard.CellValue.USER_TRAIL){
+                    this.cellViews[row][column].setFill(Color.ORANGE);
+                } else if (cellValue == GameBoard.CellValue.USER_TERR){
+                    this.cellViews[row][column].setFill(Color.PINK);
                 } else if (cellValue == GameBoard.CellValue.EMPTY) {
                     this.cellViews[row][column].setFill(Color.WHITE);
                 } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
