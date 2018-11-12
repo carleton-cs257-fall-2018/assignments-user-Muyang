@@ -20,7 +20,7 @@
     </top>
 
     <center>
-        <View fx:id="view" rowCount="35" columnCount="80" />
+        <View fx:id="view" rowCount="35" columnCount="40" />
     </center>
 
     <bottom>

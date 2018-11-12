@@ -123,4 +123,7 @@ public class Model{
         return bots.length == 0 || board.getUserLandSize() >= 100;
     }
 
+    public Box getUser(){
+        return this.user;
+    }
 }

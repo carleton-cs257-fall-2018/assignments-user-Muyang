@@ -81,6 +81,9 @@ public class Box{
         else if (button.equals("RIGHT")){
             velocity.replace("X-velocity", 1);
             velocity.replace("Y-velocity", 0);
+        }else if(button.equals("STOP")){
+            velocity.replace("X-velocity", 0);
+            velocity.replace("Y-velocity", 0);
         }
     }
 }

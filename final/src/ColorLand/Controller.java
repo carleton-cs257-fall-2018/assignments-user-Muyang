@@ -65,6 +65,7 @@ public class Controller implements EventHandler<KeyEvent> {
     */
     public void update(String keyPressed) {
         this.model.update(keyPressed);
+        this.hitWall();
         this.view.refresh(this.model);
     }
 
@@ -111,4 +112,26 @@ public class Controller implements EventHandler<KeyEvent> {
         return View.CELL_WIDTH * this.view.getRowCount();
     }
 
+
+    public void hitWall(){
+        if(this.model.getUser().getHeadPosition().get("X-coordinate") >= this.view.getColumnCount()-1){
+            this.model.getUser().updateVelocity("STOP");
+            this.keyPressed = "STOP";
+        }
+        if(this.model.getUser().getHeadPosition().get("Y-coordinate") >= this.view.getRowCount()-1){
+            this.model.getUser().updateVelocity("STOP");
+            this.keyPressed = "STOP";
+
+        }
+        if(this.model.getUser().getHeadPosition().get("X-coordinate") <= 0){
+            this.model.getUser().updateVelocity("STOP");
+            this.keyPressed = "STOP";
+
+        }
+        if(this.model.getUser().getHeadPosition().get("Y-coordinate") <= 0){
+            this.model.getUser().updateVelocity("STOP");
+            this.keyPressed = "STOP";
+        }
+
+    }
 }
