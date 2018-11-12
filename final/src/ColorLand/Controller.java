@@ -23,7 +23,7 @@ import java.util.TimerTask;
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 20.0;
     private Model model;
-    private String keyPressed;
+    private String keyPressed = "initial";
     private Timer timer;
     @FXML private View view;
 
@@ -77,23 +77,100 @@ public class Controller implements EventHandler<KeyEvent> {
      * @param keyEvent: a pressed keyboard key
      */
     @Override
-    public void handle(KeyEvent keyEvent) {
+    public void handle(KeyEvent keyEvent) {//&& ! (XCoordinate == 0)
         KeyCode code = keyEvent.getCode();
+        int XCoordinate = this.model.getUser().getHeadPosition().get("X-coordinate");
+        int YCoordinate = this.model.getUser().getHeadPosition().get("Y-coordinate");
 
-        if (code == KeyCode.LEFT || code == KeyCode.A) {
-            this.keyPressed = "LEFT";
-        } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
-            this.keyPressed = "RIGHT";
-        } else if (code == KeyCode.UP || code == KeyCode.W) {
-            this.keyPressed = "UP";
-        } else if (code == KeyCode.DOWN || code == KeyCode.S) {
-            this.keyPressed = "DOWN";
+        //Right line
+        if((XCoordinate == this.view.getColumnCount()-1) && !(YCoordinate == this.view.getRowCount()-1) && !(YCoordinate == 0)){
+            if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            } else if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            }
         }
-        
+        //Top line
+        else if ((YCoordinate == 0) && !(XCoordinate == 0) && !(XCoordinate == this.view.getColumnCount()-1)){
+            if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            }
+        }
+        //left line
+        else if ((XCoordinate == 0) && !(YCoordinate == 0) && !(YCoordinate == this.view.getRowCount()-1)){
+            if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            }
+        }
+        //bottom line
+        else if ((YCoordinate == this.view.getRowCount()-1) && !(XCoordinate == 0) && !(XCoordinate == this.view.getColumnCount()-1)){
+            if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            } else if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            }
+        }
+        //Lower Right corner
+        else if((XCoordinate == this.view.getColumnCount()-1) && (YCoordinate == this.view.getRowCount()-1)){
+            if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            } else if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            }
+        }
+        //Upper Right corner
+        else if((XCoordinate == this.view.getColumnCount()-1) && (YCoordinate == 0)){
+            if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            }
+        }
+        //Upper Left corner
+        else if (YCoordinate == 0 && XCoordinate == 0){
+            if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            }
+        }
+        //Lower Left corner
+        else if ((XCoordinate == 0) && (YCoordinate == this.view.getRowCount()-1)){
+            if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            }
+        }
+        else{
+            if (code == KeyCode.UP || code == KeyCode.W) {
+                this.keyPressed = "UP";
+            } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
+                this.keyPressed = "RIGHT";
+            } else if (code == KeyCode.LEFT || code == KeyCode.A) {
+                this.keyPressed = "LEFT";
+            } else if (code == KeyCode.DOWN || code == KeyCode.S) {
+                this.keyPressed = "DOWN";
+            }
+        }
+
         keyEvent.consume();
 
     }
 
+    
 
     /**
      * Returns the board's width, in pixels
