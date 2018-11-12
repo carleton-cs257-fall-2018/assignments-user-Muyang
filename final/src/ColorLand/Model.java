@@ -82,6 +82,7 @@ public class Model{
             int trailColumn = (int) trailGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
         }
+        
     }
 
     /**
