@@ -78,7 +78,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        
+
         if (code == KeyCode.LEFT || code == KeyCode.A) {
             this.keyPressed = "LEFT";
         } else if (code == KeyCode.RIGHT || code == KeyCode.D) {
