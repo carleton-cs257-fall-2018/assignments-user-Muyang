@@ -114,24 +114,18 @@ public class Controller implements EventHandler<KeyEvent> {
 
 
     public void hitWall(){
-        if(this.model.getUser().getHeadPosition().get("X-coordinate") >= this.view.getColumnCount()-1){
-            this.model.getUser().updateVelocity("STOP");
-            this.keyPressed = "STOP";
+        int XCoordinate = this.model.getUser().getHeadPosition().get("X-coordinate");
+        int YCoordinate = this.model.getUser().getHeadPosition().get("Y-coordinate");
+        if(! (XCoordinate < this.view.getColumnCount()-1) || !(XCoordinate > 0)){
+            this.keyPressed = "STOP-X";
         }
-        if(this.model.getUser().getHeadPosition().get("Y-coordinate") >= this.view.getRowCount()-1){
-            this.model.getUser().updateVelocity("STOP");
-            this.keyPressed = "STOP";
-
+        if (! (YCoordinate < this.view.getRowCount()-1) || ! (YCoordinate > 0)){
+            if (this.keyPressed.equals("STOP-X")){
+                this.keyPressed = "STOP";
+            }
+            else {
+                this.keyPressed = "STOP-Y";
+            }
         }
-        if(this.model.getUser().getHeadPosition().get("X-coordinate") <= 0){
-            this.model.getUser().updateVelocity("STOP");
-            this.keyPressed = "STOP";
-
-        }
-        if(this.model.getUser().getHeadPosition().get("Y-coordinate") <= 0){
-            this.model.getUser().updateVelocity("STOP");
-            this.keyPressed = "STOP";
-        }
-
     }
 }

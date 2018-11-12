@@ -77,13 +77,16 @@ public class Box{
         } else if(button.equals("DOWN")){
             velocity.replace("X-velocity", 0);
             velocity.replace("Y-velocity", 1);
-        }
-        else if (button.equals("RIGHT")){
+        } else if (button.equals("RIGHT")){
             velocity.replace("X-velocity", 1);
             velocity.replace("Y-velocity", 0);
-        }else if(button.equals("STOP")){
+        } else if(button.equals("STOP-X")){
             velocity.replace("X-velocity", 0);
+        } else if(button.equals("STOP-Y")){
             velocity.replace("Y-velocity", 0);
+        } else if(button.equals("STOP")){
+            velocity.replace("Y-velocity", 0);
+            velocity.replace("X-velocity", 0);
         }
     }
 }
