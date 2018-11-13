@@ -58,12 +58,11 @@ public class Model{
      */
     public void update(String button){
         updateGameBoard();
-        this.checkCapture();
+
         updateUserBox(button);
         updateCPUBox();
         updatePercentage();
         updateTime();
-
     }
 
 
@@ -72,7 +71,7 @@ public class Model{
             for(int x = 0; x < this.board.getBoardLength(); x++){
                 for(int y = 0; y < this.board.getBoardHeight(); y++){
                     if(this.board.cells[y][x] == GameBoard.CellValue.USER_TRAIL){
-                        this.capture(x,y);
+                        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y,x);
                         this.user.removeTrailPosition(x,y);
                     }
                 }
@@ -81,9 +80,51 @@ public class Model{
     }
 
 
-    public void capture(int x, int y){
-        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y, x);
-    }
+//    public void capture(int x, int y){
+//        ArrayList<HashMap<String, Integer>> gainedTerritory = new ArrayList<>();
+//        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y, x);
+//        x++;
+//        y++;
+//        if(x > this.board.getBoardLength()-1){ x = this.board.getBoardLength()-1;}
+//        if(y > this.board.getBoardHeight()-1){ y = this.board.getBoardHeight()-1;}
+//        while (this.board.cells[y][x] == GameBoard.CellValue.EMPTY){
+//            HashMap<String, Integer> newTerr = new HashMap<>();
+//            newTerr.put("X-coordinate", x);
+//            newTerr.put("Y-coordinate", y);
+//            gainedTerritory.add(newTerr);
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y, x);
+//            x++;
+//            if(x > this.board.getBoardLength()-1){ x = this.board.getBoardLength()-1;}
+//        }
+//        if(this.board.cells[y][x] == GameBoard.CellValue.USER_TRAIL || this.board.cells[y][x] == GameBoard.CellValue.USER_TERR){
+//            absorbTerritory(gainedTerritory);
+//            gainedTerritory = new ArrayList<>();
+//        }
+//        while (this.board.cells[y][x] == GameBoard.CellValue.EMPTY){
+//            HashMap<String, Integer> newTerr = new HashMap<>();
+//            newTerr.put("X-coordinate", x);
+//            newTerr.put("Y-coordinate", y);
+//            gainedTerritory.add(newTerr);
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y, x);
+//            y++;
+//            if(y > this.board.getBoardHeight()-1){ y = this.board.getBoardHeight()-1;}
+//        }
+//        if(this.board.cells[y][x] == GameBoard.CellValue.USER_TRAIL || this.board.cells[y][x] == GameBoard.CellValue.USER_TERR){
+//            absorbTerritory(gainedTerritory);
+//            gainedTerritory = new ArrayList<>();
+//        }
+//    }
+//
+//    public void absorbTerritory(ArrayList<HashMap<String, Integer>> gainedTerritory){
+//        System.out.println(gainedTerritory);
+//        for (HashMap<String, Integer> trailGrid : gainedTerritory){
+//            int trailRow = trailGrid.get("Y-coordinate");
+//            int trailColumn = trailGrid.get("X-coordinate");
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, trailRow, trailColumn);
+//            this.user.get
+//        }
+//
+//    }
 
     /**
      * Update the cellvalues, botLandSize, userLandSize,
@@ -91,6 +132,9 @@ public class Model{
      * and check if Round is complete
      */
     public void updateGameBoard(){
+        int columnPosition = user.getHeadPosition().get("X-coordinate");
+        int rowPosition = user.getHeadPosition().get("Y-coordinate");
+        //this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
         ArrayList<HashMap<String, Integer>> userTrailPosition = this.user.getTrailPosition();
         ArrayList<HashMap<String, Integer>> userTerrPosition = this.user.getTerrPosition();
         for (HashMap<String, Integer> trailGrid : userTrailPosition){
@@ -103,6 +147,8 @@ public class Model{
             int terrColumn = terrGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
         });
+        checkCapture();
+        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
 
     }
 
@@ -114,12 +160,6 @@ public class Model{
     public void updateUserBox(String button){
         this.user.updateVelocity(button);
         this.user.updatePosition();
-        int columnPosition = user.getHeadPosition().get("X-coordinate");
-        int rowPosition = user.getHeadPosition().get("Y-coordinate");
-        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
-
-
-
     }
 
     /**
