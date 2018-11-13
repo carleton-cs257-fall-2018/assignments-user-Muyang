@@ -24,7 +24,7 @@ import java.util.TimerTask;
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 20.0;
     private Model model;
-    private String keyPressed;
+    private String keyPressed = "initial";
     private Timer timer;
     @FXML private View view;
 
@@ -78,40 +78,64 @@ public class Controller implements EventHandler<KeyEvent> {
      * @param keyEvent: a pressed keyboard key
      */
     @Override
-    public void handle(KeyEvent keyEvent) {//&& ! (XCoordinate == 0)
+    public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        int XCoordinate = this.model.getUser().getHeadPosition().get("X-coordinate");
-        int YCoordinate = this.model.getUser().getHeadPosition().get("Y-coordinate");
-        String[] allowedMoves = new String[4];
+        ArrayList<String> allowedMoves = this.checkAllowedMoves();
 
-        if(XCoordinate < this.view.getColumnCount()-1){
-            allowedMoves[0] = "RIGHT";
-        }
-        if(XCoordinate > 0){
-            allowedMoves[1] = "LEFT";
-        }
-        if(YCoordinate < this.view.getRowCount() - 1){
-            allowedMoves[2] = "DOWN";
-        }
-        if(YCoordinate > 0){
-            allowedMoves[3] = "UP";
-        }
-        if ((code == KeyCode.UP || code == KeyCode.W) && Arrays.stream(allowedMoves).anyMatch("UP"::equals))  {
+        if ((code == KeyCode.UP) && allowedMoves.contains("UP"))  {
             this.keyPressed = "UP";
-        } else if ((code == KeyCode.RIGHT || code == KeyCode.D) && Arrays.stream(allowedMoves).anyMatch("RIGHT"::equals)) {
+        } else if ((code == KeyCode.RIGHT) && allowedMoves.contains("RIGHT")) {
             this.keyPressed = "RIGHT";
-        } else if ((code == KeyCode.LEFT || code == KeyCode.A) && Arrays.stream(allowedMoves).anyMatch("LEFT"::equals)) {
+        } else if ((code == KeyCode.LEFT) && allowedMoves.contains("LEFT")) {
             this.keyPressed = "LEFT";
-        } else if ((code == KeyCode.DOWN || code == KeyCode.S) && Arrays.stream(allowedMoves).anyMatch("DOWN"::equals)) {
+        } else if ((code == KeyCode.DOWN) && allowedMoves.contains("DOWN")) {
             this.keyPressed = "DOWN";
-        }else if(code == KeyCode.ENTER){
-            this.keyPressed = "ENTER";
         }
         keyEvent.consume();
 
     }
 
+    private ArrayList<String> checkAllowedMoves(){
+        int XCoordinate = this.getCoordinate()[0];
+        int YCoordinate = this.getCoordinate()[1];
+        ArrayList<String> allowedMoves = new ArrayList<>();
+        if(XCoordinate < this.view.getColumnCount()-1){
+            allowedMoves.add("RIGHT");
+        }
+        if(XCoordinate > 0){
+            allowedMoves.add("LEFT");
+        }
+        if(YCoordinate < this.view.getRowCount() - 1){
+            allowedMoves.add("DOWN");
+        }
+        if(YCoordinate > 0){
+            allowedMoves.add("UP");
+        }
+        return allowedMoves;
+    }
 
+    private void hitWall(){
+        int XCoordinate = this.getCoordinate()[0];
+        int YCoordinate = this.getCoordinate()[1];
+        if(! (XCoordinate < this.view.getColumnCount()-1) || !(XCoordinate > 0)){
+            this.keyPressed = "STOP-X";
+        }
+        if (! (YCoordinate < this.view.getRowCount()-1) || !(YCoordinate > 0)){
+            if (this.keyPressed.equals("STOP-X")){
+                this.keyPressed = "STOP";
+            }
+            else {
+                this.keyPressed = "STOP-Y";
+            }
+        }
+    }
+
+    private int[] getCoordinate(){
+        int[] XY = new int[2];
+        XY[0] = this.model.getUser().getHeadPosition().get("X-coordinate");
+        XY[1] = this.model.getUser().getHeadPosition().get("Y-coordinate");
+        return XY;
+    }
 
     /**
      * Returns the board's width, in pixels
@@ -121,29 +145,11 @@ public class Controller implements EventHandler<KeyEvent> {
         return View.CELL_WIDTH * this.view.getColumnCount();
     }
 
-
     /**
      * Returns the board's height, in pixels
      * @return View.CELL_WIDTH * this.view.getRowCount(): size of board height, in px
      */
     public double getBoardHeight() {
         return View.CELL_WIDTH * this.view.getRowCount();
-    }
-
-
-    public void hitWall(){
-        int XCoordinate = this.model.getUser().getHeadPosition().get("X-coordinate");
-        int YCoordinate = this.model.getUser().getHeadPosition().get("Y-coordinate");
-        if(! (XCoordinate < this.view.getColumnCount()-1) || !(XCoordinate > 0)){
-            this.keyPressed = "STOP-X";
-        }
-        if (! (YCoordinate < this.view.getRowCount()-1) || ! (YCoordinate > 0)){
-            if (this.keyPressed.equals("STOP-X")){
-                this.keyPressed = "STOP";
-            }
-            else {
-                this.keyPressed = "STOP-Y";
-            }
-        }
     }
 }
