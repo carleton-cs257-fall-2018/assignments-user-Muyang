@@ -7,7 +7,7 @@ public class Box{
     private HashMap<String, Integer> velocity;
     private String type;
     private ArrayList<HashMap<String, Integer>> trailPosition;
-    private ArrayList<HashMap<String, Integer>> territoryPosition;
+    protected ArrayList<HashMap<String, Integer>> territoryPosition;
 
 
 
@@ -21,9 +21,7 @@ public class Box{
         HashMap<String, Integer> initialHead = initializePosition(rowCount, columnCount);
         this.headPosition = initialHead;
         this.trailPosition = new ArrayList<>();
-        ArrayList<HashMap<String, Integer>> initialTERR = new ArrayList<>();
-        initialTERR.add(initialHead);
-        this.territoryPosition = initialTERR;
+        this.territoryPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
     }
 
@@ -36,8 +34,9 @@ public class Box{
     public HashMap<String, Integer> initializePosition(int rowCount, int columnCount){
         Random rand = new Random();
         headPosition = new HashMap<>();
-        headPosition.put("X-coordinate", rand.nextInt(columnCount));
-        headPosition.put("Y-coordinate", rand.nextInt(rowCount));
+        headPosition.put("X-coordinate", rand.nextInt(columnCount-1));
+        headPosition.put("Y-coordinate", rand.nextInt(rowCount-1));
+
         return headPosition;
     }
     /**
@@ -58,18 +57,17 @@ public class Box{
 
     public void updatePosition() {
         HashMap<String, Integer> currentHead = this.headPosition;
-
         this.trailPosition.add(currentHead);
+
         int currentX = this.headPosition.get("X-coordinate");
         int currentY = this.headPosition.get("Y-coordinate");
         int nextX = currentX + this.velocity.get("X-velocity");
         int nextY = currentY + this.velocity.get("Y-velocity");
+
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
 
-
-
-
+        this.territoryPosition = territoryPosition;
     }
 
     public void updateVelocity(String button) {
@@ -100,5 +98,8 @@ public class Box{
 
     public ArrayList<HashMap<String, Integer>> getTrailPosition() {
         return this.trailPosition;
+    }
+    public ArrayList<HashMap<String, Integer>> getTerrPosition(){
+        return territoryPosition;
     }
 }

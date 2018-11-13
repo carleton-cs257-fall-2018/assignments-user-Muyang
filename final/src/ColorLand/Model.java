@@ -29,9 +29,13 @@ public class Model{
 
     private Box initializeUser(int rowCount, int columnCount){
         Box user = new Box("user", rowCount, columnCount);
-        int columnPosition = user.getHeadPosition().get("X-coordinate");
-        int rowPosition = user.getHeadPosition().get("Y-coordinate");
-        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, rowPosition, columnPosition);
+        user.territoryPosition.add(user.getHeadPosition());
+
+        for (HashMap<String, Integer> terrGrid : user.territoryPosition) {
+            int terrRow = terrGrid.get("Y-coordinate");
+            int terrColumn = terrGrid.get("X-coordinate");
+            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
+        }
         return user;
     }
 
@@ -65,7 +69,7 @@ public class Model{
         updateCPUBox();
         updatePercentage();
         updateTime();
-
+        System.out.println(user.getTerrPosition());
     }
 
 
@@ -76,12 +80,18 @@ public class Model{
     * and check if Round is complete
     */
     public void updateGameBoard(){
-
-        for (HashMap<String, Integer> trailGrid : user.getTrailPosition()){
-            int trailRow = (int) trailGrid.get("Y-coordinate");
-            int trailColumn = (int) trailGrid.get("X-coordinate");
+        ArrayList<HashMap<String, Integer>> userTrailPosition = this.user.getTrailPosition();
+        ArrayList<HashMap<String, Integer>> userTerrPosition = this.user.getTerrPosition();
+        for (HashMap<String, Integer> trailGrid : userTrailPosition){
+            int trailRow = trailGrid.get("Y-coordinate");
+            int trailColumn = trailGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
         }
+//        userTerrPosition.forEach(terrGrid -> {
+//            int terrRow = terrGrid.get("Y-coordinate");
+//            int terrColumn = terrGrid.get("X-coordinate");
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
+//        });
 
     }
 
