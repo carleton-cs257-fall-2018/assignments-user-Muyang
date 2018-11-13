@@ -29,12 +29,6 @@ public class Model{
 
     private Box initializeUser(int rowCount, int columnCount){
         Box user = new Box("user", rowCount, columnCount);
-
-//        for (HashMap<String, Integer> terrGrid : user.territoryPosition) {
-//            int terrRow = terrGrid.get("Y-coordinate");
-//            int terrColumn = terrGrid.get("X-coordinate");
-//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
-//        }
         return user;
     }
 
@@ -64,20 +58,38 @@ public class Model{
      */
     public void update(String button){
         updateGameBoard();
+        this.checkCapture();
         updateUserBox(button);
         updateCPUBox();
         updatePercentage();
         updateTime();
-        System.out.println(getUser().getTerrPosition());
+
     }
 
 
+    public void checkCapture(){
+        if(this.board.cells[this.user.getHeadY()][this.user.getHeadX()] == GameBoard.CellValue.USER_TERR){
+            for(int x = 0; x < this.board.getBoardLength(); x++){
+                for(int y = 0; y < this.board.getBoardHeight(); y++){
+                    if(this.board.cells[y][x] == GameBoard.CellValue.USER_TRAIL){
+                        this.capture(x,y);
+                        this.user.removeTrailPosition(x,y);
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void capture(int x, int y){
+        this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y, x);
+    }
 
     /**
-    * Update the cellvalues, botLandSize, userLandSize,
-    * number of Bots, 
-    * and check if Round is complete
-    */
+     * Update the cellvalues, botLandSize, userLandSize,
+     * number of Bots,
+     * and check if Round is complete
+     */
     public void updateGameBoard(){
         ArrayList<HashMap<String, Integer>> userTrailPosition = this.user.getTrailPosition();
         ArrayList<HashMap<String, Integer>> userTerrPosition = this.user.getTerrPosition();
@@ -116,15 +128,15 @@ public class Model{
     }
 
     /**
-    * update and increment the time
-    */
+     * update and increment the time
+     */
     public void updateTime(){
 
     }
 
     /**
-    * update the percent area covered by each the user/bot boxes
-    */
+     * update the percent area covered by each the user/bot boxes
+     */
     public void updatePercentage(){
 
     }

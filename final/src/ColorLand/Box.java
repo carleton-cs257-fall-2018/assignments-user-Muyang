@@ -81,6 +81,10 @@ public class Box{
         return this.headPosition;
     }
 
+    public int getHeadX(){return this.headPosition.get("X-coordinate");}
+
+    public int getHeadY(){return this.headPosition.get("Y-coordinate");}
+
     public void updatePosition() {
         HashMap<String, Integer> currentHead = this.headPosition;
 //        HashMap<String, Integer> addedTrail = new HashMap<>();
@@ -98,6 +102,7 @@ public class Box{
 
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
+
 
     }
 
@@ -125,6 +130,15 @@ public class Box{
             velocity.replace("Y-velocity", 0);
             velocity.replace("X-velocity", 0);
         }
+    }
+
+    public void removeTrailPosition(int x, int y){
+        HashMap<String, Integer> deletedTrail = new HashMap<>();
+        deletedTrail.put("X-coordinate", x);
+        deletedTrail.put("Y-coordinate", y);
+
+        this.trailPosition.remove(deletedTrail);
+        this.territoryPosition.add(deletedTrail);
     }
 
     public ArrayList<HashMap<String, Integer>> getTrailPosition() {

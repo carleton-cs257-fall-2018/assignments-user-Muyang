@@ -12,6 +12,8 @@ public class GameBoard{
 
     public int userLandSize;
     public int botLandSize;
+    private int boardLength;
+    private int boardHeight;
 
     /**
      * Constructor, instantiate an empty game board
@@ -24,6 +26,8 @@ public class GameBoard{
         this.cells = createEmptyBoard(rowCount, columnCount);
         this.userLandSize = 0;
         this.botLandSize = 0;
+        this.boardLength = columnCount;
+        this.boardHeight = rowCount;
     }
 
     /**
@@ -65,5 +69,9 @@ public class GameBoard{
         this.cells[rowPosition][columnPosition] = cellvalue;
 
     }
+
+    public int getBoardLength() {return this.boardLength;}
+
+    public int getBoardHeight() {return this.boardHeight;}
 }
 
