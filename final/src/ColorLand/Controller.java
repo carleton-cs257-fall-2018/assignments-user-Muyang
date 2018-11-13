@@ -95,6 +95,10 @@ public class Controller implements EventHandler<KeyEvent> {
 
     }
 
+    /**
+     * Checked the allowed movement according to the box's position
+     * @return ArrayList of the allowed movement
+     */
     private ArrayList<String> checkAllowedMoves(){
         int XCoordinate = this.getCoordinate()[0];
         int YCoordinate = this.getCoordinate()[1];
@@ -114,6 +118,9 @@ public class Controller implements EventHandler<KeyEvent> {
         return allowedMoves;
     }
 
+    /**
+     * Stop the box's movement when its at the edge of the game board
+     */
     private void hitWall(){
         int XCoordinate = this.getCoordinate()[0];
         int YCoordinate = this.getCoordinate()[1];
@@ -130,6 +137,10 @@ public class Controller implements EventHandler<KeyEvent> {
         }
     }
 
+    /**
+     * get the X and Y coordinate of the userBox
+     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
+     */
     private int[] getCoordinate(){
         int[] XY = new int[2];
         XY[0] = this.model.getUser().getHeadPosition().get("X-coordinate");
