@@ -98,7 +98,12 @@ public class View extends Group {
                     this.cellViews[row][column].setFill(Color.WHITE);
                 } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
                     this.cellViews[row][column].setFill(Color.BLUE);
-                } else {
+                } else if (cellValue == GameBoard.CellValue.BOT_TRAIL) {
+                    this.cellViews[row][column].setFill(Color.ALICEBLUE);
+                } else if (cellValue == GameBoard.CellValue.BOT_TERR){
+                    this.cellViews[row][column].setFill(Color.LIGHTBLUE);
+                }
+                else {
                     this.cellViews[row][column].setFill(Color.BLACK);
                 }
             }
