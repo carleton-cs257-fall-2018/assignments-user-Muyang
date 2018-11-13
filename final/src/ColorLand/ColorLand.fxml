@@ -15,7 +15,7 @@
     <top>
         <BorderPane prefHeight="35" style="-fx-background-color: #0B5091; -fx-padding: 10px, 5px, 10px, 5px" >
             <left><Label fx:id="scoreLabel" style="-fx-font-size: 150%; -fx-text-fill: white" /></left>
-            <right><Label fx:id="messageLabel" style="-fx-font-size: 150%; -fx-text-fill: white"/></right>
+            <right><Label fx:id="startLabel" style="-fx-font-size: 150%; -fx-text-fill: white"/></right>
         </BorderPane>
     </top>
 
