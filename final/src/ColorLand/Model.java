@@ -91,18 +91,24 @@ public class Model{
      * and check if Round is complete
      */
     public void updateGameBoard(){
+        int columnPosition = user.getHeadPosition().get("X-coordinate");
+        int rowPosition = user.getHeadPosition().get("Y-coordinate");
         ArrayList<HashMap<String, Integer>> userTrailPosition = this.user.getTrailPosition();
         ArrayList<HashMap<String, Integer>> userTerrPosition = this.user.getTerrPosition();
+
         for (HashMap<String, Integer> trailGrid : userTrailPosition){
             int trailRow = trailGrid.get("Y-coordinate");
             int trailColumn = trailGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
         }
+        //this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
         for (HashMap<String, Integer> terrGrid : userTerrPosition) {
             int terrRow = terrGrid.get("Y-coordinate");
             int terrColumn = terrGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
         }
+        checkCapture();
+        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
 
     }
 
@@ -114,9 +120,7 @@ public class Model{
     public void updateUserBox(String button){
         this.user.updateVelocity(button);
         this.user.updatePosition();
-        int columnPosition = user.getHeadPosition().get("X-coordinate");
-        int rowPosition = user.getHeadPosition().get("Y-coordinate");
-        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
+
     }
 
     /**
