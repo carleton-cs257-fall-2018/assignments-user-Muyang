@@ -29,13 +29,12 @@ public class Model{
 
     private Box initializeUser(int rowCount, int columnCount){
         Box user = new Box("user", rowCount, columnCount);
-        user.territoryPosition.add(user.getHeadPosition());
 
-        for (HashMap<String, Integer> terrGrid : user.territoryPosition) {
-            int terrRow = terrGrid.get("Y-coordinate");
-            int terrColumn = terrGrid.get("X-coordinate");
-            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
-        }
+//        for (HashMap<String, Integer> terrGrid : user.territoryPosition) {
+//            int terrRow = terrGrid.get("Y-coordinate");
+//            int terrColumn = terrGrid.get("X-coordinate");
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
+//        }
         return user;
     }
 
@@ -69,7 +68,7 @@ public class Model{
         updateCPUBox();
         updatePercentage();
         updateTime();
-        System.out.println(user.getTerrPosition());
+        System.out.println(getUser().getTerrPosition());
     }
 
 
@@ -87,11 +86,11 @@ public class Model{
             int trailColumn = trailGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
         }
-//        userTerrPosition.forEach(terrGrid -> {
-//            int terrRow = terrGrid.get("Y-coordinate");
-//            int terrColumn = terrGrid.get("X-coordinate");
-//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
-//        });
+        userTerrPosition.forEach(terrGrid -> {
+            int terrRow = terrGrid.get("Y-coordinate");
+            int terrColumn = terrGrid.get("X-coordinate");
+            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
+        });
 
     }
 

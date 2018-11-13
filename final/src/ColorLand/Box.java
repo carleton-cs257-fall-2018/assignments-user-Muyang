@@ -7,7 +7,7 @@ public class Box{
     private HashMap<String, Integer> velocity;
     private String type;
     private ArrayList<HashMap<String, Integer>> trailPosition;
-    protected ArrayList<HashMap<String, Integer>> territoryPosition;
+    private ArrayList<HashMap<String, Integer>> territoryPosition;
 
 
 
@@ -18,10 +18,8 @@ public class Box{
      */
     public Box(String type, int rowCount, int columnCount){
         this.type = type;
-        HashMap<String, Integer> initialHead = initializePosition(rowCount, columnCount);
-        this.headPosition = initialHead;
+        this.initializePosition(rowCount, columnCount);
         this.trailPosition = new ArrayList<>();
-        this.territoryPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
     }
 
@@ -31,14 +29,36 @@ public class Box{
      * Randomizes position for box creation
      * @return the initialized position coordinates
      */
-    public HashMap<String, Integer> initializePosition(int rowCount, int columnCount){
+    private void initializePosition(int rowCount, int columnCount){
+        this.initializeHeadPosition(rowCount, columnCount);
+        this.initializeTerritory(rowCount, columnCount);
+
+    }
+
+    private void initializeHeadPosition(int rowCount, int columnCount){
         Random rand = new Random();
         headPosition = new HashMap<>();
         headPosition.put("X-coordinate", rand.nextInt(columnCount-1));
         headPosition.put("Y-coordinate", rand.nextInt(rowCount-1));
-
-        return headPosition;
     }
+
+    private void initializeTerritory(int rowCount, int columnCount){
+        territoryPosition = new ArrayList<>();
+        for(int i = -2; i < 2; i++) {
+            for(int j = -2; j < 2; j++) {
+                int addedXCoord =  this.headPosition.get("X-coordinate") + i;
+                int addedYCoord = this.headPosition.get("Y-coordinate") + j;
+                if(addedXCoord > columnCount - 1){ addedXCoord = columnCount - 1;}
+                if(addedYCoord > rowCount - 1){ addedYCoord = rowCount - 1;}
+                HashMap<String, Integer> initialTerr = new HashMap<>();
+                initialTerr.put("X-coordinate", addedXCoord);
+                initialTerr.put("Y-coordinate", addedYCoord);
+                this.territoryPosition.add(initialTerr);
+            }
+        }
+
+    }
+
     /**
      * Initialize velocity, default is to the right
      * @return the velocity of this box
@@ -56,8 +76,13 @@ public class Box{
     }
 
     public void updatePosition() {
-        HashMap<String, Integer> currentHead = this.headPosition;
-        this.trailPosition.add(currentHead);
+        HashMap<String, Integer> addedTrail = new HashMap<>();
+        addedTrail.put("X-coordinate", this.headPosition.get("X-coordinate"));
+        addedTrail.put("Y-coordinate", this.headPosition.get("Y-coordinate"));
+        if (!this.trailPosition.contains(addedTrail)){
+            this.trailPosition.add(addedTrail);
+        }
+
 
         int currentX = this.headPosition.get("X-coordinate");
         int currentY = this.headPosition.get("Y-coordinate");
@@ -67,7 +92,7 @@ public class Box{
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
 
-        this.territoryPosition = territoryPosition;
+       // this.territoryPosition = territoryPosition;
     }
 
     public void updateVelocity(String button) {
