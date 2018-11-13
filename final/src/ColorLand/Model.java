@@ -170,7 +170,10 @@ public class Model{
      * of the CPU boxes (bots).
      */
     public void updateCPUBox(){
-
+        for (Box cpu : bots){
+            cpu.updateVelocity("UP");
+            cpu.updatePosition();
+        }
     }
 
     /**
