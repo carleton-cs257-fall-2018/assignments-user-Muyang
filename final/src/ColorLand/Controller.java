@@ -66,7 +66,7 @@ public class Controller implements EventHandler<KeyEvent> {
     */
     public void update(String keyPressed) {
         this.model.update(keyPressed);
-        this.hitWall();
+        this.keyPressed = this.model.hitWall(keyPressed);
         this.view.refresh(this.model);
     }
 
@@ -80,7 +80,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        ArrayList<String> allowedMoves = this.checkAllowedMoves();
+        ArrayList<String> allowedMoves = this.model.checkAllowedMoves();
 
         if ((code == KeyCode.UP) && allowedMoves.contains("UP"))  {
             this.keyPressed = "UP";
@@ -95,58 +95,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
     }
 
-    /**
-     * Checked the allowed movement according to the box's position
-     * @return ArrayList of the allowed movement
-     */
-    private ArrayList<String> checkAllowedMoves(){
-        int XCoordinate = this.getCoordinate()[0];
-        int YCoordinate = this.getCoordinate()[1];
-        ArrayList<String> allowedMoves = new ArrayList<>();
-        if(XCoordinate < this.view.getColumnCount()-1){
-            allowedMoves.add("RIGHT");
-        }
-        if(XCoordinate > 0){
-            allowedMoves.add("LEFT");
-        }
-        if(YCoordinate < this.view.getRowCount() - 1){
-            allowedMoves.add("DOWN");
-        }
-        if(YCoordinate > 0){
-            allowedMoves.add("UP");
-        }
-        return allowedMoves;
-    }
 
-    /**
-     * Stop the box's movement when its at the edge of the game board
-     */
-    private void hitWall(){
-        int XCoordinate = this.getCoordinate()[0];
-        int YCoordinate = this.getCoordinate()[1];
-        if(! (XCoordinate < this.view.getColumnCount()-1) || !(XCoordinate > 0)){
-            this.keyPressed = "STOP-X";
-        }
-        if (! (YCoordinate < this.view.getRowCount()-1) || !(YCoordinate > 0)){
-            if (this.keyPressed.equals("STOP-X")){
-                this.keyPressed = "STOP";
-            }
-            else {
-                this.keyPressed = "STOP-Y";
-            }
-        }
-    }
-
-    /**
-     * get the X and Y coordinate of the userBox
-     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
-     */
-    private int[] getCoordinate(){
-        int[] XY = new int[2];
-        XY[0] = this.model.getUser().getHeadPosition().get("X-coordinate");
-        XY[1] = this.model.getUser().getHeadPosition().get("Y-coordinate");
-        return XY;
-    }
 
     /**
      * Returns the board's width, in pixels

@@ -63,6 +63,7 @@ public class Model{
         updateCPUBox();
         updatePercentage();
         updateTime();
+        System.out.println(this.bots[0].getHeadPosition());
     }
 
 
@@ -201,4 +202,64 @@ public class Model{
     public Box getUser(){
         return this.user;
     }
+
+
+
+    /**
+     * Checked the allowed movement according to the box's position
+     * @return ArrayList of the allowed movement
+     */
+    public ArrayList<String> checkAllowedMoves(){
+        int XCoordinate = this.getCoordinate()[0];
+        int YCoordinate = this.getCoordinate()[1];
+        ArrayList<String> allowedMoves = new ArrayList<>();
+        if(XCoordinate < this.board.getBoardLength()-1){
+            allowedMoves.add("RIGHT");
+        }
+        if(XCoordinate > 0){
+            allowedMoves.add("LEFT");
+        }
+        if(YCoordinate < this.board.getBoardHeight() - 1){
+            allowedMoves.add("DOWN");
+        }
+        if(YCoordinate > 0){
+            allowedMoves.add("UP");
+        }
+        return allowedMoves;
+    }
+
+    /**
+     * Stop the box's movement when its at the edge of the game board
+     */
+    public String hitWall(String keyPressed){
+        int XCoordinate = this.getCoordinate()[0];
+        int YCoordinate = this.getCoordinate()[1];
+        if(! (XCoordinate < this.board.getBoardLength()-1) || !(XCoordinate > 0)){
+            keyPressed = "STOP-X";
+        }
+        if (! (YCoordinate < this.board.getBoardHeight()-1) || !(YCoordinate > 0)){
+            if (keyPressed.equals("STOP-X")){
+                keyPressed = "STOP";
+            }
+            else {
+                keyPressed = "STOP-Y";
+            }
+        }
+        return keyPressed;
+    }
+
+    /**
+     * get the X and Y coordinate of the userBox
+     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
+     */
+    private int[] getCoordinate(){
+        int[] XY = new int[2];
+        XY[0] = this.getUser().getHeadPosition().get("X-coordinate");
+        XY[1] = this.getUser().getHeadPosition().get("Y-coordinate");
+        return XY;
+    }
 }
+
+
+
+
