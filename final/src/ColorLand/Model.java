@@ -86,11 +86,11 @@ public class Model{
             int trailColumn = trailGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
         }
-        userTerrPosition.forEach(terrGrid -> {
+        for (HashMap<String, Integer> terrGrid : userTerrPosition) {
             int terrRow = terrGrid.get("Y-coordinate");
             int terrColumn = terrGrid.get("X-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
-        });
+        }
 
     }
 
@@ -105,9 +105,6 @@ public class Model{
         int columnPosition = user.getHeadPosition().get("X-coordinate");
         int rowPosition = user.getHeadPosition().get("Y-coordinate");
         this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
-
-
-
     }
 
     /**
