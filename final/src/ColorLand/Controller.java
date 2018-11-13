@@ -22,7 +22,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 40.0;
+    final private double FRAMES_PER_SECOND = 10.0;
+
     private Model model;
     private String keyPressed = "initial";
     private Timer timer;

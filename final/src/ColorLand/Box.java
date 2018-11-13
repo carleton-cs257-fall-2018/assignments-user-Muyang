@@ -20,6 +20,7 @@ public class Box{
         this.type = type;
         this.initializePosition(rowCount, columnCount);
         this.trailPosition = new ArrayList<>();
+        //this.territoryPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
     }
 
@@ -43,19 +44,25 @@ public class Box{
     }
 
     private void initializeTerritory(int rowCount, int columnCount){
-        territoryPosition = new ArrayList<>();
-        for(int i = -2; i < 2; i++) {
-            for(int j = -2; j < 2; j++) {
-                int addedXCoord =  this.headPosition.get("X-coordinate") + i;
-                int addedYCoord = this.headPosition.get("Y-coordinate") + j;
-                if(addedXCoord > columnCount - 1){ addedXCoord = columnCount - 1;}
-                if(addedYCoord > rowCount - 1){ addedYCoord = rowCount - 1;}
-                HashMap<String, Integer> initialTerr = new HashMap<>();
-                initialTerr.put("X-coordinate", addedXCoord);
-                initialTerr.put("Y-coordinate", addedYCoord);
-                this.territoryPosition.add(initialTerr);
-            }
-        }
+        this.territoryPosition = new ArrayList<>();
+        int addedXCoord =  this.headPosition.get("X-coordinate");
+        int addedYCoord = this.headPosition.get("Y-coordinate");
+        HashMap<String, Integer> initialTerr = new HashMap<>();
+        initialTerr.put("X-coordinate", addedXCoord);
+        initialTerr.put("Y-coordinate", addedYCoord);
+        this.territoryPosition.add(initialTerr);
+//        for(int i = -2; i < 2; i++) {
+//            for(int j = -2; j < 2; j++) {
+//                int addedXCoord =  this.headPosition.get("X-coordinate") + i;
+//                int addedYCoord = this.headPosition.get("Y-coordinate") + j;
+//                if(addedXCoord > columnCount - 1){ addedXCoord = columnCount - 1;}
+//                if(addedYCoord > rowCount - 1){ addedYCoord = rowCount - 1;}
+//                HashMap<String, Integer> initialTerr = new HashMap<>();
+//                initialTerr.put("X-coordinate", addedXCoord);
+//                initialTerr.put("Y-coordinate", addedYCoord);
+//                this.territoryPosition.add(initialTerr);
+//            }
+//        }
 
     }
 
@@ -80,6 +87,7 @@ public class Box{
     public int getHeadY(){return this.headPosition.get("Y-coordinate");}
 
     public void updatePosition() {
+        //HashMap<String, Integer> currentHead = this.headPosition;
         HashMap<String, Integer> addedTrail = new HashMap<>();
         addedTrail.put("X-coordinate", this.headPosition.get("X-coordinate"));
         addedTrail.put("Y-coordinate", this.headPosition.get("Y-coordinate"));
@@ -96,7 +104,7 @@ public class Box{
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
 
-        // this.territoryPosition = territoryPosition;
+
     }
 
     public void updateVelocity(String button) {
