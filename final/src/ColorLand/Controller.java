@@ -77,8 +77,7 @@ public class Controller implements EventHandler<KeyEvent> {
                 this.startLabel.setText("Game Over. Hit G to start a new game.");
             }
             model.update(keyPressed);
-            String checkedMovement = model.user.hitWall(movement, view.columnCount, view.rowCount);
-            keyPressed = checkedMovement;
+            keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
             view.refresh(model);
         }else{
             this.scoreLabel.setText("Welcome to ColorLand, press p to begin");
