@@ -6,7 +6,7 @@ import java.lang.*;
 public class Model{
     public GameBoard board;
     private Box user;
-    private Box[] bots;
+    private ArrayList<Box> bots;
     private Timer timer;
     private Float percentageUser;
     private Float percentageBot;
@@ -37,12 +37,12 @@ public class Model{
      * @param numBots number of bots
      * @return the initialized Box[] bots
      */
-    public Box[] initializeBots(int numBots, int rowCount, int columnCount){
-        Box[] bots = new Box[numBots];
+    public ArrayList<Box> initializeBots(int numBots, int rowCount, int columnCount){
+        ArrayList<Box> bots = new ArrayList<>();
         for (int i = 0; i < numBots; i++){
-            bots[i] = new Box("bot", rowCount, columnCount);
-            int columnPosition = bots[i].getHeadPosition().get("X-coordinate");
-            int rowPosition = bots[i].getHeadPosition().get("Y-coordinate");
+            bots.add(new Box("bot", rowCount, columnCount));
+            int columnPosition = bots.get(i).getHeadPosition().get("X-coordinate");
+            int rowPosition = bots.get(i).getHeadPosition().get("Y-coordinate");
             this.board.updateCellValue(GameBoard.CellValue.BOT_HEAD, rowPosition, columnPosition);
         }
         return bots;
@@ -57,15 +57,48 @@ public class Model{
      * @param button the key pressed, passed from the controller
      */
     public void update(String button){
-        updateGameBoard();
+        ArrayList<Box> toBeKilled = new ArrayList<>();
+        for (Box bot : bots) {
+            if (inRange(bot)) {
+                this.killed(bot);
+                toBeKilled.add(bot);
+            }
+        }
+        for (Box delete : toBeKilled){
+            bots.remove(delete);
+        }
 
+        updateGameBoard();
         updateUserBox(button);
         updateCPUBox();
         updatePercentage();
         updateTime();
-        System.out.println(this.bots[0].getHeadPosition());
+    }
+    protected boolean inRange(Box cpuBox){
+        boolean inRange = false;
+        if (user.getHeadX() == cpuBox.getHeadX()-1 ||
+                user.getHeadX() == cpuBox.getHeadX() ||
+                user.getHeadX() == cpuBox.getHeadX()+1){
+            if (user.getHeadY() == cpuBox.getHeadY()-1 ||
+                    user.getHeadY() == cpuBox.getHeadY() ||
+                    user.getHeadY() == cpuBox.getHeadY()+1){
+                inRange = true;
+            }
+        }
+        return inRange;
     }
 
+
+    protected void killed(Box box){
+        ArrayList<HashMap<String, Integer>> toBeEmpty = new ArrayList<>();
+        toBeEmpty.addAll(box.getTrailPosition());
+        toBeEmpty.addAll(box.getTerrPosition());
+        for (HashMap<String, Integer> Grid : toBeEmpty) {
+            int trailRow = Grid.get("Y-coordinate");
+            int trailColumn = Grid.get("X-coordinate");
+            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, trailRow, trailColumn);
+        }
+    }
 
     public void checkCapture(){
         if(this.board.cells[this.user.getHeadY()][this.user.getHeadX()] == GameBoard.CellValue.USER_TERR){
@@ -135,15 +168,19 @@ public class Model{
     public void updateGameBoard(){
         this.colorTrail(this.user);
         this.colorTerr(this.user);
+
         for (Box bot : this.bots){
             this.colorTrail(bot);
             this.colorTerr(bot);
         }
-        checkCapture();
-        this.colorHead(this.user);
+
+
         for (Box bot: this.bots){
             this.colorHead(bot);
         }
+        checkCapture();
+        this.colorHead(this.user);
+
     }
 
     protected void colorTrail(Box box){
@@ -210,7 +247,8 @@ public class Model{
     public void updateCPUBox(){
         for (Box cpu : bots){
             ArrayList<String> button = checkAllowedMoves(cpu);
-            cpu.updateVelocity(cpu.hitWall("UP", this.board.getBoardLength(), this.board.getBoardHeight()));
+            Random rand = new Random();
+            cpu.updateVelocity(button.get(rand.nextInt(button.size())));
             cpu.updatePosition();
         }
 
@@ -234,9 +272,9 @@ public class Model{
      * Check if this round is complete
      * @return if there is no bot left or the size of user's territory is 100
      */
-    public boolean isRoundComplete(){
-        return bots.length == 0 || board.getUserLandSize() >= 100;
-    }
+//    public boolean isRoundComplete(){
+//        return bots.length() == 0 || board.getUserLandSize() >= 100;
+//    }
 
     public Box getUser(){
         return this.user;

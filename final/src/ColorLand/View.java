@@ -12,7 +12,6 @@ import javafx.scene.shape.Rectangle;
 
 public class View extends Group {
     public final static double CELL_WIDTH = 20.0;
-
     @FXML private int rowCount;
     @FXML private int columnCount;
     private Rectangle[][] cellViews;

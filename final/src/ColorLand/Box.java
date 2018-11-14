@@ -50,8 +50,8 @@ public class Box{
         initialTerr.put("X-coordinate", addedXCoord);
         initialTerr.put("Y-coordinate", addedYCoord);
         this.territoryPosition.add(initialTerr);
-//        for(int i = -2; i < 2; i++) {
-//            for(int j = -2; j < 2; j++) {
+//        for(int i = -1; i < 1; i++) {
+//            for(int j = -1; j < 1; j++) {
 //                int addedXCoord =  this.headPosition.get("X-coordinate") + i;
 //                int addedYCoord = this.headPosition.get("Y-coordinate") + j;
 //                if(addedXCoord > columnCount - 1){ addedXCoord = columnCount - 1;}

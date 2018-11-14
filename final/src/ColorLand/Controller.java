@@ -36,7 +36,7 @@ public class Controller implements EventHandler<KeyEvent> {
      * Creates a model linked to the controller and starts the timer
      */
     public void initialize() {
-        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 2);
+        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 20);
         this.startTimer();
     }
 
