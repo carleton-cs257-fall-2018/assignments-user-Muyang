@@ -92,7 +92,7 @@ public class View extends Group {
                 } else if (cellValue == GameBoard.CellValue.USER_TRAIL){
                     this.cellViews[row][column].setFill(Color.ORANGE);
                 } else if (cellValue == GameBoard.CellValue.USER_TERR){
-                    this.cellViews[row][column].setFill(Color.PINK);
+                    this.cellViews[row][column].setFill(Color.ORANGERED);
                 } else if (cellValue == GameBoard.CellValue.EMPTY) {
                     this.cellViews[row][column].setFill(Color.WHITE);
                 } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {

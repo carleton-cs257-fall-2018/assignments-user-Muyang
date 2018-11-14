@@ -22,7 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 25.0;
+    final private double FRAMES_PER_SECOND = 35.0;
     private Model model;
     private String keyPressed = "initial";
     private Timer timer;
