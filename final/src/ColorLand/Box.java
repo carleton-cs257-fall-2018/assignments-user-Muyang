@@ -148,4 +148,35 @@ public class Box{
     public ArrayList<HashMap<String, Integer>> getTerrPosition(){
         return territoryPosition;
     }
+
+    /**
+     * get the X and Y coordinate of the userBox
+     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
+     */
+    public int[] getCoordinates(){
+        int[] XY = new int[2];
+        XY[0] = getHeadPosition().get("X-coordinate");
+        XY[1] = getHeadPosition().get("Y-coordinate");
+        return XY;
+    }
+
+    /**
+     * Stop the box's movement when its at the edge of the game board
+     */
+    public String hitWall(String keyPressed, int boardLength, int boardHeight){
+        int XCoordinate = getCoordinates()[0];
+        int YCoordinate = getCoordinates()[1];
+        if(! (XCoordinate < boardLength-1) || !(XCoordinate > 0)){
+            keyPressed = "STOP-X";
+        }
+        if (! (YCoordinate < boardHeight-1) || !(YCoordinate > 0)){
+            if (keyPressed.equals("STOP-X")){
+                keyPressed = "STOP";
+            }
+            else {
+                keyPressed = "STOP-Y";
+            }
+        }
+        return keyPressed;
+    }
 }

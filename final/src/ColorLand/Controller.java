@@ -22,7 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 10.0;
+    final private double FRAMES_PER_SECOND = 25.0;
     private Model model;
     private String keyPressed = "initial";
     private Timer timer;
@@ -66,7 +66,7 @@ public class Controller implements EventHandler<KeyEvent> {
     */
     public void update(String keyPressed) {
         this.model.update(keyPressed);
-        this.keyPressed = this.model.hitWall(keyPressed);
+        this.keyPressed = this.model.getUser().hitWall(keyPressed, this.model.board.getBoardLength(), this.model.board.getBoardHeight());
         this.view.refresh(this.model);
     }
 
@@ -80,7 +80,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        ArrayList<String> allowedMoves = this.model.checkAllowedMoves();
+        ArrayList<String> allowedMoves = this.model.checkAllowedMoves(this.model.getUser());
 
         if ((code == KeyCode.UP) && allowedMoves.contains("UP"))  {
             this.keyPressed = "UP";

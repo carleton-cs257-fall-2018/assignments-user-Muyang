@@ -151,7 +151,11 @@ public class Model{
             this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
 
         }
+        for (HashMap<String, Integer> botTrail: bots[0].getTrailPosition()) {
+            this.board.updateCellValue(GameBoard.CellValue.BOT_TRAIL, botTrail.get("Y-coordinate"), botTrail.get("X-coordinate"));
+        }
         checkCapture();
+        this.board.updateCellValue(GameBoard.CellValue.BOT_HEAD, bots[0].getHeadY(), bots[0].getHeadX());
         this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
 
     }
@@ -172,7 +176,8 @@ public class Model{
      */
     public void updateCPUBox(){
         for (Box cpu : bots){
-            cpu.updateVelocity("UP");
+            ArrayList<String> button = checkAllowedMoves(cpu);
+            cpu.updateVelocity(cpu.hitWall("UP", this.board.getBoardLength(), this.board.getBoardHeight()));
             cpu.updatePosition();
         }
     }
@@ -209,9 +214,9 @@ public class Model{
      * Checked the allowed movement according to the box's position
      * @return ArrayList of the allowed movement
      */
-    public ArrayList<String> checkAllowedMoves(){
-        int XCoordinate = this.getCoordinate()[0];
-        int YCoordinate = this.getCoordinate()[1];
+    public ArrayList<String> checkAllowedMoves(Box box){
+        int XCoordinate = box.getCoordinates()[0];
+        int YCoordinate = box.getCoordinates()[1];
         ArrayList<String> allowedMoves = new ArrayList<>();
         if(XCoordinate < this.board.getBoardLength()-1){
             allowedMoves.add("RIGHT");
@@ -228,36 +233,6 @@ public class Model{
         return allowedMoves;
     }
 
-    /**
-     * Stop the box's movement when its at the edge of the game board
-     */
-    public String hitWall(String keyPressed){
-        int XCoordinate = this.getCoordinate()[0];
-        int YCoordinate = this.getCoordinate()[1];
-        if(! (XCoordinate < this.board.getBoardLength()-1) || !(XCoordinate > 0)){
-            keyPressed = "STOP-X";
-        }
-        if (! (YCoordinate < this.board.getBoardHeight()-1) || !(YCoordinate > 0)){
-            if (keyPressed.equals("STOP-X")){
-                keyPressed = "STOP";
-            }
-            else {
-                keyPressed = "STOP-Y";
-            }
-        }
-        return keyPressed;
-    }
-
-    /**
-     * get the X and Y coordinate of the userBox
-     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
-     */
-    private int[] getCoordinate(){
-        int[] XY = new int[2];
-        XY[0] = this.getUser().getHeadPosition().get("X-coordinate");
-        XY[1] = this.getUser().getHeadPosition().get("Y-coordinate");
-        return XY;
-    }
 }
 
 
