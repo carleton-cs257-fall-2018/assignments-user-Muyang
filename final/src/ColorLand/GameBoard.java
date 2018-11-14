@@ -29,7 +29,7 @@ public class GameBoard{
 
     /**
      * a helper method called in the constructor
-     * create a gameboard and set all cell values to be EMPTY
+     * create a game board and set all cell values to be EMPTY
      * @param rowCount the number of rows of the game board
      * @param columnCount the number of columns of the game board
      * @return the created board/cells

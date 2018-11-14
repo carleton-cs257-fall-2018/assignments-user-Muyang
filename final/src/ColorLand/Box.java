@@ -18,13 +18,12 @@ public class Box{
      */
     public Box(String type, int rowCount, int columnCount){
         this.type = type;
-        this.initializePosition(rowCount, columnCount);
         this.trailPosition = new ArrayList<>();
+        this.initializePosition(rowCount, columnCount);
         this.velocity = initializeVelocity();
     }
 
-
-
+    
     /**
      * Randomizes position for box creation
      * @return the initialized position coordinates
