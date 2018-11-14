@@ -22,12 +22,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 7.0;
+    final private double FRAMES_PER_SECOND = 30.0;
     private Model model;
     @FXML protected View view;
+    @FXML protected Label startLabel;
+    @FXML protected Label scoreLabel;
     private String keyPressed = "initial";
     private Timer timer;
     private int round;
+    private boolean paused;
 
     public Controller() {
     }
@@ -39,6 +42,7 @@ public class Controller implements EventHandler<KeyEvent> {
     public void initialize() {
         this.model = new Model(view.rowCount,view.columnCount, 3);
         startTimer();
+
     }
 
 
@@ -65,10 +69,19 @@ public class Controller implements EventHandler<KeyEvent> {
      * Runs methods that are key-event-based
     */
     public void update(String movement) {
-        model.update(keyPressed);
-        String checkedMovement = model.user.hitWall(movement, view.columnCount, view.rowCount);
-        keyPressed = checkedMovement;
-        view.refresh(model);
+        if(this.paused) {
+            this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
+            if (model.userKilled()) {
+                this.paused = !this.paused;
+                this.startLabel.setText("Game Over. Hit G to start a new game.");
+            }
+            model.update(keyPressed);
+            String checkedMovement = model.user.hitWall(movement, view.columnCount, view.rowCount);
+            keyPressed = checkedMovement;
+            view.refresh(model);
+        }else{
+            this.scoreLabel.setText("Welcome to ColorLand, press p to begin");
+        }
     }
 
 
@@ -83,7 +96,7 @@ public class Controller implements EventHandler<KeyEvent> {
         KeyCode code = keyEvent.getCode();
         ArrayList<String> allowedMoves = this.model.checkAllowedMoves(this.model.user);
 
-        if ((code == KeyCode.UP) && allowedMoves.contains("UP"))  {
+        if ((code == KeyCode.UP) && allowedMoves.contains("UP")) {
             this.keyPressed = "UP";
         } else if ((code == KeyCode.RIGHT) && allowedMoves.contains("RIGHT")) {
             this.keyPressed = "RIGHT";
@@ -91,6 +104,8 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "LEFT";
         } else if ((code == KeyCode.DOWN) && allowedMoves.contains("DOWN")) {
             this.keyPressed = "DOWN";
+        } else if (code == KeyCode.P){
+            this.paused = !this.paused;
         }
         keyEvent.consume();
     }
