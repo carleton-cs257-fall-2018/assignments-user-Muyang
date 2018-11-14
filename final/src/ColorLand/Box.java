@@ -23,7 +23,7 @@ public class Box{
         this.velocity = initializeVelocity();
     }
 
-    
+
     /**
      * Randomizes position for box creation
      * @return the initialized position coordinates
