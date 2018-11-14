@@ -63,46 +63,45 @@ public class Box{
 
 
     public void updatePosition() {
+        updateTrail();
+        updateHead();
+    }
+    private void updateTrail(){
         HashMap<String, Integer> addedTrail = new HashMap<>();
         addedTrail.put("X-coordinate", this.headPosition.get("X-coordinate"));
         addedTrail.put("Y-coordinate", this.headPosition.get("Y-coordinate"));
         if (!this.trailPosition.contains(addedTrail)){
             this.trailPosition.add(addedTrail);
         }
-
-
-        int currentX = this.headPosition.get("X-coordinate");
-        int currentY = this.headPosition.get("Y-coordinate");
-        int nextX = currentX + this.velocity.get("X-velocity");
-        int nextY = currentY + this.velocity.get("Y-velocity");
+    }
+    private void updateHead(){
+        int currentX = headPosition.get("X-coordinate");
+        int currentY = headPosition.get("Y-coordinate");
+        int nextX = currentX + velocity.get("X-velocity");
+        int nextY = currentY + velocity.get("Y-velocity");
 
         this.headPosition.replace("X-coordinate", nextX);
         this.headPosition.replace("Y-coordinate", nextY);
-
-
     }
 
-    public void updateVelocity(String button) {
-        if (button == null){
-            button = "RIGHT";
-        }
-        if (button.equals("UP")){
+    public void updateVelocity(String movement) {
+        if (movement.equals("UP")){
             velocity.replace("X-velocity", 0);
             velocity.replace("Y-velocity", -1);
-        } else if (button.equals("LEFT")){
+        } else if (movement.equals("LEFT")){
             velocity.replace("X-velocity", -1);
             velocity.replace("Y-velocity", 0);
-        } else if(button.equals("DOWN")){
+        } else if(movement.equals("DOWN")){
             velocity.replace("X-velocity", 0);
             velocity.replace("Y-velocity", 1);
-        } else if (button.equals("RIGHT")){
+        } else if (movement.equals("RIGHT")){
             velocity.replace("X-velocity", 1);
             velocity.replace("Y-velocity", 0);
-        } else if(button.equals("STOP-X")){
+        } else if(movement.equals("STOP-X")){
             velocity.replace("X-velocity", 0);
-        } else if(button.equals("STOP-Y")){
+        } else if(movement.equals("STOP-Y")){
             velocity.replace("Y-velocity", 0);
-        } else if(button.equals("STOP")){
+        } else if(movement.equals("STOP")){
             velocity.replace("Y-velocity", 0);
             velocity.replace("X-velocity", 0);
         }
