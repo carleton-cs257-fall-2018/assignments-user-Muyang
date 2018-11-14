@@ -57,16 +57,27 @@ public class Model{
      * @param button the key pressed, passed from the controller
      */
     public void update(String button){
-        ArrayList<Box> toBeKilled = new ArrayList<>();
-        for (Box bot : bots) {
-            if (inRange(bot)) {
-                this.killed(bot);
-                toBeKilled.add(bot);
+        for (Box bot : bots){
+            int X = bot.getHeadX();
+            int Y = bot.getHeadY();
+            if (this.board.getCellValue(Y,X) == GameBoard.CellValue.USER_TRAIL){
+//                user.die();
+                System.exit(5);
             }
         }
-        for (Box delete : toBeKilled){
-            bots.remove(delete);
-        }
+
+
+
+//        ArrayList<Box> toBeKilled = new ArrayList<>();
+//        for (Box bot : bots) {
+//            if (inRange(bot)) {
+//                this.killed(bot);
+//                toBeKilled.add(bot);
+//            }
+//        }
+//        for (Box delete : toBeKilled){
+//            bots.remove(delete);
+//        }
 
         updateGameBoard();
         updateUserBox(button);
@@ -166,14 +177,15 @@ public class Model{
      * and check if Round is complete
      */
     public void updateGameBoard(){
-        this.colorTrail(this.user);
-        this.colorTerr(this.user);
+
+
 
         for (Box bot : this.bots){
             this.colorTrail(bot);
             this.colorTerr(bot);
         }
-
+        this.colorTrail(this.user);
+        this.colorTerr(this.user);
 
         for (Box bot: this.bots){
             this.colorHead(bot);

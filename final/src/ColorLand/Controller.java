@@ -22,7 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
-    final private double FRAMES_PER_SECOND = 35.0;
+    final private double FRAMES_PER_SECOND = 7.0;
     private Model model;
     private String keyPressed = "initial";
     private Timer timer;
@@ -36,7 +36,7 @@ public class Controller implements EventHandler<KeyEvent> {
      * Creates a model linked to the controller and starts the timer
      */
     public void initialize() {
-        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 20);
+        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 5);
         this.startTimer();
     }
 

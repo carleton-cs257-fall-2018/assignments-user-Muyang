@@ -70,6 +70,7 @@ public class GameBoard{
 
     }
 
+
     public int getBoardLength() {return this.boardLength;}
 
     public int getBoardHeight() {return this.boardHeight;}
