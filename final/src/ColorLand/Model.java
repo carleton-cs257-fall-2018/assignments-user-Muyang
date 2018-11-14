@@ -133,32 +133,65 @@ public class Model{
      * and check if Round is complete
      */
     public void updateGameBoard(){
-        int columnPosition = user.getHeadPosition().get("X-coordinate");
-        int rowPosition = user.getHeadPosition().get("Y-coordinate");
-
-        ArrayList<HashMap<String, Integer>> userTrailPosition = this.user.getTrailPosition();
-        ArrayList<HashMap<String, Integer>> userTerrPosition = this.user.getTerrPosition();
-
-        for (HashMap<String, Integer> trailGrid : userTrailPosition){
-            int trailRow = trailGrid.get("Y-coordinate");
-            int trailColumn = trailGrid.get("X-coordinate");
-            this.board.updateCellValue(GameBoard.CellValue.USER_TRAIL, trailRow, trailColumn);
-        }
-        //this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
-        for (HashMap<String, Integer> terrGrid : userTerrPosition) {
-            int terrRow = terrGrid.get("Y-coordinate");
-            int terrColumn = terrGrid.get("X-coordinate");
-            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, terrRow, terrColumn);
-
-        }
-        for (HashMap<String, Integer> botTrail: bots[0].getTrailPosition()) {
-            this.board.updateCellValue(GameBoard.CellValue.BOT_TRAIL, botTrail.get("Y-coordinate"), botTrail.get("X-coordinate"));
+        this.colorTrail(this.user);
+        this.colorTerr(this.user);
+        for (Box bot : this.bots){
+            this.colorTrail(bot);
+            this.colorTerr(bot);
         }
         checkCapture();
-        this.board.updateCellValue(GameBoard.CellValue.BOT_HEAD, bots[0].getHeadY(), bots[0].getHeadX());
-        this.board.updateCellValue(GameBoard.CellValue.USER_HEAD, rowPosition, columnPosition);
-
+        this.colorHead(this.user);
+        for (Box bot: this.bots){
+            this.colorHead(bot);
+        }
     }
+
+    protected void colorTrail(Box box){
+        ArrayList<HashMap<String, Integer>> trailPositions = box.getTrailPosition();
+        GameBoard.CellValue cellValue;
+        if (box.type.equals("user")) {
+            cellValue = GameBoard.CellValue.USER_TRAIL;
+        }
+        else{
+            cellValue = GameBoard.CellValue.BOT_TRAIL;
+        }
+        for (HashMap<String, Integer> trailGrid : trailPositions) {
+            int trailRow = trailGrid.get("Y-coordinate");
+            int trailColumn = trailGrid.get("X-coordinate");
+            this.board.updateCellValue(cellValue, trailRow, trailColumn);
+        }
+    }
+    protected void colorTerr(Box box){
+        ArrayList<HashMap<String, Integer>> terrPositions = box.getTerrPosition();
+        GameBoard.CellValue cellValue;
+        if (box.type.equals("user")){
+            cellValue = GameBoard.CellValue.USER_TERR;
+        }
+        else {
+            cellValue = GameBoard.CellValue.BOT_TERR;
+        }
+        for (HashMap<String, Integer> terrGrid : terrPositions){
+            int terrRow = terrGrid.get("Y-coordinate");
+            int terrColumn = terrGrid.get("X-coordinate");
+            this.board.updateCellValue(cellValue, terrRow, terrColumn);
+
+        }
+    }
+    protected void colorHead(Box box){
+        GameBoard.CellValue cellValue;
+        if (box.type.equals("user")){
+            cellValue = GameBoard.CellValue.USER_HEAD;
+        }
+        else{
+            cellValue = GameBoard.CellValue.BOT_HEAD;
+        }
+        int columnPosition = box.getHeadX();
+        int rowPosition = box.getHeadY();
+        this.board.updateCellValue(cellValue, rowPosition, columnPosition);
+    }
+
+
+
 
     /**
      * Update the position, velocity, and trailPosition list and territoryPosition list
@@ -180,6 +213,7 @@ public class Model{
             cpu.updateVelocity(cpu.hitWall("UP", this.board.getBoardLength(), this.board.getBoardHeight()));
             cpu.updatePosition();
         }
+
     }
 
     /**

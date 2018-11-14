@@ -5,7 +5,7 @@ import java.util.*;
 public class Box{
     private HashMap<String, Integer> headPosition;
     private HashMap<String, Integer> velocity;
-    private String type;
+    protected String type;
     private ArrayList<HashMap<String, Integer>> trailPosition;
     private ArrayList<HashMap<String, Integer>> territoryPosition;
 
@@ -20,7 +20,6 @@ public class Box{
         this.type = type;
         this.initializePosition(rowCount, columnCount);
         this.trailPosition = new ArrayList<>();
-        //this.territoryPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
     }
 
@@ -87,7 +86,6 @@ public class Box{
     public int getHeadY(){return this.headPosition.get("Y-coordinate");}
 
     public void updatePosition() {
-        //HashMap<String, Integer> currentHead = this.headPosition;
         HashMap<String, Integer> addedTrail = new HashMap<>();
         addedTrail.put("X-coordinate", this.headPosition.get("X-coordinate"));
         addedTrail.put("Y-coordinate", this.headPosition.get("Y-coordinate"));
