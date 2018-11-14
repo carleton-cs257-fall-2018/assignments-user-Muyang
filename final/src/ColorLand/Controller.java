@@ -24,9 +24,10 @@ import java.util.TimerTask;
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 7.0;
     private Model model;
+    @FXML protected View view;
     private String keyPressed = "initial";
     private Timer timer;
-    @FXML private View view;
+    private int round;
 
     public Controller() {
     }
@@ -36,8 +37,8 @@ public class Controller implements EventHandler<KeyEvent> {
      * Creates a model linked to the controller and starts the timer
      */
     public void initialize() {
-        this.model = new Model(this.view.getRowCount(),this.view.getColumnCount(), 5);
-        this.startTimer();
+        this.model = new Model(view.rowCount,view.columnCount, 3);
+        startTimer();
     }
 
 
@@ -55,7 +56,6 @@ public class Controller implements EventHandler<KeyEvent> {
                 });
             }
         };
-
         long frameTimeInMilliseconds = (long)(1000.0 / FRAMES_PER_SECOND);
         this.timer.schedule(timerTask, 0, frameTimeInMilliseconds);
     }
@@ -64,23 +64,24 @@ public class Controller implements EventHandler<KeyEvent> {
     /**
      * Runs methods that are key-event-based
     */
-    public void update(String keyPressed) {
-        this.model.update(keyPressed);
-        this.keyPressed = this.model.getUser().hitWall(keyPressed, this.model.board.getBoardLength(), this.model.board.getBoardHeight());
-        this.view.refresh(this.model);
+    public void update(String movement) {
+        model.update(keyPressed);
+        String checkedMovement = model.user.hitWall(movement, view.columnCount, view.rowCount);
+        keyPressed = checkedMovement;
+        view.refresh(model);
     }
 
 
     /**
      * Listen to key events
-     * changes velocity (direction) if certain key is pressed
+     * changes velocity (direction) if certain key is allowed and pressed
      * proceed the model if nothing happens in this time period
      * @param keyEvent: a pressed keyboard key
      */
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        ArrayList<String> allowedMoves = this.model.checkAllowedMoves(this.model.getUser());
+        ArrayList<String> allowedMoves = this.model.checkAllowedMoves(this.model.user);
 
         if ((code == KeyCode.UP) && allowedMoves.contains("UP"))  {
             this.keyPressed = "UP";
@@ -92,24 +93,25 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "DOWN";
         }
         keyEvent.consume();
-
     }
 
 
 
     /**
+     * Used in the Main
      * Returns the board's width, in pixels
      * @return View.CELL_WIDTH * this.view.getColumnCount(): size of board width, in px
      */
     public double getBoardWidth() {
-        return View.CELL_WIDTH * this.view.getColumnCount();
+        return View.CELL_WIDTH * this.view.columnCount;
     }
 
     /**
+     * Used in the Main
      * Returns the board's height, in pixels
      * @return View.CELL_WIDTH * this.view.getRowCount(): size of board height, in px
      */
     public double getBoardHeight() {
-        return View.CELL_WIDTH * this.view.getRowCount();
+        return View.CELL_WIDTH * this.view.rowCount;
     }
 }

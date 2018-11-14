@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import ColorLand.View?>
 
-<?import javafx.scene.layout.AnchorPane?><?import ColorLand.View?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<!--<?import java.lang.*?>-->
+<!--<?import java.util.*?>-->
+<!--<?import javafx.scene.*?>-->
+<!--<?import javafx.scene.layout.AnchorPane?>-->
+<!--<?import javafx.scene.control.Label?>-->
+<!--<?import javafx.scene.layout.HBox?>-->
+<!--<?import javafx.scene.layout.BorderPane?>-->
+<!--<?import javafx.scene.layout.VBox?>-->
 <BorderPane fx:controller="ColorLand.Controller" xmlns:fx="http://javafx.com/fxml">
     <top>
         <BorderPane prefHeight="35" style="-fx-background-color: #0B5091; -fx-padding: 10px, 5px, 10px, 5px" >

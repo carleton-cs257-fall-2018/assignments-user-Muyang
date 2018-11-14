@@ -30,38 +30,21 @@ public class Box{
      * @return the initialized position coordinates
      */
     private void initializePosition(int rowCount, int columnCount){
-        this.initializeHeadPosition(rowCount, columnCount);
-        this.initializeTerritory(rowCount, columnCount);
-
-    }
-
-    private void initializeHeadPosition(int rowCount, int columnCount){
         Random rand = new Random();
         headPosition = new HashMap<>();
         headPosition.put("X-coordinate", rand.nextInt(columnCount-1));
         headPosition.put("Y-coordinate", rand.nextInt(rowCount-1));
-    }
 
-    private void initializeTerritory(int rowCount, int columnCount){
+        initializeTerritory();
+    }
+    private void initializeTerritory(){
         this.territoryPosition = new ArrayList<>();
-        int addedXCoord =  this.headPosition.get("X-coordinate");
-        int addedYCoord = this.headPosition.get("Y-coordinate");
+        int XCoord =  this.headPosition.get("X-coordinate");
+        int YCoord = this.headPosition.get("Y-coordinate");
         HashMap<String, Integer> initialTerr = new HashMap<>();
-        initialTerr.put("X-coordinate", addedXCoord);
-        initialTerr.put("Y-coordinate", addedYCoord);
+        initialTerr.put("X-coordinate", XCoord);
+        initialTerr.put("Y-coordinate", YCoord);
         this.territoryPosition.add(initialTerr);
-//        for(int i = -1; i < 1; i++) {
-//            for(int j = -1; j < 1; j++) {
-//                int addedXCoord =  this.headPosition.get("X-coordinate") + i;
-//                int addedYCoord = this.headPosition.get("Y-coordinate") + j;
-//                if(addedXCoord > columnCount - 1){ addedXCoord = columnCount - 1;}
-//                if(addedYCoord > rowCount - 1){ addedYCoord = rowCount - 1;}
-//                HashMap<String, Integer> initialTerr = new HashMap<>();
-//                initialTerr.put("X-coordinate", addedXCoord);
-//                initialTerr.put("Y-coordinate", addedYCoord);
-//                this.territoryPosition.add(initialTerr);
-//            }
-//        }
 
     }
 
@@ -77,13 +60,7 @@ public class Box{
     }
 
 
-    public HashMap<String, Integer> getHeadPosition(){
-        return this.headPosition;
-    }
 
-    public int getHeadX(){return this.headPosition.get("X-coordinate");}
-
-    public int getHeadY(){return this.headPosition.get("Y-coordinate");}
 
     public void updatePosition() {
         HashMap<String, Integer> addedTrail = new HashMap<>();
@@ -136,45 +113,40 @@ public class Box{
         deletedTrail.put("X-coordinate", x);
         deletedTrail.put("Y-coordinate", y);
 
-        this.trailPosition.remove(deletedTrail);
-        this.territoryPosition.add(deletedTrail);
+        trailPosition.remove(deletedTrail);
+        territoryPosition.add(deletedTrail);
     }
 
+    /**
+     * The box will stop moving when its at the edge of the board
+     */
+    public String hitWall(String movement, int boardLength, int boardHeight){
+        int headX = getHeadX();
+        int headY = getHeadY();
+        if(! (headX < boardLength-1) || !(headX > 0)){
+            movement = "STOP-X";
+        }
+        if (! (headY < boardHeight-1) || !(headY > 0)){
+            if (movement.equals("STOP-X")){
+                movement = "STOP";
+            }
+            else {
+                movement = "STOP-Y";
+            }
+        }
+        return movement;
+    }
+
+
+    public HashMap<String, Integer> getHeadPosition(){
+        return this.headPosition;
+    }
+    public int getHeadX(){return this.headPosition.get("X-coordinate");}
+    public int getHeadY(){return this.headPosition.get("Y-coordinate");}
     public ArrayList<HashMap<String, Integer>> getTrailPosition() {
-        return this.trailPosition;
+        return trailPosition;
     }
     public ArrayList<HashMap<String, Integer>> getTerrPosition(){
         return territoryPosition;
-    }
-
-    /**
-     * get the X and Y coordinate of the userBox
-     * @return int[] int array of user's position. int[1]=X-coordinate, int[2]=Y-coordinate
-     */
-    public int[] getCoordinates(){
-        int[] XY = new int[2];
-        XY[0] = getHeadPosition().get("X-coordinate");
-        XY[1] = getHeadPosition().get("Y-coordinate");
-        return XY;
-    }
-
-    /**
-     * Stop the box's movement when its at the edge of the game board
-     */
-    public String hitWall(String keyPressed, int boardLength, int boardHeight){
-        int XCoordinate = getCoordinates()[0];
-        int YCoordinate = getCoordinates()[1];
-        if(! (XCoordinate < boardLength-1) || !(XCoordinate > 0)){
-            keyPressed = "STOP-X";
-        }
-        if (! (YCoordinate < boardHeight-1) || !(YCoordinate > 0)){
-            if (keyPressed.equals("STOP-X")){
-                keyPressed = "STOP";
-            }
-            else {
-                keyPressed = "STOP-Y";
-            }
-        }
-        return keyPressed;
     }
 }

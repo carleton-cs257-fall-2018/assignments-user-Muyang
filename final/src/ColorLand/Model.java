@@ -5,7 +5,7 @@ import java.lang.*;
 
 public class Model{
     public GameBoard board;
-    private Box user;
+    protected Box user;
     private ArrayList<Box> bots;
     private Timer timer;
     private Float percentageUser;
@@ -113,8 +113,8 @@ public class Model{
 
     public void checkCapture(){
         if(this.board.cells[this.user.getHeadY()][this.user.getHeadX()] == GameBoard.CellValue.USER_TERR){
-            for(int x = 0; x < this.board.getBoardLength(); x++){
-                for(int y = 0; y < this.board.getBoardHeight(); y++){
+            for(int x = 0; x < this.board.boardLength; x++){
+                for(int y = 0; y < this.board.boardHeight; y++){
                     if(this.board.cells[y][x] == GameBoard.CellValue.USER_TRAIL){
                         this.board.updateCellValue(GameBoard.CellValue.USER_TERR, y,x);
                         this.user.removeTrailPosition(x,y);
@@ -288,9 +288,9 @@ public class Model{
 //        return bots.length() == 0 || board.getUserLandSize() >= 100;
 //    }
 
-    public Box getUser(){
-        return this.user;
-    }
+//    public Box getUser(){
+//        return this.user;
+//    }
 
 
 
@@ -299,16 +299,16 @@ public class Model{
      * @return ArrayList of the allowed movement
      */
     public ArrayList<String> checkAllowedMoves(Box box){
-        int XCoordinate = box.getCoordinates()[0];
-        int YCoordinate = box.getCoordinates()[1];
+        int XCoordinate = box.getHeadX();
+        int YCoordinate = box.getHeadY();
         ArrayList<String> allowedMoves = new ArrayList<>();
-        if(XCoordinate < this.board.getBoardLength()-1){
+        if(XCoordinate < this.board.boardLength - 1){
             allowedMoves.add("RIGHT");
         }
         if(XCoordinate > 0){
             allowedMoves.add("LEFT");
         }
-        if(YCoordinate < this.board.getBoardHeight() - 1){
+        if(YCoordinate < this.board.boardHeight - 1){
             allowedMoves.add("DOWN");
         }
         if(YCoordinate > 0){
@@ -316,7 +316,6 @@ public class Model{
         }
         return allowedMoves;
     }
-
 }
 
 
