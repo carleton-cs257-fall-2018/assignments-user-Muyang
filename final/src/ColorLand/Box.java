@@ -109,12 +109,12 @@ public class Box{
     }
 
     public void removeTrailPosition(int x, int y){
-        HashMap<String, Integer> deletedTrail = new HashMap<>();
-        deletedTrail.put("X-coordinate", x);
-        deletedTrail.put("Y-coordinate", y);
+        HashMap<String, Integer> deleteTrail = new HashMap<>();
+        deleteTrail.put("X-coordinate", x);
+        deleteTrail.put("Y-coordinate", y);
 
-        trailPosition.remove(deletedTrail);
-        territoryPosition.add(deletedTrail);
+        trailPosition.remove(deleteTrail);
+        territoryPosition.add(deleteTrail);
     }
 
     /**
