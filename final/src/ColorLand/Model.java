@@ -57,14 +57,7 @@ public class Model{
      * @param button the key pressed, passed from the controller
      */
     public void update(String button){
-        for (Box bot : bots){
-            int X = bot.getHeadX();
-            int Y = bot.getHeadY();
-            if (this.board.getCellValue(Y,X) == GameBoard.CellValue.USER_TRAIL){
-//                user.die();
-                System.exit(5);
-            }
-        }
+
 
 
 
@@ -315,6 +308,18 @@ public class Model{
             allowedMoves.add("UP");
         }
         return allowedMoves;
+    }
+
+    public boolean userKilled(){
+        boolean userDead = false;
+        for (Box bot : bots){
+            int X = bot.getHeadX();
+            int Y = bot.getHeadY();
+            if (this.board.getCellValue(Y,X) == GameBoard.CellValue.USER_TRAIL){
+                userDead = true;
+            }
+        }
+        return userDead;
     }
 }
 
