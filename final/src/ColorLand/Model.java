@@ -10,7 +10,7 @@ public class Model{
     private Timer timer;
     private Float percentageUser;
     private Float percentageBot;
-    private Boolean paused;
+    private boolean paused;
     private boolean gameOver;
     private int score;
     private int level;
@@ -28,13 +28,25 @@ public class Model{
 
     }
 
-    protected void startNewGame(int rowCount, int columnCount){
+    public boolean isGameOver(){
+        return this.gameOver;
+    }
+    public boolean isLevelComplete(){
+        return user.getTerrPosition().size() >= level*150;
+    }
+
+    public void startNewGame(int rowCount, int columnCount){
         this.gameOver = false;
         this.paused =  false;
         this.board = new GameBoard(rowCount, columnCount);
         this.user = this.initializeUser(rowCount, columnCount);
         this.bots = this.initializeBots(this.level*4, rowCount, columnCount);
         this.score = user.getTerrPosition().size();
+    }
+
+    public void startNewLevel(int rowCount, int columnCount){
+        this.level += 1;
+        startNewGame(rowCount, columnCount);
     }
     private Box initializeUser(int rowCount, int columnCount){
         Box user = new Box("user", rowCount, columnCount);
@@ -55,9 +67,7 @@ public class Model{
     }
 
 
-    public boolean isGameOver(){
-        return this.gameOver;
-    }
+
     /**
      * Update the Model --
      * update the board
@@ -74,31 +84,31 @@ public class Model{
         updatePercentage();
         updateTime();
     }
-    protected boolean inRange(Box cpuBox){
-        boolean inRange = false;
-        if (user.getHeadX() == cpuBox.getHeadX()-1 ||
-                user.getHeadX() == cpuBox.getHeadX() ||
-                user.getHeadX() == cpuBox.getHeadX()+1){
-            if (user.getHeadY() == cpuBox.getHeadY()-1 ||
-                    user.getHeadY() == cpuBox.getHeadY() ||
-                    user.getHeadY() == cpuBox.getHeadY()+1){
-                inRange = true;
-            }
-        }
-        return inRange;
-    }
-
-
-    protected void killed(Box box){
-        ArrayList<HashMap<String, Integer>> toBeEmpty = new ArrayList<>();
-        toBeEmpty.addAll(box.getTrailPosition());
-        toBeEmpty.addAll(box.getTerrPosition());
-        for (HashMap<String, Integer> Grid : toBeEmpty) {
-            int trailRow = Grid.get("Y-coordinate");
-            int trailColumn = Grid.get("X-coordinate");
-            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, trailRow, trailColumn);
-        }
-    }
+//    protected boolean inRange(Box cpuBox){
+//        boolean inRange = false;
+//        if (user.getHeadX() == cpuBox.getHeadX()-1 ||
+//                user.getHeadX() == cpuBox.getHeadX() ||
+//                user.getHeadX() == cpuBox.getHeadX()+1){
+//            if (user.getHeadY() == cpuBox.getHeadY()-1 ||
+//                    user.getHeadY() == cpuBox.getHeadY() ||
+//                    user.getHeadY() == cpuBox.getHeadY()+1){
+//                inRange = true;
+//            }
+//        }
+//        return inRange;
+//    }
+//
+//
+//    protected void killed(Box box){
+//        ArrayList<HashMap<String, Integer>> toBeEmpty = new ArrayList<>();
+//        toBeEmpty.addAll(box.getTrailPosition());
+//        toBeEmpty.addAll(box.getTerrPosition());
+//        for (HashMap<String, Integer> Grid : toBeEmpty) {
+//            int trailRow = Grid.get("Y-coordinate");
+//            int trailColumn = Grid.get("X-coordinate");
+//            this.board.updateCellValue(GameBoard.CellValue.USER_TERR, trailRow, trailColumn);
+//        }
+//    }
 
     public void checkCapture(){
         if(this.board.cells[this.user.getHeadY()][this.user.getHeadX()] == GameBoard.CellValue.USER_TERR){
@@ -166,9 +176,6 @@ public class Model{
      * and check if Round is complete
      */
     public void updateGameBoard(){
-
-
-
         for (Box bot : this.bots){
             this.colorTrail(bot);
             this.colorTerr(bot);
@@ -308,9 +315,9 @@ public class Model{
 
     public boolean userKilled(){
         for (Box bot : bots){
-            int X = bot.getHeadX();
-            int Y = bot.getHeadY();
-            if (this.board.getCellValue(Y,X) == GameBoard.CellValue.USER_TRAIL){
+            int columnPosition = bot.getHeadX();
+            int rowPosition = bot.getHeadY();
+            if (this.board.getCellValue(rowPosition,columnPosition) == GameBoard.CellValue.USER_TRAIL){
                 gameOver = true;
             }
         }

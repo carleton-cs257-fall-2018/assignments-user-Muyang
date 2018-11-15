@@ -109,8 +109,14 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.P){
             this.model.setPaused(!this.model.getPaused());
         } else if (code == KeyCode.G){
-            this.model.startNewGame(view.rowCount, view.columnCount);
-            this.model.setPaused(false);
+            if(this.model.isGameOver()) {
+                this.model.startNewGame(view.rowCount, view.columnCount);
+                this.model.setPaused(false);
+            }
+        } else if (code == KeyCode.L){
+            if(this.model.isLevelComplete()){
+                this.model.startNewLevel(view.rowCount, view.columnCount);
+            }
         }
         keyEvent.consume();
     }
