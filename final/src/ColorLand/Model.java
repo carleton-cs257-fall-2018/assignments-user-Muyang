@@ -11,6 +11,9 @@ public class Model{
     private Float percentageUser;
     private Float percentageBot;
     private Boolean pause;
+    private boolean gameOver;
+    private int score;
+    private int level;
 
     /**
      * Constructor
@@ -18,15 +21,20 @@ public class Model{
      * a list of CPU boxes Box[] bots.
      * @param rowCount the number of rows
      * @param columnCount the number of columns
-     * @param numBots the number of bots
      */
-    public Model(int rowCount, int columnCount, int numBots){
-        this.board = new GameBoard(rowCount, columnCount);
-        this.user = this.initializeUser(rowCount, columnCount);
-        this.bots = this.initializeBots(numBots, rowCount, columnCount);
+    public Model(int rowCount, int columnCount){
+        this.level = 1;
+        startNewGame(rowCount, columnCount);
+
     }
 
-
+    protected void startNewGame(int rowCount, int columnCount){
+        this.gameOver = false;
+        this.board = new GameBoard(rowCount, columnCount);
+        this.user = this.initializeUser(rowCount, columnCount);
+        this.bots = this.initializeBots(this.level*4, rowCount, columnCount);
+        this.score = user.getTerrPosition().size();
+    }
     private Box initializeUser(int rowCount, int columnCount){
         Box user = new Box("user", rowCount, columnCount);
         return user;
@@ -41,13 +49,14 @@ public class Model{
         ArrayList<Box> bots = new ArrayList<>();
         for (int i = 0; i < numBots; i++){
             bots.add(new Box("bot", rowCount, columnCount));
-            int columnPosition = bots.get(i).getHeadPosition().get("X-coordinate");
-            int rowPosition = bots.get(i).getHeadPosition().get("Y-coordinate");
-            this.board.updateCellValue(GameBoard.CellValue.BOT_HEAD, rowPosition, columnPosition);
         }
         return bots;
     }
 
+
+    public boolean isGameOver(){
+        return this.gameOver;
+    }
     /**
      * Update the Model --
      * update the board
@@ -57,21 +66,6 @@ public class Model{
      * @param button the key pressed, passed from the controller
      */
     public void update(String button){
-
-
-
-
-//        ArrayList<Box> toBeKilled = new ArrayList<>();
-//        for (Box bot : bots) {
-//            if (inRange(bot)) {
-//                this.killed(bot);
-//                toBeKilled.add(bot);
-//            }
-//        }
-//        for (Box delete : toBeKilled){
-//            bots.remove(delete);
-//        }
-
         updateGameBoard();
         updateUserBox(button);
         updateCPUBox();
@@ -311,15 +305,14 @@ public class Model{
     }
 
     public boolean userKilled(){
-        boolean userDead = false;
         for (Box bot : bots){
             int X = bot.getHeadX();
             int Y = bot.getHeadY();
             if (this.board.getCellValue(Y,X) == GameBoard.CellValue.USER_TRAIL){
-                userDead = true;
+                gameOver = true;
             }
         }
-        return userDead;
+        return gameOver;
     }
 }
 

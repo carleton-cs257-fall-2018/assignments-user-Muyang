@@ -28,10 +28,9 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML protected View view;
     @FXML protected Label startLabel;
     @FXML protected Label scoreLabel;
-    private String keyPressed = "initial";
+    private String keyPressed = "NONE";
     private Timer timer;
-    private int round;
-    private boolean paused;
+    private boolean paused = false;
 
     public Controller() {
     }
@@ -41,11 +40,10 @@ public class Controller implements EventHandler<KeyEvent> {
      * Creates a model linked to the controller and starts the timer
      */
     public void initialize() {
-        this.model = new Model(view.rowCount,view.columnCount, 5);
+        this.model = new Model(view.rowCount,view.columnCount);
         update("NONE");
         startTimer();
         this.paused = true;
-
     }
 
 
@@ -72,20 +70,23 @@ public class Controller implements EventHandler<KeyEvent> {
      * Runs methods that are key-event-based
     */
     public void update(String movement) {
-        if(!this.paused) {
-            this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
+        this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
+        if(this.paused == true && !this.model.isGameOver()){
+            this.startLabel.setText("Press P to Start/Pause");
+        }
+        if(this.paused == false) {
             if (model.userKilled()) {
                 this.paused = true;
-                this.startLabel.setText("Game Over. Hit G to start a new game.");
-            }else{
+            }
+            if (!model.isGameOver() && this.paused == false){
                 model.update(keyPressed);
                 keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
+                this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
+                this.startLabel.setText("Game Over. Hit G to start a new game.");
                 view.refresh(model);
             }
-
-        }else{
-            this.scoreLabel.setText("Welcome to ColorLand! Press P to begin");
         }
+
     }
 
 
@@ -109,6 +110,9 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if ((code == KeyCode.DOWN) && allowedMoves.contains("DOWN")) {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
+            this.paused = !this.paused;
+        } else if (code == KeyCode.G){
+            this.model.startNewGame(view.rowCount, view.columnCount);
             this.paused = !this.paused;
         }
         keyEvent.consume();
