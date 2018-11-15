@@ -112,8 +112,14 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.P){
             this.paused = !this.paused;
         } else if (code == KeyCode.G){
-            this.model.startNewGame(view.rowCount, view.columnCount);
-            this.paused = !this.paused;
+            if(this.model.isGameOver()) {
+                this.model.startNewGame(view.rowCount, view.columnCount);
+                this.paused = !this.paused;
+            }
+        } else if (code == KeyCode.L){
+            if(this.model.isLevelComplete()){
+                this.model.startNewLevel(view.rowCount, view.columnCount);
+            }
         }
         keyEvent.consume();
     }
