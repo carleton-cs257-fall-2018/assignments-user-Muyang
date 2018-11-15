@@ -25,7 +25,7 @@ public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 15.0;
 
     private Model model;
-    @FXML protected View view;
+    @FXML private View view;
     @FXML protected Label startLabel;
     @FXML protected Label scoreLabel;
     @FXML private Label levelStatus;
