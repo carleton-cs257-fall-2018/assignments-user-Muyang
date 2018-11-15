@@ -42,7 +42,9 @@ public class Controller implements EventHandler<KeyEvent> {
      */
     public void initialize() {
         this.model = new Model(view.rowCount,view.columnCount, 5);
+        update("NONE");
         startTimer();
+        this.paused = true;
 
     }
 
@@ -70,15 +72,17 @@ public class Controller implements EventHandler<KeyEvent> {
      * Runs methods that are key-event-based
     */
     public void update(String movement) {
-        if(this.paused) {
+        if(!this.paused) {
             this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
             if (model.userKilled()) {
-                this.paused = !this.paused;
+                this.paused = true;
                 this.startLabel.setText("Game Over. Hit G to start a new game.");
+            }else{
+                model.update(keyPressed);
+                keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
+                view.refresh(model);
             }
-            model.update(keyPressed);
-            keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
-            view.refresh(model);
+
         }else{
             this.scoreLabel.setText("Welcome to ColorLand, press p to begin");
         }
