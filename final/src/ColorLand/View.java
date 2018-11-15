@@ -48,7 +48,7 @@ public class View extends Group {
             for (int column = 0; column < this.columnCount; column++) {
                 GameBoard.CellValue cellValue = model.board.getCellValue(row, column);
                 if (cellValue == GameBoard.CellValue.USER_HEAD) {
-                    this.cellViews[row][column].setFill(Color.RED);
+                    this.cellViews[row][column].setFill(Color.DARKRED);
                 } else if (cellValue == GameBoard.CellValue.USER_TRAIL){
                     this.cellViews[row][column].setFill(Color.ORANGE);
                 } else if (cellValue == GameBoard.CellValue.USER_TERR){
