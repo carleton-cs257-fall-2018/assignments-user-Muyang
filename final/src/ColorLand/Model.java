@@ -10,7 +10,7 @@ public class Model{
     private Timer timer;
     private Float percentageUser;
     private Float percentageBot;
-    private Boolean pause;
+    private Boolean paused;
     private boolean gameOver;
     private int score;
     private int level;
@@ -30,6 +30,7 @@ public class Model{
 
     protected void startNewGame(int rowCount, int columnCount){
         this.gameOver = false;
+        this.paused =  false;
         this.board = new GameBoard(rowCount, columnCount);
         this.user = this.initializeUser(rowCount, columnCount);
         this.bots = this.initializeBots(this.level*4, rowCount, columnCount);
@@ -66,6 +67,7 @@ public class Model{
      * @param button the key pressed, passed from the controller
      */
     public void update(String button){
+        userKilled();
         updateGameBoard();
         updateUserBox(button);
         updateCPUBox();
@@ -313,6 +315,14 @@ public class Model{
             }
         }
         return gameOver;
+    }
+
+    public boolean getPaused(){
+        return this.paused;
+    }
+
+    public void setPaused(boolean value){
+        this.paused = value;
     }
 }
 

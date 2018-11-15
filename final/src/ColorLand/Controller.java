@@ -30,7 +30,6 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML protected Label scoreLabel;
     private String keyPressed = "NONE";
     private Timer timer;
-    private boolean paused = false;
 
     public Controller() {
     }
@@ -43,7 +42,7 @@ public class Controller implements EventHandler<KeyEvent> {
         this.model = new Model(view.rowCount,view.columnCount);
         update("NONE");
         startTimer();
-        this.paused = true;
+        this.model.setPaused(true);
     }
 
 
@@ -71,22 +70,20 @@ public class Controller implements EventHandler<KeyEvent> {
     */
     public void update(String movement) {
         this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
-        if(this.paused == true && !this.model.isGameOver()){
-            this.startLabel.setText("Press P to Start/Pause");
-        }
-        if(this.paused == false) {
-            if (model.userKilled()) {
-                this.paused = true;
-            }
-            if (!model.isGameOver() && this.paused == false){
-                model.update(keyPressed);
-                keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
-                this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
-                this.startLabel.setText("Game Over. Hit G to start a new game.");
-                view.refresh(model);
-            }
-        }
 
+        if(this.model.isGameOver()){
+            this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
+            this.startLabel.setText("Game Over. Hit G to start a new game.");
+            this.model.setPaused(true);
+        }else if(this.model.getPaused()){
+            this.startLabel.setText("Press P to Start/Pause");
+        }else{
+            this.startLabel.setText("Press P to Start/Pause");
+            model.update(keyPressed);
+            keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
+
+            view.refresh(model);
+        }
     }
 
 
@@ -110,10 +107,10 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if ((code == KeyCode.DOWN) && allowedMoves.contains("DOWN")) {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
-            this.paused = !this.paused;
+            this.model.setPaused(!this.model.getPaused());
         } else if (code == KeyCode.G){
             this.model.startNewGame(view.rowCount, view.columnCount);
-            this.paused = !this.paused;
+            this.model.setPaused(false);
         }
         keyEvent.consume();
     }
