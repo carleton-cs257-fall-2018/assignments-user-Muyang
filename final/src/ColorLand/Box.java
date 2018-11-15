@@ -53,7 +53,7 @@ public class Box{
      */
     public HashMap<String, Integer> initializeVelocity(){
         velocity = new HashMap<>();
-        velocity.put("X-velocity", 1);
+        velocity.put("X-velocity", 0);
         velocity.put("Y-velocity", 0);
         return velocity;
     }

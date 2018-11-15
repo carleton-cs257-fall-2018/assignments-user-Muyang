@@ -331,6 +331,13 @@ public class Model{
     public void setPaused(boolean value){
         this.paused = value;
     }
+
+    public int getLevel(){
+        return this.level;
+    }
+    public int getLevelGoal(){
+        return this.level * 150;
+    }
 }
 
 

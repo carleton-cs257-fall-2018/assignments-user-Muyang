@@ -24,10 +24,11 @@
     </center>
 
     <bottom>
-        <HBox prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px; -fx-background-color: #FF7F50">
-            <Label style="-fx-font-size: 140%; -fx-text-fill: white"
-                   text="Help: ? /  Move: arrow keys / New game: G" />
-        </HBox>
+        <BorderPane prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px; -fx-background-color: #FF7F50">
+            <left><Label style="-fx-font-size: 140%; -fx-text-fill: white"
+                         text="Help: ? /  Move: arrow keys / New game: G" /></left>
+            <right><Label fx:id="levelStatus" style="-fx-font-size: 140%; -fx-text-fill: white" /></right>
+        </BorderPane>
     </bottom>
 </BorderPane>
 

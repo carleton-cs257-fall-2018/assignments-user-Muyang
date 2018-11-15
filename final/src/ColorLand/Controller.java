@@ -28,6 +28,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML protected View view;
     @FXML protected Label startLabel;
     @FXML protected Label scoreLabel;
+    @FXML private Label levelStatus;
     private String keyPressed = "NONE";
     private Timer timer;
 
@@ -81,8 +82,14 @@ public class Controller implements EventHandler<KeyEvent> {
             this.startLabel.setText("Press P to Start/Pause");
             model.update(keyPressed);
             keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
-
             view.refresh(model);
+        }
+
+
+        if (!model.isLevelComplete()){
+            this.levelStatus.setText("Level " + model.getLevel() +" : Capture " + model.getLevelGoal() + " Grids" );
+        } else if(model.isLevelComplete()){
+            this.levelStatus.setText("Level " + model.getLevel() +" Completed! Press L to start the next Level" );
         }
     }
 
