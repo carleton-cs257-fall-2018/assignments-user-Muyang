@@ -84,7 +84,7 @@ public class Controller implements EventHandler<KeyEvent> {
             }
 
         }else{
-            this.scoreLabel.setText("Welcome to ColorLand, press p to begin");
+            this.scoreLabel.setText("Welcome to ColorLand! Press P to begin");
         }
     }
 
