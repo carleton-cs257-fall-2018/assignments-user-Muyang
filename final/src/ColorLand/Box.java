@@ -31,8 +31,8 @@ public class Box{
     private void initializePosition(int rowCount, int columnCount){
         Random rand = new Random();
         headPosition = new HashMap<>();
-        headPosition.put("X-coordinate", rand.nextInt(columnCount-1));
-        headPosition.put("Y-coordinate", rand.nextInt(rowCount-1));
+        headPosition.put("X-coordinate", rand.nextInt(columnCount-2));
+        headPosition.put("Y-coordinate", rand.nextInt(rowCount-2));
 
         initializeTerritory();
     }
