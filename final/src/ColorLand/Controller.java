@@ -120,8 +120,8 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
             this.model.setPaused(!this.model.getPaused());
-        } else if(code == KeyCode.H) {
-           this.helpLabel.setText("Its obvious");
+//        } else if(code == KeyCode.H) {
+//           this.helpLabel.setText("Its obvious");
         } else if (code == KeyCode.G){
             if(this.model.isGameOver()) {
                 this.model.startNewGame(view.rowCount, view.columnCount);
