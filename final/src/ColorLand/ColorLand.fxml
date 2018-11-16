@@ -20,7 +20,11 @@
     </top>
 
     <center>
+        <BorderPane prefHeight="1" style="-fx-background-color: #0B5091; -fx-padding: 10px, 5px, 10px, 5px" >
+            <center><Label fx:id="helpLabel" style="-fx-font-size: 150%; -fx-text-fill: white" /></center>
+        </BorderPane>
         <View fx:id="view" rowCount="35" columnCount="40" />
+
     </center>
 
     <bottom>

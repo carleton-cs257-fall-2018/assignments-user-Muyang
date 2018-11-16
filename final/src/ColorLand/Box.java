@@ -19,8 +19,9 @@ public class Box{
     public Box(String type, int rowCount, int columnCount){
         this.type = type;
         this.trailPosition = new ArrayList<>();
-        this.initializePosition(rowCount, columnCount);
         this.velocity = initializeVelocity();
+        this.initializePosition(rowCount, columnCount);
+
     }
 
 

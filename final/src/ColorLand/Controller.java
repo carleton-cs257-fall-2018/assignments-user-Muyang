@@ -29,6 +29,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML protected Label startLabel;
     @FXML protected Label scoreLabel;
     @FXML private Label levelStatus;
+    @FXML private Label helpLabel;
     private String keyPressed = "NONE";
     private Timer timer;
 
@@ -115,15 +116,17 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
             this.model.setPaused(!this.model.getPaused());
+        } else if(code == KeyCode.H) {
+           this.helpLabel.setText("Its obvious");
         } else if (code == KeyCode.G){
-            if(this.model.isGameOver()) {
-                this.model.startNewGame(view.rowCount, view.columnCount);
-                this.model.setPaused(false);
-            }
+                if(this.model.isGameOver()) {
+                    this.model.startNewGame(view.rowCount, view.columnCount);
+                    //this.model.setPaused(false);
+                }
         } else if (code == KeyCode.L){
-            if(this.model.isLevelComplete()){
-                this.model.startNewLevel(view.rowCount, view.columnCount);
-            }
+                if(this.model.isLevelComplete()){
+                    this.model.startNewLevel(view.rowCount, view.columnCount);
+                }
         }
         keyEvent.consume();
     }
