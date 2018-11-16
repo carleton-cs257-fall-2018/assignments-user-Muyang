@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,7 +27,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
     private Model model;
     @FXML private View view;
-    @FXML protected Label startLabel;
+    @FXML private Label startLabel;
     @FXML protected Label scoreLabel;
     @FXML private Label levelStatus;
     private String keyPressed = "NONE";
@@ -69,6 +70,7 @@ public class Controller implements EventHandler<KeyEvent> {
     /**
      * Runs methods that are key-event-based
     */
+    int counter = 0;
     public void update(String movement) {
         this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
 
@@ -78,6 +80,8 @@ public class Controller implements EventHandler<KeyEvent> {
             this.model.setPaused(true);
         }else if(this.model.getPaused()){
             this.startLabel.setText("Press P to Start/Pause");
+            System.out.println("Paused: " + counter);
+            counter++;
         }else{
             this.startLabel.setText("Press P to Start/Pause");
             model.update(keyPressed);
@@ -124,10 +128,19 @@ public class Controller implements EventHandler<KeyEvent> {
             if(this.model.isLevelComplete()){
                 this.model.startNewLevel(view.rowCount, view.columnCount);
             }
+        } else if (code == KeyCode.H){
+            infoBox("HELP MESSAGE, Close this window and Press P to resume","HELP TITLE");
         }
         keyEvent.consume();
     }
 
+    public void infoBox(String infoMessage, String titleBar)
+    {
+        this.timer.cancel();
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+        this.timer = new Timer();
+        startTimer();
+    }
 
 
     /**
