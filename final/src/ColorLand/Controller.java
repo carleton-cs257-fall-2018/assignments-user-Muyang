@@ -70,18 +70,16 @@ public class Controller implements EventHandler<KeyEvent> {
     /**
      * Runs methods that are key-event-based
     */
-    int counter = 0;
+
     public void update(String movement) {
         this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
 
         if(this.model.isGameOver()){
             this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
             this.startLabel.setText("Game Over. Hit G to start a new game.");
-            this.model.setPaused(true);
+            this.timer.cancel();
         }else if(this.model.getPaused()){
             this.startLabel.setText("Press P to Start/Pause");
-            System.out.println("Paused: " + counter);
-            counter++;
         }else{
             this.startLabel.setText("Press P to Start/Pause");
             model.update(keyPressed);
@@ -90,13 +88,15 @@ public class Controller implements EventHandler<KeyEvent> {
         }
 
 
+        updateLevelStatus();
+    }
+    private void updateLevelStatus(){
         if (!model.isLevelComplete()){
             this.levelStatus.setText("Level " + model.getLevel() +" : Capture " + model.getLevelGoal() + " Grids" );
         } else if(model.isLevelComplete()){
             this.levelStatus.setText("Level " + model.getLevel() +" Completed! Press L to start the next Level" );
         }
     }
-
 
     /**
      * Listen to key events
@@ -122,14 +122,15 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.G){
             if(this.model.isGameOver()) {
                 this.model.startNewGame(view.rowCount, view.columnCount);
-                this.model.setPaused(false);
+                this.timer = new Timer();
+                startTimer();
             }
         } else if (code == KeyCode.L){
             if(this.model.isLevelComplete()){
                 this.model.startNewLevel(view.rowCount, view.columnCount);
             }
         } else if (code == KeyCode.H){
-            infoBox("HELP MESSAGE, Close this window and Press P to resume","HELP TITLE");
+            infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
         }
         keyEvent.consume();
     }

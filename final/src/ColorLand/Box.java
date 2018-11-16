@@ -31,8 +31,8 @@ public class Box{
     private void initializePosition(int rowCount, int columnCount){
         Random rand = new Random();
         headPosition = new HashMap<>();
-        headPosition.put("X-coordinate", rand.nextInt(columnCount-2));
-        headPosition.put("Y-coordinate", rand.nextInt(rowCount-2));
+        headPosition.put("X-coordinate", rand.nextInt(columnCount-2)+1);
+        headPosition.put("Y-coordinate", rand.nextInt(rowCount-2)+1);
 
         initializeTerritory();
     }
@@ -136,9 +136,9 @@ public class Box{
     }
 
 
-    public HashMap<String, Integer> getHeadPosition(){
-        return this.headPosition;
-    }
+//    public HashMap<String, Integer> getHeadPosition(){
+//        return this.headPosition;
+//    }
     public int getHeadX(){return this.headPosition.get("X-coordinate");}
     public int getHeadY(){return this.headPosition.get("Y-coordinate");}
     public ArrayList<HashMap<String, Integer>> getTrailPosition() {

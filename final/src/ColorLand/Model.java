@@ -37,11 +37,12 @@ public class Model{
 
     public void startNewGame(int rowCount, int columnCount){
         this.gameOver = false;
-        this.paused =  false;
+        this.paused = false;
         this.board = new GameBoard(rowCount, columnCount);
         this.user = this.initializeUser(rowCount, columnCount);
         this.bots = this.initializeBots(this.level*4, rowCount, columnCount);
         this.score = user.getTerrPosition().size();
+
     }
 
     public void startNewLevel(int rowCount, int columnCount){
@@ -319,6 +320,7 @@ public class Model{
             int rowPosition = bot.getHeadY();
             if (this.board.getCellValue(rowPosition,columnPosition) == GameBoard.CellValue.USER_TRAIL){
                 gameOver = true;
+//                user.updateVelocity("STOP");
             }
         }
         return gameOver;
