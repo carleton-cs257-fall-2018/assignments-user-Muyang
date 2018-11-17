@@ -5,10 +5,9 @@ import java.util.*;
 public class Box{
     private HashMap<String, Integer> headPosition;
     private HashMap<String, Integer> velocity;
-    protected String type;
+    private String type;
     private ArrayList<HashMap<String, Integer>> trailPosition;
     private ArrayList<HashMap<String, Integer>> territoryPosition;
-
 
 
     /**
@@ -21,9 +20,7 @@ public class Box{
         this.trailPosition = new ArrayList<>();
         this.velocity = initializeVelocity();
         this.initializePosition(rowCount, columnCount);
-
     }
-
 
     /**
      * Randomizes position for box creation
@@ -45,21 +42,13 @@ public class Box{
         initialTerr.put("X-coordinate", XCoord);
         initialTerr.put("Y-coordinate", YCoord);
         this.territoryPosition.add(initialTerr);
-
     }
-
-    /**
-     * Initialize velocity, default is to the right
-     * @return the velocity of this box
-     */
-    public HashMap<String, Integer> initializeVelocity(){
+    private HashMap<String, Integer> initializeVelocity(){
         velocity = new HashMap<>();
         velocity.put("X-velocity", 0);
         velocity.put("Y-velocity", 0);
         return velocity;
     }
-
-
 
 
     public void updatePosition() {
@@ -85,32 +74,40 @@ public class Box{
     }
 
     public void updateVelocity(String movement) {
-        if (movement.equals("UP")){
-            velocity.replace("X-velocity", 0);
-            velocity.replace("Y-velocity", -1);
-        } else if (movement.equals("LEFT")){
-            velocity.replace("X-velocity", -1);
-            velocity.replace("Y-velocity", 0);
-        } else if(movement.equals("DOWN")){
-            velocity.replace("X-velocity", 0);
-            velocity.replace("Y-velocity", 1);
-        } else if (movement.equals("RIGHT")){
-            velocity.replace("X-velocity", 1);
-            velocity.replace("Y-velocity", 0);
-        } else if(movement.equals("STOP-X")){
-            velocity.replace("X-velocity", 0);
-        } else if(movement.equals("STOP-Y")){
-            velocity.replace("Y-velocity", 0);
-        } else if(movement.equals("STOP")){
-            velocity.replace("Y-velocity", 0);
-            velocity.replace("X-velocity", 0);
+        switch (movement) {
+            case "UP":
+                velocity.replace("X-velocity", 0);
+                velocity.replace("Y-velocity", -1);
+                break;
+            case "LEFT":
+                velocity.replace("X-velocity", -1);
+                velocity.replace("Y-velocity", 0);
+                break;
+            case "DOWN":
+                velocity.replace("X-velocity", 0);
+                velocity.replace("Y-velocity", 1);
+                break;
+            case "RIGHT":
+                velocity.replace("X-velocity", 1);
+                velocity.replace("Y-velocity", 0);
+                break;
+            case "STOP-X":
+                velocity.replace("X-velocity", 0);
+                break;
+            case "STOP-Y":
+                velocity.replace("Y-velocity", 0);
+                break;
+            case "STOP":
+                velocity.replace("Y-velocity", 0);
+                velocity.replace("X-velocity", 0);
+                break;
         }
     }
 
-    public void removeTrailPosition(int x, int y){
+    public void removeTrailPosition(int row, int col){
         HashMap<String, Integer> deleteTrail = new HashMap<>();
-        deleteTrail.put("X-coordinate", x);
-        deleteTrail.put("Y-coordinate", y);
+        deleteTrail.put("X-coordinate", col);
+        deleteTrail.put("Y-coordinate", row);
 
         trailPosition.remove(deleteTrail);
         territoryPosition.add(deleteTrail);
@@ -137,9 +134,9 @@ public class Box{
     }
 
 
-//    public HashMap<String, Integer> getHeadPosition(){
-//        return this.headPosition;
-//    }
+    public String getType(){
+        return this.type;
+    }
     public int getHeadX(){return this.headPosition.get("X-coordinate");}
     public int getHeadY(){return this.headPosition.get("Y-coordinate");}
     public ArrayList<HashMap<String, Integer>> getTrailPosition() {

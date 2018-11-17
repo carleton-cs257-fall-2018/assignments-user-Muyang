@@ -13,17 +13,13 @@
     </top>
 
     <center>
-        <!--<BorderPane prefHeight="1" style="-fx-background-color: #0B5091; -fx-padding: 10px, 5px, 10px, 5px" >-->
-            <!--&lt;!&ndash;<center><Label fx:id="helpLabel" style="-fx-font-size: 150%; -fx-text-fill: white" /></center>&ndash;&gt;-->
-        <!--</BorderPane>-->
         <View fx:id="view" rowCount="35" columnCount="40" />
-
     </center>
 
     <bottom>
         <BorderPane prefHeight="35" style="-fx-padding: 10px, 5px, 10px, 5px; -fx-background-color: #FF7F50">
             <left><Label style="-fx-font-size: 140%; -fx-text-fill: white"
-                         text="Help: ? /  Move: arrow keys / New game: G" /></left>
+                         text="Help: H /  Move: arrow keys / New game: G" /></left>
             <right><Label fx:id="levelStatus" style="-fx-font-size: 140%; -fx-text-fill: white" /></right>
         </BorderPane>
     </bottom>

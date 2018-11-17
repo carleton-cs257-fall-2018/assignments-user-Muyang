@@ -6,11 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.application.Platform;
-
 import javafx.scene.control.Label;
-
 import java.util.*;
-import javax.swing.JOptionPane;
 
 
 public class Controller implements EventHandler<KeyEvent> {
@@ -38,7 +35,6 @@ public class Controller implements EventHandler<KeyEvent> {
         startTimer();
         this.model.setPaused(true);
     }
-
 
     /**
      * Run the model based on time and keyEvent
@@ -70,14 +66,17 @@ public class Controller implements EventHandler<KeyEvent> {
             setGamePausedText();
         }else{
             setGamePlayText();
-            model.update(keyPressed);
-            keyPressed = model.user.stopAtWall(movement, view.columnCount, view.rowCount);
-            view.refresh(model);
+            updateModel(movement);
         }
         updateLevelStatus();
     }
+    private void updateModel(String movement){
+        model.update(keyPressed);
+        keyPressed = model.getUser().stopAtWall(movement, view.columnCount, view.rowCount);
+        view.refresh(model);
+    }
     private void updateScore(){
-        this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
+        this.scoreLabel.setText("Territory size: " + model.getScore());
     }
     private void setGameOverText(){
         this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
@@ -106,7 +105,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        ArrayList<String> allowedMoves = model.checkAllowedMoves(model.user);
+        ArrayList<String> allowedMoves = model.checkAllowedMoves(model.getUser());
 
         if ((code == KeyCode.UP) && allowedMoves.contains("UP")) {
             this.keyPressed = "UP";
@@ -123,18 +122,7 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.L && model.isLevelComplete()){
             startNewLevel();
         } else if (code == KeyCode.H){
-            this.timer.cancel();
-            Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
-            helpAlert.setTitle("Color Land");
-            helpAlert.setHeaderText("Instructions");
-            helpAlert.setContentText("Turn your trail(orange) into territory(red) by returning to your territory. " +
-                    "Avoid blue crocodiles. Capture the goal amount of the board. ");
-            helpAlert.showAndWait();
-            this.timer = new Timer();
-            startTimer();
-
-
-            //infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
+            showHelpMessage();
         }
         keyEvent.consume();
     }
@@ -152,6 +140,20 @@ public class Controller implements EventHandler<KeyEvent> {
         startTimer();
         this.keyPressed = "STOP";
     }
+    private void showHelpMessage(){
+        this.timer.cancel();
+        Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
+        helpAlert.setTitle("Color Land");
+        helpAlert.setHeaderText("Instructions");
+        helpAlert.setContentText("Turn your trail (orange) into territory (red) by returning to red." +
+                " Avoid blue crocodiles which live in the blue lakes and eat your trail" +
+                " The crocodiles also expand their lake." +
+                " Capture the goal amount of the territory (shown" +
+                " on the lower right corner).");
+        helpAlert.showAndWait();
+        this.timer = new Timer();
+        startTimer();
+    }
 
 
 
@@ -164,7 +166,6 @@ public class Controller implements EventHandler<KeyEvent> {
     public double getBoardWidth() {
         return View.CELL_WIDTH * this.view.columnCount;
     }
-
     /**
      * Used in the Main
      * Returns the board's height, in pixels

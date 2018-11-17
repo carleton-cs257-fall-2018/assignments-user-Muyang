@@ -1,12 +1,7 @@
 package ColorLand;
 
-
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -46,7 +41,7 @@ public class View extends Group {
     protected void refresh(Model model) {
         for (int row = 0; row < this.rowCount; row++) {
             for (int column = 0; column < this.columnCount; column++) {
-                GameBoard.CellValue cellValue = model.board.getCellValue(row, column);
+                GameBoard.CellValue cellValue = model.getBoard().getCellValue(row, column);
                 if (cellValue == GameBoard.CellValue.USER_HEAD) {
                     this.cellViews[row][column].setFill(Color.DARKRED);
                 } else if (cellValue == GameBoard.CellValue.USER_TRAIL){
@@ -54,7 +49,7 @@ public class View extends Group {
                 } else if (cellValue == GameBoard.CellValue.USER_TERR){
                     this.cellViews[row][column].setFill(Color.ORANGERED);
                 } else if (cellValue == GameBoard.CellValue.EMPTY) {
-                    this.cellViews[row][column].setFill(Color.WHITE);
+                    this.cellViews[row][column].setFill(Color.DARKOLIVEGREEN);
                 } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
                     this.cellViews[row][column].setFill(Color.BLUE);
                 } else if (cellValue == GameBoard.CellValue.BOT_TRAIL) {
