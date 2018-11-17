@@ -320,13 +320,12 @@ public class Model{
             int rowPosition = bot.getHeadY();
             if (this.board.getCellValue(rowPosition,columnPosition) == GameBoard.CellValue.USER_TRAIL){
                 gameOver = true;
-//                user.updateVelocity("STOP");
             }
         }
         return gameOver;
     }
 
-    public boolean getPaused(){
+    public boolean isPaused(){
         return this.paused;
     }
 
