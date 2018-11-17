@@ -2,8 +2,10 @@ Johnny and Muyang
 
 DESCRIPTION:
 ColorLand
-Player's goal is to cover the whole map with the color of your box. When your box move, it leaves a trail. The trail should go back to the player's territory to obtain the area enclosed by your trail. If other player touches your trail, you die. You can kill other player
-by touching their trial. Once a player dies, it loses all of its area (become blank). One can steal territory from other players. When the player covers the whole map, the player wins.
+Turn your trail (orange) into territory (red) by returning to red grids.
+Avoid blue crocodiles which live in the blue lakes and eat your trail.
+The crocodiles also expand their lake.
+Capture the goal amount of the territory (shown on the lower right corner).
 
 MVC -- Players change the direction of movement using keyboard (keyEvent in CONTROLLER)
 	that means the user take action in the view
@@ -15,7 +17,7 @@ MODEL contains a GameBoard board, a Box user, and a list of bots Box[] bots.
 	The Box contains the position, velocity, and lists of trailPositions and territory.
 	
 	The Model class contains the rules of movement for the boxes, and methods used to update
-	the boxes and gameboard; also keeps track of the timer.
+	the boxes and gameboard
 
 VIEW would be showing
 	- the game board
@@ -23,9 +25,8 @@ VIEW would be showing
 	- each color's territory
 	- each color box's trail
 	a scoreboard showing
-	- the percentage of the area that belong to each color
-	- time played
-	- rounds
+	- the percentage of the area that belong to the user
+	- levels
 Core Classes:
 	Model
 		-Box

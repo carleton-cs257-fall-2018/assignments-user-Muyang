@@ -145,7 +145,7 @@ public class Controller implements EventHandler<KeyEvent> {
         Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
         helpAlert.setTitle("Color Land");
         helpAlert.setHeaderText("Instructions");
-        helpAlert.setContentText("Turn your trail (orange) into territory (red) by returning to red." +
+        helpAlert.setContentText("Turn your trail (orange) into territory (red) by returning to red grids." +
                 " Avoid blue crocodiles which live in the blue lakes and eat your trail" +
                 " The crocodiles also expand their lake." +
                 " Capture the goal amount of the territory (shown" +
