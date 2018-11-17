@@ -120,21 +120,14 @@ public class Controller implements EventHandler<KeyEvent> {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
             this.model.setPaused(!this.model.getPaused());
-//        } else if(code == KeyCode.H) {
-//           this.helpLabel.setText("Its obvious");
         } else if (code == KeyCode.G){
             if(this.model.isGameOver()) {
                 this.keyPressed = "STOP";
-                this.model.startNewGame(view.rowCount, view.columnCount);
-                this.timer = new Timer();
-                startTimer();
+                startNewGame();
             }
         } else if (code == KeyCode.L){
             if(this.model.isLevelComplete()){
-                this.timer.cancel();
-                this.model.startNewLevel(view.rowCount, view.columnCount);
-                this.timer = new Timer();
-                startTimer();
+                startNewLevel();
                 this.keyPressed = "STOP";
             }
         } else if (code == KeyCode.H){
@@ -151,6 +144,18 @@ public class Controller implements EventHandler<KeyEvent> {
         startTimer();
     }
 
+    private void startNewGame(){
+        this.timer.cancel();
+        this.model.startNewGame(view.rowCount, view.columnCount);
+        this.timer = new Timer();
+        startTimer();
+    }
+    private void startNewLevel(){
+        this.timer.cancel();
+        this.model.startNewLevel(view.rowCount, view.columnCount);
+        this.timer = new Timer();
+        startTimer();
+    }
 
     /**
      * Used in the Main
