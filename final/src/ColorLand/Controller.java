@@ -2,7 +2,7 @@ package ColorLand;
 
 import javafx.fxml.FXML;
 import javafx.event.EventHandler;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -10,7 +10,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -131,7 +130,18 @@ public class Controller implements EventHandler<KeyEvent> {
                 this.keyPressed = "STOP";
             }
         } else if (code == KeyCode.H){
-            infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
+            this.timer.cancel();
+            Alert helpAlert = new Alert(Alert.AlertType.INFORMATION);
+            helpAlert.setTitle("Color Land");
+            helpAlert.setHeaderText("Instructions");
+            helpAlert.setContentText("Turn your trail(orange) into territory(red) by returning to your territory. " +
+                    "Avoid blue crocodiles. Capture the goal amount of the board. ");
+            helpAlert.showAndWait();
+            this.timer = new Timer();
+            startTimer();
+
+
+            //infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
         }
         keyEvent.consume();
     }
