@@ -5,22 +5,10 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import java.util.*;
 import javax.swing.JOptionPane;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Controller implements EventHandler<KeyEvent> {
     final private double FRAMES_PER_SECOND = 15.0;
@@ -39,6 +27,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
     /**
      * Creates a model linked to the controller and starts the timer
+     * Pause the model at the beginning of each round
      */
     public void initialize() {
         this.model = new Model(view.rowCount,view.columnCount);
@@ -49,7 +38,7 @@ public class Controller implements EventHandler<KeyEvent> {
 
 
     /**
-     * Runs methods that are timer-based(kind of a black box)
+     * Run the model based on time and keyEvent
      */
     private void startTimer() {
         this.timer = new java.util.Timer();
@@ -68,34 +57,40 @@ public class Controller implements EventHandler<KeyEvent> {
 
 
     /**
-     * Runs methods that are key-event-based
+     * Update the model by keyEvents
     */
-
     public void update(String movement) {
-        this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
-
+        updateScore();
         if(this.model.isGameOver()){
-            this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
-            this.startLabel.setText("Game Over. Hit G to start a new game.");
-            this.timer.cancel();
-        }else if(this.model.getPaused()){
-            this.startLabel.setText("Press P to Start/Pause");
+            setGameOverText();
+        }else if(this.model.isPaused()){
+            setGamePausedText();
         }else{
-            this.startLabel.setText("Press P to Start/Pause");
+            setGamePlayText();
             model.update(keyPressed);
-            keyPressed = model.user.hitWall(movement, view.columnCount, view.rowCount);
+            keyPressed = model.user.stopAtWall(movement, view.columnCount, view.rowCount);
             view.refresh(model);
         }
-
-
-        //keyPressed = "NONE";
         updateLevelStatus();
+    }
+    private void updateScore(){
+        this.scoreLabel.setText("Territory size: " + model.user.getTerrPosition().size());
+    }
+    private void setGameOverText(){
+        this.scoreLabel.setText("Your trail gets caught by a bot! You Lose!");
+        this.startLabel.setText("Game Over. Hit G to start a new game.");
+    }
+    private void setGamePausedText(){
+        this.startLabel.setText("Press P to Start/Pause");
+    }
+    private void setGamePlayText(){
+        this.startLabel.setText("Press P to Start/Pause");
     }
     private void updateLevelStatus(){
         if (!model.isLevelComplete()){
-            this.levelStatus.setText("Level " + model.getLevel() +" : Capture " + model.getLevelGoal() + " Grids" );
-        } else if(model.isLevelComplete()){
-            this.levelStatus.setText("Level " + model.getLevel() +" Completed! Press L to start the next Level" );
+            this.levelStatus.setText("Level " + model.getLevel() + " : Capture " + model.getLevelGoal() + " Grids");
+        } else {
+            this.levelStatus.setText("Level " + model.getLevel() + " Completed! Press L to start the next Level");
         }
     }
 
@@ -108,7 +103,7 @@ public class Controller implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-        ArrayList<String> allowedMoves = this.model.checkAllowedMoves(this.model.user);
+        ArrayList<String> allowedMoves = model.checkAllowedMoves(model.user);
 
         if ((code == KeyCode.UP) && allowedMoves.contains("UP")) {
             this.keyPressed = "UP";
@@ -119,43 +114,33 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if ((code == KeyCode.DOWN) && allowedMoves.contains("DOWN")) {
             this.keyPressed = "DOWN";
         } else if (code == KeyCode.P){
-            this.model.setPaused(!this.model.getPaused());
-        } else if (code == KeyCode.G){
-            if(this.model.isGameOver()) {
-                this.keyPressed = "STOP";
-                startNewGame();
-            }
-        } else if (code == KeyCode.L){
-            if(this.model.isLevelComplete()){
-                startNewLevel();
-                this.keyPressed = "STOP";
-            }
+            model.setPaused(!model.isPaused());
+        } else if (code == KeyCode.G && model.isGameOver()){
+            startNewGame();
+        } else if (code == KeyCode.L && model.isLevelComplete()){
+            startNewLevel();
         } else if (code == KeyCode.H){
-            infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
+
         }
         keyEvent.consume();
     }
-
-    public void infoBox(String infoMessage, String titleBar)
-    {
-        this.timer.cancel();
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
-        this.timer = new Timer();
-        startTimer();
-    }
-
     private void startNewGame(){
         this.timer.cancel();
         this.model.startNewGame(view.rowCount, view.columnCount);
         this.timer = new Timer();
         startTimer();
+        this.keyPressed = "STOP";
     }
     private void startNewLevel(){
         this.timer.cancel();
         this.model.startNewLevel(view.rowCount, view.columnCount);
         this.timer = new Timer();
         startTimer();
+        this.keyPressed = "STOP";
     }
+
+
+
 
     /**
      * Used in the Main

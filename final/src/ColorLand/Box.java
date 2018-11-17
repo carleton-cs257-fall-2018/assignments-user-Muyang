@@ -119,7 +119,7 @@ public class Box{
     /**
      * The box will stop moving when its at the edge of the board
      */
-    public String hitWall(String movement, int boardLength, int boardHeight){
+    public String stopAtWall(String movement, int boardLength, int boardHeight){
         int headX = getHeadX();
         int headY = getHeadY();
         if(! (headX < boardLength-1) || !(headX > 0)){
