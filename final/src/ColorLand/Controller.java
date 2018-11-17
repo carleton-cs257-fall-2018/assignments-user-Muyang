@@ -131,6 +131,7 @@ public class Controller implements EventHandler<KeyEvent> {
             }
         } else if (code == KeyCode.L){
             if(this.model.isLevelComplete()){
+                this.timer.cancel();
                 this.model.startNewLevel(view.rowCount, view.columnCount);
                 this.timer = new Timer();
                 startTimer();
