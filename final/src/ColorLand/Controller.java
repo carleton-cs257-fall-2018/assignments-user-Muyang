@@ -30,7 +30,6 @@ public class Controller implements EventHandler<KeyEvent> {
     @FXML private Label startLabel;
     @FXML protected Label scoreLabel;
     @FXML private Label levelStatus;
-    @FXML private Label helpLabel;
     private String keyPressed = "NONE";
     private Timer timer;
 
@@ -89,6 +88,7 @@ public class Controller implements EventHandler<KeyEvent> {
         }
 
 
+        //keyPressed = "NONE";
         updateLevelStatus();
     }
     private void updateLevelStatus(){
@@ -124,6 +124,7 @@ public class Controller implements EventHandler<KeyEvent> {
 //           this.helpLabel.setText("Its obvious");
         } else if (code == KeyCode.G){
             if(this.model.isGameOver()) {
+                this.keyPressed = "STOP";
                 this.model.startNewGame(view.rowCount, view.columnCount);
                 this.timer = new Timer();
                 startTimer();
@@ -131,6 +132,9 @@ public class Controller implements EventHandler<KeyEvent> {
         } else if (code == KeyCode.L){
             if(this.model.isLevelComplete()){
                 this.model.startNewLevel(view.rowCount, view.columnCount);
+                this.timer = new Timer();
+                startTimer();
+                this.keyPressed = "STOP";
             }
         } else if (code == KeyCode.H){
             infoBox("HELP MESSAGE, Click OK to Resume","HELP TITLE");
