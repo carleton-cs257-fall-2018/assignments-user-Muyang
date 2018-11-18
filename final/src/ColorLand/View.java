@@ -49,7 +49,7 @@ public class View extends Group {
                 } else if (cellValue == GameBoard.CellValue.USER_TERR){
                     this.cellViews[row][column].setFill(Color.ORANGERED);
                 } else if (cellValue == GameBoard.CellValue.EMPTY) {
-                    this.cellViews[row][column].setFill(Color.DARKOLIVEGREEN);
+                    this.cellViews[row][column].setFill(Color.LIGHTGRAY);
                 } else if (cellValue == GameBoard.CellValue.BOT_HEAD) {
                     this.cellViews[row][column].setFill(Color.BLUE);
                 } else if (cellValue == GameBoard.CellValue.BOT_TRAIL) {
